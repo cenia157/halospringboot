@@ -154,7 +154,7 @@
 			<div class="footer-item-td-2">
 				<div>
 					合同会社 <img src="user/0.img/footerlogo.png" id="footer-logo-img" alt="" /><a
-						href="LoginPageC">ハロー </a>
+						href="/login">ハロー </a>
 				</div>
 				<div>
 					代表社員 ： 大出 昭子 <img src="user/0.img/footerinstaicon.png" id="footer-logo-img-sns" alt="" /> <img

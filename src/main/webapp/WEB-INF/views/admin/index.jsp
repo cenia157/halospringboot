@@ -179,10 +179,10 @@
 			<div class="header-tr">
 				<div class="header-td">
 					<div class="header-td-user">
-						<div>${login_name }</div>
-					</div>
-					<input type="hidden" id="sessionTimeoutVal"
-						value="${sessionTimeout }">
+<%-- 						<div>${login_name }</div> --%>
+<!-- 					</div> -->
+<!-- 					<input type="hidden" id="sessionTimeoutVal" -->
+<%-- 						value="${sessionTimeout }"> --%>
 					<div class="header-td-login">
 						<p id="sessionTimeout" class="sessionTimeout">
 							<img alt="" src="admin/0.img/timer.png"> <span id="timer"></span>
@@ -201,10 +201,10 @@
 			<div class="content-tr">
 				<div class="content-main-td">
 					<div class="content-m-td-1">
-						<div class="content-m-td-title">${menuname }</div>
+<%-- 						<div class="content-m-td-title">${menuname }</div> --%>
 					</div>
 					<div class="content-m-td-2">
-						<jsp:include page="${menu }"></jsp:include>
+<%-- 						<jsp:include page="${menu }"></jsp:include> --%>
 					</div>
 				</div>
 			</div>
