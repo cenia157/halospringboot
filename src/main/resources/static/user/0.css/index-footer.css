@@ -1,0 +1,139 @@
+@charset "UTF-8";
+/* footer 미디어쿼리 */
+@media only screen and (max-width: 500px) {
+	.footer-tbl {
+		background-color: #6E6F4E;
+		font-size: 0.5rem !important;
+		width: 100%;
+		height: 16vh !important;
+		display: flex;
+		justify-content: center;
+	}
+	.footer-tr {
+		display: flex;
+		width: 97% !important;
+		height: 100%;
+		color: #D2D2A2;
+		font-weight: 700;
+		letter-spacing: 0.63px;
+	}
+
+	/* 왼쪽 footer */
+	.footer-item-td-1 {
+		width: 50%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+	/* 오른쪽 footer */
+	.footer-item-td-2 {
+		width: 50%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+		justify-content: center;
+	}
+
+	/* 오른쪽 첫째줄 */
+	.footer-item-td-2>div:first-child {
+		display: flex;
+		align-items: center;
+		height: 30%;
+		justify-content: end;
+	}
+	/* 오른쪽 첫째줄 admin페이지 이동로고 */
+	#footer-logo-img {
+		width: 25%;
+	}
+	#footer-logo-img-sns {
+		width: 15%;
+	}
+	.footer-item-td-2>div:first-child>a {
+		font-size: 1.5rem !important;
+	}
+
+	/* 대표사원,sns로고 */
+	.footer-item-td-2>div:nth-child(2) {
+		display: flex;
+		align-items: center;
+		height: 25%;
+		justify-content: end;
+		border-bottom: 3px solid #9F9F78;
+	}
+	/* 저작권 copyright */
+	.footer-item-td-2>div:nth-child(3) {
+		display: flex;
+		align-items: center;
+		height: 20%;
+		width: 70%;
+		justify-content: end;
+	}
+}
+/* footer 미디어쿼리 끝 */
+.footer-tbl {
+	background-color: #6E6F4E;
+	font-size: 120%;
+	width: 100%;
+	height: 20vh;
+	display: flex;
+	justify-content: center;
+}
+
+.footer-tr {
+	display: flex;
+	width: 90%;
+	height: 100%;
+	color: #D2D2A2;
+	font-weight: 700;
+	letter-spacing: 0.63px;
+}
+
+/* 왼쪽 */
+.footer-item-td-1 {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+/* 오른쪽 */
+.footer-item-td-2 {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	justify-content: center;
+}
+
+/* 오른쪽 첫째줄 */
+.footer-item-td-2>div:first-child {
+	display: flex;
+	align-items: center;
+	height: 30%;
+	justify-content: end;
+}
+
+/* 오른쪽 첫째줄 admin페이지 이동로고 */
+.footer-item-td-2>div:first-child>a {
+	font-size: 310%;
+}
+
+/* 대표사원,sns로고 */
+.footer-item-td-2>div:nth-child(2) {
+	display: flex;
+	align-items: center;
+	height: 25%;
+	justify-content: end;
+	border-bottom: 3px solid #9F9F78;
+}
+/* 저작권 copyright */
+.footer-item-td-2>div:nth-child(3) {
+	display: flex;
+	align-items: center;
+	height: 20%;
+	width: 70%;
+	justify-content: end;
+}

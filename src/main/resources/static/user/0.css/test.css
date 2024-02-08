@@ -1,0 +1,142 @@
+@import url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular);
+
+@font-face {
+  font-family: "SF Pro JP Regular";
+  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
+  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular")
+      format("svg");
+}
+
+* {
+  font-family: "SF Pro JP Regular";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.body {
+  margin: 0;
+}
+.container {
+  width: 100%;
+  max-width: 100vw;
+  height: 300vh;
+}
+/* 배경이미지 */
+.background-img-box {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: -15;
+}
+
+.background-img-rightCloud {
+  background-image: url("../0.img/rightCloud.PNG");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: absolute;
+  width: 100vw;
+  height: 150vw;
+}
+
+.background-img-leftCloud {
+  background-image: url("../0.img/leftCloud.PNG");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: absolute;
+  width: 100vw;
+  height: 150vw;
+}
+
+.background-img-rightPink {
+  background-image: url("../0.img/rightPinkCloud.PNG");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: absolute;
+  width: 100vw;
+  height: 150vw;
+}
+
+.background-img-leftPink {
+  background-image: url("../0.img/leftPinkCloud.PNG");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: absolute;
+  width: 100vw;
+  height: 150vw;
+  transition: transform 0.5s ease-in-out;
+}
+
+.background-img-mountain {
+  background-image: url("../0.img/mountain.PNG");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100vw;
+  height: auto;
+}
+
+/* 배경이미지 끝 */
+
+/* 슬로건 */
+.slogan-tbl {
+  border: solid 1px green;
+  width: 100%;
+  height: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* (상단)빠른 메뉴 가기 3개 */
+.quick-menu-tbl {
+  border: solid 1px blue;
+  width: 100%;
+  height: 40vh;
+}
+
+/* 메인의 주요 공지사항 */
+.main-notice-tbl {
+  border: solid 1px rgb(0, 234, 255);
+  width: 100%;
+  height: 100vh;
+}
+
+/* 메인(구글맵)오시는길 */
+.main-map-tbl {
+  border: solid 1px rgb(0, 234, 255);
+  width: 100%;
+  height: 100vh;
+}
+
+/* 리모컨 */
+.remote-control-td {
+  border: solid 1px rgb(255, 0, 0);
+  position: fixed;
+  top: 85%;
+  left: 92%;
+  width: 6%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.remote-control-tr {
+  border: solid 1px rgb(56, 255, 60);
+  background-color: antiquewhite;
+  width: 70%;
+  height: 30%;
+  margin-bottom: 10%;
+}

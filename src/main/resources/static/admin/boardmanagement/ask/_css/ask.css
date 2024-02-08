@@ -1,0 +1,539 @@
+.content-m-td-2 {
+	width: 100%;
+	height: 88%;
+	position: relative;
+	width: 100%;
+}
+
+.ontent-m-td-2-chackbox {
+	width: 100%;
+	height: 8%;
+	font-size: 0.5rem;
+	padding-left: 6%;
+}
+
+.ontent-m-td-2-chackbox-contain {
+	width: 35%;
+	height: 100%;
+	display: flex;
+}
+
+.ontent-m-td-2-chackbox-contain-input {
+	width: 15%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+}
+
+.ontent-m-td-2-chackbox-contain-txt {
+	width: 15%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
+}
+
+/*
+����� askBoard.jsp�� ���������� ����
+*/
+.ontent-m-td-2-content {
+	height: 92%;
+	width: 100%;
+	display: block;
+	padding: 0% 5%;
+}
+
+.ontent-m-td-2-content-container {
+	display: flex;
+	width: 100%;
+	height: 10%;
+}
+
+.ontent-m-td-2-content-txt {
+	width: 100%;
+	display: flex;
+	height: 100%;
+}
+
+.ontent-m-td-2-content-txt-1 {
+	background-color: fuchsia;
+	width: 100%;
+	height: 10%;
+	display: block;
+}
+
+.ontent-m-td-2-content-txt-contain {
+	width: 100%;
+	height: 100%;
+	display: flex;
+}
+
+.ontent-m-td-2-content-txt-no {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 5%;
+	font-weight: 700;
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.ontent-m-td-2-content-txt-kategorie {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 1.5rem;
+	width: 15%;
+	font-size: 1.5rem;
+}
+
+.ontent-m-td-2-content-txt-title {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 1.5rem;
+	width: 40%;
+	font-size: 1.5rem;
+}
+
+.ontent-m-td-2-content-txt-writer {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 1.5rem;
+	width: 15%;
+	font-size: 1.5rem;
+}
+
+.ontent-m-td-2-content-txt-date {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 1.5rem;
+	width: 20%;
+}
+
+.ontent-m-td-2-content-txt-delete {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 1.5rem;
+	width: 10%;
+}
+
+.ontent-m-td-2-mid {
+	height: 73%;
+	display: block;
+}
+
+.ontent-m-td-2-content-txt-in {
+	height: 12.5%;
+	width: 100%;
+	display: flex;
+}
+
+.ontent-m-td-2-content-txt-no-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	width: 5%;
+}
+
+.ontent-m-td-2-content-txt-kategorie-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-title-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
+	width: 40%;
+	padding: 0% 4%;
+}
+
+.ontent-m-td-2-content-txt-writer-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-date-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	width: 20%;
+}
+
+.ontent-m-td-2-content-txt-delete-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	width: 10%;
+}
+
+.ontent-m-td-2-content-txt-delete-in:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+/*
+����� askBoard.jsp�� ���������� ��
+*/
+.ontent-m-td-2-bottom {
+	width: 100%;
+	height: 17%;
+	display: flex;
+}
+
+.ontent-m-td-2-page-side {
+	height: 100%;
+	width: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.ontent-m-td-2-page-center {
+	height: 100%;
+	width: 50%;
+}
+
+/* ���⼭���ʹ�  askEditPage.jsp ����! */
+.modal-background {
+	display: none;
+	/*
+ position: relative;
+*/
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-tbl {
+	display: none;
+	/*
+ position: relative;
+*/
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+}
+
+
+
+
+.modal-title-set {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+
+
+.modal-title-tr {
+	display: flex;
+	height: 25%;
+	width: 100%;
+}
+
+.modal-title-td-1 {
+	width: 90%;
+	display: flex;
+	justify-content: end;
+	align-items: end;
+}
+
+.real-title {
+	padding: 0% 0% 1% 1%;
+	width: 94.5%;
+	height: 75%;
+	display: block;
+}
+
+.real-title-up {
+	display: flex;
+	align-items: center;
+	height: 50%;
+	width: 100%;
+	font-size: 2.5rem;
+	font-weight: 700;
+}
+
+.real-title-down {
+	height: 50%;
+	width: 100%;
+	display: flex;
+}
+
+.real-title-down-L {
+	height: 100%;
+	width: 10%;
+	height: 100%;
+}
+
+.real-title-down-R {
+	height: 100%;
+	width: 10%;
+}
+
+.real-title-down-contain {
+	height: 50%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
+	color: #37496E;
+}
+
+.modal-title-td-2 {
+	width: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-content {
+	height: 75%;
+	width: 100%;
+	padding: 0% 5% 2% 5%;
+}
+
+.modal-content-txt {
+	height: 90%;
+	border-top: 1px solid #D1D1D1;
+	padding: 2%;
+}
+
+.modal-content-txt-question {
+	padding: 1%;
+	width: 100%;
+	height: 50%;
+	font-size: 2.5rem;
+	font-weight: 700;
+	overflow: auto;
+	font-weight: 700;
+}
+
+.modal-content-txt-response {
+	width: 100%;
+	height: 50%;
+	font-size: 2rem;
+	font-weight: 700;
+	color: #707070;
+	border: 1px solid #D1D1D1;
+	border-bottom: 1px solid #616161;
+	border-radius: 0.5%/3%;
+}
+
+.modal-content-txt-response-textarea {
+	padding: 1%;
+	width: 100%;
+	height: 50%;
+	border: 1px solid #D1D1D1; border-bottom : 1px solid #616161;
+	border-radius: 0.5%/2.5%;
+	resize: none;
+	font-size: 2rem;
+	font-weight: 700;
+	border-bottom: 1px solid #616161;
+}
+
+.modal-content-button {
+	height: 10%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+}
+
+.SubmitButton {
+	border-radius: 2%/15%;
+	border: none;
+	background-color: #3B82F6;
+	color: white;
+	border: none;
+	width: 10%;
+	height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1rem;
+}
+
+.ck-editor__editable_inline:not(.ck-comment__input *) {
+	height: 200px;
+	overflow-y: auto;
+}
+
+.close {
+	color: #535353;
+	float: right;
+	font-size: 4rem;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.ck.ck-editor {
+	width: 100%;
+}
+
+/*
+�̰��� askEditPageCustomerQuestion.jsp
+���⿡ ���� ������ ���� ���̴� �Ʒ��� css ���������� �� ���߱⿡ �ִ�
+
+*/
+
+
+/* 페이징 부분 */
+.paging-div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.paging-div button,
+.paging-div a {
+  white-space: nowrap;
+  margin: 0 0.3%;
+}
+
+
+.current-page {
+  color: #4A572E !important;
+  font-weight: 700;
+}
+
+
+
+
+.Edit-textarea {
+	width: 100%;
+	height: 100%;
+	border: none;
+	font-size: 2.5rem;
+	resize: none
+}
+
+
+/* 버튼 css */
+/* 옅은 회색: #ccc */
+/* 짙은 회색: #666 */
+/* 중간 회색: #999999 */
+
+/* 초록 계열 */
+/* 안쪽버튼: #61733C*/
+/* 바깥쪽버튼: #61733C*/
+
+/* 푸른 계열 */
+/* 안쪽 버튼: */
+/* 바깥쪽 버튼: #46536B (짙은 색) */
+/* 안쪽 버튼: #576D8F (옅은 색) */
+
+
+.paging-div > a{
+	font-size: 1.2rem;
+	color: #C0C0C0;
+	font-weight: bolder;
+}
+
+button {
+	background-color: #7D944D;
+	border: none;
+	border-radius: 20%;
+	color: white;
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding: 0.2rem;
+}
+button[disabled] {
+	background-color: #999999;
+	border: none;
+	color: #E6E6E6;
+}
+
+/* 이전, 다음 버튼 */
+button#Previous{
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+button#Next{
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+
+/* 맨앞,맨뒤 버튼 */
+#MostPrevious{
+	background-color: #61733C;
+}
+button#MostPrevious:disabled {
+	background-color: #999999;
+	border: none;
+	color: #E6E6E6;
+}
+
+#MostNext{
+	background-color: #61733C;
+}
+button#MostNext:disabled {
+	background-color: #999999;
+	border: none;
+	color: #E6E6E6;
+}
+
+/* 삭제버튼 */
+
+#deleteBtn{
+	padding: 5% 15%;
+    font-size: 1rem;
+    background-color: #576D8F;
+    color: antiquewhite;
+    border-radius: 2% 15%;
+    border: none;
+    cursor: pointer;
+    font-weight: normal;
+}

@@ -1,0 +1,118 @@
+/* 오단영 여기서부터 시작 */
+.content-step-page-td {
+	border-radius: 30px;
+	background: rgba(255, 255, 255, 0.8);
+	padding: 1% 1% 2% 1%;
+	margin: 0% 1% 1% 1%;
+	height: 40.3%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	/* position: relative;  */
+}
+
+.content-step-page-td h2 {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	color: #333;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.content-step-page-td p {
+	color: #666;
+	font-size: 1rem;
+	line-height: 1.15;
+	margin-bottom: 1%;
+	text-align: left;
+}
+
+/* 반응형 스타일 */
+@media ( max-width : 600px) {
+	.content-step-page-td p {
+		font-size: 0.9rem; /* 모바일 화면에서는 텍스트 크기 감소 */
+	}
+}
+
+@media ( min-width : 601px) and (max-width: 1024px) {
+	.content-step-page-td {
+		padding: 3%; /* 태블릿 화면에서는 패딩 증가 */
+	}
+	.content-step-page-td p {
+		font-size: 0.9rem; /* 태블릿 화면에서는 적당한 텍스트 크기 */
+	}
+}
+
+@media ( min-width : 1025px) {
+	.content-step-page-td p {
+		font-size: 2rem; /* 데스크탑 화면에서는 기본 텍스트 크기 */
+	}
+}
+
+.checkbox-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+/* 	-webkit-appearance: none; 기본 브라우저 스타일 제거 */
+/* 	appearance: none; */
+/* 	border-radius: 50%; 동그라미 형태 */
+	width: 20px; /* 크기 */
+	height: 20px; /* 크기 */
+	border: 2px solid #333; /* 테두리 */
+	cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+	background-color: #333; /* 체크된 상태 색상 */
+}
+
+.checkbox-container input[type="checkbox"] {
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #333;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+	background-color: #ffdf6c;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	content: '✔';
+}
+
+.checkbox-container label {
+	font-size: 2.5rem;
+	color: #546137;
+}
+
+@media ( max-width : 500px ) {
+	.checkbox-container label {
+		font-size: 1.5rem;
+	}
+}
+/* button-container 스타일 */
+.button-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin: 3% 0; /* 위아래 여백 추가 */
+}
+
+.button-container button {
+	padding: 1.5% 3%;
+	font-size: 2.3rem;
+	color: #546137;
+	background-color: #ffdf6c;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* 오단영 끝 */

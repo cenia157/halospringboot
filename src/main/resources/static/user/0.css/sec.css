@@ -1,0 +1,122 @@
+@charset "UTF-8";
+@import
+	url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular)
+	;
+
+@font-face {
+	font-family: "SF Pro JP Regular";
+	src:
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
+	src:
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot#iefix")
+		format("embedded-opentype"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2")
+		format("woff2"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff")
+		format("woff"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf")
+		format("truetype"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular")
+		format("svg");
+}
+
+* {
+	font-family: "SF Pro JP Regular";
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* 컨텐트  */
+.content-tbl {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+/* 컨텐트 박스 */
+.content-sec {
+	width: 100%;
+	height: auto;
+}
+
+/* 하단베너 미디어쿼리 */
+@media only screen and (max-width: 500px) {
+	/* 	하단베너3칸 공통 */
+	.bottom-venner-tr {
+		width: 100%;
+		height: 20vh !important;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	.bottom-venner-td {
+		background-color: rgb(255, 255, 255, 0.84);
+		box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+		color: #546137;
+		font-weight: 700;
+		width: 25% !important;
+		height: 40% !important;
+		display: flex;
+		justify-content: space-evenly;
+		border-radius: 15px !important;
+		cursor: pointer;
+	}
+	/* 	메뉴 */
+	.menu-box {
+		align-items: center;
+		font-size: 1.2rem !important;
+	}
+	/* 	상품판매 */
+	.sales-box {
+		font-size: 0.6rem !important;
+		align-items: flex-end;
+		background-size: contain; /* 이미지 div에 전체 */
+		background-position: center;
+		background-repeat: no-repeat;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	}
+}
+
+/* 하단베너 */
+.bottom-venner-tr {
+	width: 100%;
+	height: 40vh;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.bottom-venner-td {
+	background-color: rgb(255, 255, 255, 0.84);
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+	color: #546137;
+	font-weight: 700;
+	width: 20%;
+	height: 45%;
+	display: flex;
+	justify-content: space-evenly;
+	border-radius: 30px;
+	cursor: pointer;
+}
+
+/*  하단베너 메뉴칸 */
+.menu-box {
+	align-items: center;
+	font-size: 2.5rem;
+}
+
+/* 하단베너 상품 칸 */
+.sales-box {
+	font-size: 1.5rem;
+	align-items: flex-end;
+	background-size: contain; /* 이미지 div에 전체 */
+	background-position: center;
+	background-repeat: no-repeat;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
