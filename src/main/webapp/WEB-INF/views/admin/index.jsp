@@ -9,9 +9,9 @@
 <meta charset="UTF-8" />
 <title>Document</title>
 <!-- font -->
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
+<!-- <link -->
+<!-- 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" -->
+<!-- 	rel="stylesheet" /> -->
 
 <!-- jquery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -51,7 +51,7 @@
 					<div class="menu-td-3-td-2">
 						<div class="menu-td-3-td-open-td-1">
 							<img src="admin/0.img/admintble3-1.png" alt=""><a
-								href="DashboardC">ダッシュボード</a>
+								href="/dashboard">ダッシュボード</a>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
@@ -108,7 +108,7 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="CompanyC">会社のスケジュール</a>
+											href="/company">会社のスケジュール</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
@@ -201,18 +201,15 @@
 			<div class="content-tr">
 				<div class="content-main-td">
 					<div class="content-m-td-1">
-<%-- 						<div class="content-m-td-title">${menuname }</div> --%>
+						<div class="content-m-td-title">${menuname }</div>
 					</div>
 					<div class="content-m-td-2">
-<%-- 						<jsp:include page="${menu }"></jsp:include> --%>
+						<jsp:include page="${menu }"></jsp:include>
 					</div>
 				</div>
 			</div>
-
-
 		</div>
-
 	</div>
 </body>
-<script src="admin/_js/loginSession.js"></script>
+<!-- <script src="admin/_js/loginSession.js"></script> -->
 </html>
