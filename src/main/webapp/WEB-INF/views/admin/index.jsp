@@ -112,7 +112,7 @@
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="ReservationC">顧客の予約</a>
+											href="/reservation">顧客の予約</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
