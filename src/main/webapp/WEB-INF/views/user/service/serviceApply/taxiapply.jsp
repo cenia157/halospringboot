@@ -15,7 +15,7 @@
 </head>
 <body>
 
-		<form action="TaxiapplyC" method="post">
+		<form action="/service/apply/step5/agree.jsp" method="post">
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
 		<input type="hidden" name="selectedTime" value="${selectedTime }">

@@ -14,7 +14,7 @@
 </head>
 <body>
 	<!-- 신청폼 -->
-	<form action="${service}" method="post">
+	<form action="${nextStep}" method="post">
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
 		<input type="hidden" name="selectedTime" value="${selectedTime }">
