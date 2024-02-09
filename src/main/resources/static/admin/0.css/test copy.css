@@ -1,17 +1,17 @@
 @import url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular);
 
-@font-face {
-  font-family: "SF Pro JP Regular";
-  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
-  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix") format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2") format("woff2"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff") format("woff"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf") format("truetype"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular") format("svg");
-}
+/* @font-face { */
+/*   font-family: "SF Pro JP Regular"; */
+/*   src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot"); */
+/*   src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix") format("embedded-opentype"), */
+/*     url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2") format("woff2"), */
+/*     url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff") format("woff"), */
+/*     url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf") format("truetype"), */
+/*     url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular") format("svg"); */
+/* } */
 
 * {
-  font-family: "SF Pro JP Regular";
+/*   font-family: "SF Pro JP Regular"; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;

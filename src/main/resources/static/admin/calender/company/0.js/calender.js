@@ -81,7 +81,7 @@ let confirmDeleteModal = 0;
 function getAllSchedule() {
 
 	// 전체 회사 일정 ajax 호출
-	fetch('CompanyScheduleList')
+	fetch('company/scheduleList')
 		.then(response => response.json())
 		.then(data => {
 
@@ -150,6 +150,7 @@ function getAllSchedule() {
 
 			// 디테일창 드로그앤드롭
 			scheduleDetailDroDrop();
+
 		})
 
 
@@ -289,14 +290,14 @@ function renderSchedule() {
 		let foldingCnt = '';
 
 		for (let j = 0; j < CompanyScheduleList.length; j++) {
-			if (CompanyScheduleList[j].year == divYear[1] && CompanyScheduleList[j].month == divMonth[1]) {
+			if (CompanyScheduleList[j].cs_year == divYear[1] && CompanyScheduleList[j].cs_month == divMonth[1]) {
 				// 해당월 일정안 date를 split
-				let splitDates = CompanyScheduleList[j].date.split(',');
+				let splitDates = CompanyScheduleList[j].cs_date.split(',');
 				// split한 데이터의 개수를 돌림	
 				for (let k = 0; k < splitDates.length; k++) {
 					// 일과 데이터의 값이 일치할경우 객체에 추가
 					if (splitDates[k] == (divDate && divDate[1])) {
-						dateData.title += CompanyScheduleList[j].no + '.' + CompanyScheduleList[j].title + ',';
+						dateData.title += CompanyScheduleList[j].cs_no + '.' + CompanyScheduleList[j].cs_title + ',';
 						foldingCnt++;
 					}
 				}
@@ -332,6 +333,35 @@ function checkDate(e) {
 
 	// 사용자가 보기위한 출력
 	document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
+}
+
+// 일정 추가
+function insertCompanyC() {
+	let insertScheduleData = {
+		cs_title: document.querySelector('.input-title').value,
+		cs_date: document.querySelector('.input-date').value.split('月 ')[1],
+		cs_txt: document.querySelector('.input-txt').value,
+		cs_year: thisMonth.getFullYear(),
+		cs_month: thisMonth.getMonth() + 1,
+		cs_update: currentYear + '/' + currentMonth + '/' + currentDate + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
+	}
+
+	fetch('company/insert', {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(insertScheduleData),
+	})
+		.then(response => response.text())
+		.then(data => {
+			if (data == 1) {
+				location.href='/company';
+			}
+		})
+		.catch(error => {
+			console.error('데이터를 가져오는 중 오류 발생:', error);
+		});
 }
 
 
@@ -404,8 +434,8 @@ function getScheduleDetailModal(e, directDetail) {
 
 	// 모달 title 해당 일정 표시 설계의 문제가 나타남.
 	for (let i = 0; i < CompanyScheduleList.length; i++) {
-		if (CompanyScheduleList[i].no == dateDivValue) {
-			document.querySelector('.detail-schedule-title').textContent = CompanyScheduleList[i].title;
+		if (CompanyScheduleList[i].cs_no == dateDivValue) {
+			document.querySelector('.detail-schedule-title').textContent = CompanyScheduleList[i].cs_title;
 
 			selectDetailSchedule = CompanyScheduleList[i];
 			selectDetailSchedule.arrayNo = i;
@@ -415,20 +445,20 @@ function getScheduleDetailModal(e, directDetail) {
 	document.querySelector('.detail-schedule-content').innerHTML = '';
 
 	// 일정
-	for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
+	for (i = 0; i < selectDetailSchedule.cs_date.split(',').length; i++) {
 		if (i == 0) {
-			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt show" style="padding-bottom : 10%"><span>' + selectDetailSchedule.txt + '</span><a onclick="updateAtagClick(this)">修正</a></div>'
-			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%"><input value="' + selectDetailSchedule.txt + '"><a onclick="updateTxt(this)" >保存</a><a onclick="updateAtagClick(this)" class="update-txt-cancel">取り消し</a></div>'
+			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt show" style="padding-bottom : 10%"><span>' + selectDetailSchedule.cs_txt + '</span><a onclick="updateAtagClick(this)">修正</a></div>'
+			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%"><input value="' + selectDetailSchedule.cs_txt + '"><a onclick="updateTxt(this)" >保存</a><a onclick="updateAtagClick(this)" class="update-txt-cancel">取り消し</a></div>'
 		}
 
-		document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data ' + (selectDetailSchedule.date.split(','))[i] + '"><div>' + selectDetailSchedule.year + '.' + selectDetailSchedule.month + '.' + (selectDetailSchedule.date.split(','))[i] + '</div><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">削除</a><a onclick="deleteScheduleDate(this)" class="delete-detail-data">削除確認</a><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">取り消し</a></div>';
+		document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data ' + (selectDetailSchedule.cs_date.split(','))[i] + '"><div>' + selectDetailSchedule.cs_year + '.' + selectDetailSchedule.cs_month + '.' + (selectDetailSchedule.cs_date.split(','))[i] + '</div><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">削除</a><a onclick="deleteScheduleDate(this)" class="delete-detail-data">削除確認</a><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">取り消し</a></div>';
 
-		if (i == selectDetailSchedule.date.split(',').length - 1) {
+		if (i == selectDetailSchedule.cs_date.split(',').length - 1) {
 			document.querySelector('.detail-schedule-content').innerHTML += '<div class="delete-all-detail-data" style="padding-top : 10%"><a onclick="rowScheduleDeleteClick(this)">全部削除</a></div>'
 		}
 
-		document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#ACF6B3';
-		document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].children[1].checked = true;
+		document.querySelector('.current.date' + selectDetailSchedule.cs_date.split(',')[i]).children[0].style.backgroundColor = '#ACF6B3';
+		document.querySelector('.current.date' + selectDetailSchedule.cs_date.split(',')[i]).children[0].children[1].checked = true;
 
 	}
 
@@ -449,9 +479,9 @@ function getScheduleDetailModal(e, directDetail) {
 		document.querySelector('.detail-schedule-close').addEventListener("click", function() {
 			document.querySelector('.detail-schedule').style.visibility = 'hidden';
 
-			for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
-				document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#FFF';
-				document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].children[1].checked = false;
+			for (i = 0; i < selectDetailSchedule.cs_date.split(',').length; i++) {
+				document.querySelector('.current.date' + selectDetailSchedule.cs_date.split(',')[i]).children[0].style.backgroundColor = '#FFF';
+				document.querySelector('.current.date' + selectDetailSchedule.cs_date.split(',')[i]).children[0].children[1].checked = false;
 			}
 
 			dateDetailModal = 0;
@@ -505,20 +535,20 @@ function updateTxt(atag) {
 	let inputUpdateTxt = atag.previousSibling.value;
 
 	let params = {
-		txt: inputUpdateTxt,
-		no: selectDetailSchedule.no
+		cs_txt: inputUpdateTxt,
+		cs_no: selectDetailSchedule.cs_no
 	}
 
-	fetch('CompanyScheduleTxtUpdate', {
-		method: 'POST',
+	fetch('company/update', {
+		method: 'PUT',
 		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+			"Content-Type": "application/json"
 		},
-		body: new URLSearchParams(params).toString()
+		body: JSON.stringify(params),
 	})
 		.then(response => response.text())
 		.then(data => {
-			if (data) {
+			if (data == 1) {
 				selectDetailSchedule.txt = atag.previousSibling.value;
 
 				atag.parentNode.previousSibling.children[0].innerText = selectDetailSchedule.txt;
@@ -556,8 +586,8 @@ function deleteScheduleDateClick(atag) {
 // 일정 데이터 한개 삭제
 function deleteScheduleDate(atag) {
 
-	console.log(selectDetailSchedule.date);
-	let remainDate = selectDetailSchedule.date.split(',');
+	console.log(selectDetailSchedule.cs_date);
+	let remainDate = selectDetailSchedule.cs_date.split(',');
 	console.log(document.querySelector('.detail-schedule-title').innerText)
 
 	if (remainDate.indexOf(atag.parentNode.classList[1]) != -1) {
@@ -568,33 +598,33 @@ function deleteScheduleDate(atag) {
 	remainDate = remainDate.join(',');
 	console.log(remainDate);
 	let params = {
-		remainDate: remainDate,
-		no: selectDetailSchedule.no
+		cs_date: remainDate,
+		cs_no: selectDetailSchedule.cs_no
 	}
 
-	fetch('CompanyScheduleDeleteDate', {
-		method: 'POST',
+	fetch('company/delete', {
+		method: 'PUT',
 		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+			"Content-Type": "application/json"
 		},
-		body: new URLSearchParams(params).toString()
+		body: JSON.stringify(params),
 	})
 		.then(response => response.text())
 		.then(data => {
-			if (data) {
+			if (data == 1) {
 
 				let remainDates = '';
 
-				for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
-					document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#FFF';
-					document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].children[1].checked = false;
+				for (i = 0; i < selectDetailSchedule.cs_date.split(',').length; i++) {
+					document.querySelector('.current.date' + selectDetailSchedule.cs_date.split(',')[i]).children[0].style.backgroundColor = '#FFF';
+					document.querySelector('.current.date' + selectDetailSchedule.cs_date.split(',')[i]).children[0].children[1].checked = false;
 				}
 
 				for (let i = 0; i < arrayDate.length; i++) {
 					if (arrayDate[i].date == atag.parentNode.children[0].innerText) {
 						remainDates = arrayDate[i].title.split(',');
 						for (let j = 0; j < arrayDate[i].title.split(',').length; j++) {
-							if (arrayDate[i].title.split(',')[j].split('.')[0] == selectDetailSchedule.no) {
+							if (arrayDate[i].title.split(',')[j].split('.')[0] == selectDetailSchedule.cs_no) {
 								remainDates.splice(j, 1);
 							}
 						}
@@ -604,7 +634,7 @@ function deleteScheduleDate(atag) {
 				}
 
 				atag.parentNode.remove();
-				selectDetailSchedule.date = remainDate;
+				selectDetailSchedule.cs_date = remainDate;
 
 				document.querySelectorAll('.schedule').forEach(function(scheduleElement) {
 					scheduleElement.remove();
@@ -612,9 +642,9 @@ function deleteScheduleDate(atag) {
 
 				writeSchedule();
 
-				for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
-					document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#ACF6B3';
-					document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].children[1].checked = true;
+				for (i = 0; i < selectDetailSchedule.cs_date.split(',').length; i++) {
+					document.querySelector('.current.date' + selectDetailSchedule.cs_date.split(',')[i]).children[0].style.backgroundColor = '#ACF6B3';
+					document.querySelector('.current.date' + selectDetailSchedule.cs_date.split(',')[i]).children[0].children[1].checked = true;
 				}
 			} else {
 			}
@@ -644,22 +674,22 @@ function rowScheduleDelete(a) {
 	} else {
 
 		let params = {
-			no: dateDivValue
+			cs_no: dateDivValue
 		}
 
-		fetch('CompanyScheduleDeleteRowDate', {
-			method: 'POST',
+		fetch('company/deleterow', {
+			method: 'DELETE',
 			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+				"Content-Type": "application/json"
 			},
-			body: new URLSearchParams(params).toString()
+			body: JSON.stringify(params),
 		})
 			.then(response => response.text())
 			.then(data => {
 				if (data) {
 
 					for (let i = 0; i < CompanyScheduleList.length; i++) {
-						if (CompanyScheduleList[i].no == dateDivValue) {
+						if (CompanyScheduleList[i].cs_no == dateDivValue) {
 							CompanyScheduleList.splice(CompanyScheduleList[i].arrayNo, 1);
 						}
 					}
@@ -672,9 +702,9 @@ function rowScheduleDelete(a) {
 
 					writeSchedule();
 
-					for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
-						document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#FFF';
-						document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].children[1].checked = false;
+					for (i = 0; i < selectDetailSchedule.cs_date.split(',').length; i++) {
+						document.querySelector('.current.date' + selectDetailSchedule.cs_date.split(',')[i]).children[0].style.backgroundColor = '#FFF';
+						document.querySelector('.current.date' + selectDetailSchedule.cs_date.split(',')[i]).children[0].children[1].checked = false;
 					}
 
 					document.querySelector('.confirm-delete').style.display = "none";
@@ -738,7 +768,7 @@ function toggleSwutch() {
 		active: ''
 	};
 
-	if (window.location.pathname.includes('CompanyC')) {
+	if (window.location.pathname.includes('company')) {
 		toggle[0].classList.toggle('active');
 		toggleInfo.active = true;
 		toggleList[0] = toggleInfo;
@@ -768,9 +798,4 @@ function toggleSwutch() {
 			}
 		};
 	}
-}
-
-
-function insertCompanyC() {
-	document.querySelector('.company-form').submit();
 }
