@@ -1,5 +1,7 @@
 package com.halo.main.admin.dashboard;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class DashboardC {
@@ -28,10 +31,10 @@ public class DashboardC {
 		return "/admin/index";
 	}
 	
+	@ResponseBody
 	@PostMapping("/dashboard/list")
-	public void getDashboardData(@RequestParam("year") String year, @RequestParam("month") String month) {
-		System.out.println(year + month);
-//		dService.getDashboardData();
+	public DashboardDTO getDashboardData(@RequestBody DashboardDate dDATE) {
+		return dService.getDashboardData(dDATE);
 	}
 	
 	
