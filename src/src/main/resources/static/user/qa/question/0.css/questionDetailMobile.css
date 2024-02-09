@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+@media screen and (max-width: 500px) {
+/* 	question */
+	.qd-content-box-td1-1{
+		font-size: 1.5rem;
+	}
+/*  	title */
+	.qd-content-box-td1-2-1{
+		font-size: 1.2rem;
+	}
+	.qd-content-box-td1-2-2{
+		font-size: 1.2rem;
+	}
+/* 	작성자 */
+	.qd-content-box-td1-3-1{
+		font-size: 1.2rem;
+	}
+	.qd-content-box-td1-3-2{
+		font-size: 1.2rem;
+	}
+/* 	작성일자 */
+	.qd-content-box-td1-4-1{
+		font-size: 1.2rem;
+	}
+	.qd-content-box-td1-4-2{
+		font-size: 1rem;
+	}
+/* 	삭제버튼 */
+	.qd-content-box-td-button{
+		height: auto;
+	}
+	.qd-content-box-td-button-2{
+		 font-size: 0.9rem;
+	}
+/* 	content */
+	.qd-content-box-td2-1-content{
+		font-size: 1.2rem;
+		min-height: 30vh;
+		word-break: break-word;
+	}
+/* 	list */
+	.qd-content-box-td2-2-button{
+		font-size: 1.2rem;
+		width: auto;
+		padding-left: 5%;
+		padding-right: 5%;
+		border-radius: 10px;
+	}
+	
+/* 	comment */
+
+	.qd-content-box-td3-1-1{
+		font-size: 1.2rem;
+	}
+	.qd-content-box-td3-1-2{
+		font-size: 1rem;
+	}
+/* 	lock */
+	.qd-content-box-td3-2-1{
+		text-align: center;
+		margin-bottom: auto;
+		margin-top: auto;
+	}
+	#lockImg{
+		width: 80%;
+	}
+	#password_input{
+		margin-top: auto;
+		margin-bottom: auto;
+		width: auto;
+	}
+	#password{
+		font-size: 0.8rem;
+		width: 80%;
+		height: 1.5rem;
+	}
+	#password_submit_btn{
+		height: 1.5rem;
+		font-size: 1rem;
+		width: 30%;
+	}
+	#password_content{
+		font-size: 1rem;
+		word-break: break-all;
+		margin-right: 4%;
+	}
+	
+/* 	page change */
+	.qd-content-box-td4-1-1{
+		font-size: 1rem;
+	}
+	.qd-content-box-td4-1-2{
+		font-size: 1rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: inline-block;       /* 인라인 요소로 처리하여 너비에 맞게 말줄임표 적용 */
+		max-width: 60%;  
+	}
+	.qd-content-box-td4-2-1{
+		font-size: 1rem;
+	}
+	.qd-content-box-td4-2-2{
+		font-size: 1rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: inline-block;       /* 인라인 요소로 처리하여 너비에 맞게 말줄임표 적용 */
+		max-width: 60%;  
+	}
+	.qd-content-box-td4-2-2 > a{
+		color: #62733D;
+	}
+	.qd-content-box-td4-3-1{
+		font-size: 1rem;
+		margin-bottom: 5%;
+	}
+}

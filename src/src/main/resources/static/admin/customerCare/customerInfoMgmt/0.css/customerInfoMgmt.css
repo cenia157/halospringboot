@@ -1,0 +1,122 @@
+.content-m-td-2 {
+	width: 100%;
+	height: 88%;
+	width: 100%;
+}
+
+/*---------------------------*/
+.content-checkBoxDiv {
+	width: 100%;
+	height: 6.9%;
+	/* 	outline: 1px solid red; */
+	display: flex;
+	justify-content: flex-end;
+}
+
+.content-monthSelectDiv {
+	margin: 0.6% 5% 0 0;
+}
+
+#monthSelect {
+	padding: 5%;
+	font-size: 1.2rem;
+	border-radius: 9%;
+}
+
+/*.content-m-td-2 안에있는 Div*/
+.content-MainDiv {
+	height: 93%;
+	width: 100%;
+	display: block;
+	padding: 0% 3%;
+	margin-top: 1%;
+}
+
+.content-columnNameWrapDiv {
+	display: flex;
+	width: 100%;
+	height: 6%;
+	text-align: center;
+	font-size: 1.3rem;
+	height: auto;
+	position: sticky;
+	top: 0; /* 스티키 요소가 상단에 고정될 위치 지정 */
+	background: white;
+}
+
+.content-columnNameDiv {
+	text-align: center;
+	border-bottom: 2.5px solid #D9D9D9;
+	border-right: 2.5px solid #D9D9D9;
+}
+
+/* 비율로 가로비율 조절 // 총 100프로 적당히 나누면 됨*/
+/* .columnName-no { flex: calc(3%); } */
+/* .columnName-customer { flex: calc(13%); } */
+/* .columnName-address { flex: calc(23%); } */
+/* .columnName-number { flex: calc(12%); } */
+/* .columnName-service { flex: calc(10%); } */
+/* .columnName-note { flex: calc(19%); } */
+.columnName-no {
+	width: 3%;
+}
+
+.columnName-customer {
+	width: 13%;
+}
+
+.columnName-address {
+	width: 30%;
+}
+
+.columnName-number {
+	width: 12%;
+}
+
+.columnName-service {
+	width: 10%;
+}
+
+.columnName-note {
+	width: 32%;
+}
+
+.content-dataWrapDiv {
+	height: 86%;
+	display: block;
+	overflow-y: scroll;
+}
+
+.content-dataWrapDiv::-webkit-scrollbar {
+	display: none;
+}
+
+.content-dataOneRowDiv {
+	height: 12.5%;
+	width: 100%;
+	display: flex;
+	text-align: center;
+}
+
+.content-dataOneRowDiv-innerDiv {
+	overflow-y: scroll;
+	word-wrap: break-word;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 2.5px solid #D9D9D9;
+	border-right: 2.5px solid #D9D9D9;
+}
+
+.content-dataOneRowDiv:last-child div {
+	border-bottom: none;
+}
+
+/*스크롤바 숨김용*/
+.content-dataOneRowDiv-innerDiv::-webkit-scrollbar {
+	display: none;
+}
+
+.columnName-note {
+	border-right: none;
+}

@@ -1,0 +1,142 @@
+@import
+	url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular)
+	;
+
+@font-face {
+	font-family: "SF Pro JP Regular";
+	src:
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
+	src:
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix")
+		format("embedded-opentype"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2")
+		format("woff2"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff")
+		format("woff"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf")
+		format("truetype"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular")
+		format("svg");
+}
+
+/* 회사주소 인풋 text area */
+.CompanyInformation-textarea-big {
+	padding: 1%;
+	border: none;
+	border-radius: 1%/10%;
+	width: 100%;
+	height: 100%;
+	background-color: #FFEFEF;
+	border: none;
+	resize: none;
+	font-size: 2rem;
+	font-weight: 700;
+}
+/* 나머지 인풋 text area */
+.CompanyInformation-textarea-mini {
+	padding: 1% 2% ;
+	border: none;
+	border-radius: 1%/10%;
+	width: 100%;
+	height: 100%;
+	background-color: #FFEFEF;
+	border: none;
+	resize: none;
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.content-m-td-2-wrap {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content-m-td-2-wrap-contain {
+	width: 80%;
+	height: 100%;
+}
+
+/* 인풋 감싸는 큰 div박스 */
+.CompanyInformation {
+	margin-top: 5%;
+	height: 80%;
+	width: 100%;
+}
+
+.CompanyInformation-large {
+	width: 100;
+	height: 40%;
+	display: block;
+}
+
+.CompanyInformation-info {
+	widows: 100%;
+	height: 50%;
+	display: flex;
+	align-items: center;
+	font-size: 2.5rem;
+	font-weight: 700;
+}
+
+.CompanyInformation-txt {
+	height: 50%;
+	width: 100%;
+}
+
+.CompanyInformation-small {
+	width: 100%;
+	height: 60%;
+}
+
+.CompanyInformation-small-tr {
+	width: 100%;
+	height: 50%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.CompanyInformation-small-td {
+	width: 49%;
+	height: 100%;
+}
+
+/* 하단 div박스 등록결과, 버튼 */
+.content-m-td-2-down {
+	height: 30%;
+	width: 100%;
+	display: flex;
+	padding-top: 5%;
+}
+/* 결과 div */
+.information-result{
+	margin-right: 5%;
+}
+.success {
+	color: blue;
+}
+
+.error {
+	color: red;
+}
+
+.content-m-td-2-side-down-button {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.content-button {
+	border-radius: 5%/15%;
+	border: none;
+	background-color: #3B82F6;
+	color: white;
+	height: 30%;
+	width: 15%;
+	border: none;
+	font-size: 1.5rem;
+}
