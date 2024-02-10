@@ -1,66 +1,86 @@
 package com.halo.main.admin.boardmanagement.notice;
 
+import java.util.List;
+
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class NoticeC {
 
 	@Autowired
 	private NoticeService nService;
-	
+
+	// 전체조회
 	@GetMapping("/NoticeMainC")
 	public String getAllNotice(@RequestParam("checkVal") String checkVal, Model model) {
-		
+
 		model.addAttribute("notices", nService.getAllNotice(checkVal, model));
-		
-		nService.noticePaging(1,model);
-		
+
+		nService.noticePaging(1, model);
+
 		model.addAttribute("menuname", "お知らせ");
 		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/notice/noticeContent.jsp");
-		
+
 		return "/admin/index";
 	}
-	
+
+	// 페이징처리
 	@GetMapping("/NoticePagingC")
-	public String GetNoticePagingC(@RequestParam(value = "p", required = false, defaultValue = "1") int p, @RequestParam("checkVal") String checkVal,@RequestParam(value = "seq", required = false) Integer seq, Model model) {
-		
+	public String getNoticePagingC(@RequestParam(value = "p", required = false, defaultValue = "1") int p,
+			@RequestParam("checkVal") String checkVal, @RequestParam(value = "seq", required = false) Integer seq,
+			Model model) {
+
 		model.addAttribute("notices", nService.getAllNotice(checkVal, model));
-		nService.noticePaging(p,model);
-		
+		nService.noticePaging(p, model);
+
 		model.addAttribute("menuname", "お知らせ");
-		System.out.println("seq확인 :: " + seq);
 		if (seq != null) {
-	        System.out.println("seq확인 :: " + seq);
-	        model.addAttribute("seq", seq);
-	    }
+			model.addAttribute("seq", seq);
+		}
 		model.addAttribute("pageNum", p);
 		model.addAttribute("menuname", "お知らせ");
 		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/notice/noticeContent.jsp");
-		
-		return "/admin/index";	
+
+		return "/admin/index";
 	}
-	
+
+	// 페이징처리
 	@PostMapping("/NoticePagingC")
-	public String PostNoticePagingC(@RequestParam(value = "p", required = false, defaultValue = "1") int p, Model model) {
-		
-		nService.noticePaging(p,model);
-		
+	public String postNoticePagingC(@RequestParam(value = "p", required = false, defaultValue = "1") int p,
+			Model model) {
+
+		nService.noticePaging(p, model);
+
 		model.addAttribute("menuname", "お知らせ");
 		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/notice/noticeContent.jsp");
-		
-		return "/admin/index";	
+
+		return "/admin/index";
 	}
-	
-	
+
+	// 상세조회
+	@ResponseBody
+	@PostMapping(value = "/GetNoticeDetailC", produces = "application/json;charset=UTF-8")
+	public List<NoticeDTO> getNoticeDetailC(@RequestParam("an_seq") int an_seq) {
+		return nService.getNoticeDetailList(an_seq);
+	}
+
+	// 이미지 업로드
+	@ResponseBody
+	@PostMapping(value = "/halo/CKEditorImgUploadC", produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> uploadFile(@RequestParam("upload") MultipartFile file) {
+		return nService.uploadFile(file);
+	}
 
 }
-
-
-
-
-

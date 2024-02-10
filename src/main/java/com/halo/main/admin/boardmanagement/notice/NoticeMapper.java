@@ -14,4 +14,7 @@ public interface NoticeMapper {
 			"</foreach>", "ORDER BY an_seq ASC", "</script>" })
 	List<NoticeDTO> getAllNotice(@Param("categories") List<String> categories);
 
+	@Select("SELECT * FROM ANNOUNCED_TBL WHERE an_seq = #{an_Seq}")
+	List<NoticeDTO> getNoticeDetail(int an_seq);
+
 }
