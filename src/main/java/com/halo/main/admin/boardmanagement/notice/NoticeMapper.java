@@ -2,6 +2,7 @@ package com.halo.main.admin.boardmanagement.notice;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -16,5 +17,8 @@ public interface NoticeMapper {
 
 	@Select("SELECT * FROM ANNOUNCED_TBL WHERE an_seq = #{an_Seq}")
 	List<NoticeDTO> getNoticeDetail(int an_seq);
+
+	@Insert("INSERT INTO ANNOUNCED_TBL VALUES (announced_tbl_seq.nextval, #{title}, #{txt}, #{writer},sysdate, #{select})")
+	int regNotice(@Param("writer") String writer, @Param("title") String title, @Param("select") String select, @Param("txt") String txt);
 
 }

@@ -21,7 +21,7 @@ public class NoticeService {
 	private static ArrayList<NoticeDTO> notices;
 
 	// 전체조회
-	public List<NoticeDTO> getAllNotice(@RequestParam("checkVal") String checkVal, Model model) {
+	public List<NoticeDTO> getAllNotice(@RequestParam("checkVal") String checkVal) {
 		String[] checkBoxVal = { "announcement", "schedule", "general", "service", "product" };
 		List<String> selectedCategories = new ArrayList<>();
 
@@ -69,54 +69,87 @@ public class NoticeService {
 
 	// 이미지 업로드
 	public ResponseEntity<?> uploadFile(MultipartFile file) {
-	    if (file.isEmpty()) {
-	        return ResponseEntity.badRequest().body("File is empty");
-	    }
+		if (file.isEmpty()) {
+			return ResponseEntity.badRequest().body("File is empty");
+		}
 
-	    try {
-	        String uploadDir = "src/main/resources/static/admin/boardmanagement/notice/0.img/upload";
-	        String originalFileName = file.getOriginalFilename(); // 원본 파일 이름
-	        String fileName = originalFileName;
-	        java.nio.file.Path path = Paths.get(uploadDir);
+		try {
+			String uploadDir = "src/main/resources/static/admin/boardmanagement/notice/0.img/upload";
+			String originalFileName = file.getOriginalFilename(); // 원본 파일 이름
+			String fileName = originalFileName;
+			java.nio.file.Path path = Paths.get(uploadDir);
 
-	        if (!Files.exists(path)) {
-	            Files.createDirectories(path);
-	        }
+			if (!Files.exists(path)) {
+				Files.createDirectories(path);
+			}
 
-	        java.nio.file.Path filePath = path.resolve(fileName);
-	        int counter = 0; // 중복 파일 이름 처리를 위한 카운터
+			java.nio.file.Path filePath = path.resolve(fileName);
+			int counter = 0; // 중복 파일 이름 처리를 위한 카운터
 
-	        // 파일이 이미 존재하는 경우, 파일 이름에 숫자 추가
-	        while (Files.exists(filePath)) {
-	            counter++;
-	            String fileExtension = "";
-	            String baseFileName = originalFileName;
+			// 파일이 이미 존재하는 경우, 파일 이름에 숫자 추가
+			while (Files.exists(filePath)) {
+				counter++;
+				String fileExtension = "";
+				String baseFileName = originalFileName;
 
-	            // 파일 확장자가 있는 경우, 확장자 분리
-	            int dotIndex = originalFileName.lastIndexOf(".");
-	            if (dotIndex != -1) {
-	                baseFileName = originalFileName.substring(0, dotIndex);
-	                fileExtension = originalFileName.substring(dotIndex);
-	            }
+				// 파일 확장자가 있는 경우, 확장자 분리
+				int dotIndex = originalFileName.lastIndexOf(".");
+				if (dotIndex != -1) {
+					baseFileName = originalFileName.substring(0, dotIndex);
+					fileExtension = originalFileName.substring(dotIndex);
+				}
 
-	            fileName = baseFileName + "(" + counter + ")" + fileExtension;
-	            filePath = path.resolve(fileName);
-	        }
+				fileName = baseFileName + "(" + counter + ")" + fileExtension;
+				filePath = path.resolve(fileName);
+			}
 
-	        Files.copy(file.getInputStream(), filePath); // 파일 저장
+			Files.copy(file.getInputStream(), filePath); // 파일 저장
 
-	        System.out.println("파일경로 ::: " + filePath.toAbsolutePath().toString());
-	        System.out.println("파일이름 :::: " + fileName);
+			System.out.println("파일경로 ::: " + filePath.toAbsolutePath().toString());
+			System.out.println("파일이름 :::: " + fileName);
 
-	        JSONObject jo = new JSONObject();
-	        jo.put("fName", "admin/_js/ckeditor/file/" + fileName);
+			JSONObject jo = new JSONObject();
+//			jo.put("fName", "admin/_js/ckeditor/file/" + fileName);
+			jo.put("fName", "/admin/boardmanagement/notice/0.img/upload/" + fileName);
 
-	        return ResponseEntity.ok(jo.toJSONString());
+			return ResponseEntity.ok(jo.toJSONString());
 
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return ResponseEntity.badRequest().body("Could not upload the file: " + e.getMessage());
-	    }
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body("Could not upload the file: " + e.getMessage());
+		}
+	}
+
+	// 게시물 등록
+	public int regNotice(String writer, String title, String select, String txt, String[] saveFnameValues) {
+
+
+		if (saveFnameValues != null) {
+
+			int startPos = 0;
+			for (int i = 0; i < saveFnameValues.length; i++) {
+				int imgPos = txt.indexOf("<img", startPos);
+				if (imgPos == -1)
+					break;
+				
+//				String basePath = "/admin/boardmanagement/notice/0.img/upload/";
+				String toReplace = "<img src=\'" + saveFnameValues[i] + "'>";
+				txt = txt.substring(0, imgPos) + toReplace + txt.substring(txt.indexOf(">", imgPos) + 1);
+
+				startPos = imgPos + toReplace.length();
+			}
+		}
+		
+		System.out.println("writer : " + writer);
+		System.out.println("title : " + title);
+		System.out.println("가공전 txt : " + txt);
+		System.out.println("saveFnameValues : " + saveFnameValues);
+		System.out.println("가공 후 txt : " + txt);
+		System.out.println("select : " + select);
+
+		return  nMapper.regNotice(writer, title, select, txt);
+
+//		return null;
 	}
 
 }

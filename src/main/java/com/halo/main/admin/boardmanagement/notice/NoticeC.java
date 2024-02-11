@@ -2,7 +2,6 @@ package com.halo.main.admin.boardmanagement.notice;
 
 import java.util.List;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,9 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class NoticeC {
@@ -26,7 +22,7 @@ public class NoticeC {
 	@GetMapping("/NoticeMainC")
 	public String getAllNotice(@RequestParam("checkVal") String checkVal, Model model) {
 
-		model.addAttribute("notices", nService.getAllNotice(checkVal, model));
+		model.addAttribute("notices", nService.getAllNotice(checkVal));
 
 		nService.noticePaging(1, model);
 
@@ -42,7 +38,7 @@ public class NoticeC {
 			@RequestParam("checkVal") String checkVal, @RequestParam(value = "seq", required = false) Integer seq,
 			Model model) {
 
-		model.addAttribute("notices", nService.getAllNotice(checkVal, model));
+		model.addAttribute("notices", nService.getAllNotice(checkVal));
 		nService.noticePaging(p, model);
 
 		model.addAttribute("menuname", "お知らせ");
@@ -82,5 +78,27 @@ public class NoticeC {
 	public ResponseEntity<?> uploadFile(@RequestParam("upload") MultipartFile file) {
 		return nService.uploadFile(file);
 	}
+
+	// 게시물 등록
+	@ResponseBody
+	@PostMapping(value = "/CkEditorC", produces = "application/json;charset=UTF-8")
+	public int regNotice(@RequestParam(value = "writer", required = false, defaultValue = "세션없음") String writer,
+	                     @RequestParam("title") String title, 
+	                     @RequestParam("select") String select, 
+	                     @RequestParam("txt") String txt,
+	                     @RequestParam(value = "saveFname", required = false) String[] saveFnameValues) {
+
+		int result = nService.regNotice(writer, title, select, txt, saveFnameValues);
+		
+		if(result == 1) {
+			System.out.println("등록에 성공");
+			return result;
+		} else {
+			System.out.println("등록 실패");
+			return 0;
+		}
+	}
+
+
 
 }
