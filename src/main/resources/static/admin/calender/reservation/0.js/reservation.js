@@ -680,11 +680,12 @@ function expandReservationSchedule(e) {
 // 일정 디테일 모달 출력
 function reservationDetailModal() {
 	prevDateArr = dateArr;
-
+	
 	document.querySelector('.backrop').style.display = 'flex';
 	document.querySelector('.reservation-modal-agree-btn').style.display = "none";
 	document.querySelector('.reservation-modal-update-btn').style.display = "none";
 	document.querySelector('.reservation-modal-detail-btn').style.display = "none";
+	document.querySelector('.update-time-trouble-modal').style.display = 'none';
 
 	document.querySelectorAll('.update-time-checkBox').forEach(function(e) {
 		e.checked = false;
@@ -870,6 +871,30 @@ function reservationDeleteCancle() {
 	document.querySelector('.confirm-delete').style.display = 'none';
 }
 
+function updateTrouble(input) {
+	input.style.background = '#3B82F6';
+	input.style.color = '#FFF';
+
+	if (input == document.querySelector('.reservation-modal-content-book').children[0]) {
+		input.value = input.value = '日付を選択してください！！！';
+	} else if (input == document.querySelector('.select-insert').children[0]) {
+
+	} else {
+		input.value = input.value = '入力必要！！！';
+	}
+	setTimeout(function() {
+		input.style.backgroundColor = "#FFF";
+		if (input == document.querySelector('.reservation-modal-content-book').children[0]) {
+			input.value = '';
+		} else if (input == document.querySelector('.select-insert').children[0]) {
+
+		} else {
+			input.value = input.value = '';
+		}
+		input.style.color = '#000';
+	}, 1000);
+}
+
 // 예약일정 수정확인
 function reservationConfirm(e) {
 	let time = '';
@@ -881,20 +906,49 @@ function reservationConfirm(e) {
 	} else if (document.querySelector('.reservation-modal-content-time input[value="PM"]').checked) {
 		time = document.querySelector('.reservation-modal-content-time input[value="PM"]').value;
 	}
+	
+	if(document.querySelector('.reservation-modal-title').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-title').children[0]);
+		return;
+	}
+	if(time == '') {
+		document.querySelector('.update-time-trouble-modal').style.display = 'flex';
+		setTimeout(function() {
+			document.querySelector('.update-time-trouble-modal').style.display = 'none';
+		}, 1000);
+		return;
+	}
+	if(document.querySelector('.reservation-modal-content-name').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-content-name').children[0]);
+		return;
+	}
+	if(document.querySelector('.reservation-modal-content-phone').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-content-phone').children[0]);
+		return;
+	}
+	if( document.querySelector('.reservation-modal-content-addr').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-content-addr').children[0]);
+		return;
+	}
+	if( document.querySelector('.reservation-modal-content-book').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-content-book').children[0]);
+		return;
+	}
+	if(document.querySelector('.reservation-modal-content-notice').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-content-notice').children[0]);
+		return;
+	}
 
 	arrayName.sa_service = document.querySelector('.reservation-modal-title').children[0].value;
 	arrayName.sa_time = time;
 	arrayName.sa_user_name = document.querySelector('.reservation-modal-content-name').children[0].value;
+	arrayName.sa_phone_number = document.querySelector('.reservation-modal-content-name').children[0].value;
 	arrayName.sa_addr = document.querySelector('.reservation-modal-content-addr').children[0].value;
 	arrayName.sa_days = document.querySelector('.reservation-modal-content-book').children[0].value;
 	arrayName.sa_start_place = document.querySelector('.reservation-modal-content-startpoint').children[0].value;
 	arrayName.sa_end_place = document.querySelector('.reservation-modal-content-endpoint').children[0].value;
 	arrayName.sa_feedback = document.querySelector('.reservation-modal-content-notice').children[0].value;
 	arrayName.sa_staff = document.querySelector('.default-manager').innerText;
-
-	//	let params = {
-	//		object: arrayName
-	//	}
 
 	fetch('reservation/update', {
 		method: 'PUT',
