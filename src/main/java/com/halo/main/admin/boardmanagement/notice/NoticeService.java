@@ -134,14 +134,41 @@ public class NoticeService {
 			}
 		}
 		
-//		System.out.println("writer : " + writer);
-//		System.out.println("title : " + title);
-//		System.out.println("가공전 txt : " + txt);
-//		System.out.println("saveFnameValues : " + saveFnameValues);
-//		System.out.println("가공 후 txt : " + txt);
-//		System.out.println("select : " + select);
+		System.out.println("writer : " + writer);
+		System.out.println("title : " + title);
+		System.out.println("가공전 txt : " + txt);
+		System.out.println("saveFnameValues : " + saveFnameValues);
+		System.out.println("가공 후 txt : " + txt);
+		System.out.println("select : " + select);
 
 		return  nMapper.regNotice(writer, title, select, txt);
+	}
+	
+	// 게시물 업데이트
+	public int updateNotice(String title, String select, String txt, String seq, String[] saveFnameValues) {
+		
+		if (saveFnameValues != null) {
+
+			int startPos = 0;
+			for (int i = 0; i < saveFnameValues.length; i++) {
+				int imgPos = txt.indexOf("<img", startPos);
+				if (imgPos == -1)
+					break;
+				
+				String toReplace = "<img src=\'" + saveFnameValues[i] + "'>";
+				txt = txt.substring(0, imgPos) + toReplace + txt.substring(txt.indexOf(">", imgPos) + 1);
+
+				startPos = imgPos + toReplace.length();
+			}
+		}
+		
+		System.out.println("title : " + title);
+		System.out.println("가공전 txt : " + txt);
+		System.out.println("saveFnameValues : " + saveFnameValues);
+		System.out.println("가공 후 txt : " + txt);
+		System.out.println("select : " + select);
+
+		return nMapper.updateNotice(title, select, txt, seq);
 	}
 
 	public int deleteNotice(int an_seq) {
@@ -150,10 +177,6 @@ public class NoticeService {
 		return nMapper.deleteNotice(an_seq);
 	}
 
-	// 게시물 업데이트
-	public int updateNotice(String title, String select, String txt, String seq) {
-		
-		return nMapper.updateNotice(title, select, txt, seq);
-	}
+
 
 }
