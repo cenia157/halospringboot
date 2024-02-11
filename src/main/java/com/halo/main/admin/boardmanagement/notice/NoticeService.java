@@ -109,7 +109,6 @@ public class NoticeService {
 			System.out.println("파일이름 :::: " + fileName);
 
 			JSONObject jo = new JSONObject();
-//			jo.put("fName", "admin/_js/ckeditor/file/" + fileName);
 			jo.put("fName", "/admin/boardmanagement/notice/0.img/upload/" + fileName);
 
 			return ResponseEntity.ok(jo.toJSONString());
@@ -132,7 +131,6 @@ public class NoticeService {
 				if (imgPos == -1)
 					break;
 				
-//				String basePath = "/admin/boardmanagement/notice/0.img/upload/";
 				String toReplace = "<img src=\'" + saveFnameValues[i] + "'>";
 				txt = txt.substring(0, imgPos) + toReplace + txt.substring(txt.indexOf(">", imgPos) + 1);
 
@@ -148,8 +146,12 @@ public class NoticeService {
 		System.out.println("select : " + select);
 
 		return  nMapper.regNotice(writer, title, select, txt);
+	}
 
-//		return null;
+	public int deleteNotice(int an_seq) {
+		System.out.println("an_seq ::: " + an_seq);
+		
+		return nMapper.deleteNotice(an_seq);
 	}
 
 }

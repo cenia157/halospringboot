@@ -88,16 +88,24 @@ public class NoticeC {
 	                     @RequestParam("txt") String txt,
 	                     @RequestParam(value = "saveFname", required = false) String[] saveFnameValues) {
 
-		int result = nService.regNotice(writer, title, select, txt, saveFnameValues);
-		
-		if(result == 1) {
-			System.out.println("등록에 성공");
-			return result;
-		} else {
-			System.out.println("등록 실패");
-			return 0;
-		}
+		return nService.regNotice(writer, title, select, txt, saveFnameValues);
 	}
+	
+	// 게시물 삭제
+	@GetMapping("/DeleteNoticeC")
+	public String DeleteNoticeC(@RequestParam("an_seq") int an_seq, 
+							   @RequestParam(value = "p", defaultValue = "1") String p, 
+						       @RequestParam("checkVal") String checkVal) {
+		System.out.println("an_seq ::: " + an_seq);
+		System.out.println("p ::: " + p);
+		System.out.println("checkVal ::: " + checkVal);
+		
+		nService.deleteNotice(an_seq);
+		
+		return String.format("redirect:/NoticePagingC?p=%s&checkVal=%s", p, checkVal);
+	}
+	
+	
 
 
 

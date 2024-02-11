@@ -2,6 +2,7 @@ package com.halo.main.admin.boardmanagement.notice;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -20,5 +21,8 @@ public interface NoticeMapper {
 
 	@Insert("INSERT INTO ANNOUNCED_TBL VALUES (announced_tbl_seq.nextval, #{title}, #{txt}, #{writer},sysdate, #{select})")
 	int regNotice(@Param("writer") String writer, @Param("title") String title, @Param("select") String select, @Param("txt") String txt);
+
+	@Delete("Delete ANNOUNCED_TBL WHERE AN_SEQ = #{an_seq}")
+	int deleteNotice(int an_seq);
 
 }
