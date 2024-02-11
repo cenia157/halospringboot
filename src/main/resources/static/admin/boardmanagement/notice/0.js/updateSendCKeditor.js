@@ -47,8 +47,8 @@ regBtnR.addEventListener("click", function() {
 		closeModalNR();
 	}
 
-	let CkeditorC123 = fetch("UpdateNoticeC", {
-		method: "POST",
+	let CkeditorC = fetch("UpdateNoticeC", {
+		method: "Put",
 		body: payload,
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded", // 헤더 설정

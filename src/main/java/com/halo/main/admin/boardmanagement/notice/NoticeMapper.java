@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface NoticeMapper {
@@ -24,5 +25,8 @@ public interface NoticeMapper {
 
 	@Delete("Delete ANNOUNCED_TBL WHERE AN_SEQ = #{an_seq}")
 	int deleteNotice(int an_seq);
+
+	@Update("UPDATE announced_tbl SET an_title = #{title}, an_content = #{txt}, an_category = #{select} WHERE an_seq = #{seq}")
+	int updateNotice(@Param("title") String title, @Param("select") String select, @Param("txt") String txt, @Param("seq") String seq);
 
 }

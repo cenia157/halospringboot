@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -93,7 +94,7 @@ public class NoticeC {
 	
 	// 게시물 삭제
 	@GetMapping("/DeleteNoticeC")
-	public String DeleteNoticeC(@RequestParam("an_seq") int an_seq, 
+	public String deleteNoticeC(@RequestParam("an_seq") int an_seq, 
 							   @RequestParam(value = "p", defaultValue = "1") String p, 
 						       @RequestParam("checkVal") String checkVal) {
 		System.out.println("an_seq ::: " + an_seq);
@@ -103,6 +104,17 @@ public class NoticeC {
 		nService.deleteNotice(an_seq);
 		
 		return String.format("redirect:/NoticePagingC?p=%s&checkVal=%s", p, checkVal);
+	}
+	
+	// 게시물 업데이트
+	@ResponseBody
+	@PutMapping(value = "/UpdateNoticeC", produces = "application/json;charset=UTF-8")
+	public int updateNoticeC(@RequestParam("title") String title, 
+							 @RequestParam("select") String select, 
+							 @RequestParam("txt") String txt,
+							 @RequestParam("seq") String seq) {
+		
+		return nService.updateNotice(title, select, txt, seq);
 	}
 	
 	

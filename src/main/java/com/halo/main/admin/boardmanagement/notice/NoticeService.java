@@ -30,8 +30,6 @@ public class NoticeService {
 			selectedCategories.add(checkBoxVal[index]);
 		}
 
-		System.out.println("checkVal테스트" + checkVal);
-
 		notices = (ArrayList<NoticeDTO>) nMapper.getAllNotice(selectedCategories);
 
 		return notices;
@@ -84,15 +82,13 @@ public class NoticeService {
 			}
 
 			java.nio.file.Path filePath = path.resolve(fileName);
-			int counter = 0; // 중복 파일 이름 처리를 위한 카운터
+			int counter = 0; 
 
-			// 파일이 이미 존재하는 경우, 파일 이름에 숫자 추가
 			while (Files.exists(filePath)) {
 				counter++;
 				String fileExtension = "";
 				String baseFileName = originalFileName;
 
-				// 파일 확장자가 있는 경우, 확장자 분리
 				int dotIndex = originalFileName.lastIndexOf(".");
 				if (dotIndex != -1) {
 					baseFileName = originalFileName.substring(0, dotIndex);
@@ -103,7 +99,7 @@ public class NoticeService {
 				filePath = path.resolve(fileName);
 			}
 
-			Files.copy(file.getInputStream(), filePath); // 파일 저장
+			Files.copy(file.getInputStream(), filePath); 
 
 			System.out.println("파일경로 ::: " + filePath.toAbsolutePath().toString());
 			System.out.println("파일이름 :::: " + fileName);
@@ -138,12 +134,12 @@ public class NoticeService {
 			}
 		}
 		
-		System.out.println("writer : " + writer);
-		System.out.println("title : " + title);
-		System.out.println("가공전 txt : " + txt);
-		System.out.println("saveFnameValues : " + saveFnameValues);
-		System.out.println("가공 후 txt : " + txt);
-		System.out.println("select : " + select);
+//		System.out.println("writer : " + writer);
+//		System.out.println("title : " + title);
+//		System.out.println("가공전 txt : " + txt);
+//		System.out.println("saveFnameValues : " + saveFnameValues);
+//		System.out.println("가공 후 txt : " + txt);
+//		System.out.println("select : " + select);
 
 		return  nMapper.regNotice(writer, title, select, txt);
 	}
@@ -152,6 +148,12 @@ public class NoticeService {
 		System.out.println("an_seq ::: " + an_seq);
 		
 		return nMapper.deleteNotice(an_seq);
+	}
+
+	// 게시물 업데이트
+	public int updateNotice(String title, String select, String txt, String seq) {
+		
+		return nMapper.updateNotice(title, select, txt, seq);
 	}
 
 }
