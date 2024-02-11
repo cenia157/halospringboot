@@ -1012,6 +1012,20 @@ EDIT ON */
 	border: none;
 	width: 50%;
 	justify-content: space-between;
+	position: relative;
+}
+
+.time-trouble-modal {
+/* 	border: 1px solid black; */
+	position: absolute;
+	background: #3B82F6;
+	color: #fff;
+	width: 160%; 
+	top : -50%;
+	left: -60%;
+	text-align:center;
+	border-radius: 4px;
+	transition: all 0.3s ease;
 }
 
 .reservation-insert-time input[type="checkbox"] {
