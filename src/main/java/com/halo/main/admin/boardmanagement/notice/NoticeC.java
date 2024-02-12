@@ -107,7 +107,7 @@ public class NoticeC {
 	// 게시물 삭제
 	@GetMapping("/DeleteNoticeC")
 	public String deleteNoticeC(@RequestParam("an_seq") int an_seq, 
-							   @RequestParam(value = "p", defaultValue = "1") String p, 
+							   @RequestParam(value = "p", defaultValue = "1") int p, 
 						       @RequestParam("checkVal") String checkVal) {
 		System.out.println("an_seq ::: " + an_seq);
 		System.out.println("p ::: " + p);

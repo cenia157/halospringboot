@@ -19,13 +19,13 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
       <div class="a_content-box-tr1">
         <div class="a_content-box-tr1-td1">
           <div class="a_content-box-tr1-td1-1">
-            <span><a href="Announced_C">お知らせ</a></span>
+            <span><a href="AnnouncedC">お知らせ</a></span>
           </div>
           <div class="a_content-box-tr1-td1-2">
-            <span><a href="Album_insta_api_C">アルバム</a></span>
+            <span><a href="AlbumC">アルバム</a></span>
           </div>
           <div class="a_content-box-tr1-td1-3">
-            <span><a href="Employment_C">スタッフ募集</a></span>
+            <span><a href="EmploymentC">スタッフ募集</a></span>
           </div>
         </div>
 
