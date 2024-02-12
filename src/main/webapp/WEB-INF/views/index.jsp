@@ -58,7 +58,7 @@
 						</a>
 					</div>
 					<div class="header-td-menu-title">
-						<a href="Announced_C" class="">情報 <span
+						<a href="AnnouncedC" class="">情報 <span
 							class="header-td-menu-under"></span>
 						</a>
 					</div>
@@ -79,7 +79,7 @@
 						class="header-opmenu-a" href="InfoMapC">施設アクセス</a>
 				</div>
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="Announced_C">お知らせ</a> <a
+					<a class="header-opmenu-a" href="AnnouncedC">お知らせ</a> <a
 						class="header-opmenu-a" href="AlbumC">アルバム</a> <a class="header-opmenu-a"
 						href="EmploymentC">スタッフ募集</a>
 				</div>

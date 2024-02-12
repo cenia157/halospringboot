@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class EmploymentC {
-	@GetMapping("EmploymentC")
+	@GetMapping("/EmploymentC")
 	public String employmentC(Model model) {
 		
 //		MainpageDAO.getMdao().getAllHompage_common(request);

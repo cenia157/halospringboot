@@ -96,12 +96,12 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	                  <!-- 처음으로 가는 버튼 -->
 	                  <c:choose>
 	                    <c:when test="${curPageNo > 5}">
-	                      <a href="Announced_paging_C?p=${curPageNo - 5}">
+	                      <a href="AnnouncedPagingC?p=${curPageNo - 5}">
 	                        <button><<</button>
 	                      </a>
 	                    </c:when>
 	                    <c:when test="${curPageNo <= 5 && curPageNo > 1}">
-	                      <a href="Announced_paging_C?p=1">
+	                      <a href="AnnouncedPagingC?p=1">
 	                        <button><<</button>
 	                      </a>
 	                    </c:when>
@@ -113,7 +113,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	                  <!-- 이전 페이지로 가는 버튼 -->
 	                  <c:choose>
 	                    <c:when test="${curPageNo > 1}">
-	                      <a href="Announced_paging_C?p=${curPageNo - 1}">
+	                      <a href="AnnouncedPagingC?p=${curPageNo - 1}">
 	                        <button>前の</button>
 	                      </a>
 	                    </c:when>
@@ -151,7 +151,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	                      value="${pageNumber == curPageNo ? 'current-page' : ''}"
 	                    />
 	                    <a
-	                      href="Announced_paging_C?p=${pageNumber}"
+	                      href="AnnouncedPagingC?p=${pageNumber}"
 	                      class="page-number ${currentPageClass}"
 	                      >[${pageNumber}]</a
 	                    >
@@ -161,7 +161,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	                  <!-- 다음 페이지로 가는 버튼 -->
 	                  <c:choose>
 	                    <c:when test="${curPageNo < pageCount}">
-	                      <a href="Announced_paging_C?p=${curPageNo + 1}">
+	                      <a href="AnnouncedPagingC?p=${curPageNo + 1}">
 	                        <button>次の</button>
 	                      </a>
 	                    </c:when>
@@ -173,14 +173,14 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	                  <!-- 마지막으로 가는 버튼 -->
 	                  <c:choose>
 	                    <c:when test="${curPageNo + 5 <= pageCount}">
-	                      <a href="Announced_paging_C?p=${curPageNo + 5}">
+	                      <a href="AnnouncedPagingC?p=${curPageNo + 5}">
 	                        <button>>></button>
 	                      </a>
 	                    </c:when>
 	                    <c:when
 	                      test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
 	                    >
-	                      <a href="Announced_paging_C?p=${pageCount}">
+	                      <a href="AnnouncedPagingC?p=${pageCount}">
 	                        <button>>></button>
 	                      </a>
 	                    </c:when>

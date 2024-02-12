@@ -1,26 +1,39 @@
   $(document).ready(function () {
-	
+	// 여기가 진짜
 	let modal = document.querySelector("#myModal");
 	
     //모달 조회
     $(".ancTitleDiv").on("click", function () {
       let aidx = $(this).data("anseq");
 
-      $.ajax({
-        type: "post",
-        url: "/halo/Announced_C",
-        data: { an_seq: aidx },
-        success: function (result) {
-          let dataArr = result.split("|");
-          let writer = dataArr[0];
-          let title = dataArr[1];
-          let content = dataArr[2];
-          let regdate = dataArr[3];
+//      $.ajax({
+//        type: "post",
+//        url: "/AnnouncedC",
+//        data: { an_seq: aidx },
+//        success: function (result) {
+//          let dataArr = result.split("|");
+//          let writer = dataArr[0];
+//          let title = dataArr[1];
+//          let content = dataArr[2];
+//          let regdate = dataArr[3];
+//
+//          $("#modalWriter").text(writer);
+//          $("#modalTitle").text(title);
+//          $("#modalContent").html(content);
+//          $("#modalregDate").text(regdate);
 
-          $("#modalWriter").text(writer);
-          $("#modalTitle").text(title);
-          $("#modalContent").html(content);
-          $("#modalregDate").text(regdate);
+
+		$.ajax({
+   		  type: "post",
+   		  url: "/AnnouncedC",
+    	  data: { an_seq: aidx },
+   		  dataType: "json", // JSON 형식으로 데이터를 받음
+    	  success: function (result) {
+          // 모달에 받은 데이터를 적용
+          $("#modalWriter").text(result.writer);
+          $("#modalTitle").text(result.title);
+          $("#modalContent").html(result.content);
+          $("#modalregDate").text(result.dateStr);
 
           //DB조회 -> 화면 그려주고 -> 모달 노출 및 헤더 가리기 
 		  $(".header-tbl").css("visibility", "hidden");

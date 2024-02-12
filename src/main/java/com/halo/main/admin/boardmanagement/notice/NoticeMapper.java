@@ -20,7 +20,7 @@ public interface NoticeMapper {
 	@Select("SELECT * FROM ANNOUNCED_TBL WHERE an_seq = #{an_Seq}")
 	List<NoticeDTO> getNoticeDetail(int an_seq);
 
-	@Insert("INSERT INTO ANNOUNCED_TBL VALUES (announced_tbl_seq.nextval, #{title}, #{txt}, #{writer},sysdate, #{select})")
+	@Insert("INSERT INTO ANNOUNCED_TBL VALUES (announced_tbl_seq.nextval, #{title}, #{txt}, #{writer}, CURRENT_TIMESTAMP, #{select})")
 	int regNotice(@Param("writer") String writer, @Param("title") String title, @Param("select") String select, @Param("txt") String txt);
 
 	@Delete("Delete ANNOUNCED_TBL WHERE AN_SEQ = #{an_seq}")
