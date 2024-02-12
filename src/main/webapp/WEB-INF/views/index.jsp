@@ -80,7 +80,7 @@
 				</div>
 				<div class="header-opmenu-td">
 					<a class="header-opmenu-a" href="Announced_C">お知らせ</a> <a
-						class="header-opmenu-a" href="Album_insta_api_C">アルバム</a> <a class="header-opmenu-a"
+						class="header-opmenu-a" href="AlbumC">アルバム</a> <a class="header-opmenu-a"
 						href="EmploymentC">スタッフ募集</a>
 				</div>
 				<div class="header-opmenu-td">
