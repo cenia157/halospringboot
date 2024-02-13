@@ -49,6 +49,7 @@
 						<div class="reservation-modal-content-time">
 							午前 <input type="checkbox" class="update-time-checkBox" name="update-time" value="AM">
 							午後 <input type="checkbox" class="update-time-checkBox" name="update-time" value="PM">
+							<div class="update-time-trouble-modal">時間を選択してください！</div>
 						</div>
 						<div class="reservation-modal-close"></div>
 					</div>
@@ -158,6 +159,7 @@
 						<div class="reservation-insert-input reservation-insert-time">
 							午前 <input type="checkbox" name="insert-time" value="AM">
 							午後 <input type="checkbox" name="insert-time" value="PM">
+							<div class="time-trouble-modal">時間を選択してください！</div>
 						</div>
 
 					</div>
@@ -193,7 +195,7 @@
 								<input class="reservation-insert-input" style="width: 100%;">
 							</div>
 							<div class="reservation-insert-notice">
-								<textarea class="reservation-insert-input">予約内容</textarea>
+								<textarea class="reservation-insert-input" placeholder="予約内容"></textarea>
 							</div>
 							<div class="reservation-modal-content-manager">
 								<div

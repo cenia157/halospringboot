@@ -335,8 +335,42 @@ function checkDate(e) {
 	document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
 }
 
+function insertTrouble(input) {
+	input.style.background = '#3B82F6';
+	input.style.color = '#FFF';
+	if (input == document.querySelector('.input-date')) {
+		input.value = input.value = '日付を選択してください！！！';
+	} else {
+		input.value = input.value = '入力必要！！！';
+	}
+	setTimeout(function() {
+		input.style.backgroundColor = "#FFF";
+		if (input == document.querySelector('.input-date')) {
+			input.value = input.value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+		} else {
+			input.value = input.value = '';
+		}
+		input.style.color = '#000';
+	}, 1000);
+}
+
 // 일정 추가
 function insertCompanyC() {
+	if (document.querySelector('.input-title').value == '') {
+		insertTrouble(document.querySelector('.input-title'));
+		return;
+	}
+
+	if (document.querySelector('.input-date').value.split('月 ')[1] == '') {
+		insertTrouble(document.querySelector('.input-date'));
+		return;
+	}
+
+	if (document.querySelector('.input-txt').value == '') {
+		insertTrouble(document.querySelector('.input-txt'));
+		return;
+	}
+
 	let insertScheduleData = {
 		cs_title: document.querySelector('.input-title').value,
 		cs_date: document.querySelector('.input-date').value.split('月 ')[1],
@@ -356,7 +390,7 @@ function insertCompanyC() {
 		.then(response => response.text())
 		.then(data => {
 			if (data == 1) {
-				location.href='/company';
+				location.href = '/company';
 			}
 		})
 		.catch(error => {
@@ -532,6 +566,18 @@ function updateAtagClick(atag) {
 
 // 일정 내용 업데이트
 function updateTxt(atag) {
+	if (atag.previousSibling.value == '') {
+		atag.previousSibling.style.background = '#3B82F6';
+		atag.previousSibling.style.color = '#FFF';
+		atag.previousSibling.value = atag.previousSibling.value = '入力必要！！！';
+		setTimeout(function() {
+			atag.previousSibling.style.backgroundColor = "#FFF";
+			atag.previousSibling.value = atag.previousSibling.value = '';
+			atag.previousSibling.style.color = '#000';
+		}, 1000);
+		return;
+	}
+
 	let inputUpdateTxt = atag.previousSibling.value;
 
 	let params = {
