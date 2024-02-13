@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.halo.main.admin.reservation.ReservationScheduleDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RequestMapping("/service")
 @Controller
@@ -26,6 +28,10 @@ public class ServiceC {
 		return "index";
 	}
 	
+	@GetMapping("/apply")
+	public String svcApply(Model model) {
+		return "redirect:apply/step1/svc";
+	}
 	@GetMapping("/apply/step1/svc")
 	public String svcSelect(Model model) {
 		serviceDAO.goSvcSelect(model);
@@ -63,14 +69,19 @@ public class ServiceC {
 	}
 	@PostMapping("/apply/step5/agree")
 	public String agree(Model model, HttpServletRequest request) throws UnsupportedEncodingException {
-		serviceDAO.goAgrer(model);
+		serviceDAO.goAgree(model);
 		serviceDAO.calSelect(model, request);
 		serviceDAO.tiemSelect(model, request);
 		serviceDAO.nusingApply(model, request);
 		serviceDAO.taxiApply(model, request);
 		return "index";
 	}
-	
+	@PostMapping("/apply/step6/complet")
+	public String complet(Model model, HttpServletRequest request, ReservationScheduleDTO rsDTO) throws UnsupportedEncodingException {
+		serviceDAO.goComplet(model);
+		serviceDAO.serviceApply(rsDTO, request);
+		return "index";
+	}
 	
 	
 	
