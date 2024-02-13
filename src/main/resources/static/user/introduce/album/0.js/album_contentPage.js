@@ -8,7 +8,7 @@
   //인스타 api 요청
   let requestInstagram = function(){
       $.ajax({
-      	url:"/halo/Album_insta_api_C",
+      	url:"/Album_insta_api_C",
       	method: "POST",
       	dataType: "json",
 		success: function (response) {

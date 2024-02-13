@@ -41,7 +41,7 @@
 	<div class="main-notice-tbl" id="page1">
 		<!-- 공지사항 최신순으로 3줄(공지사항 제목, 내용/클릭시 해당 공지 디테일페이지 연결) -->
 		<div class="main-notice-tr1 btn-pointer"
-			onclick="location.href='Announced_C'">お知らせ</div>
+			onclick="location.href='AnnouncedC'">お知らせ</div>
 		<div class="main-notice-tr2">
 		
 			<c:forEach var="announcement" items="${announcements}">

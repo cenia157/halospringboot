@@ -33,7 +33,7 @@ class MyUploadAdapter {
 	                        fileOrder.shift();
 	                        console.log('대기열에서 제거된 파일:', file.name); 
 	                        console.log('현재 파일 순서:', fileOrder.map(item => item.file.name)); 
-	
+	 
 	                        // 다음 파일이 있으면 그 파일도 업로드합니다.
 	                        if (fileOrder.length > 0) {
 	                            uploadSequentially();
