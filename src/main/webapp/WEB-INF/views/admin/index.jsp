@@ -21,10 +21,10 @@
 </script>
 
 <!-- 메뉴 js -->
-<script src="admin/_js/test.js"></script>
+<script src="/admin/_js/test.js"></script>
 
 <!-- 메뉴 css -->
-<link rel="stylesheet" href="admin/0.css/test copy.css" />
+<link rel="stylesheet" href="/admin/0.css/test copy.css" />
 <body>
 	<!-- 최상위 콘테이너 -->
 	<div class="container">
@@ -38,11 +38,11 @@
 				<div class="menu-td-2">
 					<div class="menu-td-2-td">
 						<div>
-							<img src="admin/0.img/admintble2-1.png" alt="">${login_name }
+							<img src="/admin/0.img/admintble2-1.png" alt="">${login_name }
 						</div>
 						<!-- 메인홈페이지 바로가기 -->
 						<div>
-							<img src="admin/0.img/admintble2-2.png" alt=""><a href="HC">サイトへの移動</a>
+							<img src="/admin/0.img/admintble2-2.png" alt=""><a href="HC">サイトへの移動</a>
 						</div>
 					</div>
 				</div>
@@ -50,50 +50,51 @@
 					<div class="menu-td-3-td-1">サイト管理</div>
 					<div class="menu-td-3-td-2">
 						<div class="menu-td-3-td-open-td-1">
-							<img src="admin/0.img/admintble3-1.png" alt=""><a
-								href="/dashboard">ダッシュボード</a>
+							<img src="/admin/0.img/admintble3-1.png" alt=""><a
+								href="/admin/dashboard">ダッシュボード</a>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-2.png" alt=""><span>ホームページ修正</span>
+								<img src="/admin/0.img/admintble3-2.png" alt=""><span>ホームページ修正</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="/logo">ロゴ変更</a>
+										<!-- TODO 서효원 기능 서블렛 만들때마다 연결시키고 컨트롤러 if문 지우기! -->
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
+											href="LogoUploadC">ロゴ変更</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="/quick_menu">クイックメニュー設定</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
+											href="MainBannerUpdateC">クイックメニュー設定</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="/banner">下のバナー設定</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
+											href="BannerUploadC">下のバナー設定</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="/infoUpdate">会社情報変更</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
+											href="InformUpdateC">会社情報変更</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-3.png" alt=""><span>掲示板の管理</span>
+								<img src="/admin/0.img/admintble3-3.png" alt=""><span>掲示板の管理</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
 											href="NoticeMainC?checkVal=01234">お知らせ</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
 											href="AskContentC?p=1">お問い合わせ</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
 											href="AdminFAQC">よくある質問</a>
 									</div>
 								</div>
@@ -101,33 +102,33 @@
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-4.png" alt=""><span>スケジュール</span>
+								<img src="/admin/0.img/admintble3-4.png" alt=""><span>スケジュール</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="/company">会社のスケジュール</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
+											href="/admin/schedule/company">会社のスケジュール</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="/reservation">顧客の予約</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
+											href="/admin/schedule/reservation">顧客の予約</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="/employee">スタッフのスケジュール</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
+											href="/admin/schedule/employee">スタッフのスケジュール</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-5.png" alt=""><span>顧客管理</span>
+								<img src="/admin/0.img/admintble3-5.png" alt=""><span>顧客管理</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
 											href="CustomerInfoMgmtC">顧客情報の管理</a>
 									</div>
 								</div>
@@ -135,12 +136,12 @@
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-6.png" alt=""><span>管理者専用</span>
+								<img src="/admin/0.img/admintble3-6.png" alt=""><span>管理者専用</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
+										<img src="/admin/0.img/admintble-select.png" alt=""><a
 											href="StaffC">スタッフの管理</a>
 									</div>
 								</div>
@@ -148,13 +149,13 @@
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-7.png" alt=""><span>ポップアップ</span>
+								<img src="/admin/0.img/admintble3-7.png" alt=""><span>ポップアップ</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt="">
-										<a href="/popup">ポップアップの設定</a>
+										<img src="/admin/0.img/admintble-select.png" alt="">
+										<a href="PopupC">ポップアップの設定</a>
 									</div>
 								</div>
 							</div>
@@ -164,14 +165,14 @@
 				<div class="menu-td-4">
 					<div class="menu-td-4-td">
 						<div>
-							<img src="admin/0.img/adminfootericon.png" alt="">日本語
+							<img src="/admin/0.img/adminfootericon.png" alt="">日本語
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="admin-menu-folding" >
-				<img src="admin/0.img/foldingbar.png">
-				<img src="admin/0.img/foldingicon.png">
+				<img src="/admin/0.img/foldingbar.png">
+				<img src="/admin/0.img/foldingicon.png">
 			</div>
 		</div>
 
@@ -188,7 +189,7 @@
 <%-- 						value="${sessionTimeout }"> --%>
 					<div class="header-td-login">
 						<p id="sessionTimeout" class="sessionTimeout">
-							<img alt="" src="admin/0.img/timer.png"> <span id="timer"></span>
+							<img alt="" src="/admin/0.img/timer.png"> <span id="timer"></span>
 						</p>
 						<div>
 							<a href="#" id="extendTime">時間の延長</a>
