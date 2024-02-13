@@ -81,7 +81,7 @@ let confirmDeleteModal = 0;
 function getAllSchedule() {
 
 	// 전체 회사 일정 ajax 호출
-	fetch('company/scheduleList')
+	fetch('/admin/schedule/company/scheduleList')
 		.then(response => response.json())
 		.then(data => {
 
@@ -239,7 +239,7 @@ function renderCalender(CompanyScheduleList) {
 		if (today.getMonth() == currentMonth && today.getFullYear() == currentYear && fixedDate() == i) {
 
 			// 오늘 날짜 표기
-			calendar.innerHTML = calendar.innerHTML + '<div class="day current year' + currentYear + ' month' + currentCalenderMonth + ' date' + i + '"><div><div class="month-date">' + i + '</div><input type="checkbox" class="dateCheckBox" value=0><img src="user/0.img/logo.png"></div></div>'
+			calendar.innerHTML = calendar.innerHTML + '<div class="day current year' + currentYear + ' month' + currentCalenderMonth + ' date' + i + '"><div><div class="month-date">' + i + '</div><input type="checkbox" class="dateCheckBox" value=0><img src="/user/0.img/logo.png"></div></div>'
 			todayDate = today.getDate();
 			let currentMonthDate = document.querySelectorAll('.dates .current');
 			currentMonthDate[todayDate - 1].classList.add('today');
@@ -380,7 +380,7 @@ function insertCompanyC() {
 		cs_update: currentYear + '/' + currentMonth + '/' + currentDate + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
 	}
 
-	fetch('company/insert', {
+	fetch('/admin/schedule/company/insert', {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -585,7 +585,7 @@ function updateTxt(atag) {
 		cs_no: selectDetailSchedule.cs_no
 	}
 
-	fetch('company/update', {
+	fetch('/admin/schedule/company/update', {
 		method: 'PUT',
 		headers: {
 			"Content-Type": "application/json"
@@ -648,7 +648,7 @@ function deleteScheduleDate(atag) {
 		cs_no: selectDetailSchedule.cs_no
 	}
 
-	fetch('company/delete', {
+	fetch('/admin/schedule/company/delete', {
 		method: 'PUT',
 		headers: {
 			"Content-Type": "application/json"
@@ -723,7 +723,7 @@ function rowScheduleDelete(a) {
 			cs_no: dateDivValue
 		}
 
-		fetch('company/deleterow', {
+		fetch('/admin/schedule/company/deleterow', {
 			method: 'DELETE',
 			headers: {
 				"Content-Type": "application/json"
