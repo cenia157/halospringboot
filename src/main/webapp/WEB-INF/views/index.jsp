@@ -41,11 +41,11 @@
 			<div class="header-opmenu-back"></div>
 			<div class="header-tr-1">
 				<div class="header-br-logo btn-pointer" onclick="location.href='HC'"
-					style="background-image: url('user/upload_imgs/${hdto.h_logo_img}');">
+					style="background-image: url('/user/upload_imgs/${hdto.h_logo_img}');">
 					<%-- 					<img src="user/upload_imgs/${hdto.h_logo_img}"> --%>
 				</div>
 				<div class="header-br-space">
-					<div class="mobileHamburg"> <img alt="" src="user/0.img/icon _menu_.png"> </div>
+					<div class="mobileHamburg"> <img alt="" src="/user/0.img/icon _menu_.png"> </div>
 				</div>
 				<!-- 전화번호 수정 가능하도록, 회사정보(footer 어트리뷰트) -->
 				<div class="header-br-call">Tel. ${hdto.h_tel_no}</div>
@@ -99,22 +99,22 @@
 	<!-- - 배경이미지 - div -->
 	<div id="background-img">
 		<div class="background img-rightCloud">
-			<img src="user/0.img/rightCloud.PNG" alt="" />
+			<img src="/user/0.img/rightCloud.PNG" alt="" />
 		</div>
 		<div class="background img-leftCloud">
-			<img src="user/0.img/leftCloud.PNG" alt="" />
+			<img src="/user/0.img/leftCloud.PNG" alt="" />
 		</div>
 		<div class="background img-rightPink">
-			<img src="user/0.img/rightPinkCloud.PNG" alt="" />
+			<img src="/user/0.img/rightPinkCloud.PNG" alt="" />
 		</div>
 		<div class="background img-leftPink">
-			<img src="user/0.img/leftPinkCloud.PNG" alt="" />
+			<img src="/user/0.img/leftPinkCloud.PNG" alt="" />
 		</div>
 		<div class="background img-sunset">
-			<img src="user/0.img/sunset.PNG" alt="" />
+			<img src="/user/0.img/sunset.PNG" alt="" />
 		</div>
 		<div class="background img-mountain">
-			<img src="user/0.img/mountain.PNG" alt="" />
+			<img src="/user/0.img/mountain.PNG" alt="" />
 		</div>
 	</div>
 	<!-- 배경이미지 끝 -->
@@ -129,13 +129,13 @@
 	<div class="remote-control-tbl">
 		<div class="remote-control-tr">
 			<div class="remote-control-td2 btn-pointer" id="goTop">
-				<img src="user/0.img/re-up.png" width="55%" alt="" />
+				<img src="/user/0.img/re-up.png" width="55%" alt="" />
 			</div>
 			<div class="remote-control-td">アップ</div>
 		</div>
 		<div class="remote-control-tr">
 			<div class="remote-control-td2 btn-pointer">
-				<img src="user/0.img/line-icon22.png" width="60%" alt="" />
+				<img src="/user/0.img/line-icon22.png" width="60%" alt="" />
 			</div>
 			<div class="remote-control-td">1:1チャット</div>
 		</div>
@@ -153,12 +153,12 @@
 			</div>
 			<div class="footer-item-td-2">
 				<div>
-					合同会社 <img src="user/0.img/footerlogo.png" id="footer-logo-img" alt="" /><a
+					合同会社 <img src="/user/0.img/footerlogo.png" id="footer-logo-img" alt="" /><a
 						href="/login">ハロー </a>
 				</div>
 				<div>
-					代表社員 ： 大出 昭子 <img src="user/0.img/footerinstaicon.png" id="footer-logo-img-sns" alt="" /> <img
-						src="user/0.img/footerlineicon.png" id="footer-logo-img-sns" alt="" />
+					代表社員 ： 大出 昭子 <img src="/user/0.img/footerinstaicon.png" id="footer-logo-img-sns" alt="" /> <img
+						src="/user/0.img/footerlineicon.png" id="footer-logo-img-sns" alt="" />
 				</div>
 				<div>Copyright 2023. MGKD.All rights reserved</div>
 			</div>
