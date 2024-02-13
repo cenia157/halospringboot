@@ -9,10 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+@RequestMapping("/info")
 @Controller
 public class AnnouncedC {
 
@@ -20,7 +23,7 @@ public class AnnouncedC {
 	private AnnouncedService aService;
 
 	// 전체 조회 및 페이징 처리
-	@GetMapping("/AnnouncedC")
+	@GetMapping("/notice")
 	public String getAllAnnouncements(Model model) {
 
 		model.addAttribute("announcements", aService.getAllAnnouncements());
@@ -33,19 +36,9 @@ public class AnnouncedC {
 		return "index";
 	}
 
-//    // 클라이언트가 타이틀을 클릭할 때 POST 요청으로 오는 부분
-//    @PostMapping("/AnnouncedC")
-//    public void getAnnouncement(@RequestParam("an_seq") int anSeq, Model model) {
-////        AnnouncedDTO announcement = announcedService.getAnnouncement(anSeq);
-////        model.addAttribute("announcement", announcement);
-//    	
-//    	
-//        
-//        
-//    }
-
+	// 모달창 조회
 	@ResponseBody
-	@PostMapping("/AnnouncedC")
+	@PostMapping("/notice/getNotice")
 	public ResponseEntity<?> getAnnouncement(@RequestParam("an_seq") int anSeq) {
 		AnnouncedDTO announcement = aService.getAnnouncement(anSeq);
 		if (announcement != null) {
@@ -55,13 +48,10 @@ public class AnnouncedC {
 		}
 	}
 
-
-
-	// 페이징 처리
-	@GetMapping("/AnnouncedPagingC")
-	public String AnnouncedPagingC(@RequestParam(value = "p", required = false, defaultValue = "1") int p,
-			Model model) {
-
+	// 페이징처리
+	@GetMapping("/notice/{p}")
+	public String announcedPaging(@PathVariable(value = "p") int p, Model model) {
+			
 		model.addAttribute("announcements", aService.getAllAnnouncements());
 
 		aService.announcedPaging(p, model);
@@ -71,4 +61,6 @@ public class AnnouncedC {
 
 		return "index";
 	}
+	
+	
 }
