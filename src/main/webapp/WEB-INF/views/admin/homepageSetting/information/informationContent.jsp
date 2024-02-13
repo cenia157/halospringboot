@@ -14,7 +14,7 @@
 	<div class="content-m-td-2-wrap">
 		<div class="content-m-td-2-wrap-contain">
 	<!-- 폼태그 => 회사정보변경C -->
-		<form action="InformUpdateC" method="post">
+		<form action="/update" method="post">
 			<div class="CompanyInformation">
 				<div class="CompanyInformation-large">
 					<div class="CompanyInformation-info">会社住所</div>
