@@ -9,7 +9,6 @@ $(function() {
 
 	menutitle.click(function() {
 		let menulength = $(this).closest(".menu-td-3-td-open-td-2-con").find(".menu-td-3-td-open-td-2-con-td-2").children().length;
-		console.log(menulength)
 		if (openedmenu != null) {
 			openedmenu.parent().css("background-color", "");
 			openedmenu.closest(".menu-td-3-td-open-td-2").css("height", "7%");
