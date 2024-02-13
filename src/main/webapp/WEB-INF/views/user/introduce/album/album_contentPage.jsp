@@ -14,7 +14,7 @@
     <div class="a_content-box-tr1">
         <div class="a_content-box-tr1-td1">
             <div class="a_content-box-tr1-td1-1">
-                <span><a href="Announced_C">お知らせ</a></span>
+                <span><a href="AnnouncedC">お知らせ</a></span>
             </div>
             <div class="a_content-box-tr1-td1-2">
                 <span><a href="Album_insta_api_C">アルバム</a></span>
