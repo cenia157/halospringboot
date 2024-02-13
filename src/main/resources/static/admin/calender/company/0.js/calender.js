@@ -81,7 +81,7 @@ let confirmDeleteModal = 0;
 function getAllSchedule() {
 
 	// 전체 회사 일정 ajax 호출
-	fetch('/admin/company/scheduleList')
+	fetch('/admin/schedule/company/scheduleList')
 		.then(response => response.json())
 		.then(data => {
 
@@ -380,7 +380,7 @@ function insertCompanyC() {
 		cs_update: currentYear + '/' + currentMonth + '/' + currentDate + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
 	}
 
-	fetch('/admin/company/insert', {
+	fetch('/admin/schedule/company/insert', {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -585,7 +585,7 @@ function updateTxt(atag) {
 		cs_no: selectDetailSchedule.cs_no
 	}
 
-	fetch('/admin/company/update', {
+	fetch('/admin/schedule/company/update', {
 		method: 'PUT',
 		headers: {
 			"Content-Type": "application/json"
@@ -648,7 +648,7 @@ function deleteScheduleDate(atag) {
 		cs_no: selectDetailSchedule.cs_no
 	}
 
-	fetch('/admin/company/delete', {
+	fetch('/admin/schedule/company/delete', {
 		method: 'PUT',
 		headers: {
 			"Content-Type": "application/json"
@@ -723,7 +723,7 @@ function rowScheduleDelete(a) {
 			cs_no: dateDivValue
 		}
 
-		fetch('/admin/company/deleterow', {
+		fetch('/admin/schedule/company/deleterow', {
 			method: 'DELETE',
 			headers: {
 				"Content-Type": "application/json"
