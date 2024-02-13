@@ -36,8 +36,8 @@ public class NoticeC {
 	// 페이징처리
 	@GetMapping("/NoticePagingC")
 	public String getNoticePagingC(@RequestParam(value = "p", required = false, defaultValue = "1") int p,
-			@RequestParam("checkVal") String checkVal, @RequestParam(value = "seq", required = false) Integer seq,
-			Model model) {
+								   @RequestParam("checkVal") String checkVal, 
+								   @RequestParam(value = "seq", required = false) Integer seq, Model model) {
 
 		model.addAttribute("notices", nService.getAllNotice(checkVal));
 		nService.noticePaging(p, model);
@@ -55,8 +55,7 @@ public class NoticeC {
 
 	// 페이징처리
 	@PostMapping("/NoticePagingC")
-	public String postNoticePagingC(@RequestParam(value = "p", required = false, defaultValue = "1") int p,
-			Model model) {
+	public String postNoticePagingC(@RequestParam(value = "p", required = false, defaultValue = "1") int p, Model model) {
 
 		nService.noticePaging(p, model);
 
@@ -68,21 +67,21 @@ public class NoticeC {
 
 	// 상세조회
 	@ResponseBody
-	@PostMapping(value = "/GetNoticeDetailC", produces = "application/json;charset=UTF-8")
+	@PostMapping(value = "/GetNoticeDetailC")
 	public List<NoticeDTO> getNoticeDetailC(@RequestParam("an_seq") int an_seq) {
 		return nService.getNoticeDetailList(an_seq);
 	}
 
 	// 이미지 업로드
 	@ResponseBody
-	@PostMapping(value = "/halo/CKEditorImgUploadC", produces = "application/json;charset=UTF-8")
+	@PostMapping(value = "/halo/CKEditorImgUploadC")
 	public ResponseEntity<?> uploadFile(@RequestParam("upload") MultipartFile file) {
 		return nService.uploadFile(file);
 	}
 
 	// 게시물 등록
 	@ResponseBody
-	@PostMapping(value = "/CkEditorC", produces = "application/json;charset=UTF-8")
+	@PostMapping(value = "/CkEditorC")
 	public int regNotice(@RequestParam(value = "writer", required = false, defaultValue = "세션없음") String writer,
 	                     @RequestParam("title") String title, 
 	                     @RequestParam("select") String select, 
@@ -94,7 +93,7 @@ public class NoticeC {
 	
 	// 게시물 업데이트
 	@ResponseBody
-	@PutMapping(value = "/UpdateNoticeC", produces = "application/json;charset=UTF-8")
+	@PutMapping(value = "/UpdateNoticeC")
 	public int updateNoticeC(@RequestParam("title") String title, 
 							 @RequestParam("select") String select, 
 							 @RequestParam("txt") String txt,
