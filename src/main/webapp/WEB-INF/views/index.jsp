@@ -53,7 +53,7 @@
 			<div class="header-tr-2">
 				<div class="header-td-menu">
 					<div class="header-td-menu-title">
-						<a href="/info/company" class="">紹介 <span
+						<a href="/introduce/company" class="">紹介 <span
 							class="header-td-menu-under"></span>
 						</a>
 					</div>
@@ -75,8 +75,8 @@
 			</div>
 			<div class="header-opmenu">
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="/info/company">会社について</a> <a
-						class="header-opmenu-a" href="/info/map">施設アクセス</a>
+					<a class="header-opmenu-a" href="/introduce/company">会社について</a> <a
+						class="header-opmenu-a" href="/introduce/map">施設アクセス</a>
 				</div>
 				<div class="header-opmenu-td">
 					<a class="header-opmenu-a" href="AnnouncedC">お知らせ</a> <a
