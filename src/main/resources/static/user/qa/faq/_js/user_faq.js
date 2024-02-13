@@ -1,6 +1,6 @@
 function loadFAQDetailContent(qa_seq, qa_title, qa_content, qa_reg_date){
     $.ajax({
-        url: "LoadFAQDetailContentC",
+        url: "faqData",
         dataType: "json",
         type: "post",
         data:{
