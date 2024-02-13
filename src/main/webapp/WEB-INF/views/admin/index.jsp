@@ -182,11 +182,11 @@
 			<!-- 헤더 -->
 			<div class="header-tr">
 				<div class="header-td">
-<!-- 					<div class="header-td-user"> -->
-<%-- 						<div>${login_name }</div> --%>
-<!-- 					</div> -->
-<!-- 					<input type="hidden" id="sessionTimeoutVal" -->
-<%-- 						value="${sessionTimeout }"> --%>
+					<div class="header-td-user">
+						<div>${login_name }</div>
+					</div>
+					<input type="hidden" id="sessionTimeoutVal"
+						value="${sessionTimeout }">
 					<div class="header-td-login">
 						<p id="sessionTimeout" class="sessionTimeout">
 							<img alt="" src="/admin/0.img/timer.png"> <span id="timer"></span>
@@ -195,7 +195,7 @@
 							<a href="#" id="extendTime">時間の延長</a>
 						</div>
 						<div>
-							<a onclick="location.href='LogoutC'">ログアウト</a>
+							<a onclick="location.href='/admin/logout'">ログアウト</a>
 						</div>
 					</div>
 				</div>
@@ -215,5 +215,5 @@
 		</div>
 	</div>
 </body>
-<!-- <script src="admin/_js/loginSession.js"></script> -->
+<script src="/admin/_js/loginSession.js"></script>
 </html>
