@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,13 +27,15 @@ public class FAQC {
 		return "index";
 	}
 	
-	@ResponseBody
-	@PostMapping("/faqData")
-	public String FAQDetail(@RequestParam int qa_seq) {
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("qa_seq: " + qa_seq);
-		return faqService.getFAQDetail(qa_seq);
-	}
+//	@ResponseBody
+//	@GetMapping("/faqData")
+//	public String getFAQData(@RequestParam("qa_seq") int qa_seq, Model model) {
+//		System.out.println(faqService.getFAQDetail(qa_seq));
+//		return faqService.getFAQDetail(qa_seq);
+//	}
+
+
+
 	
 	
 }

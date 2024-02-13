@@ -162,49 +162,57 @@ function closeModalNR() {
 
 function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
 
-	$.ajax({
-		url: "getFAQDetailC",
-		method: "post",
-		data: {
-			qa_seq: qa_seq,
-			qa_title: qa_title,
-			qa_content: qa_content,
-			qa_reg_date: qa_reg_date
-		},
-
-		success: function(data) {
-
-			if (Array.isArray(data) && data.length > 0) {
-				let qa_seq = data[0].qa_seq;
-				let qa_title = data[0].qa_title;
-				let qa_content = data[0].qa_content;
-				let qa_reg_date = data[0].qa_reg_date;
-
-				$('#modal-seq').val(qa_seq);
-				//				$('#classicNR_Title').val(qa_title);
-				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
-				//				$('#real-title-editor').attr('placeholder', qa_title);	
-				$('#real-title-editor').val(qa_title);
-				$('#classicNR').html(qa_content);
-
-
-
-				// CKEditor에 데이터 설정
-				window.editor.setData(qa_content);
-
-				//				let classicNR = document.getElementById("classicNR");
-				//				classicNR.innerHTML = "나옴?";
-
-				openModalF();
-			}
-
-
-		},
-		error: function(xhr, status, error) {
-			console.log("FAQ 데이터 가져오기 실패");
-			console.log("error:", xhr, status, error);
-		}
+	fetch('/getFAQDetail',{
+		method: "POST"
 	})
+	.then(response => response.json)
+	.then((data)=> {
+	console.log(data);
+	});
+	
+//	$.ajax({
+//		url: "getFAQDetail",
+//		method: "POST",
+//		data: {
+//			qa_seq: qa_seq,
+//			qa_title: qa_title,
+//			qa_content: qa_content,
+//			qa_reg_date: qa_reg_date
+//		},
+//
+//		success: function(data) {
+//
+//			if (Array.isArray(data) && data.length > 0) {
+//				let qa_seq = data[0].qa_seq;
+//				let qa_title = data[0].qa_title;
+//				let qa_content = data[0].qa_content;
+//				let qa_reg_date = data[0].qa_reg_date;
+//
+//				$('#modal-seq').val(qa_seq);
+//				//				$('#classicNR_Title').val(qa_title);
+//				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
+//				//				$('#real-title-editor').attr('placeholder', qa_title);	
+//				$('#real-title-editor').val(qa_title);
+//				$('#classicNR').html(qa_content);
+//
+//
+//
+//				// CKEditor에 데이터 설정
+//				window.editor.setData(qa_content);
+//
+//				//				let classicNR = document.getElementById("classicNR");
+//				//				classicNR.innerHTML = "나옴?";
+//
+//				openModalF();
+//			}
+//
+//
+//		},
+//		error: function(xhr, status, error) {
+//			console.log("FAQ 데이터 가져오기 실패");
+//			console.log("error:", xhr, status, error);
+//		}
+//	})
 
 }
 

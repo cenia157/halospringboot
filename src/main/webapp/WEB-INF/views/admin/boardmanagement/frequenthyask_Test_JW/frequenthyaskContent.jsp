@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -9,16 +10,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="admin/_js/ckeditor/ckeditor.js"></script>
 <title>Frequenthyask</title>
-<link rel="stylesheet" href="admin/0.css/test copy.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
 <link rel="stylesheet"
-	href="admin/boardmanagement/frequenthyask_Test_JW/0.css/frequenthyask.css" />
+	href="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask_Test_JW/0.css/frequenthyask.css" />
 
-<script src="admin/boardmanagement/frequenthyask_Test_JW/0.js/faq.js"></script>
-<script src="admin/_js/test.js"></script>
+<script src="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask_Test_JW/0.js/faq.js"></script>
+<script src="${pageContext.request.contextPath}/admin/_js/test.js"></script>
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
 </head>
+
 <body>
 	<div class="ontent-m-td-2-chackbox"></div>
 	<div class="ontent-m-td-2-content">
@@ -34,12 +36,12 @@
 			<c:forEach items="${FAQs}" var="qa" varStatus="loop">
 				<div class="ontent-m-td-2-content-txt-in">
 					<input type="hidden" name="qa_seq" value="${qa.qa_seq }">
-					<div class="ontent-m-td-2-content-txt-no-in">${(loop.index + 1) + (curPageNo -1) * 8 }
+					<div class="ontent-m-td-2-content-txt-no-in">${(loop.index + 1)}
 					</div>
 					<div class="ontent-m-td-2-content-txt-title-in" id="Title_css">
 						<a onclick="getFAQData('${qa.qa_seq}')">● ${qa.qa_title } </a>
 					</div>
-					<div class="ontent-m-td-2-content-txt-date-in">${qa.qa_reg_date}</div>
+					<div class="ontent-m-td-2-content-txt-date-in"><fmt:formatDate value="${qa.qa_reg_date}" pattern="yyyy-MM-dd"/></div>
 				</div>
 			</c:forEach>
 		</div>
