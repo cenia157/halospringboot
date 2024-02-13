@@ -106,7 +106,7 @@ let confirmDeleteModal = 0;
 function getAllSchedule() {
 
 	// 전체 회사 일정 ajax 호출
-	fetch('/admin/reservation/informlist')
+	fetch('/admin/schedule/reservation/informlist')
 		.then(response => response.json())
 		.then(data => {
 
@@ -229,7 +229,7 @@ function getAllSchedule() {
 
 // 스태프 조회
 function getAllStaff() {
-	fetch('/admin/reservation/stafflist')
+	fetch('/admin/schedule/reservation/stafflist')
 		.then(response => response.json())
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
@@ -248,7 +248,7 @@ function getAllStaff() {
 
 // 수락일정 조회
 function getAllReservationAccept() {
-	fetch('/admin/reservation/acceptlist')
+	fetch('/admin/schedule/reservation/acceptlist')
 		.then(response => response.json())
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
@@ -486,7 +486,7 @@ function reservationAccept(e) {
 	reservationScheduleList[reservationSelectArray].sa_staff = document.querySelector('.default-manager').innerText;
 
 	if (e.innerText == '承認') {
-		fetch('/admin/reservation/accept', {
+		fetch('/admin/schedule/reservation/accept', {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -504,7 +504,7 @@ function reservationAccept(e) {
 			});
 
 	} else {
-		fetch('/admin/reservation/decline', {
+		fetch('/admin/schedule/reservation/decline', {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -950,7 +950,7 @@ function reservationConfirm(e) {
 	arrayName.sa_feedback = document.querySelector('.reservation-modal-content-notice').children[0].value;
 	arrayName.sa_staff = document.querySelector('.default-manager').innerText;
 
-	fetch('/admin/reservation/update', {
+	fetch('/admin/schedule/reservation/update', {
 		method: 'PUT',
 		headers: {
 			"Content-Type": "application/json"
@@ -983,7 +983,7 @@ function reservationCancel() {
 
 // 예약 삭제
 function reservationDelete(e) {
-	fetch('/admin/reservation/delete', {
+	fetch('/admin/schedule/reservation/delete', {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json"
@@ -1211,7 +1211,7 @@ function reservationInsert() {
 
 	console.log(newReservation);
 
-	fetch('/admin/reservation/insert', {
+	fetch('/admin/schedule/reservation/insert', {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
