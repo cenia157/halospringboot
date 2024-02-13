@@ -51,7 +51,6 @@ public class QuestionService {
 
 		int cnt = 5;
 		int total = QnCs.size();
-		System.out.println("total ::: " + total);
 		int pageCount = (int) Math.ceil((double) total / cnt);
 
 		model.addAttribute("pageCount", pageCount);

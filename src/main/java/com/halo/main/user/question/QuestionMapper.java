@@ -15,7 +15,7 @@ public interface QuestionMapper {
 			+ "LEFT JOIN comment_tbl "
 			+ "c ON q.q_seq = c.q_seq "
 			+ "ORDER BY q.q_reg_date "
-			+ "DESC")
+			+ "ASC")
 	List<QuestionNCommentsVO> getAllQnCs();
 
 	@Select("SELECT q.*, c.* "
