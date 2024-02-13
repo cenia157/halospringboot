@@ -99,7 +99,7 @@ let confirmDeleteModal = 0;
 function getAllSchedule() {
 
 	// 전체 회사 일정 ajax 호출
-	fetch('employee/list')
+	fetch('/admin/employee/list')
 		.then(response => response.json())
 		.then(data => {
 
@@ -193,7 +193,7 @@ function getAllSchedule() {
 
 // 시프트 조회
 function getAllSift() {
-	fetch('employee/sift')
+	fetch('/admin/employee/sift')
 		.then(response => response.json())
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
@@ -282,7 +282,7 @@ function renderCalender(employeeList) {
 		if (today.getMonth() == currentMonth && today.getFullYear() == currentYear && fixedDate() == i) {
 
 			// 오늘 날짜 표기
-			calendar.innerHTML = calendar.innerHTML + '<div class="day current year' + currentYear + ' month' + currentCalenderMonth + ' date' + i + '"><div><div class="month-date">' + i + '</div><input type="checkbox" class="dateCheckBox" value=0><img src="user/0.img/logo.png"></div></div>'
+			calendar.innerHTML = calendar.innerHTML + '<div class="day current year' + currentYear + ' month' + currentCalenderMonth + ' date' + i + '"><div><div class="month-date">' + i + '</div><input type="checkbox" class="dateCheckBox" value=0><img src="/user/0.img/logo.png"></div></div>'
 			todayDate = today.getDate();
 			let currentMonthDate = document.querySelectorAll('.dates .current');
 			currentMonthDate[todayDate - 1].classList.add('today');
@@ -560,7 +560,7 @@ function insertSift() {
 			f_dates : employeerClickDates.toString()
 		}
 		
-		fetch('employee/insert', {
+		fetch('/admin/employee/insert', {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -583,7 +583,7 @@ function insertSift() {
 			f_dates : employeerClickDates.toString()
 		}
 		
-		fetch('employee/update', {
+		fetch('/admin/employee/update', {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json"
@@ -664,7 +664,7 @@ function siftDelete() {
 		f_no : joinSiftList[document.querySelector('.employee-data.' + employeerClickArray).children[4].value].f_pk
 	}
 	
-	fetch('employee/delete', {
+	fetch('/admin/employee/delete', {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json"

@@ -81,7 +81,7 @@ let confirmDeleteModal = 0;
 function getAllSchedule() {
 
 	// 전체 회사 일정 ajax 호출
-	fetch('company/scheduleList')
+	fetch('/admin/company/scheduleList')
 		.then(response => response.json())
 		.then(data => {
 
@@ -239,7 +239,7 @@ function renderCalender(CompanyScheduleList) {
 		if (today.getMonth() == currentMonth && today.getFullYear() == currentYear && fixedDate() == i) {
 
 			// 오늘 날짜 표기
-			calendar.innerHTML = calendar.innerHTML + '<div class="day current year' + currentYear + ' month' + currentCalenderMonth + ' date' + i + '"><div><div class="month-date">' + i + '</div><input type="checkbox" class="dateCheckBox" value=0><img src="user/0.img/logo.png"></div></div>'
+			calendar.innerHTML = calendar.innerHTML + '<div class="day current year' + currentYear + ' month' + currentCalenderMonth + ' date' + i + '"><div><div class="month-date">' + i + '</div><input type="checkbox" class="dateCheckBox" value=0><img src="/user/0.img/logo.png"></div></div>'
 			todayDate = today.getDate();
 			let currentMonthDate = document.querySelectorAll('.dates .current');
 			currentMonthDate[todayDate - 1].classList.add('today');
@@ -335,8 +335,42 @@ function checkDate(e) {
 	document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
 }
 
+function insertTrouble(input) {
+	input.style.background = '#3B82F6';
+	input.style.color = '#FFF';
+	if (input == document.querySelector('.input-date')) {
+		input.value = input.value = '日付を選択してください！！！';
+	} else {
+		input.value = input.value = '入力必要！！！';
+	}
+	setTimeout(function() {
+		input.style.backgroundColor = "#FFF";
+		if (input == document.querySelector('.input-date')) {
+			input.value = input.value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+		} else {
+			input.value = input.value = '';
+		}
+		input.style.color = '#000';
+	}, 1000);
+}
+
 // 일정 추가
 function insertCompanyC() {
+	if (document.querySelector('.input-title').value == '') {
+		insertTrouble(document.querySelector('.input-title'));
+		return;
+	}
+
+	if (document.querySelector('.input-date').value.split('月 ')[1] == '') {
+		insertTrouble(document.querySelector('.input-date'));
+		return;
+	}
+
+	if (document.querySelector('.input-txt').value == '') {
+		insertTrouble(document.querySelector('.input-txt'));
+		return;
+	}
+
 	let insertScheduleData = {
 		cs_title: document.querySelector('.input-title').value,
 		cs_date: document.querySelector('.input-date').value.split('月 ')[1],
@@ -346,7 +380,7 @@ function insertCompanyC() {
 		cs_update: currentYear + '/' + currentMonth + '/' + currentDate + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
 	}
 
-	fetch('company/insert', {
+	fetch('/admin/company/insert', {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -356,7 +390,7 @@ function insertCompanyC() {
 		.then(response => response.text())
 		.then(data => {
 			if (data == 1) {
-				location.href='/company';
+				location.href = '/company';
 			}
 		})
 		.catch(error => {
@@ -532,6 +566,18 @@ function updateAtagClick(atag) {
 
 // 일정 내용 업데이트
 function updateTxt(atag) {
+	if (atag.previousSibling.value == '') {
+		atag.previousSibling.style.background = '#3B82F6';
+		atag.previousSibling.style.color = '#FFF';
+		atag.previousSibling.value = atag.previousSibling.value = '入力必要！！！';
+		setTimeout(function() {
+			atag.previousSibling.style.backgroundColor = "#FFF";
+			atag.previousSibling.value = atag.previousSibling.value = '';
+			atag.previousSibling.style.color = '#000';
+		}, 1000);
+		return;
+	}
+
 	let inputUpdateTxt = atag.previousSibling.value;
 
 	let params = {
@@ -539,7 +585,7 @@ function updateTxt(atag) {
 		cs_no: selectDetailSchedule.cs_no
 	}
 
-	fetch('company/update', {
+	fetch('/admin/company/update', {
 		method: 'PUT',
 		headers: {
 			"Content-Type": "application/json"
@@ -602,7 +648,7 @@ function deleteScheduleDate(atag) {
 		cs_no: selectDetailSchedule.cs_no
 	}
 
-	fetch('company/delete', {
+	fetch('/admin/company/delete', {
 		method: 'PUT',
 		headers: {
 			"Content-Type": "application/json"
@@ -677,7 +723,7 @@ function rowScheduleDelete(a) {
 			cs_no: dateDivValue
 		}
 
-		fetch('company/deleterow', {
+		fetch('/admin/company/deleterow', {
 			method: 'DELETE',
 			headers: {
 				"Content-Type": "application/json"

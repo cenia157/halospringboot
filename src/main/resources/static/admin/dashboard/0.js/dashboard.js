@@ -11,7 +11,7 @@ window.onload = function() {
 		month : month
 	}
 
-	fetch('dashboard/list', {
+	fetch('/admin/dashboard/list', {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"

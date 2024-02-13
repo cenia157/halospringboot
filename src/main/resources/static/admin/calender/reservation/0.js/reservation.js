@@ -37,6 +37,9 @@ let reservationAcceptList = new Array;
 // 날짜 체크박스 클릭 배열
 let dateArr = new Array(32).fill(0);
 
+// 날짜 수정 취소시 기존 배열
+let prevDateArr = new Array(32).fill(0);
+
 // 일별 일정 배열
 let reservationArrayDate = new Array();
 
@@ -103,7 +106,7 @@ let confirmDeleteModal = 0;
 function getAllSchedule() {
 
 	// 전체 회사 일정 ajax 호출
-	fetch('reservation/informlist')
+	fetch('/admin/reservation/informlist')
 		.then(response => response.json())
 		.then(data => {
 
@@ -226,7 +229,7 @@ function getAllSchedule() {
 
 // 스태프 조회
 function getAllStaff() {
-	fetch('reservation/stafflist')
+	fetch('/admin/reservation/stafflist')
 		.then(response => response.json())
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
@@ -245,7 +248,7 @@ function getAllStaff() {
 
 // 수락일정 조회
 function getAllReservationAccept() {
-	fetch('reservation/acceptlist')
+	fetch('/admin/reservation/acceptlist')
 		.then(response => response.json())
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
@@ -346,7 +349,7 @@ function renderCalender() {
 		if (today.getMonth() == currentMonth && today.getFullYear() == currentYear && fixedDate() == i) {
 
 			// 오늘 날짜 표기
-			calendar.innerHTML = calendar.innerHTML + '<div class="day current year' + currentYear + ' month' + currentCalenderMonth + ' date' + i + '"><div><div class="month-date">' + i + '</div><input type="checkbox" class="dateCheckBox" value=0><img src="user/0.img/logo.png"></div></div>'
+			calendar.innerHTML = calendar.innerHTML + '<div class="day current year' + currentYear + ' month' + currentCalenderMonth + ' date' + i + '"><div><div class="month-date">' + i + '</div><input type="checkbox" class="dateCheckBox" value=0><img src="/user/0.img/logo.png"></div></div>'
 			todayDate = today.getDate();
 			let currentMonthDate = document.querySelectorAll('.dates .current');
 			currentMonthDate[todayDate - 1].classList.add('today');
@@ -479,11 +482,11 @@ function managerSelect(e) {
 
 // 예약 디테일 승인
 function reservationAccept(e) {
-		reservationScheduleList[reservationSelectArray].sa_feedback = document.querySelector('.reservation-modal-content-notice').children[0].value;
-		reservationScheduleList[reservationSelectArray].sa_staff = document.querySelector('.default-manager').innerText;
-		
+	reservationScheduleList[reservationSelectArray].sa_feedback = document.querySelector('.reservation-modal-content-notice').children[0].value;
+	reservationScheduleList[reservationSelectArray].sa_staff = document.querySelector('.default-manager').innerText;
+
 	if (e.innerText == '承認') {
-		fetch('reservation/accept', {
+		fetch('/admin/reservation/accept', {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -501,7 +504,7 @@ function reservationAccept(e) {
 			});
 
 	} else {
-		fetch('reservation/decline', {
+		fetch('/admin/reservation/decline', {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -598,16 +601,31 @@ function checkDate(e) {
 		e.target.value = 0;
 	}
 
-	document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+	console.log(dateArr)
+
+	if (reservationModalValue == "update") {
+		document.querySelector('.reservation-modal-content-book').children[0].value = '';
+	} else {
+		document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+	}
+
 
 	for (let i = 1; i <= dateArr.length; i++) {
 		if (dateArr[i] == 1) {
-			document.querySelector('.input-date').value += i + ',';
+			if (reservationModalValue == "update") {
+				document.querySelector('.reservation-modal-content-book').children[0].value += i + ',';
+			} else {
+				document.querySelector('.input-date').value += i + ',';
+			}
 		}
 	}
 
 	// 사용자가 보기위한 출력
-	document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
+	if (reservationModalValue == "update") {
+		document.querySelector('.reservation-modal-content-book').children[0].value = document.querySelector('.reservation-modal-content-book').children[0].value.slice(0, -1);
+	} else {
+		document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
+	}
 }
 
 
@@ -661,22 +679,30 @@ function expandReservationSchedule(e) {
 
 // 일정 디테일 모달 출력
 function reservationDetailModal() {
-
+	prevDateArr = dateArr;
+	
 	document.querySelector('.backrop').style.display = 'flex';
 	document.querySelector('.reservation-modal-agree-btn').style.display = "none";
 	document.querySelector('.reservation-modal-update-btn').style.display = "none";
 	document.querySelector('.reservation-modal-detail-btn').style.display = "none";
+	document.querySelector('.update-time-trouble-modal').style.display = 'none';
 
 	document.querySelectorAll('.update-time-checkBox').forEach(function(e) {
 		e.checked = false;
 	})
 
-	// 달력 라벨 색
+	// 달력 라벨 색 및 체크 초기화
 	if (reservationModalValue == "direct") {
-		for (let i = 0; i < reservationClickDate.length; i++) {
-			document.querySelector('.current.date' + reservationClickDate[i]).children[0].style.backgroundColor = '#FFF';
-			document.querySelector('.current.date' + reservationClickDate[i]).children[0].children[1].checked = false;
-		}
+		document.querySelectorAll('.current').forEach(function(e) {
+			console.log(123)
+			e.children[0].style.backgroundColor = '#FFF';
+			e.children[0].children[1].checked = false;
+			e.children[0].children[1].value = 0;
+		})
+
+		document.querySelectorAll('.dateCheckBox').forEach(function(e) {
+			e.disabled = true;
+		})
 	}
 
 	if (reservationModalValue == "list") {
@@ -727,9 +753,14 @@ function reservationDetailModal() {
 		for (let i = 0; i < reservationAcceptList[reservationSelectArray].sa_days.split(',').length; i++) {
 			document.querySelector('.current.date' + reservationAcceptList[reservationSelectArray].sa_days.split(',')[i]).children[0].style.backgroundColor = 'rgba(138, 182, 255, 1)';
 			document.querySelector('.current.date' + reservationAcceptList[reservationSelectArray].sa_days.split(',')[i]).children[0].children[1].checked = true;
+			document.querySelector('.current.date' + reservationAcceptList[reservationSelectArray].sa_days.split(',')[i]).children[0].children[1].value = 1;
+			dateArr[(reservationAcceptList[reservationSelectArray].sa_days.split(',')[i])] = 1;
+
 
 			reservationClickDate = reservationAcceptList[reservationSelectArray].sa_days.split(',')
 		}
+
+		console.log(dateArr)
 
 		document.querySelector('.reservation-modal-update-btn').style.display = "flex";
 
@@ -785,6 +816,12 @@ function reservationDetailModal() {
 
 
 	if (reservationModalValue == "update") {
+		document.querySelector('.backrop').style.display = 'none';
+
+		document.querySelectorAll('.dateCheckBox').forEach(function(e) {
+			e.disabled = false;
+		})
+
 		document.querySelectorAll('.update-time-checkBox').forEach(function(e) {
 			e.disabled = false;
 		})
@@ -804,20 +841,7 @@ function reservationDetailModal() {
 		document.querySelector('.reservation-modal-content-name').innerHTML = '<input style="font-size:1.5rem; width:100%;" value="' + arrayName.sa_user_name + '">';
 		document.querySelector('.reservation-modal-content-phone').innerHTML = '<input style="font-size:1.5rem; width:100%;" value="' + arrayName.sa_phone_number + '">';
 		document.querySelector('.reservation-modal-content-addr').innerHTML = '<input style="font-size:1.5rem; width:100%;" value="' + arrayName.sa_addr + '">';
-
-		let datesFolding = '';
-		if (arrayName.sa_days.split(',').length > 15) {
-			for (let i = 0; i < arrayName.sa_days.split(',').length; i++) {
-				datesFolding += arrayName.sa_days.split(',')[i] + ',';
-				if (i == 14) {
-					datesFolding += '<br>';
-				}
-			}
-			document.querySelector('.reservation-modal-content-book').innerHTML = arrayName.sa_year + '-' + arrayName.sa_month + '-' + '<input style="font-size:1.5rem; width:100%;" value="' + datesFolding.slice(0, -1) + '">';
-		} else {
-			document.querySelector('.reservation-modal-content-book').innerHTML = arrayName.sa_year + '-' + arrayName.sa_month + '-' + '<input style="font-size:1.5rem; width:100%;" value="' + reservationAcceptList[reservationSelectArray].sa_days + '">';
-		}
-
+		document.querySelector('.reservation-modal-content-book').innerHTML = arrayName.sa_year + '-' + arrayName.sa_month + '-' + '<textarea style="font-size:1.5rem; width:100%;" readonly>' + reservationAcceptList[reservationSelectArray].sa_days + '</textarea>';
 		document.querySelector('.reservation-modal-content-startpoint').innerHTML = '<input style="font-size:1.5rem; width:100%;" value="' + arrayName.sa_start_place + '">';
 		document.querySelector('.reservation-modal-content-endpoint').innerHTML = '<input style="font-size:1.5rem; width:100%;" value="' + arrayName.sa_start_place + '">';
 		document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea>' + arrayName.sa_feedback + '</textarea>';
@@ -847,6 +871,30 @@ function reservationDeleteCancle() {
 	document.querySelector('.confirm-delete').style.display = 'none';
 }
 
+function updateTrouble(input) {
+	input.style.background = '#3B82F6';
+	input.style.color = '#FFF';
+
+	if (input == document.querySelector('.reservation-modal-content-book').children[0]) {
+		input.value = input.value = '日付を選択してください！！！';
+	} else if (input == document.querySelector('.select-insert').children[0]) {
+
+	} else {
+		input.value = input.value = '入力必要！！！';
+	}
+	setTimeout(function() {
+		input.style.backgroundColor = "#FFF";
+		if (input == document.querySelector('.reservation-modal-content-book').children[0]) {
+			input.value = '';
+		} else if (input == document.querySelector('.select-insert').children[0]) {
+
+		} else {
+			input.value = input.value = '';
+		}
+		input.style.color = '#000';
+	}, 1000);
+}
+
 // 예약일정 수정확인
 function reservationConfirm(e) {
 	let time = '';
@@ -858,10 +906,43 @@ function reservationConfirm(e) {
 	} else if (document.querySelector('.reservation-modal-content-time input[value="PM"]').checked) {
 		time = document.querySelector('.reservation-modal-content-time input[value="PM"]').value;
 	}
+	
+	if(document.querySelector('.reservation-modal-title').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-title').children[0]);
+		return;
+	}
+	if(time == '') {
+		document.querySelector('.update-time-trouble-modal').style.display = 'flex';
+		setTimeout(function() {
+			document.querySelector('.update-time-trouble-modal').style.display = 'none';
+		}, 1000);
+		return;
+	}
+	if(document.querySelector('.reservation-modal-content-name').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-content-name').children[0]);
+		return;
+	}
+	if(document.querySelector('.reservation-modal-content-phone').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-content-phone').children[0]);
+		return;
+	}
+	if( document.querySelector('.reservation-modal-content-addr').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-content-addr').children[0]);
+		return;
+	}
+	if( document.querySelector('.reservation-modal-content-book').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-content-book').children[0]);
+		return;
+	}
+	if(document.querySelector('.reservation-modal-content-notice').children[0].value == '') {
+		updateTrouble(document.querySelector('.reservation-modal-content-notice').children[0]);
+		return;
+	}
 
 	arrayName.sa_service = document.querySelector('.reservation-modal-title').children[0].value;
 	arrayName.sa_time = time;
 	arrayName.sa_user_name = document.querySelector('.reservation-modal-content-name').children[0].value;
+	arrayName.sa_phone_number = document.querySelector('.reservation-modal-content-name').children[0].value;
 	arrayName.sa_addr = document.querySelector('.reservation-modal-content-addr').children[0].value;
 	arrayName.sa_days = document.querySelector('.reservation-modal-content-book').children[0].value;
 	arrayName.sa_start_place = document.querySelector('.reservation-modal-content-startpoint').children[0].value;
@@ -869,11 +950,7 @@ function reservationConfirm(e) {
 	arrayName.sa_feedback = document.querySelector('.reservation-modal-content-notice').children[0].value;
 	arrayName.sa_staff = document.querySelector('.default-manager').innerText;
 
-//	let params = {
-//		object: arrayName
-//	}
-
-	fetch('reservation/update', {
+	fetch('/admin/reservation/update', {
 		method: 'PUT',
 		headers: {
 			"Content-Type": "application/json"
@@ -899,28 +976,29 @@ function reservationConfirm(e) {
 
 function reservationCancel() {
 	reservationModalValue = "direct";
+	dateArr = prevDateArr;
 
 	reservationDetailModal();
 }
 
 // 예약 삭제
 function reservationDelete(e) {
-	fetch('reservation/delete', {
-			method: "DELETE",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(reservationAcceptList[reservationSelectArray]),
+	fetch('/admin/reservation/delete', {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(reservationAcceptList[reservationSelectArray]),
+	})
+		.then(response => response.text())
+		.then(data => {
+			if (data == 1) {
+				location.href = '/reservation';
+			}
 		})
-			.then(response => response.text())
-			.then(data => {
-				if (data == 1) {
-					location.href = '/reservation';
-				}
-			})
-			.catch(error => {
-				console.error('데이터를 가져오는 중 오류 발생:', error);
-			});
+		.catch(error => {
+			console.error('데이터를 가져오는 중 오류 발생:', error);
+		});
 }
 
 
@@ -968,6 +1046,8 @@ function rowScheduleDeleteClick(atag) {
 
 // 예약 신규 등록 온
 function reservationInsertPageOn() {
+	dateArr = new Array(32).fill(0);
+	
 	if (reservationClickArray != '') {
 		document.querySelector('.reservation-data.' + reservationClickArray).children[3].children[0].style.display = 'none';
 		document.querySelector('.reservation-data.' + reservationClickArray).style.backgroundColor = '#FFF';
@@ -978,6 +1058,7 @@ function reservationInsertPageOn() {
 	}
 
 	document.querySelectorAll('.dateCheckBox').forEach(function(e) {
+		e.value = 0;
 		e.disabled = false;
 	})
 
@@ -996,7 +1077,7 @@ function reservationInsertPageOn() {
 	document.querySelector('.ins-tr-3-btn-insert').style.display = 'flex';
 	document.querySelector('.reservation-insert-service').style.display = 'flex';
 	document.querySelector('.reservation-insert-time').style.display = 'flex';
-
+	document.querySelector('.time-trouble-modal').style.display = 'none';
 
 	document.querySelector('.select-insert').addEventListener("click", function() {
 		insertManagerSelectValue = "insert";
@@ -1040,6 +1121,30 @@ function reservationInsertPageClose() {
 	document.querySelector('.reservation-insert-time').style.display = 'none';
 }
 
+function insertTrouble(input) {
+	input.style.background = '#3B82F6';
+	input.style.color = '#FFF';
+
+	if (input == document.querySelector('.reservation-insert-book').children[0]) {
+		input.value = input.value = '日付を選択してください！！！';
+	} else if (input == document.querySelector('.select-insert').children[0]) {
+
+	} else {
+		input.value = input.value = '入力必要！！！';
+	}
+	setTimeout(function() {
+		input.style.backgroundColor = "#FFF";
+		if (input == document.querySelector('.reservation-insert-book').children[0]) {
+			input.value = input.value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+		} else if (input == document.querySelector('.select-insert').children[0]) {
+
+		} else {
+			input.value = input.value = '';
+		}
+		input.style.color = '#000';
+	}, 1000);
+}
+
 // 예약 신규 등록
 function reservationInsert() {
 	let time = '';
@@ -1050,6 +1155,42 @@ function reservationInsert() {
 		time = document.querySelector('.reservation-insert-time input[value="AM"]').value;
 	} else if (document.querySelector('.reservation-insert-time input[value="PM"]').checked) {
 		time = document.querySelector('.reservation-insert-time input[value="PM"]').value;
+	}
+
+	if (document.querySelector('.reservation-insert-service').value == '') {
+		insertTrouble(document.querySelector('.reservation-insert-service'));
+		return;
+	}
+	if (time == '') {
+		document.querySelector('.time-trouble-modal').style.display = 'flex';
+		setTimeout(function() {
+			document.querySelector('.time-trouble-modal').style.display = 'none';
+		}, 1000);
+		return;
+	}
+	if (document.querySelector('.reservation-insert-name').children[0].value == '') {
+		insertTrouble(document.querySelector('.reservation-insert-name').children[0])
+		return;
+	}
+	if (document.querySelector('.reservation-insert-phone').children[0].value == '') {
+		insertTrouble(document.querySelector('.reservation-insert-phone').children[0])
+		return;
+	}
+	if (document.querySelector('.reservation-insert-addr').children[0].value == '') {
+		insertTrouble(document.querySelector('.reservation-insert-addr').children[0])
+		return;
+	}
+	if (document.querySelector('.reservation-insert-book').children[0].value.split('月 ')[1] == '') {
+		insertTrouble(document.querySelector('.reservation-insert-book').children[0])
+		return;
+	}
+	if (document.querySelector('.reservation-insert-notice').children[0].value == '') {
+		insertTrouble(document.querySelector('.reservation-insert-notice').children[0])
+		return;
+	}
+	if (document.querySelector('.select-insert').children[0].innerText == 'スタッフ選び') {
+		insertTrouble(document.querySelector('.select-insert').children[0])
+		return;
 	}
 
 	let newReservation = {
@@ -1065,27 +1206,27 @@ function reservationInsert() {
 		sa_end_place: document.querySelector('.reservation-insert-endpoint').children[0].value,
 		sa_feedback: document.querySelector('.reservation-insert-notice').children[0].value,
 		sa_staff: document.querySelector('.select-insert').children[0].innerText,
-		sa_registration_date : date.toLocaleDateString()
+		sa_registration_date: date.toLocaleDateString()
 	};
 
 	console.log(newReservation);
 
-	fetch('reservation/insert', {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(newReservation),
+	fetch('/admin/reservation/insert', {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(newReservation),
+	})
+		.then(response => response.text())
+		.then(data => {
+			if (data == 1) {
+				location.href = '/reservation';
+			}
 		})
-			.then(response => response.text())
-			.then(data => {
-				if (data == 1) {
-					location.href = '/reservation';
-				}
-			})
-			.catch(error => {
-				console.error('데이터를 가져오는 중 오류 발생:', error);
-			});
+		.catch(error => {
+			console.error('데이터를 가져오는 중 오류 발생:', error);
+		});
 }
 
 // 디테일창 드로그앤드롭
