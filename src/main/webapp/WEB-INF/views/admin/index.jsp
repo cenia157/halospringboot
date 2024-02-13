@@ -60,21 +60,20 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<!-- TODO 서효원 기능 서블렛 만들때마다 연결시키고 컨트롤러 if문 지우기! -->
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="LogoUploadC">ロゴ変更</a>
+											href="/logo">ロゴ変更</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="MainBannerUpdateC">クイックメニュー設定</a>
+											href="/quick_menu">クイックメニュー設定</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="BannerUploadC">下のバナー設定</a>
+											href="/banner">下のバナー設定</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="InformUpdateC">会社情報変更</a>
+											href="/infoUpdate">会社情報変更</a>
 									</div>
 								</div>
 							</div>
