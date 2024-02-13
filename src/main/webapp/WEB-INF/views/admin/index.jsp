@@ -154,7 +154,7 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt="">
-										<a href="PopupC">ポップアップの設定</a>
+										<a href="/popup">ポップアップの設定</a>
 									</div>
 								</div>
 							</div>

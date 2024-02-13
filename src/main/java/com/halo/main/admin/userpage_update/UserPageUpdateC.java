@@ -39,5 +39,13 @@ public class UserPageUpdateC {
 		return "/admin/index";
 	}
 	
+	@GetMapping("/popup")
+	public String goPopup(Model model) {
+		
+		model.addAttribute("menu", "/WEB-INF/views/admin/popup/popupContent.jsp");
+		
+		return "/admin/index";
+	}
+	
 	
 }
