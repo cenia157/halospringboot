@@ -13,10 +13,10 @@
 	rel="stylesheet" />
 
 <!--css -->
-<link rel="stylesheet" href="user/0.css/index.css" />
-<link rel="stylesheet" href="user/0.css/index-menu.css" />
-<link rel="stylesheet" href="user/0.css/index-footer.css" />
-<link rel="stylesheet" href="user/0.css/sec.css" />
+<link rel="stylesheet" href="/user/0.css/index.css" />
+<link rel="stylesheet" href="/user/0.css/index-menu.css" />
+<link rel="stylesheet" href="/user/0.css/index-footer.css" />
+<link rel="stylesheet" href="/user/0.css/sec.css" />
 
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -24,11 +24,11 @@
 	crossorigin="anonymous"></script>
 
 <!-- 헤더 js -->
-<script src="user/0.js/index-menu.js"></script>
+<script src="/user/0.js/index-menu.js"></script>
 <!-- 배경이미지 js -->
-<script src="user/0.js/background-img.js"></script>
+<script src="/user/0.js/background-img.js"></script>
 <!-- 리모컨 js -->
-<script src="user/0.js/remote-control.js"></script>
+<script src="/user/0.js/remote-control.js"></script>
 <!-- 반응형 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
