@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="admin/dashboard/0.css/dashboard.css">
-<script src="admin/dashboard/0.js/dashboard.js"></script>
+<link rel="stylesheet" href="/admin/dashboard/0.css/dashboard.css">
+<script src="/admin/dashboard/0.js/dashboard.js"></script>
 </head>
 <body>
 
