@@ -9,9 +9,9 @@
 <meta charset="UTF-8" />
 <title>Document</title>
 <!-- font -->
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
+<!-- <link -->
+<!-- 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" -->
+<!-- 	rel="stylesheet" /> -->
 
 <!-- jquery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -51,7 +51,7 @@
 					<div class="menu-td-3-td-2">
 						<div class="menu-td-3-td-open-td-1">
 							<img src="admin/0.img/admintble3-1.png" alt=""><a
-								href="DashboardC">ダッシュボード</a>
+								href="/dashboard">ダッシュボード</a>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
@@ -108,15 +108,15 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="CompanyC">会社のスケジュール</a>
+											href="/company">会社のスケジュール</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="ReservationC">顧客の予約</a>
+											href="/reservation">顧客の予約</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="EmployeeC">スタッフのスケジュール</a>
+											href="/employee">スタッフのスケジュール</a>
 									</div>
 								</div>
 							</div>
@@ -170,6 +170,10 @@
 					</div>
 				</div>
 			</div>
+			<div class="admin-menu-folding" >
+				<img src="admin/0.img/foldingbar.png">
+				<img src="admin/0.img/foldingicon.png">
+			</div>
 		</div>
 
 		<!-- 오른쪽테이블 -->
@@ -178,11 +182,11 @@
 			<!-- 헤더 -->
 			<div class="header-tr">
 				<div class="header-td">
-					<div class="header-td-user">
-						<div>${login_name }</div>
-					</div>
-					<input type="hidden" id="sessionTimeoutVal"
-						value="${sessionTimeout }">
+<!-- 					<div class="header-td-user"> -->
+<%-- 						<div>${login_name }</div> --%>
+<!-- 					</div> -->
+<!-- 					<input type="hidden" id="sessionTimeoutVal" -->
+<%-- 						value="${sessionTimeout }"> --%>
 					<div class="header-td-login">
 						<p id="sessionTimeout" class="sessionTimeout">
 							<img alt="" src="admin/0.img/timer.png"> <span id="timer"></span>
@@ -208,11 +212,8 @@
 					</div>
 				</div>
 			</div>
-
-
 		</div>
-
 	</div>
 </body>
-<script src="admin/_js/loginSession.js"></script>
+<!-- <script src="admin/_js/loginSession.js"></script> -->
 </html>

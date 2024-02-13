@@ -99,7 +99,7 @@ let confirmDeleteModal = 0;
 function getAllSchedule() {
 
 	// 전체 회사 일정 ajax 호출
-	fetch('EmployeeList')
+	fetch('employee/list')
 		.then(response => response.json())
 		.then(data => {
 
@@ -191,9 +191,9 @@ function getAllSchedule() {
 		});
 }
 
-// 스태프 조회
+// 시프트 조회
 function getAllSift() {
-	fetch('EmployeeSiftC')
+	fetch('employee/sift')
 		.then(response => response.json())
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
@@ -553,61 +553,52 @@ function checkDate(e) {
 
 function insertSift() {
 	if (document.querySelector('.employee-data.' + employeerClickArray).children[4].value == '') {
-		var form = document.createElement('form');
-		form.method = 'post'; // POST 방식 설정
-		form.action = 'EmployeeInsertSift'; // 서블릿의 URL로 설정
-
-		// 입력 필드 생성 및 설정
-		var input1 = document.createElement('input');
-		input1.name = 's_no'; // 서블릿에서 읽을 파라미터 이름
-		input1.value = employeerClickObject.s_no; // 전송할 값
-
-		var input2 = document.createElement('input');
-		input2.name = 'f_year';
-		input2.value = thisMonth.getFullYear();
-
-		var input3 = document.createElement('input');
-		input3.name = 'f_month';
-		input3.value = thisMonth.getMonth() + 1;
-
-		var input4 = document.createElement('input');
-		input4.name = 'f_dates';
-		input4.value = employeerClickDates.toString();
-
-
-		// 폼에 입력 필드 추가
-		form.appendChild(input1);
-		form.appendChild(input2);
-		form.appendChild(input3);
-		form.appendChild(input4);
-
-		// 폼을 body에 추가하고 자동으로 제출
-		document.body.appendChild(form);
-		form.submit();
+		let insertSiftDate = {
+			f_staffNo : employeerClickObject.s_no,
+			f_year : thisMonth.getFullYear(),
+			f_month : thisMonth.getMonth() + 1,
+			f_dates : employeerClickDates.toString()
+		}
+		
+		fetch('employee/insert', {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(insertSiftDate),
+		})
+			.then(response => response.text())
+			.then(data => {
+				if (data == 1) {
+					location.href = '/employee';
+				}
+			})
+			.catch(error => {
+				console.error('데이터를 가져오는 중 오류 발생:', error);
+			});
 
 	} else {
-		console.log("update")
-
-		var form = document.createElement('form');
-		form.method = 'post'; // POST 방식 설정  
-		form.action = 'EmployeeUpdateSift'; // 서블릿의 URL로 설정
-
-		// 입력 필드 생성 및 설정
-		var input1 = document.createElement('input');
-		input1.name = 'f_dates'; // 서블릿에서 읽을 파라미터 이름
-		input1.value = employeerClickDates.toString(); // 전송할 값
-
-		var input2 = document.createElement('input');
-		input2.name = 'f_no';
-		input2.value = joinSiftList[document.querySelector('.employee-data.' + employeerClickArray).children[4].value].f_pk;
-
-		// 폼에 입력 필드 추가
-		form.appendChild(input1);
-		form.appendChild(input2);
-
-		// 폼을 body에 추가하고 자동으로 제출
-		document.body.appendChild(form);
-		form.submit();
+		let updateSiftDate = {
+			f_no : joinSiftList[document.querySelector('.employee-data.' + employeerClickArray).children[4].value].f_pk,
+			f_dates : employeerClickDates.toString()
+		}
+		
+		fetch('employee/update', {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(updateSiftDate),
+		})
+			.then(response => response.text())
+			.then(data => {
+				if (data == 1) {
+					location.href = '/employee';
+				}
+			})
+			.catch(error => {
+				console.error('데이터를 가져오는 중 오류 발생:', error);
+			});
 	}
 }
 
@@ -668,23 +659,27 @@ function siftDeleteClose() {
 }
 
 function siftDelete() {
-	console.log("delete")
-
-	var form = document.createElement('form');
-	form.method = 'post'; // POST 방식 설정  
-	form.action = 'EmployeeDeleteSift'; // 서블릿의 URL로 설정
-
-	// 입력 필드 생성 및 설정
-	var input1 = document.createElement('input');
-	input1.name = 'f_no';
-	input1.value = joinSiftList[document.querySelector('.employee-data.' + employeerClickArray).children[4].value].f_pk;
-
-	// 폼에 입력 필드 추가
-	form.appendChild(input1);
-
-	// 폼을 body에 추가하고 자동으로 제출
-	document.body.appendChild(form);
-	form.submit();
+	
+	let deleteSiftData = {
+		f_no : joinSiftList[document.querySelector('.employee-data.' + employeerClickArray).children[4].value].f_pk
+	}
+	
+	fetch('employee/delete', {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(deleteSiftData),
+		})
+			.then(response => response.text())
+			.then(data => {
+				if (data == 1) {
+					location.href = '/employee';
+				}
+			})
+			.catch(error => {
+				console.error('데이터를 가져오는 중 오류 발생:', error);
+			});
 }
 
 window.onload = function() {

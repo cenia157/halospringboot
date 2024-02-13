@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="admin/dashboard/0.css/dashboard.css">
+<script src="admin/dashboard/0.js/dashboard.js"></script>
 </head>
 <body>
 
@@ -35,11 +36,11 @@
 				<div class="deshboard-todo-box-2">
 					<div class="deshboard-todo-title-2 qa">未回答のお問い合わせ</div>
 					<div class="deshboard-todo qa">
-							<div class="deshboard-todo-cell service">No</div>
-							<div class="deshboard-todo-cell title">タイトル</div>
-							<div class="deshboard-todo-cell writer">投稿者</div>
-							<div class="deshboard-todo-cell reg-date">投稿日</div>
-						</div>
+						<div class="deshboard-todo-cell service">No</div>
+						<div class="deshboard-todo-cell title">タイトル</div>
+						<div class="deshboard-todo-cell writer">投稿者</div>
+						<div class="deshboard-todo-cell reg-date">投稿日</div>
+					</div>
 					<div class="deshboard-todo-list-2 qalist">
 						<!-- 안에 넣을 예시 -->
 					</div>
@@ -49,10 +50,10 @@
 				<div class="deshboard-todo-box-2">
 					<div class="deshboard-todo-title-2">今日の会社のスケジュール</div>
 					<div class="deshboard-todo company">
-							<div class="deshboard-todo-cell service">No</div>
-							<div class="deshboard-todo-cell company-title">日程</div>
-							<div class="deshboard-todo-cell company-txt">内容</div>
-						</div>
+						<div class="deshboard-todo-cell service">No</div>
+						<div class="deshboard-todo-cell company-title">日程</div>
+						<div class="deshboard-todo-cell company-txt">内容</div>
+					</div>
 					<div class="deshboard-todo-list-2 eventlist">
 						<!-- 안에 넣을 예시 -->
 					</div>
@@ -60,11 +61,11 @@
 				<div class="deshboard-todo-box-2">
 					<div class="deshboard-todo-title-2">今日の勤務者</div>
 					<div class="deshboard-todo staff">
-							<div class="deshboard-todo-cell service">No</div>
-							<div class="deshboard-todo-cell staff-name">勤務者</div>
-							<div class="deshboard-todo-cell staff-position">ポジション</div>
-							<div class="deshboard-todo-cell staff-phone">連絡先</div>
-						</div>
+						<div class="deshboard-todo-cell service">No</div>
+						<div class="deshboard-todo-cell staff-name">勤務者</div>
+						<div class="deshboard-todo-cell staff-position">ポジション</div>
+						<div class="deshboard-todo-cell staff-phone">連絡先</div>
+					</div>
 					<div class="deshboard-todo-list-2 staffList">
 						<!-- 안에 넣을 예시 -->
 					</div>
@@ -72,6 +73,5 @@
 			</div>
 		</div>
 	</div>
-	<script src="admin/dashboard/0.js/dashboard.js"></script>
 </body>
 </html>

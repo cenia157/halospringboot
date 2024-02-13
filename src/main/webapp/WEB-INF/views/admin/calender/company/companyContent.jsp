@@ -106,7 +106,7 @@
 							<div class="ins-tr-title-tr">
 								<div class="ins-tr-title-title">タイトル</div>
 								<input type="text" class="ins-tr-3-td-input input-title"
-									name="input-title">
+									name="cs_title">
 							</div>
 						</div>
 
@@ -114,14 +114,14 @@
 							<div class="ins-tr-3-date-tr">
 								<div class="ins-tr-title-title">日付</div>
 								<input type="text" class="ins-tr-3-td-input input-date"
-									name="input-date" readonly="readonly">
+									name="cs_date" readonly="readonly">
 							</div>
 							<div></div>
 						</div>
 						<div class="ins-tr-3-txt">
 							<div class="ins-tr-3-txt-tr">
 								<div class="ins-tr-txt-tr-title">内容</div>
-								<textarea class="ins-tr-3-td-txt" name="input-txt"></textarea>
+								<textarea class="ins-tr-3-td-txt input-txt" name="cs_txt"></textarea>
 							</div>
 							<div></div>
 						</div>
