@@ -170,6 +170,10 @@
 					</div>
 				</div>
 			</div>
+			<div class="admin-menu-folding" >
+				<img src="admin/0.img/foldingbar.png">
+				<img src="admin/0.img/foldingicon.png">
+			</div>
 		</div>
 
 		<!-- 오른쪽테이블 -->
@@ -178,7 +182,7 @@
 			<!-- 헤더 -->
 			<div class="header-tr">
 				<div class="header-td">
-					<div class="header-td-user">
+<!-- 					<div class="header-td-user"> -->
 <%-- 						<div>${login_name }</div> --%>
 <!-- 					</div> -->
 <!-- 					<input type="hidden" id="sessionTimeoutVal" -->
