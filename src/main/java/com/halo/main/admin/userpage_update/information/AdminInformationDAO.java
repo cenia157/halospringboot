@@ -1,7 +1,5 @@
 package com.halo.main.admin.userpage_update.information;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +11,7 @@ public class AdminInformationDAO {
 	@Autowired
 	private AdminInformationMapper aInfoMapper;
 	
-	public List<HomepageCommonDTO> getListInfo() {
+	public HomepageCommonDTO getListInfo() {
 		return aInfoMapper.getListInfo();
 	}
 	
