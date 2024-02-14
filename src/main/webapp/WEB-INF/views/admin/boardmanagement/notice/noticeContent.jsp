@@ -7,7 +7,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>noticeContent.jsp</title>
-<link rel="stylesheet" href="admin/boardmanagement/notice/0.css/noticeContent.css" />
+<link rel="stylesheet" href="/admin/boardmanagement/notice/0.css/noticeContent.css" />
 <link href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" rel="stylesheet" />
 
 </head>
@@ -75,12 +75,12 @@
 					<!-- 처음으로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo > 5}">
-							<a href="NoticePagingC?p=${curPageNo - 5}&checkVal=${param.checkVal}">
+							<a href="/admin/boardManagement/notice/${curPageNo - 5}/${checkVal}/0">
 								<button style="cursor: pointer;"class="pagingMostPrevious" >&lt;&lt;</button>
 							</a>
 						</c:when>
 						<c:when test="${curPageNo <= 5 && curPageNo > 1}">
-							<a href="NoticePagingC?p=1&checkVal=${param.checkVal}">
+							<a href="/admin/boardManagement/notice/1/${checkVal}/0">
 								<button style="cursor: pointer;" class="pagingMostPrevious">&lt;&lt;</button>
 							</a>
 						</c:when>
@@ -91,7 +91,7 @@
 					<!-- 이전 페이지로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo > 1}">
-							<a href="NoticePagingC?p=${curPageNo - 1}&checkVal=${param.checkVal}">
+							<a href="/admin/boardManagement/notice/${curPageNo - 1}/${checkVal}/0">
 								<button style="cursor: pointer;"　class="pagingPrevious">前の</button>
 							</a>
 						</c:when>
@@ -124,7 +124,7 @@
 						<c:set var="currentPageClass"
 							value="${pageNumber == curPageNo ? 'current-page' : ''}" />
 						<!-- 버튼 모양 결정 -->
-						<a href="NoticePagingC?p=${pageNumber}&checkVal=${param.checkVal}"
+						<a href="/admin/boardManagement/notice/${pageNumber}/${checkVal}/0"
 							class="page-number ${currentPageClass}">
 							[ ${pageNumber} ] </a>
 					</c:forEach>
@@ -132,7 +132,7 @@
 					<!-- 다음 페이지로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo < pageCount}">
-							<a href="NoticePagingC?p=${curPageNo + 1}&checkVal=${param.checkVal}">
+							<a href="/admin/boardManagement/notice/${curPageNo + 1}/${checkVal}/0">
 								<button style="cursor: pointer;"　class="pagingNext" >次の</button>
 							</a>
 						</c:when>
@@ -143,13 +143,13 @@
 					<!-- 마지막으로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo + 5 <= pageCount}">
-							<a href="NoticePagingC?p=${curPageNo + 5}&checkVal=${param.checkVal}">
+							<a href="/admin/boardManagement/notice/${curPageNo + 5}/${checkVal}/0">
 								<button class="pagingMostNext" style="cursor: pointer;">&gt;&gt;</button>
 							</a>
 						</c:when>
 						<c:when
 							test="${curPageNo + 5 > pageCount && curPageNo < pageCount}">
-							<a href="NoticePagingC?p=${pageCount}&checkVal=${param.checkVal}">
+							<a href="/admin/boardManagement/notice/${pageCount}/${checkVal}/0">
 								<button style="cursor: pointer;" class="pagingMostNext">&gt;&gt;</button>
 							</a>
 						</c:when>
@@ -166,7 +166,7 @@
 		</div>
 		<!-- noticeNEWRegPage.jsp 시작 -->
 		<div id="myModalNR" class="modal-background"></div>
-		<form action="NoticeMainC" id="ck-form" method="get"> 
+		<form action="/admin/boardManagement/notice/${p}/${checkVal}/0" id="ck-form" method="get"> 
 			<input  type="hidden" name="checkVal" value="${param.checkVal}">
 			<input id="regBtnHiddenInput" type="hidden" value="${sessionScope.login_session.a_name}">
 			<div id="myModal-tblNR" class="modal-tbl">
@@ -309,11 +309,11 @@
 		</form>
 		<!--noticeRegPage.jsp 끝 -->
 	</div>
-	<script src="admin/_js/ckeditor/ckeditor.js"></script>
-	<script src="admin/boardmanagement/notice/0.js/notice.js"></script>
-	<script src="admin/boardmanagement/notice/0.js/insertCKEditor.js"></script>
-	<script src="admin/boardmanagement/notice/0.js/insertSendCkeditor.js"></script>
-	<script src="admin/boardmanagement/notice/0.js/updateCKEditor.js"></script>
-	<script src="admin/boardmanagement/notice/0.js/updateSendCKeditor.js"></script>
+	<script src="/admin/_js/ckeditor/ckeditor.js"></script>
+	<script src="/admin/boardmanagement/notice/0.js/notice.js"></script>
+	<script src="/admin/boardmanagement/notice/0.js/insertCKEditor.js"></script>
+	<script src="/admin/boardmanagement/notice/0.js/insertSendCkeditor.js"></script>
+	<script src="/admin/boardmanagement/notice/0.js/updateCKEditor.js"></script>
+	<script src="/admin/boardmanagement/notice/0.js/updateSendCKeditor.js"></script>
 </body>
 </html>
