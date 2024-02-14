@@ -15,6 +15,7 @@ import com.halo.main.user.faq.FAQVO;
 @RestController
 public class FAQRestC {
 	
+	//userFAQ쪽으로 데이터 보내기
 	  @Autowired // 의존성 주입
 	  private FAQService faqService;
 	  

@@ -1,11 +1,13 @@
+//faq update
 let regBtn = document.querySelector('#reg-btn');
 regBtn.addEventListener("click", function(event) {
 	let ckForm = document.querySelector('#ck-form');
-	const content = window.editor.getData();
+	const content = ClassicEditor.instances['#classicNR'].getData();
 	const formData = new FormData(ckForm);
 	const seq = document.querySelector('#modal-seq').value;
-	formData.set('txt', content);
-	formData.set('seq', seq);
+	formData.set('qa_content', content);
+	formData.set('qa_seq', seq);
+	alert(content);
 
 
 	const payload = new URLSearchParams(formData);
@@ -22,14 +24,14 @@ regBtn.addEventListener("click", function(event) {
 
 	for (var pair of formData.entries()) {
 
-		if (pair[0] === 'title') {
+		if (pair[0] === 'qa_title') {
 			if (pair[1] !== '') {
 				console.log('제목 O')
 				isTitleValid = true;
 			} else {
 				console.log('제목 X')
 			}
-		} else if (pair[0] === 'txt') {
+		} else if (pair[0] === 'qa_content') {
 			if (pair[1] !== '') {
 				console.log('내용 O');
 				isTxtValid = true;
@@ -43,7 +45,7 @@ regBtn.addEventListener("click", function(event) {
 		closeModalF();
 	}
 
-	let CkeditorC123 = fetch('CkeditorC_Frequenthyask', {
+	let CkeditorC123 = fetch('/admin/faq/update', {
 		method: 'POST',
 		body: payload,
 		headers: {

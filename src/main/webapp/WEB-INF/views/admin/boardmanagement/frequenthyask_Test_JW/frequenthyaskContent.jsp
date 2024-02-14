@@ -8,7 +8,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script src="admin/_js/ckeditor/ckeditor.js"></script>
 <title>Frequenthyask</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
 <link rel="stylesheet"
@@ -16,6 +15,8 @@
 
 <script src="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask_Test_JW/0.js/faq.js"></script>
 <script src="${pageContext.request.contextPath}/admin/_js/test.js"></script>
+<!-- ckeditor 스크립트인가? -->
+<script src="/admin/_js/ckeditor/ckeditor.js"></script>
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
