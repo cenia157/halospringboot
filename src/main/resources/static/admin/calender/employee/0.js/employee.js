@@ -99,7 +99,7 @@ let confirmDeleteModal = 0;
 function getAllSchedule() {
 
 	// 전체 회사 일정 ajax 호출
-	fetch('/admin/employee/list')
+	fetch('/admin/schedule/employee/list')
 		.then(response => response.json())
 		.then(data => {
 
@@ -193,7 +193,7 @@ function getAllSchedule() {
 
 // 시프트 조회
 function getAllSift() {
-	fetch('/admin/employee/sift')
+	fetch('/admin/schedule/employee/sift')
 		.then(response => response.json())
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
@@ -560,7 +560,7 @@ function insertSift() {
 			f_dates : employeerClickDates.toString()
 		}
 		
-		fetch('/admin/employee/insert', {
+		fetch('/admin/schedule/employee/insert', {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -583,7 +583,7 @@ function insertSift() {
 			f_dates : employeerClickDates.toString()
 		}
 		
-		fetch('/admin/employee/update', {
+		fetch('/admin/schedule/employee/update', {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json"
@@ -664,7 +664,7 @@ function siftDelete() {
 		f_no : joinSiftList[document.querySelector('.employee-data.' + employeerClickArray).children[4].value].f_pk
 	}
 	
-	fetch('/admin/employee/delete', {
+	fetch('/admin/schedule/employee/delete', {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json"
