@@ -47,7 +47,7 @@
 				<div class="content-m-td-3-mid-2-tr">
 
 					<div class="content-m-td-3-mid-2-tr-underbar">
-						<select class="main-banner-select" name="b_m_name4">
+						<select class="main-banner-select" name="m_name4">
 							<option value="info_com">会社について</option>
 							<option value="info_map">施設アクセス</option>
 							<option value="intro_announce">お知らせ</option>
@@ -60,7 +60,7 @@
 						</select>
 					</div>
 					<div class="content-m-td-3-mid-2-tr-underbar">
-						<select class="main-banner-select" name="b_m_name5">
+						<select class="main-banner-select" name="m_name5">
 							<option value="info_com">会社について</option>
 							<option value="info_map">施設アクセス</option>
 							<option value="intro_announce">お知らせ</option>
@@ -73,7 +73,7 @@
 						</select>
 					</div>
 					<div class="content-m-td-3-mid-2-tr-underbar">
-						<select class="main-banner-select" name="b_m_name6">
+						<select class="main-banner-select" name="m_name6">
 							<option value="info_com">会社について</option>
 							<option value="info_map">施設アクセス</option>
 							<option value="intro_announce">お知らせ</option>

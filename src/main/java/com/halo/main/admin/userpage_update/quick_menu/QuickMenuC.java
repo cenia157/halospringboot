@@ -29,15 +29,15 @@ public class QuickMenuC {
 	
 	@ResponseBody
 	@PostMapping("/quick-menu/update")
-	public String updateQuickMenu(@RequestParam("b_m_name4") String b_m_name4,
-			@RequestParam("b_m_name5") String b_m_name5,
-			@RequestParam("b_m_name6") String b_m_name6,
-			QuickMenuDTO qmdto, Model model) {
+	public String updateQuickMenu(@RequestParam("m_name4") String m_name4,
+			@RequestParam("m_name5") String m_name5,
+			@RequestParam("m_name6") String m_name6,
+			 Model model) {
 		
-		System.out.println("선택된value3개 : "+ b_m_name4 +", "+ b_m_name5 +", "+ b_m_name6);
+		System.out.println("선택된value3개 : "+ m_name4 +", "+ m_name5 +", "+ m_name6);
 		
 		//업뎃하는일
-		qmDao.updateQuickMenu(b_m_name4, b_m_name5, b_m_name6, qmdto, model);
+		qmDao.updateQuickMenu(m_name4, m_name5, m_name6, model);
 		
 		return "redirect:/admin/homepage-update/quick-menu";
 	}
