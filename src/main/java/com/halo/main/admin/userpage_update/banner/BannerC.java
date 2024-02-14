@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin/hompage-update")
+@RequestMapping("/admin/homepage-update")
 public class BannerC {
 	
 	@GetMapping("/banner")

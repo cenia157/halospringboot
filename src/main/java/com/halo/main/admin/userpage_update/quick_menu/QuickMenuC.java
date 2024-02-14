@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/admin/hompage-update")
+@RequestMapping("/admin/homepage-update")
 public class QuickMenuC {
 	
 	@Autowired
@@ -29,14 +29,17 @@ public class QuickMenuC {
 	
 	@ResponseBody
 	@PostMapping("/quick-menu/update")
-	public String updateQuickMenu(@RequestParam String b_m_name4,
-			@RequestParam String b_m_name5,
-			@RequestParam String b_m_name6,
+	public String updateQuickMenu(@RequestParam("b_m_name4") String b_m_name4,
+			@RequestParam("b_m_name5") String b_m_name5,
+			@RequestParam("b_m_name6") String b_m_name6,
 			QuickMenuDTO qmdto, Model model) {
-		System.out.println("버튼누름~456"+b_m_name4 + b_m_name5 + b_m_name6);
+		
+		System.out.println("선택된value3개 : "+ b_m_name4 +", "+ b_m_name5 +", "+ b_m_name6);
+		
+		//업뎃하는일
 		qmDao.updateQuickMenu(b_m_name4, b_m_name5, b_m_name6, qmdto, model);
 		
-		return "redirect:/admin/hompage-update/quick-menu";
+		return "redirect:/admin/homepage-update/quick-menu";
 	}
 	
 	

@@ -22,9 +22,12 @@ public class QuickMenuDAO {
 			@RequestParam String b_m_name5,
 			@RequestParam String b_m_name6,
 			QuickMenuDTO qmdto, Model model) {
-	// 받아온 b_m_name 4,5,6으로 3번 돌리기
 		String[] quickMenuValues = {b_m_name4, b_m_name5, b_m_name6};
-		System.out.println("quickMenuValues :"+quickMenuValues);
+		//셀렉에서 받아온 b_m_name4,5,6 3번 돌리기
+		for (int i = 0; i < 3; i++) {
+			System.out.println("quickMenuValues["+(i+4)+"번]:"+quickMenuValues[i]);
+			
+		}
 		
 		
 		return qMenuMapper.updateQuickMenu(qmdto);

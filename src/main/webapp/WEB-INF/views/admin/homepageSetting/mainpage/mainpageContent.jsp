@@ -28,7 +28,7 @@
 
 <body>
 	<div class="content-m-td-3">
-		<form action="/admin/hompage-update/quick-menu/update" method="post">
+		<form action="/admin/homepage-update/quick-menu/update" method="post">
 			<div class="content-m-td-3-up">
 				<!-- 여긴 공간채움용 빈공간 -->
 			</div>

@@ -11,7 +11,7 @@ import com.halo.main.user.common.HomepageCommonDTO;
 
 
 @Controller
-@RequestMapping("/admin/hompage-update")
+@RequestMapping("/admin/homepage-update")
 public class AdminInformationC {
 	
 	@Autowired
@@ -31,10 +31,10 @@ public class AdminInformationC {
 	@PostMapping("/company-info/update")
 	public String updateInfo(HomepageCommonDTO hdto) {
 		//업뎃 하는 일
-		System.out.println("객체 : "+ hdto);
+//		System.out.println("객체 : "+ hdto);
 		aInfoDao.updateInfo(hdto);
 		
-		return "redirect:/admin/hompage-update/company-info";
+		return "redirect:/admin/homepage-update/company-info";
 	}
 	
 	
