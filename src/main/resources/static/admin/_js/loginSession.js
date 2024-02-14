@@ -1,4 +1,17 @@
+
 document.addEventListener('DOMContentLoaded', function() {
+	
+		fetch('/admin/loginCheck',{
+		method : 'Post'
+	})
+	.then(response => response.text())
+	.then(data =>{
+		console.log(data);
+		if(data == 'Login_required'){
+			window.location.href='/admin/logout'
+		}
+	})
+
 	// 세션 유효 시간 (초)
 	let sessionTimeout = parseInt(document.getElementById('sessionTimeoutVal').value);
 	// 초기 설정

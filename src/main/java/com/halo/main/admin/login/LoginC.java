@@ -42,4 +42,10 @@ public class LoginC {
 		return service.loginExtendTime(request);
 	}
 	
+	@ResponseBody
+	@PostMapping("/loginCheck")
+	public String loginCheck(HttpServletRequest request) {
+		System.out.println(service.loginCheck(request));
+		return service.loginCheck(request);
+	}
 }

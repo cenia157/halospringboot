@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -43,6 +44,12 @@ public class StaffC {
 	@PutMapping("/staff")
 	public int updateStaff(@RequestBody Staff staff) {
 		return service.updateStaff(staff);
+		
+	}
+	@ResponseBody
+	@DeleteMapping("/staff")
+	public int deleteStaff(@RequestBody Staff staff) {
+		return service.deleteStaff(staff);
 		
 	}
 	

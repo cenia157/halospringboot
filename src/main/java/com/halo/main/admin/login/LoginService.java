@@ -51,11 +51,19 @@ public class LoginService {
 			}
 		}
 
+	public String loginCheck(HttpServletRequest request) {
+		HttpSession hs = request.getSession();
+		
+		if (hs.getAttribute("login_session") == null) {
+			return "Login_required";
+		} else {
+			return "ok";
+		}
+	}
+	
 	public void logout(HttpServletRequest request) {
 		HttpSession hs = request.getSession();
 		hs.setAttribute("login_session", null);
-		System.out.println("--------------");
-		System.out.println("세션종료 실행");
 	}
 
 	public String loginExtendTime(HttpServletRequest request) {

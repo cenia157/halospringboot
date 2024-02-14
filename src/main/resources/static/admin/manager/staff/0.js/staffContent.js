@@ -16,38 +16,38 @@ function getAllStaffList() {
 	const staffUpdata = document.querySelector(".staff-table");
 	staffUpdata.addEventListener('click', function(event) {
 		if (event.target.parentNode.previousElementSibling && event.target.parentNode.previousElementSibling.value != null) {
-				const indexVal = event.target.parentNode.previousElementSibling.value;
-				let inputName = document.querySelector('#s_name');
-				let inputPos = document.querySelector('#s_position');
-				let inputPhonnum = document.querySelector('#s_phone_num');
-				let inputEntryDate = document.querySelector('#s_entry_date');
-				let inputColor = document.querySelector('#s_color');
-				let inputAddr = document.querySelector('#s_addr');
-				let inputSeq = document.querySelector('#s_no');
+			const indexVal = event.target.parentNode.previousElementSibling.value;
+			let inputName = document.querySelector('#s_name');
+			let inputPos = document.querySelector('#s_position');
+			let inputPhonnum = document.querySelector('#s_phone_num');
+			let inputEntryDate = document.querySelector('#s_entry_date');
+			let inputColor = document.querySelector('#s_color');
+			let inputAddr = document.querySelector('#s_addr');
+			let inputSeq = document.querySelector('#s_no');
 
-				inputName.value = empdata[indexVal].s_name;
-				inputPos.value = empdata[indexVal].s_position;
-				inputPhonnum.value = empdata[indexVal].s_phone_num;
-				inputEntryDate.value = empdata[indexVal].s_entry_date;
-				inputAddr.value = empdata[indexVal].s_addr;
-				inputColor.value = empdata[indexVal].s_color;
-				inputSeq.value = empdata[indexVal].s_no;
+			inputName.value = empdata[indexVal].s_name;
+			inputPos.value = empdata[indexVal].s_position;
+			inputPhonnum.value = empdata[indexVal].s_phone_num;
+			inputEntryDate.value = empdata[indexVal].s_entry_date;
+			inputAddr.value = empdata[indexVal].s_addr;
+			inputColor.value = empdata[indexVal].s_color;
+			inputSeq.value = empdata[indexVal].s_no;
 
-				let regBtn = document.querySelector('#staff-reg');
-				let updateBtn = document.querySelector('#staff-update');
-				let updateCBtn = document.querySelector('#staff-update-c');
-				let deleteBtn = document.querySelector('#staff-delete');
-				let regTitle = document.querySelector('#reg-title');
-				let updateTitle = document.querySelector('#update-title');
+			let regBtn = document.querySelector('#staff-reg');
+			let updateBtn = document.querySelector('#staff-update');
+			let updateCBtn = document.querySelector('#staff-update-c');
+			let deleteBtn = document.querySelector('#staff-delete');
+			let regTitle = document.querySelector('#reg-title');
+			let updateTitle = document.querySelector('#update-title');
 
-				regBtn.style.display = 'none';
-				updateBtn.style.display = 'block';
-				updateCBtn.style.display = 'block';
-				deleteBtn.style.display = 'block';
-				regTitle.style.display = 'none';
-				updateTitle.style.display = 'block';
-			}
-		});
+			regBtn.style.display = 'none';
+			updateBtn.style.display = 'block';
+			updateCBtn.style.display = 'block';
+			deleteBtn.style.display = 'block';
+			regTitle.style.display = 'none';
+			updateTitle.style.display = 'block';
+		}
+	});
 }
 
 
@@ -85,47 +85,51 @@ function regPage() {
 
 
 window.onload = function() {
-		let inputName = document.querySelector('#s_name');
-		let inputPos = document.querySelector('#s_position');
-		let inputPhonnum = document.querySelector('#s_phone_num');
-		let inputEntryDate = document.querySelector('#s_entry_date');
-		let inputColor = document.querySelector('#s_color');
-		let inputAddr = document.querySelector('#s_addr');
-		let inputSeq = document.querySelector('#s_no');
-	
-	
-	const staffReg = document.querySelector("#staff-reg");
-staffReg.addEventListener('click', function(e){
-    e.preventDefault(); // 기본 동작(페이지 이동 등)을 막습니다.
-    
-    fetch('/admin/manager/staff', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            s_position: inputPos.value,
-            s_name: inputName.value,
-            s_phone_num: inputPhonnum.value,
-            s_entry_date: inputEntryDate.value,
-            s_color: inputColor.value,
-            s_addr: inputAddr.value,
-            s_no: inputSeq.value
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data == 1){
-		console.log("成功")			
-        location.reload(); // 현재 위치를 다시 로드하면 페이지가 새로고침됩니다.
-		}
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-});
+	let inputName = document.querySelector('#s_name');
+	let inputPos = document.querySelector('#s_position');
+	let inputPhonnum = document.querySelector('#s_phone_num');
+	let inputEntryDate = document.querySelector('#s_entry_date');
+	let inputColor = document.querySelector('#s_color');
+	let inputAddr = document.querySelector('#s_addr');
+	let inputSeq = document.querySelector('#s_no');
 
-	
+
+	const staffReg = document.querySelector("#staff-reg");
+	staffReg.addEventListener('click', function(e) {
+		if (!inputName.value || !inputPos.value || !inputPhonnum.value || !inputEntryDate.value || !inputColor.value || !inputAddr.value || !inputSeq.value) {
+			alert('すべての値を入力します。');
+			return; // 함수 종료
+		}
+		e.preventDefault(); // 기본 동작(페이지 이동 등)을 막습니다.
+
+		fetch('/admin/manager/staff', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				s_position: inputPos.value,
+				s_name: inputName.value,
+				s_phone_num: inputPhonnum.value,
+				s_entry_date: inputEntryDate.value,
+				s_color: inputColor.value,
+				s_addr: inputAddr.value,
+				s_no: inputSeq.value
+			}),
+		})
+			.then(response => response.json())
+			.then(data => {
+				if (data == 1) {
+					alert('登録完了です。');
+					location.reload(); // 현재 위치를 다시 로드하면 페이지가 새로고침됩니다.
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+			});
+	});
+
+
 	let empdata = null;
 
 	getAllStaffList();
@@ -156,10 +160,18 @@ staffReg.addEventListener('click', function(e){
 				s_no: inputSeq.value
 			}),
 		})
-		alert('수정 완료')
-		const staffUpdata = document.querySelector(".staff-table");
-		staffUpdata.innerHTML = '';
-		getAllStaffList()
+			.then(response => response.json())
+			.then(data => {
+				if (data == 1) {
+					alert('変更完了です。')
+					const staffUpdata = document.querySelector(".staff-table");
+					staffUpdata.innerHTML = '';
+					getAllStaffList()
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+			});
 
 	});
 
@@ -175,7 +187,7 @@ staffReg.addEventListener('click', function(e){
 
 		// 사용자가 '확인'을 클릭했을 때만 삭제 실행
 		if (confirmDelete) {
-			fetch('/admin/manager/staff/delete', {
+			fetch('/admin/manager/staff', {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 public class StaffService {
 
 	@Autowired
-	StaffMapper staffMapper;
+	private StaffMapper staffMapper;
 
 	public void goStaff(Model model) {
 		model.addAttribute("menuname", "スタッフの管理");
@@ -29,6 +29,10 @@ public class StaffService {
 		System.out.println(staffMapper.updateStaff(staff));
 		return staffMapper.updateStaff(staff);
 		
+	}
+
+	public int deleteStaff(Staff staff) {
+		return staffMapper.deleteStaff(staff);
 	}
 
 
