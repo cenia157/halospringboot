@@ -87,7 +87,7 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="NoticeMainC?checkVal=01234">お知らせ</a>
+											href="/admin/boardManagement/notice/1/01234/0">お知らせ</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
@@ -108,15 +108,15 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="/admin/company">会社のスケジュール</a>
+											href="/admin/schedule/company">会社のスケジュール</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="/admin/reservation">顧客の予約</a>
+											href="/admin/schedule/reservation">顧客の予約</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="/admin/employee">スタッフのスケジュール</a>
+											href="/admin/schedule/employee">スタッフのスケジュール</a>
 									</div>
 								</div>
 							</div>

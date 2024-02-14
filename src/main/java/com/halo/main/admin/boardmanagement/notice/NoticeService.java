@@ -29,6 +29,7 @@ public class NoticeService {
 			int index = Character.getNumericValue(checkVal.charAt(i));
 			selectedCategories.add(checkBoxVal[index]);
 		}
+		
 
 		notices = (ArrayList<NoticeDTO>) nMapper.getAllNotice(selectedCategories);
 
@@ -172,8 +173,7 @@ public class NoticeService {
 	}
 
 	public int deleteNotice(int an_seq) {
-		System.out.println("an_seq ::: " + an_seq);
-		
+	
 		return nMapper.deleteNotice(an_seq);
 	}
 

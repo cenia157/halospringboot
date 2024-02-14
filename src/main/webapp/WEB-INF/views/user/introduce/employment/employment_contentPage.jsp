@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>スタッフ募集</title>
-    <link rel="stylesheet" href="user/introduce/employment/0.css/employment_contentPage.css"/>
-    <script src="user/introduce/employment/0.js/employment_contentPage.js"></script>
+    <link rel="stylesheet" href="/user/introduce/employment/0.css/employment_contentPage.css"/>
+    <script src="/user/introduce/employment/0.js/employment_contentPage.js"></script>
 </head>
 <body>
     <div class="e_content-tbl">
@@ -14,13 +14,13 @@
         <div class="e_content-box-tr1">
             <div class="e_content-box-tr1-td1">
                 <div class="e_content-box-tr1-td1-1">
-                    <span><a href="AnnouncedC">お知らせ</a></span>
+                    <span><a href="/info/notice">お知らせ</a></span>
                 </div>
                 <div class="e_content-box-tr1-td1-2">
-                    <span><a href="Album_insta_api_C">アルバム</a></span>
+                    <span><a href="/info/album">アルバム</a></span>
                 </div>
                 <div class="e_content-box-tr1-td1-3">
-                    <span><a href="Employment_C">スタッフ募集</a></span>
+                    <span><a href="/info/employment">スタッフ募集</a></span>
                 </div>
             </div>
 
