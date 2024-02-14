@@ -1,15 +1,10 @@
-
 function noValue() {
-	const content = ClassicEditor.instances['ck-editor__main'].getData();
-	alert("content: "+ content)
-	
+
 	let titleCheck = document.querySelector('#real-title-editor').value;
-	let contentCheck = content;
+	let contentCheck = window.editor.getData();
 	//	여기에 추가로 제목, 내용의 길이가 최대값을 넘어갈 시 alart을 띄우는 곳이다
 	let titleLengthCheck = titleCheck.length;
 	let contentLengthCheck = contentCheck.length;
-	console.log(titleCheck)
-	console.log(contentCheck)
 
 	if (!titleCheck) {
 		alert("제목의 값을 입력하세요");

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,15 +42,26 @@ public class AdminFAQC {
 		return faqadminservice.getFAQListAdmin(qa_seq);
 	}
 	
-	@ResponseBody
-	@PostMapping("/admin/faq/update")
-	public String adminFAQUpdate(@RequestParam int qa_seq, @RequestParam String qa_title, @RequestParam String qa_content) {
-		if(faqadminservice.updateFAQListAdmin(qa_seq, qa_title, qa_content)==1) {
-			System.out.println("update 완료");
-		};
-		return "redirect:admin/faq";
-	}
+//	@ResponseBody
+//	@PostMapping("/admin/faq/update")
+//	public String adminFAQUpdate(@RequestParam int qa_seq, @RequestParam String qa_title, @RequestParam String qa_content) {
+//		if(faqadminservice.updateFAQListAdmin(qa_seq, qa_title, qa_content)==1) {
+//			System.out.println("update 완료");
+//		};
+//		return "redirect:admin/faq";
+//	}
 	
+	@PostMapping("/CkeditorC_Frequenthyask")
+	public ResponseEntity<String> adminFAQUpdate(@RequestParam("seq") int qa_seq, @RequestParam("title") String qa_title, @RequestParam("txt") String qa_content) {
+	    // 데이터 검증 로직
+
+	    // 업데이트 로직
+	    faqadminservice.updateFAQListAdmin(qa_seq, qa_title, qa_content);
+
+	    // 성공 응답
+	    return ResponseEntity.ok("업데이트 성공");
+	}
+
 	
 	
 	

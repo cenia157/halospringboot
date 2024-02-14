@@ -88,8 +88,8 @@
 						class="header-opmenu-a" href="ServiceApplyC">サービスの申し込み</a>
 				</div>
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="FaqC">よくある質問</a> <a
-						class="header-opmenu-a" href="QuestionC">お問い合わせ</a>
+					<a class="header-opmenu-a" href="qna/faq">よくある質問</a> <a
+						class="header-opmenu-a" href="qna/question">お問い合わせ</a>
 				</div>
 			</div>
 		</div>

@@ -1,13 +1,12 @@
-//faq update
 let regBtn = document.querySelector('#reg-btn');
 regBtn.addEventListener("click", function(event) {
 	let ckForm = document.querySelector('#ck-form');
-	const content = ClassicEditor.instances['#classicNR'].getData();
+	const content = window.editor.getData();
 	const formData = new FormData(ckForm);
 	const seq = document.querySelector('#modal-seq').value;
-	formData.set('qa_content', content);
-	formData.set('qa_seq', seq);
-	alert(content);
+	formData.set('txt', content);
+	formData.set('seq', seq);
+	console.log("formData: "+formData);
 
 
 	const payload = new URLSearchParams(formData);
@@ -29,6 +28,7 @@ regBtn.addEventListener("click", function(event) {
 				console.log('제목 O')
 				isTitleValid = true;
 			} else {
+				ErrorAlarm(title);
 				console.log('제목 X')
 			}
 		} else if (pair[0] === 'qa_content') {
@@ -36,6 +36,7 @@ regBtn.addEventListener("click", function(event) {
 				console.log('내용 O');
 				isTxtValid = true;
 			} else {
+				ErrorAlarm(content);
 				console.log('내용 X');
 			}
 		}
@@ -45,7 +46,7 @@ regBtn.addEventListener("click", function(event) {
 		closeModalF();
 	}
 
-	let CkeditorC123 = fetch('/admin/faq/update', {
+	let CkeditorC123 = fetch('/CkeditorC_Frequenthyask', {
 		method: 'POST',
 		body: payload,
 		headers: {
@@ -83,3 +84,11 @@ $(document).ready(function() {
 		}
 	});
 });
+
+function ErrorAlarm(error){
+	if(error=="title"){
+		alert("タイトルを入力してください")
+	} else if(error=="content"){
+		alert("内容を入力してください")
+	}
+}

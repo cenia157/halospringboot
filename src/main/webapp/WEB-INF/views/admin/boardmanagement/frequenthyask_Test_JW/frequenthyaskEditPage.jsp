@@ -40,7 +40,7 @@
 					</div>
 					<div class="modal-content-button">
 						<button class="SubmitButton" type="button" id="reg-btn"
-							onclick="noValue()" style="z-index: 999;">更新完了</button>
+							style="z-index: 999;">更新完了</button>
 					</div>
 				</div>
 			</div>
