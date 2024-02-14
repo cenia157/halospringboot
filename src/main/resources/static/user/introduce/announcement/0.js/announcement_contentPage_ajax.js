@@ -8,7 +8,7 @@
 
 		$.ajax({
    		  type: "post",
-   		  url: "/AnnouncedC",
+   		  url: "/info/notice/getNotice",
     	  data: { an_seq: aidx },
    		  dataType: "json", // JSON 형식으로 데이터를 받음
     	  success: function (result) {

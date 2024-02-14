@@ -50,7 +50,7 @@ regBtn.addEventListener("click", function() {
 	}
 
 	console.log("--------------------");
-	    fetch("CkEditorC", {
+	    fetch("/admin/boardManagement/notice/regCkEditorModal", {
 			method: "POST",
 			body: payload,
 			headers: {"Content-Type": "application/x-www-form-urlencoded", // 헤더 설정
@@ -63,11 +63,10 @@ regBtn.addEventListener("click", function() {
 			return response.text();
 		})
 		.then((data) => {
-			console.log("POST 요청 성공: 이거맞음?????", data);
-			ckForm.submit();
 			window.editor.setData("");
 			window.editorR.setData("");
 			console.log('여기까지 도달하는지 확인')
+			location.href = '/admin/boardManagement/notice/1/01234/0';
 		})
 		.catch((error) => {
 			console.error("POST 요청 실패:", error);

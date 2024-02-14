@@ -6,31 +6,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>アルバム</title>
-    <link rel="stylesheet" href="user/introduce/album/0.css/album_contentPage.css"/>
-    <script src="user/introduce/album/0.js/album_contentPage.js"></script>
+    <link rel="stylesheet" href="/user/introduce/album/0.css/album_contentPage.css"/>
+    <script src="/user/introduce/album/0.js/album_contentPage.js"></script>
 </head>
 <body>
     <!-- 구분선1 시작 -->
     <div class="a_content-box-tr1">
         <div class="a_content-box-tr1-td1">
             <div class="a_content-box-tr1-td1-1">
-                <span><a href="AnnouncedC">お知らせ</a></span>
+                <span><a href="/info/notice">お知らせ</a></span>
             </div>
             <div class="a_content-box-tr1-td1-2">
-                <span><a href="Album_insta_api_C">アルバム</a></span>
+                <span><a href="/info/notice">アルバム</a></span>
             </div>
             <div class="a_content-box-tr1-td1-3">
-                <span><a href="Employment_C">スタッフ募集</a></span>
+                <span><a href="/info/employment">スタッフ募集</a></span>
             </div>
         </div>
         <div class="a_content-box-tr1-td2">
             <div class="a_content-box-tr1-td2-1">
-                <img src="${pageContext.request.contextPath}/user/0.img/home.png" width="1.7%" alt="" />
+                <img src="/user/0.img/home.png" width="1.7%" alt="" />
                 > 情報 > アルバム
             </div>
-            <a class="a_content-box-tr1-td2-2" href="https://www.instagram.com/ody_1004/" target="_blank">
+            <a class="a_content-box-tr1-td2-2" href="https://www.instagram.com/halo_osaka/" target="_blank">
                 <div class="a_content-box-tr1-td2-2-1">
-                    <img src="${pageContext.request.contextPath}/user/introduce/album/0.img/insta_logo.png" alt="" />
+                    <img src="/user/introduce/album/0.img/insta_logo.png" alt="" />
                 </div>
                 <div class="a_content-box-tr1-td2-2-2">instagramで見る</div>
             </a>

@@ -7,22 +7,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 @Controller
+@RequestMapping("/info")
 @PropertySource("classpath:/static/user/introduce/album/token_config.properties")
 public class AlbumC {
 
 	@Value("${api.token}")
 	private String apiToken;
 
-	@GetMapping("/AlbumC")
-	public String AlbumC(Model model) {
+	@GetMapping("/album")
+	public String album(Model model) {
 
 		model.addAttribute("apiToken", apiToken);
-//		System.out.println("api토근값 :::" + apiToken);
-
+		System.out.println("api토근값 :::" + apiToken);
 //		MainpageDAO.getMdao().getAllHompage_common(request);
 		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
 		model.addAttribute("subMenu", "/WEB-INF/views/user/introduce/album/album_contentPage.jsp");
@@ -31,7 +32,7 @@ public class AlbumC {
 	}
 
 	@ResponseBody
-	@PostMapping("/Album_insta_api_C")
+	@PostMapping("/requestInstagram")
 	public ResponseEntity<String> requestInstagram() {
 		try {
 			// API 요청 URL 구성
