@@ -13,27 +13,27 @@
 	crossorigin="anonymous">
 	
 </script>
-<link rel="stylesheet" href="admin/login/0.css/login.css" />
+<link rel="stylesheet" href="/admin/login/0.css/login.css" />
 </head>
 
 <body>
 	<section class="container forms">
 		<div class="form login">
-		<div class="close-img-box"> <a href="HC"> <img alt="" src="admin/login/0.img/close.png"></a></div>
+		<div class="close-img-box"> <a href="/"> <img alt="" src="/admin/login/0.img/close.png"></a></div>
 			<div class="form-content">
 				<div class="logo-img-box">
 				 <img alt="" src="admin/login/0.img/logo.png" class="logo-img">
 				 <div class="logo-txt">ハロー</div>
 				 </div>
 				<header>Admin Login</header>
-				<form action="LoginC" method="post">
+				<form action="/admin/login" method="post">
 				<div class="login-result">${result }</div>
 					<div class="field input-field">
-						<input required="required" name="id" placeholder="ID" class="input">
+						<input required="required" name="a_id" placeholder="ID" class="input">
 					</div>
 
 					<div class="field input-field">
-						<input type="password" name="pw" placeholder="Password" class="password">
+						<input type="password" name="a_pw" placeholder="Password" class="password">
 						<i class='bx bx-hide eye-icon'></i>
 					</div>
 

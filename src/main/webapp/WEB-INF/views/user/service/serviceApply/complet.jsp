@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/complet.css" />
 </head>
 <body>
-<form action="ServiceApplyC">
 			<div class="content-step-page-td">
 				<!-- step별 페이지  시작 -->
 
@@ -34,9 +33,8 @@
 				</div>
 				<div class="content-step-page-td-tr3">
 					<!-- 버튼 -->
-					<button class="content-step-page-td-tr3-1">確認</button>
+					<button onclick="location.href='/service/apply/step1/svc'" class="content-step-page-td-tr3-1">確認</button>
 				</div>
 			</div>
-</form>
 </body>
 </html>

@@ -1,23 +1,51 @@
 package com.halo.main.admin.login;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import jakarta.servlet.http.HttpServletRequest;
 
+@RequestMapping("/admin")
 @Controller
 public class LoginC {
-	@GetMapping("/login")
-	public String login(Model model) {
+	
+	@Autowired
+	private LoginService service;
+	
+	@GetMapping("/loginPage")
+	public String loginPage(Model model) {
 		
-		// 메뉴 상단 이름 표시
-		model.addAttribute("menuname", "ダッシュボード");
-		// 메뉴 인클루드 셋어트리뷰트
-		// perix에 /WEB-INF/views/를 걸어두었는데 어드민 페이지에서 인클루드를 하면 /WEB-INF/views/가 필요합니다.
-		// 이유는 WEB-INF의 보안정책으로 인한 접근 불가때문인거같음
-		model.addAttribute("menu", "/WEB-INF/views/admin/dashboard/dashboard.jsp");
+		return "/admin/login/login";
+	}
+	@PostMapping("/login")
+	public String login(Model model, @RequestParam("a_id") String a_id, @RequestParam("a_pw") String a_pw, HttpServletRequest request) {
+		System.out.println(service.login(model, a_id, a_pw, request));
+		return service.login(model, a_id, a_pw, request);
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		service.logout(request);
+		return "redirect:loginPage";
+	}
+	
+	@ResponseBody
+	@GetMapping("/loginExtendTime")
+	public String loginExtendTime(HttpServletRequest request) {
 		
-		// void값에 따른 
-		return "/admin/index";
+		return service.loginExtendTime(request);
+	}
+	
+	@ResponseBody
+	@PostMapping("/loginCheck")
+	public String loginCheck(HttpServletRequest request) {
+		System.out.println(service.loginCheck(request));
+		return service.loginCheck(request);
 	}
 }

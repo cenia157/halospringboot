@@ -1,4 +1,17 @@
+
+		fetch('/admin/loginCheck',{
+		method : 'Post'
+	})
+	.then(response => response.text())
+	.then(data =>{
+		console.log(data);
+		if(data == 'Login_required'){
+			window.location.href='/admin/logout'
+		}
+	})
 document.addEventListener('DOMContentLoaded', function() {
+	
+
 	// 세션 유효 시간 (초)
 	let sessionTimeout = parseInt(document.getElementById('sessionTimeoutVal').value);
 	// 초기 설정
@@ -42,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	const extendTime = document.querySelector("#extendTime");
 	extendTime.addEventListener('click', function(event) {
-		fetch('ExtendTime') // ExtendSessionServlet은 세션을 연장하는 서블릿입니다.
+		fetch('/admin/loginExtendTime') // ExtendSessionServlet은 세션을 연장하는 서블릿입니다.
 			.then(response => response.text())
 			.then(data => {
 				// 성공적으로 세션이 연장되면 서버에서 받은 데이터를 처리합니다.

@@ -52,7 +52,7 @@
 						<div id="A_QUESTION_CONTENT"></div>
 <!-- 						확인용 -->
 						<div id="A_QUESTION_SEQ"></div>
-						<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
+						<jsp:include page="/WEB-INF/views/admin/boardmanagement/ask/askEditPageCustomerQuestion.jsp"></jsp:include>
 					</div>
 					<div class="modal-content-txt-response">
 						<textarea class="Edit-textarea" rows="" cols="" 
