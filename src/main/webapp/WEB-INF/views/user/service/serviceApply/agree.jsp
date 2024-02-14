@@ -15,23 +15,23 @@
 <body>
 
 	<!-- step별 페이지  시작 -->
-	<form action="ApplyC" method="post" id="agreeFrom">
+	<form action="/service/apply/step6/complet" method="post" id="agreeFrom">
 
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
-		<input type="hidden" name="selectedTime" value="${selectedTime }">
-		<input type="hidden" name="applicant" value="${applicant }"> <input
-			type="hidden" name="phoneNum" value="${phoneNum }"> <input
-			type="hidden" name="userName" value="${userName }"> <input
-			type="hidden" name="userGender" value="${userGender }"> <input
-			type="hidden" name="userYear" value="${userYear }"> <input
-			type="hidden" name="userMonth" value="${userMonth }"> <input
-			type="hidden" name="userDay" value="${userDay }"> <input
-			type="hidden" name="addr" value="${addr }"> <input
-			type="hidden" name="startAddr" value="${startAddr }"> <input
-			type="hidden" name="endAddr" value="${endAddr }"> <input
-			type="hidden" name="niText" value="${niText }"> <input
-			type="hidden" name="tiText" value="${tiText }">
+		<input type="hidden" name="sa_time" value="${selectedTime }">
+		<input type="hidden" name="sa_applicant" value="${applicant }"> <input
+			type="hidden" name="sa_phone_number" value="${phoneNum }"> <input
+			type="hidden" name="sa_user_name" value="${userName }"> <input
+			type="hidden" name="sa_gender" value="${userGender }"> <input
+			type="hidden" name="sa_year" value="${userYear }"> <input
+			type="hidden" name="sa_month" value="${userMonth }"> <input
+			type="hidden" name="sa_days" value="${userDay }"> <input
+			type="hidden" name="sa_addr" value="${addr }"> <input
+			type="hidden" name="sa_start_place" value="${startAddr }"> <input
+			type="hidden" name="sa_end_place" value="${endAddr }"> <input
+			type="hidden" name="sa_nursing_info" value="${niText }"> <input
+			type="hidden" name="sa_taxi_info" value="${tiText }">
 
 
 		<!-- 여기에 약관 내용을 삽입합니다 -->
@@ -95,6 +95,6 @@
 	</form>
 
 </body>
-<script src="user/service/serviceApply/0.js/agreeCheck.js"></script>
+<script src="/user/service/serviceApply/0.js/agreeCheck.js"></script>
 
 </html>
