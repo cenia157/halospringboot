@@ -29,7 +29,7 @@ public interface QuestionMapper {
 
 	@Insert("insert into question_tbl values"
 			+ " (question_tbl_seq.nextval,"
-			+ " #{q_title}, #{q_content}, sysdate,"
+			+ " #{q_title}, #{q_content}, current_date,"
 			+ " #{q_contact_number}, #{q_email},"
 			+ " #{q_name}, #{q_password}, #{q_category})")
 	int insertquestion(QuestionVO questionVO);
