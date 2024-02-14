@@ -22,16 +22,19 @@ public class QuickMenuC {
 		model.addAttribute("menuname","クイックメニュー設定");
 		model.addAttribute("menu", "/WEB-INF/views/admin/homepageSetting/mainpage/mainpageContent.jsp");
 		//돌릴거 세팅
-		System.out.println(qmDao.getListQuickMenu());
+//		System.out.println(qmDao.getListQuickMenu());
 		model.addAttribute("topBanners", qmDao.getListQuickMenu());
 		return "/admin/index";
 	}
 	
 	@ResponseBody
 	@PostMapping("/quick-menu/update")
-	public String updateQuickMenu(@RequestParam("b_m_name")QuickMenuDTO qmdto, Model model) {
-		
-		qmDao.updateQuickMenu(qmdto, model);
+	public String updateQuickMenu(@RequestParam String b_m_name4,
+			@RequestParam String b_m_name5,
+			@RequestParam String b_m_name6,
+			QuickMenuDTO qmdto, Model model) {
+		System.out.println("버튼누름~456"+b_m_name4 + b_m_name5 + b_m_name6);
+		qmDao.updateQuickMenu(b_m_name4, b_m_name5, b_m_name6, qmdto, model);
 		
 		return "redirect:/admin/hompage-update/quick-menu";
 	}
