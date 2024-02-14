@@ -44,41 +44,22 @@ public class AdminFAQC {
 		return faqadminservice.getFAQListAdmin(qa_seq);
 	}
 	
-//	@ResponseBody
-//	@PostMapping("/admin/faq/update")
-//	public String adminFAQUpdate(@RequestParam int qa_seq, @RequestParam String qa_title, @RequestParam String qa_content) {
-//		if(faqadminservice.updateFAQListAdmin(qa_seq, qa_title, qa_content)==1) {
-//			System.out.println("update 완료");
-//		};
-//		return "redirect:admin/faq";
-//	}
-	
-//	@PostMapping("/CkeditorC_Frequenthyask")
-//	public ResponseEntity<String> adminFAQUpdate(@RequestParam("seq") int seq, // 'seq'로 변경
-//	                                            @RequestParam("title") String title, // 'title'로 변경
-//	                                            @RequestParam("content") String content) { // 'content'로 변경
-//	    // 데이터 검증 로직
-//		System.out.println("CKeditorC 들어옴");
-//	    // 업데이트 로직
-//	    faqadminservice.updateFAQListAdmin(seq, title, content); // 파라미터 이름 변경에 따라 수정
-//
-//	    // 성공 응답
-//	    return ResponseEntity.ok("업데이트 성공");
-//	}
 	
 	@PostMapping("/CkeditorC_Frequenthyask")
 	public String handleFormData(@RequestBody FAQformDataVO requestData) {
 	    // requestData 객체를 사용하여 원하는 작업 수행
 	    // requestData 객체의 필드에는 txt, title, seq가 있을 것으로 가정합니다.
-	    int qa_seq = requestData.getSeq();
-	    String qa_title = requestData.getTitle();
-	    String qa_content = requestData.getTxt();
+	    int seq = requestData.getSeq();
+	    String title = requestData.getTitle();
+	    String txt = requestData.getTxt();
 	    
 	    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2");
-	    System.out.println(qa_seq);
-	    System.out.println(qa_title);
-	    System.out.println(qa_content);
+	    System.out.println(seq);
+	    System.out.println(title);
+	    System.out.println(txt);
 	    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2");
+	    
+	    faqadminservice.updateFAQListAdmin(seq, title, txt);
 
 	    // 수행된 작업 후 리다이렉트 등의 응답
 	    return "redirect:/admin/faq";

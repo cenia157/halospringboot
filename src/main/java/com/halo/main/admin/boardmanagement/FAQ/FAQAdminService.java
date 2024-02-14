@@ -26,8 +26,8 @@ public class FAQAdminService {
 		return faqadminmapper.getFAQListAdmin(qa_seq);
 	}
 
-	public int updateFAQListAdmin(int qa_seq, String qa_title, String qa_content) {
-		return faqadminmapper.updateFAQListAdmin(qa_seq, qa_title, qa_content);
+	public int updateFAQListAdmin(int seq, String title, String txt) {
+		return faqadminmapper.updateFAQListAdmin(seq, title, txt);
 	}
 
 
