@@ -140,7 +140,7 @@ function checkPW(){
 								    <c:when test="${currentIndex > 0}">
 								        <c:set var="prevIndex" value="${currentIndex - 1}" />
 								        <c:set var="prevQuestion" value="${resultList[prevIndex]}" />
-								        <a href="/qna/questiondetail/${prevQuestion.q_seq}">${prevQuestion.q_title}</a>
+								        <a href="/qna/question/detail/${prevQuestion.q_seq}">${prevQuestion.q_title}</a>
 								    </c:when>
 								    <c:otherwise>
 								        <p id="disabledPost">前の投稿はありません</p>

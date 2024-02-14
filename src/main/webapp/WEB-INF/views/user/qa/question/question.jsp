@@ -155,7 +155,7 @@
 			                      <span>${question.q_name}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-3 title-width">
-			                      <a href="/qna/questiondetail/${question.q_seq}">${question.q_title}</a>
+			                      <a href="/qna/question/detail/${question.q_seq}">${question.q_title}</a>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
 			                    	<c:choose>
