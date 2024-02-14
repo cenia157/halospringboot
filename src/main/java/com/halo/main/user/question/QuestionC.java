@@ -30,10 +30,8 @@ public class QuestionC {
 	}
 	
 	//전체 페이징 처리
-	@GetMapping("/qna/question/paging")
-	public String getallQuestionPaging(@RequestParam(value = "p", required = false, defaultValue = "1") int p,
-	        Model model) {
-	    model.addAttribute("QnCs", questionservice.getAllQnCPaging());
+	@GetMapping("/qna/question/{p}")
+	public String getallQuestionPaging(@PathVariable(value = "p") int p, Model model) {
 	    questionservice.questionPaging(p, model);
 	    
 	    model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");

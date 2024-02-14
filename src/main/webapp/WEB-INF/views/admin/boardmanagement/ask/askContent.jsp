@@ -9,9 +9,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ask</title>
+
 <link rel="stylesheet"
-	href="admin/boardmanagement/ask/_css/ask.css" />
-<link rel="stylesheet" href="admin/0.css/test copy.css" />
+	href="/admin/boardmanagement/ask/_css/ask.css" />
+<link rel="stylesheet" href="/admin/0.css/test copy.css" />
 
 </head>
 <body>
