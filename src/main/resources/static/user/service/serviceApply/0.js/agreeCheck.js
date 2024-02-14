@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 	// 페이지가 로드되면 실행될 코드
 	//		let agreeForm = 
-	console.log('11111');
 	let checkBox = document.getElementById("terms-agree");
 	let myForm = document.getElementById("agreeFrom");
 

@@ -129,7 +129,7 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="CustomerInfoMgmtC">顧客情報の管理</a>
+											href="/admin/customerCare/customerInfoMgmt">顧客情報の管理</a>
 									</div>
 								</div>
 							</div>
@@ -142,7 +142,7 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="StaffC">スタッフの管理</a>
+											href="/admin/manager/staff">スタッフの管理</a>
 									</div>
 								</div>
 							</div>
@@ -182,11 +182,11 @@
 			<!-- 헤더 -->
 			<div class="header-tr">
 				<div class="header-td">
-<!-- 					<div class="header-td-user"> -->
-<%-- 						<div>${login_name }</div> --%>
-<!-- 					</div> -->
-<!-- 					<input type="hidden" id="sessionTimeoutVal" -->
-<%-- 						value="${sessionTimeout }"> --%>
+					<div class="header-td-user">
+						<div>${login_name }</div>
+					</div>
+					<input type="hidden" id="sessionTimeoutVal"
+						value="${sessionTimeout }">
 					<div class="header-td-login">
 						<p id="sessionTimeout" class="sessionTimeout">
 							<img alt="" src="/admin/0.img/timer.png"> <span id="timer"></span>
@@ -195,7 +195,7 @@
 							<a href="#" id="extendTime">時間の延長</a>
 						</div>
 						<div>
-							<a onclick="location.href='LogoutC'">ログアウト</a>
+							<a onclick="location.href='/admin/logout'">ログアウト</a>
 						</div>
 					</div>
 				</div>
@@ -215,5 +215,5 @@
 		</div>
 	</div>
 </body>
-<!-- <script src="admin/_js/loginSession.js"></script> -->
+<script src="/admin/_js/loginSession.js"></script>
 </html>

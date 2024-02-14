@@ -8,13 +8,13 @@
 <link rel="stylesheet"
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/nursingapply.css" />
-		<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/nursinfDateOption.js">
+	href="/user/service/serviceApply/0.css/nursingapply.css" />
+		<script src="/user/service/serviceApply/0.js/nursinfDateOption.js">
     </script>
 </head>
 <body>
 	<!-- 신청폼 -->
-	<form action="${service}" method="post">
+	<form action="${nextStep}" method="post">
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
 		<input type="hidden" name="selectedTime" value="${selectedTime }">

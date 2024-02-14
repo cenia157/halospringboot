@@ -63,7 +63,7 @@
 						</a>
 					</div>
 					<div class="header-td-menu-title">
-						<a href="ServiceInformationC" class="">サービス <span
+						<a href="/service/info" class="">サービス <span
 							class="header-td-menu-under"></span>
 						</a>
 					</div>
@@ -84,8 +84,8 @@
 						href="/info/employment">スタッフ募集</a>
 				</div>
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="ServiceInformationC">サービスの案内</a> <a
-						class="header-opmenu-a" href="ServiceApplyC">サービスの申し込み</a>
+					<a class="header-opmenu-a" href="/service/info">サービスの案内</a> <a
+						class="header-opmenu-a" href="/service/apply/step1/svc">サービスの申し込み</a>
 				</div>
 				<div class="header-opmenu-td">
 					<a class="header-opmenu-a" href="FaqC">よくある質問</a> <a
@@ -154,7 +154,7 @@
 			<div class="footer-item-td-2">
 				<div>
 					合同会社 <img src="/user/0.img/footerlogo.png" id="footer-logo-img" alt="" /><a
-						href="/login">ハロー </a>
+						href="/admin/loginPage">ハロー </a>
 				</div>
 				<div>
 					代表社員 ： 大出 昭子 <img src="/user/0.img/footerinstaicon.png" id="footer-logo-img-sns" alt="" /> <img
