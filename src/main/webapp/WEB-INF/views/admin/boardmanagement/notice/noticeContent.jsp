@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>noticeContent.jsp</title>
 <link rel="stylesheet" href="/admin/boardmanagement/notice/0.css/noticeContent.css" />
-<link href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" rel="stylesheet" />
+<!-- <link href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" rel="stylesheet" /> -->
 
 </head>
 
@@ -239,7 +239,7 @@
 					</div>
 				</div>
 				<div class="modal-content">
-					<div class="modal-content-txt viewModal-content-txt">
+					<div class="modal-content-txt viewModal-content-txt ck">
 						<div class="modal-content-txt-in viewModal-content-txt-in ck ck-content" id="modal-content-txt-in"></div>
 					</div>
 					<div class="modal-content-button">
