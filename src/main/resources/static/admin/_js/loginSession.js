@@ -1,6 +1,4 @@
 
-document.addEventListener('DOMContentLoaded', function() {
-	
 		fetch('/admin/loginCheck',{
 		method : 'Post'
 	})
@@ -11,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			window.location.href='/admin/logout'
 		}
 	})
+document.addEventListener('DOMContentLoaded', function() {
+	
 
 	// 세션 유효 시간 (초)
 	let sessionTimeout = parseInt(document.getElementById('sessionTimeoutVal').value);

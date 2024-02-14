@@ -129,7 +129,7 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="CustomerInfoMgmtC">顧客情報の管理</a>
+											href="/admin/customerCare/customerInfoMgmt">顧客情報の管理</a>
 									</div>
 								</div>
 							</div>
@@ -142,7 +142,7 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="StaffC">スタッフの管理</a>
+											href="/admin/manager/staff">スタッフの管理</a>
 									</div>
 								</div>
 							</div>
