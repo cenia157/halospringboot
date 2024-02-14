@@ -12,12 +12,14 @@ public class QuickMenuDAO {
 	@Autowired
 	private QuickMenuMapper qMenuMapper;
 	
-	//상단빠른메뉴 3
 	public List<QuickMenuDTO> getListQuickMenu(){
 		return qMenuMapper.getListQuickMenu();
 	}
 
 	public int updateQuickMenu(QuickMenuDTO qmdto, Model model) {
+	// 받아온 b_m_name 4,5,6으로 3번 돌리기
+		
+		
 		
 		return qMenuMapper.updateQuickMenu(qmdto);
 		
