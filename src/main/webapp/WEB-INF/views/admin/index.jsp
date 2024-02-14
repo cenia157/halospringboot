@@ -95,7 +95,7 @@
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="AdminFAQC">よくある質問</a>
+											href="/admin/boardManagement/faq">よくある質問</a>
 									</div>
 								</div>
 							</div>

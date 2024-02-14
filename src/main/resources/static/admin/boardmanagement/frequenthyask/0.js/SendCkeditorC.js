@@ -15,7 +15,7 @@ regBtn.addEventListener("click", function(event) {
     // JavaScript 객체를 JSON 문자열로 변환
     const jsonData = JSON.stringify(requestData);
 
-    fetch('/CkeditorC_Frequenthyask', {
+    fetch('/admin/boardManagement/CkeditorC_Frequenthyask', {
         method: 'POST',
         body: jsonData,
         headers: {

@@ -11,6 +11,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,20 +19,20 @@ import org.springframework.web.multipart.MultipartFile;
 import com.halo.main.user.faq.FAQVO;
 
 
-
+@RequestMapping("/admin/boardManagement")
 @Controller
 public class AdminFAQC {
 
 	@Autowired
 	private FAQAdminService faqadminservice;
 	
-	@GetMapping("/admin/faq")
+	@GetMapping("/faq")
 	public String AdminFAQMain(Model model) {
 		
 		model.addAttribute("FAQs", faqadminservice.getAllFAQsAdmin());
 		
 		model.addAttribute("menuname", "よくある質問");
-		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/frequenthyask_Test_JW/frequenthyaskContent.jsp");
+		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/frequenthyask/frequenthyaskContent.jsp");
 
 		return "/admin/index";
 	}
@@ -62,7 +63,7 @@ public class AdminFAQC {
 	    faqadminservice.updateFAQListAdmin(seq, title, txt);
 
 	    // 수행된 작업 후 리다이렉트 등의 응답
-	    return "redirect:/admin/faq";
+	    return "redirect:/admin/boardManagement/faq";
 	}
 
 
