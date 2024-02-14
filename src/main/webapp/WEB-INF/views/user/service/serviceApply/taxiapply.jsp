@@ -9,13 +9,13 @@
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/taxiapply.css" />
-	<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/taxiDateOption.js">
+	href="/user/service/serviceApply/0.css/taxiapply.css" />
+	<script src="/user/service/serviceApply/0.js/taxiDateOption.js">
     </script>
 </head>
 <body>
 
-		<form action="TaxiapplyC" method="post">
+		<form action="/service/apply/step5/agree" method="post">
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
 		<input type="hidden" name="selectedTime" value="${selectedTime }">

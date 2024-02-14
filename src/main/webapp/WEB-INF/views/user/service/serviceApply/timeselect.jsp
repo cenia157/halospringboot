@@ -14,7 +14,7 @@
 	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/seviceapply.css" />
 </head>
 <body>
-	<form action="TimeselectC" method="post" class="content-form-box">
+	<form action="${nextStep }" method="post" class="content-form-box">
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
 		<div class="content-time-select-box-td">
