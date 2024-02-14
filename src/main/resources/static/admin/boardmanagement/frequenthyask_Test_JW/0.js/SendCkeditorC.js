@@ -1,73 +1,42 @@
 let regBtn = document.querySelector('#reg-btn');
 regBtn.addEventListener("click", function(event) {
-	let ckForm = document.querySelector('#ck-form');
-	const content = window.editor.getData();
-	const formData = new FormData(ckForm);
-	const seq = document.querySelector('#modal-seq').value;
-	formData.set('txt', content);
-	formData.set('seq', seq);
-	console.log("formData: "+formData);
+    let ckForm = document.querySelector('#ck-form');
+    const title = document.querySelector('.real-title-editor').value;
+    const content = document.querySelector('.ck-content').innerText;
+    const seq = document.querySelector('#modal-seq').value;
 
+    // JavaScript 객체로 데이터 준비
+    const requestData = {
+        txt: content,
+        title: title,
+        seq: seq
+    };
 
-	const payload = new URLSearchParams(formData);
+    // JavaScript 객체를 JSON 문자열로 변환
+    const jsonData = JSON.stringify(requestData);
 
-	console.log('--------------------')
-	for (var pair of formData.entries()) {
-		console.log(pair[0] + ': ' + pair[1]);
-		console.log(pair);
-	}
-	console.log('--------------------')
-
-	var isTitleValid = false;
-	var isTxtValid = false;
-
-	for (var pair of formData.entries()) {
-
-		if (pair[0] === 'qa_title') {
-			if (pair[1] !== '') {
-				console.log('제목 O')
-				isTitleValid = true;
-			} else {
-				ErrorAlarm(title);
-				console.log('제목 X')
-			}
-		} else if (pair[0] === 'qa_content') {
-			if (pair[1] !== '') {
-				console.log('내용 O');
-				isTxtValid = true;
-			} else {
-				ErrorAlarm(content);
-				console.log('내용 X');
-			}
-		}
-	}
-	// 여기서 제목, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
-	if (isTitleValid && isTxtValid) {
-		closeModalF();
-	}
-
-	let CkeditorC123 = fetch('/CkeditorC_Frequenthyask', {
-		method: 'POST',
-		body: payload,
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded', // 헤더 설정
-		}
-	})
-		.then(response => {
-			if (!response.ok) {
-				throw new Error('Network response was not ok');
-			}
-			return response.text();
-		})
-		.then(data => {
-			//리로드 추가
-			location.reload();
-
-		})
-		.catch(error => {
-			console.error('POST 요청 실패:', error);
-		});
+    fetch('/CkeditorC_Frequenthyask', {
+        method: 'POST',
+        body: jsonData,
+        headers: {
+            'Content-Type': 'application/json' // JSON 형식으로 전달한다는 헤더 설정
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
+    .then(data => {
+        // 리로드 추가
+        location.reload();
+    })
+    .catch(error => {
+        console.error('POST 요청 실패:', error);
+    });
 });
+
 
 
 let imgIdx = 0;
@@ -85,10 +54,10 @@ $(document).ready(function() {
 	});
 });
 
-function ErrorAlarm(error){
-	if(error=="title"){
+function ErrorAlarm(e){
+	if(e=="title"){
 		alert("タイトルを入力してください")
-	} else if(error=="content"){
+	} else if(e=="content"){
 		alert("内容を入力してください")
 	}
 }
