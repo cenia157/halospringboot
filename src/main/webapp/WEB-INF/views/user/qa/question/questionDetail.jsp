@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,7 @@
 function deleteQuestion(n) {
 	let password = prompt("削除しますか?\n パスワードを入力してください。");
 	if (password === "${QnC.q_password}") {
-		location.href= "QuestionDeleteC?q_seq=" + n;
+		location.href= "/QuestionDelete/" + n;
 	} else {
 		alert("パスワードをご確認ください");
 	}
@@ -73,7 +74,7 @@ function checkPW(){
 				<div class="qd-content-box-td1-4">
 					<div class="qd-content-box-td1-4-content">
 						<span class="qd-content-box-td1-4-1">作成日時</span>
-						<span class="qd-content-box-td1-4-2"> ${QnC.q_reg_date} </span>
+						<span class="qd-content-box-td1-4-2"> <fmt:formatDate value="${QnC.q_reg_date}" pattern="yyyy-MM-dd"/>  </span>
 					</div>
 					<div class="qd-content-box-td-button">
 						<button class="qd-content-box-td-button-2" onclick="deleteQuestion(${QnC.q_seq})">削除 X</button>
@@ -139,7 +140,7 @@ function checkPW(){
 								    <c:when test="${currentIndex > 0}">
 								        <c:set var="prevIndex" value="${currentIndex - 1}" />
 								        <c:set var="prevQuestion" value="${resultList[prevIndex]}" />
-								        <a href="QuestionDetailC?q_seq=${prevQuestion.q_seq}">${prevQuestion.q_title}</a>
+								        <a href="/qna/questiondetail/${prevQuestion.q_seq}">${prevQuestion.q_title}</a>
 								    </c:when>
 								    <c:otherwise>
 								        <p id="disabledPost">前の投稿はありません</p>
@@ -155,7 +156,7 @@ function checkPW(){
 								    <c:when test="${currentIndex < fn:length(resultList) - 1}">
 								        <c:set var="nextIndex" value="${currentIndex + 1}" />
 								        <c:set var="nextQuestion" value="${resultList[nextIndex]}" />
-								        <a href="QuestionDetailC?q_seq=${nextQuestion.q_seq}">${nextQuestion.q_title}</a>
+								        <a href="/qna/questiondetail/${nextQuestion.q_seq}">${nextQuestion.q_title}</a>
 								    </c:when>
 								    <c:otherwise>
 								        <p id="disabledPost">次の投稿はありません</p>
@@ -182,7 +183,7 @@ function checkPW(){
 
 <script type="text/javascript">
 	document.getElementById("listButton").onclick = function() {
-    window.location.href = "QuestionC";
+    window.location.href = "/qna/question";
   };	
 </script>
 </html>
