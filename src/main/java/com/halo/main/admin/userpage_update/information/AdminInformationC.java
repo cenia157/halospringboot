@@ -1,5 +1,7 @@
 package com.halo.main.admin.userpage_update.information;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.halo.main.user.common.HompageCommonDTO;
+import com.halo.main.user.common.HomepageCommonDTO;
 
 
 @Controller
@@ -30,12 +32,20 @@ public class AdminInformationC {
 	}
 	
 	@ResponseBody
+	@PostMapping("/company-info/list")
+	public List<HomepageCommonDTO> getListInfo() {
+		return aInfoDao.getListInfo();
+	}
+	
+	@ResponseBody
 	@PostMapping("/company-info/update")
-	public int updateInfo(@RequestBody HompageCommonDTO hdto) {
+	public int updateInfo(@RequestBody HomepageCommonDTO hdto) {
 		//업뎃 하는 일
 		System.out.println("객체 : "+ hdto);
 		
 		return aInfoDao.updateInfo(hdto);
 	}
+	
+	
 	
 }

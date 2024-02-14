@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor	//기본생성자
 @AllArgsConstructor	//오버로딩생성자
 @Data				//getter,setter
-public class HompageCommonDTO {
+public class HomepageCommonDTO {
 	private int h_seq;					//시퀀스_번호
 	private String h_logo_img;			//로고 이미지
 	private String h_slogan;			//슬로건

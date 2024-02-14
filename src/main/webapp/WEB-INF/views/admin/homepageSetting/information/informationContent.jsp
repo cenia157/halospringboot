@@ -10,7 +10,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/homepageSetting/information/0.css/informationContent.css" />
 <body>
-	<!-- 여기에 회사정보변경 내용을 채워야한다  index.jsp의 인클루드 됭 부분이다 -->
 	<div class="content-m-td-2-wrap">
 		<div class="content-m-td-2-wrap-contain">
 	<!-- 폼태그 => 회사정보변경C -->
@@ -19,7 +18,7 @@
 				<div class="CompanyInformation-large">
 					<div class="CompanyInformation-info">会社住所</div>
 					<div class="CompanyInformation-txt">
-						<!-- 회사 주소 인풋 -->
+						<!-- 주소 인풋 -->
 						<textarea name="h_address" class="CompanyInformation-textarea-big" rows="" cols=""
 							>${hdto.h_address}</textarea>
 					</div>
@@ -37,7 +36,7 @@
 						<div class="CompanyInformation-small-td">
 							<div class="CompanyInformation-info">会社携帯</div>
 							<div class="CompanyInformation-txt">
-							<!-- 회사 휴대전화 인풋 -->
+							<!-- 휴대전화 인풋 -->
 								<textarea name="h_phone_no" class="CompanyInformation-textarea-mini" rows=""
 									cols="">${hdto.h_phone_no}</textarea>
 							</div>
@@ -47,7 +46,7 @@
 						<div class="CompanyInformation-small-td">
 							<div class="CompanyInformation-info">会社イーメール</div>
 							<div class="CompanyInformation-txt">
-							<!-- 회사 이메일 인풋 -->
+							<!-- 이메일 인풋 -->
 								<textarea name="h_email" class="CompanyInformation-textarea-mini" rows=""
 									cols="">${hdto.h_email}</textarea>
 							</div>
@@ -55,7 +54,7 @@
 						<div class="CompanyInformation-small-td">
 							<div class="CompanyInformation-info">会社FAX</div>
 							<div class="CompanyInformation-txt">
-							<!-- 회사 FAX 인풋 -->
+							<!-- FAX 인풋 -->
 								<textarea name="h_fax_no" class="CompanyInformation-textarea-mini" rows=""
 									cols="">${hdto.h_fax_no}</textarea>
 							</div>
