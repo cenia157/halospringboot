@@ -3,6 +3,7 @@ package com.halo.main.admin.boardmanagement.Question;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -97,6 +98,10 @@ public interface QuestionAdminMapper {
 			+ " ON q.q_seq = c.q_seq"
 			+ " WHERE q.q_seq = #{q_seq}")
 	List<QuestionAdminVO> getCommentDetail(int q_seq);
+
+	@Insert("INSERT INTO comment_tbl (c_seq, c_comment_content, c_reg_date, c_answer, q_seq, c_commenter_name) "
+	        + "VALUES (comment_tbl_seq.nextval, #{c_comment_content}, current_date, 1, #{q_seq}, #{c_writer})")
+	int adminInsertComment(@Param("q_seq") int q_seq, @Param("c_comment_content") String c_comment_content, @Param("c_writer") String c_writer);
 
 
 }

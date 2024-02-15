@@ -384,12 +384,20 @@ $(document).ready(function (){
 //CRUD: insert
 function submitComments() {
 	
+	let p = document.querySelector('#pageNum').value;
+	let checkVal = '';
+	let checkboxes = document.querySelectorAll('.filter:checked');
+	checkboxes.forEach(function(checkbox) {
+    	checkVal += checkbox.value;
+	});
+	
 	let c_comment_content = $('#c_comment_content').val();
 	let q_seq = $('#q_seq').val();
 	let c_writer = document.querySelector('#regBtnHiddeninput').value;
 
+
 	$.ajax({
-		url: 'CommentSubmitC',
+		url: '/admin/boardManagement/commentsubmit/'+p+'/'+checkVal,
 		method: 'post',
 		data: {
 			q_seq: q_seq,

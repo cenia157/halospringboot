@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import jakarta.websocket.server.PathParam;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RequestMapping("/admin/boardManagement")
 @Controller
@@ -61,13 +63,6 @@ public class AdminQuestionC {
 			
 			) {
 		
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("p:");
-		System.out.println(p);
-		System.out.println("checkVal:");
-		System.out.println(checkVal);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		
 		if(questionadminservice.adminCommentDelete(q_seq) == 1) {
 			System.out.println("comment delete 완료");
 		}
@@ -83,6 +78,27 @@ public class AdminQuestionC {
 	}
 	
 
+	//detail modal insert
+	@PostMapping("/commentsubmit/{p}/{checkVal}")
+	public String adminInsertComment(
+			@RequestParam("q_seq") int q_seq,
+			@RequestParam("c_comment_content") String c_comment_content,
+			@RequestParam("c_writer") String c_writer,
+			@PathVariable(value = "p") int p,
+			@PathVariable(value = "checkVal") String checkVal
+			) {
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		System.out.println("P: ");
+		System.out.println(p);
+		System.out.println("checkVal: ");
+		System.out.println(checkVal);
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		if(questionadminservice.adminInsertComment(q_seq, c_comment_content, c_writer) == 1) {
+			System.out.println("submit 완료");
+		}
+		return "redirect:/admin/boardManagement/question/" + p + "/" + checkVal ;
+	}
+	
 
 	
 	
