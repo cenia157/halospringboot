@@ -32,7 +32,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
         <div class="a_content-box-tr1-td2">
           <div class="a_content-box-tr1-td2-1">
             <img
-              src="user/0.img/home.png"
+              src="/user/0.img/home.png"
               width="1.7%"
               alt=""
             />
