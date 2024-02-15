@@ -28,15 +28,13 @@ public class QuickMenuC {
 	}
 	
 	//@ResponseBody 몸체를 주는거기 때문에 리다이렉트엔 못씀(자꾸따라가게됨)
-	
 	@PostMapping("/quick-menu/update")
 	public String updateQuickMenu(@RequestParam("m_name4") String m_name4,
 			@RequestParam("m_name5") String m_name5,
 			@RequestParam("m_name6") String m_name6,
 			 Model model) {
 		
-//		System.out.println("선택된value3개 : "+ m_name4 +", "+ m_name5 +", "+ m_name6);
-		//업뎃하는일
+		//업뎃
 		qmDao.updateQuickMenu(m_name4, m_name5, m_name6, model);
 		
 		return "redirect:/admin/homepage-update/quick-menu";
