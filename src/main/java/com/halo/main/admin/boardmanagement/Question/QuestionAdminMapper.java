@@ -83,5 +83,20 @@ public interface QuestionAdminMapper {
 	@Delete("delete from comment_tbl where q_seq=#{q_seq}")
 	int adminCommentDelete(String q_seq);
 
+	//detail
+	@Select("SELECT q.*, c.*"
+			+ " FROM question_tbl q"
+			+ " LEFT JOIN comment_tbl c"
+			+ " ON q.q_seq = c.q_seq"
+			+ " WHERE q.q_seq = #{q_seq}")
+	List<QuestionAdminVO> getQuestionDetail(int q_seq);
+	
+	@Select("SELECT q.*, c.*"
+			+ " FROM question_tbl q"
+			+ " LEFT JOIN comment_tbl c"
+			+ " ON q.q_seq = c.q_seq"
+			+ " WHERE q.q_seq = #{q_seq}")
+	List<QuestionAdminVO> getCommentDetail(int q_seq);
+
 
 }

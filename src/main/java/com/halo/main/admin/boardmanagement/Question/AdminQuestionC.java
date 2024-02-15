@@ -1,5 +1,7 @@
 package com.halo.main.admin.boardmanagement.Question;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import jakarta.websocket.server.PathParam;
 
 @RequestMapping("/admin/boardManagement")
 @Controller
@@ -34,6 +38,21 @@ public class AdminQuestionC {
 		return "/admin/index";
 	}
 
+	//detail: question
+	@ResponseBody
+	@PostMapping("/questiondetail/{q_seq}")
+	public List<QuestionAdminVO> getQuestionDetail(@PathVariable("q_seq") int q_seq) {
+		return questionadminservice.getQuestionDetail(q_seq);
+	}
+	//detail: comment
+	@ResponseBody
+	@PostMapping("/commentdetail/{q_seq}")
+	public List<QuestionAdminVO> getCommentDetail(@PathVariable("q_seq") int q_seq) {
+		return questionadminservice.getCommentDetail(q_seq);
+	}
+	
+	
+	//delete
 	@PostMapping("/deletequestion/{p}/{checkVal}/{q_seq}/{pageNumber}")
 	public String adminDeleteQuestion(@PathVariable("q_seq") String q_seq,
 			@PathVariable(value = "p") int p

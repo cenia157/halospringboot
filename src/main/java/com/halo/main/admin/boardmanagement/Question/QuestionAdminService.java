@@ -80,5 +80,13 @@ public class QuestionAdminService {
 		return qaMapper.adminQuestionDelete(q_seq);
 	}
 
+	public List<QuestionAdminVO> getQuestionDetail(int q_seq) {
+		return qaMapper.getQuestionDetail(q_seq);
+	}
+
+	public List<QuestionAdminVO> getCommentDetail(int q_seq) {
+		return qaMapper.getCommentDetail(q_seq);
+	}
+
 	
 }

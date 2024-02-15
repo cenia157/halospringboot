@@ -184,7 +184,7 @@ function getData(q_seq, e, q_title, q_content, q_reg_date, q_contact_number, q_e
 
 	// 첫 번째 Ajax 요청
 	$.ajax({
-		url: "/admin/boardManagement/questiondetail",
+		url: "/admin/boardManagement/questiondetail/" + q_seq,
 		type: "post",
 		dataType: "json",
 		data: {
@@ -230,6 +230,8 @@ function getData(q_seq, e, q_title, q_content, q_reg_date, q_contact_number, q_e
 					$('#QUESTION_SEQ').html(qSeq);
 
 
+					console.log("question Data: ");
+					console.log(data)
 					// comments 데이터를 가져와서 표시
 					getComments(q_seq);
 
@@ -251,7 +253,7 @@ function getData(q_seq, e, q_title, q_content, q_reg_date, q_contact_number, q_e
 function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, c_seq) {
 
 	$.ajax({
-		url: "GetCommentsC",
+		url: "/admin/boardManagement/commentdetail/" + q_seq,
 		type: "post",
 		dataType: "json",
 		data: {
@@ -278,15 +280,28 @@ function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_a
 					$('#COMMENT_NAME').html(c_commenter_name);
 					$('#hidden_c_seq').val(cSeq);
 
+
+					console.log("comment Data: ")
+					console.log(commentData);
+					console.log("c_comment_content: ")
+					console.log(c_comment_content);
 					//모달창 열기
 					if (c_comment_content != null) {
+						console.log("Answer Modal")
 						openModalA();
+					}else if (c_comment_content == null) {
+						console.log("Unanswer Modal")
+						openModalN(q_seq);
+					}
+					else{
+						console.log("Answer Modal Error")
 					}
 
 				} else {
 					console.log("댓글이 없습니다.");
 					//모달창 열기
 					if (c_comment_content == null) {
+						console.log("Unanswer Modal")
 						openModalN(q_seq);
 					}
 				}
