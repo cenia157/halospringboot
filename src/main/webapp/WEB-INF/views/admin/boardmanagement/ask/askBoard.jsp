@@ -62,12 +62,12 @@
                   <!-- 처음으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 5}">
-                      <a href="CheckboxPagingC?p=${curPageNo - 5}">
+                      <a href="/admin/boardManagement/question/${curPageNo - 5}">
                         <button id="MostPrevious"><<</button>
                       </a>
                     </c:when>
                     <c:when test="${curPageNo <= 5 && curPageNo > 1}">
-                      <a href="CheckboxPagingC?p=1">
+                      <a href="/admin/boardManagement/question/1">
                         <button id="MostPrevious"><<</button>
                       </a>
                     </c:when>
@@ -79,7 +79,7 @@
                   <!-- 이전 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
-                      <a href="CheckboxPagingC?p=${curPageNo - 1}">
+                      <a href="/admin/boardManagement/question/${curPageNo - 1}">
                         <button id="Previous">前の</button>
                       </a>
                     </c:when>
@@ -127,7 +127,7 @@
                     />
 					<!-- 버튼 모양 결정 -->
                     <a
-                      href="CheckboxPagingC?p=${pageNumber}"
+                      href="/admin/boardManagement/question/${pageNumber}"
                       class="page-number ${currentPageClass}"
                       >
                       [ ${pageNumber} ]
@@ -138,7 +138,7 @@
                   <!-- 다음 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
-                      <a href="CheckboxPagingC?p=${curPageNo + 1}">
+                      <a href="/admin/boardManagement/question/${curPageNo + 1}">
                         <button id="Next">次の</button>
                       </a>
                     </c:when>
@@ -150,14 +150,14 @@
                   <!-- 마지막으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo + 5 <= pageCount}">
-                      <a href="CheckboxPagingC?p=${curPageNo + 5}">
+                      <a href="/admin/boardManagement/question/${curPageNo + 5}">
                         <button id="MostNext">>></button>
                       </a>
                     </c:when>
                     <c:when
                       test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
                     >
-                      <a href="CheckboxPagingC?p=${pageCount}">
+                      <a href="/admin/boardManagement/question/${pageCount}">
                         <button id="MostNext">>></button>
                       </a>
                     </c:when>
