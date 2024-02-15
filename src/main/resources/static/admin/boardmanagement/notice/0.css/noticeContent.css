@@ -174,7 +174,7 @@
 	border-bottom: solid 1px #E5E7EB;
 	display: flex;
 	align-items: center;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	width: 40%;
 	padding: 0% 4%;
 }
@@ -184,7 +184,7 @@
 	white-space: nowrap; /* 텍스트를 한 줄로 유지 */
     overflow: hidden; /* 요소의 너비를 벗어나는 텍스트 숨기기 */
     text-overflow: ellipsis; /* 긴 텍스트에 말줄임표 추가 */
-    max-width: 45ch; /* 텍스트의 최대 너비를 35자로 설정 */
+    max-width: 52ch; /* 텍스트의 최대 너비를 35자로 설정 */
 }
 
 .ontent-m-td-2-content-txt-writer-in {
@@ -552,14 +552,6 @@
 
 /* 뷰 모달창 css */
 
-.modal-title-td-1 {
-/* 	outline: 1px solid red; */
-}
-
-.real-title-V, #Display-Category {
-/* 	outline: 1px solid brown; */
-}
-
 #Display-Category {
 	margin-right: 90.55%;
 	border: 1px solid #d1d1d1;
@@ -615,11 +607,6 @@
 	cursor: pointer;
 }
 
-/* css사용하여 제목 초기 숨김 */
-.content-m-td-title {
-/*     visibility: hidden; */
-}
-
 .deleteNoticeBtn {
 	padding: 5% 15%;
     font-size: 1rem;
@@ -629,15 +616,6 @@
     border: none;
     cursor: pointer;	
 }
-
-/* 하단 페이징 시작 */
-/* 버튼 css */
-/* 옅은 녹색: #99B361 */
-/* 짙은 녹색: #738749 */
-/* 옅은 회색: #ccc */
-/* 짙은 회색: #666 */
-/* 중간 회색: #999999 */
-
 
 .paging-div > a{
 	font-size: 1.2rem;
@@ -688,4 +666,12 @@
 	background-color: #999999;
 	border: none;
 	color: #ccc;
+}
+
+#real-title-editorN {
+	font-family: 'KosugiMaru-Regular', sans-serif;
+}
+
+.real-title-editor::placeholder {
+    font-family: 'KosugiMaru-Regular', sans-serif;
 }

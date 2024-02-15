@@ -207,7 +207,6 @@
 	    }
 	}
 	
-	
 	$(document).ready(function() {
 	
 	    checkAndAdjustLayout();
