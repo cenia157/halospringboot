@@ -35,7 +35,20 @@
 								<div class="real-title-down-contain" id="N_QUESTION_DATE"></div>
 								<div class="real-title-down-contain">未回答</div>
 							</div>
-							<div class="real-title-down-R"></div>
+							<div class="real-title-down-2">
+								<div class="real-title-down-contain">
+									<span id="N_QUESTION_PHONE"></span>
+								</div>
+								<div class="real-title-down-contain">
+									<span id="N_QUESTION_EMAIL"></span>
+								</div>
+							</div>
+<!-- 							<div class="real-title-down-2"> -->
+<!-- 								<div class="real-title-down-contain"> -->
+<!-- 									<span id="N_QUESTION_CATEGORY"></span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+							
 						</div>
 					</div>
 

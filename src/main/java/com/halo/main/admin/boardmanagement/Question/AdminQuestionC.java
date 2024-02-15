@@ -64,10 +64,10 @@ public class AdminQuestionC {
 			) {
 		
 		if(questionadminservice.adminCommentDelete(q_seq) == 1) {
-			System.out.println("comment delete 완료");
+			System.out.println("comment delete");
 		}
 		if(questionadminservice.adminQuestionDelete(q_seq) == 1) {
-			System.out.println("question delete 완료");
+			System.out.println("question delete");
 		}
 		
 		if(p != pageNumber) {
@@ -88,7 +88,7 @@ public class AdminQuestionC {
 			@PathVariable(value = "checkVal") String checkVal
 			) {
 		if(questionadminservice.adminInsertComment(q_seq, c_comment_content, c_writer) == 1) {
-			System.out.println("submit 완료");
+			System.out.println("submit");
 		}
 		return "redirect:/admin/boardManagement/question/" + p + "/" + checkVal ;
 	}
@@ -102,7 +102,7 @@ public class AdminQuestionC {
 			@PathVariable(value = "checkVal") String checkVal
 			) {
 		if(questionadminservice.adminUpdateComment(c_seq, c_comment_content) == 1) {
-			System.out.println("Update 성공");
+			System.out.println("Update");
 		}
 		return "redirect:/admin/boardManagement/question/" + p + "/" + checkVal;
 	}

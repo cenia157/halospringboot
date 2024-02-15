@@ -52,13 +52,7 @@ public class AdminFAQC {
 	    // requestData 객체의 필드에는 txt, title, seq가 있을 것으로 가정합니다.
 	    int seq = requestData.getSeq();
 	    String title = requestData.getTitle();
-	    String txt = requestData.getTxt();
-	    
-	    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2");
-	    System.out.println(seq);
-	    System.out.println(title);
-	    System.out.println(txt);
-	    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2");
+	    String txt = requestData.getTxt();	    
 	    
 	    faqadminservice.updateFAQListAdmin(seq, title, txt);
 

@@ -36,10 +36,6 @@ public class QuestionAdminService {
 	         selectedCategories.add(checkBoxVal[index]);
 	      }
 	      
-	      System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-	      //둘다 체크하면 [uncompleted, completed]
-	      System.out.println(selectedCategories);
-	      System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 	      
 	      QnCs = (ArrayList<QuestionAdminVO>) qaMapper.getAllQnCs(selectedCategories);
 
