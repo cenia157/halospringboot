@@ -17,26 +17,8 @@ public class AdminQuestionC {
 	@Autowired
 	private QuestionAdminService questionadminservice;
 	
-////	@ResponseBody
-//	@GetMapping("/question")
-//	public String AdminQuestionMain(
-////			@RequestParam(value = "completed", required = false, defaultValue = "세션없음") String completed,
-////			@RequestParam(value = "uncompleted", required = false, defaultValue = "세션없음") String uncompleted,
-//			 Model model) {
-//		
-//		model.addAttribute("QnCs", questionadminservice.getAllQnCs());
-//		questionadminservice.qaPaging(1, model);
-//		
-//		model.addAttribute("menuname", "お問い合わせ");
-//		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/ask/askContent.jsp");
-//
-//		return "/admin/index";
-//	}
-	
 	@GetMapping("/question/{p}/{checkVal}")
 	public String AdminQuestionMainPaging(
-//			@RequestParam(value = "completed", required = false, defaultValue = "세션없음") String completed,
-//			@RequestParam(value = "uncompleted", required = false, defaultValue = "세션없음") String uncompleted,
 			@PathVariable(value = "p") int p
 			, @PathVariable(value = "checkVal") String checkVal
 			, Model model) {
@@ -51,19 +33,20 @@ public class AdminQuestionC {
 		
 		return "/admin/index";
 	}
-
+	
+	@GetMapping("/deletequestion/{q_seq}")
+	public String adminDeleteQuestion(@PathVariable int q_seq) {
+		if(questionadminservice.adminCommentDelete(q_seq) == 1) {
+			System.out.println("delete 완료");
+		}
+		if(questionadminservice.adminQuestionDelete(q_seq) == 1) {
+			System.out.println("delete 완료");
+		}
+		return "redirect:/question/{p}/{checkVal}";
+	}
 	
 
-//	@GetMapping("/question/paging/{p}/{checkVal}")
-//	public String AdminQuestionMain(@PathVariable("p") int p,@PathVariable("checkVal") boolean checkVal , Model model) {
-//		
-////		model.addAttribute("QnCs", questionadminmapper.getCheckboxedQuestions());
-//		
-//		model.addAttribute("menuname", "お問い合わせ");
-//		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/ask/askContent.jsp");
-//		
-//		return "/admin/index";
-//	}
+
 	
 	
 }

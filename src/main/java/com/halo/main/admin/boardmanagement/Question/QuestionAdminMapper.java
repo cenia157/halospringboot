@@ -2,6 +2,7 @@ package com.halo.main.admin.boardmanagement.Question;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -75,6 +76,12 @@ public interface QuestionAdminMapper {
 	    "</script>"
 	})
 	List<QuestionAdminVO> getAllQnCs(@Param("selectedCategories") List<String> selectedCategories);
+
+	@Delete("delete from question_tbl where q_seq=#{q_seq}")
+	int adminQuestionDelete(int q_seq);
+
+	@Delete("delete from comment_tbl where q_seq=#{q_seq}")
+	int adminCommentDelete(int q_seq);
 
 
 }

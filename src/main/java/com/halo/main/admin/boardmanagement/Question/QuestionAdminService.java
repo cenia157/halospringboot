@@ -71,5 +71,14 @@ public class QuestionAdminService {
 		
 	}
 
+	//comment
+	public int adminCommentDelete(int q_seq) {
+		return qaMapper.adminCommentDelete(q_seq);
+	}
+	//question
+	public int adminQuestionDelete(int q_seq) {
+		return qaMapper.adminQuestionDelete(q_seq);
+	}
+
 	
 }

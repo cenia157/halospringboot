@@ -184,7 +184,7 @@ function getData(q_seq, e, q_title, q_content, q_reg_date, q_contact_number, q_e
 
 	// 첫 번째 Ajax 요청
 	$.ajax({
-		url: "GetDataC",
+		url: "/admin/boardManagement/questiondetail",
 		type: "post",
 		dataType: "json",
 		data: {
@@ -399,7 +399,7 @@ function deleteQuestion(q_seq, e) {
 	let ok = confirm("削除しますか?");
 	if (ok) {
 		$.ajax({
-			url: 'AskDeleteC',
+			url: '/admin/boardManagement/deletequestion',
 			method: 'post',
 			data: {
 				q_seq: q_seq

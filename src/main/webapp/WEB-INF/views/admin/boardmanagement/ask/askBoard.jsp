@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	
 <!DOCTYPE html>
 <html lang="kr">
@@ -46,7 +47,7 @@
 			            <a onclick="getData('${item.q_seq}');">${item.q_title}</a>
 				        </div>
 			        <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
-			        <div class="ontent-m-td-2-content-txt-date-in">${item.q_reg_date}</div>
+			        <div class="ontent-m-td-2-content-txt-date-in"><fmt:formatDate value="${item.q_reg_date}" pattern="yyyy-MM-dd"/></div>
 			        <div class="ontent-m-td-2-content-txt-delete-in">
 			            <button id="deleteBtn" onclick="deleteQuestion(${item.q_seq}, this)">削除</button>
 			        </div>

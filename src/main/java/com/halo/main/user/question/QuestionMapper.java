@@ -34,9 +34,10 @@ public interface QuestionMapper {
 			+ " #{q_name}, #{q_password}, #{q_category})")
 	int insertquestion(QuestionVO questionVO);
 
+	//comment
 	@Delete("delete from comment_tbl where q_seq=#{q_seq}")
 	int deletecomment(int q_seq);
-	
+	//question
 	@Delete("delete from question_tbl where q_seq=#{q_seq}")
 	int deletequestion(int q_seq);
 
