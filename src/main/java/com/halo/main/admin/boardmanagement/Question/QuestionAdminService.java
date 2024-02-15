@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.halo.main.admin.boardmanagement.notice.NoticeDTO;
 
@@ -20,10 +21,30 @@ public class QuestionAdminService {
 		return qaMapper.getCheckboxedQuestions();
 	}
 
-	public List<QuestionAdminVO> getAllQnCs() {
-		QnCs = (ArrayList<QuestionAdminVO>) qaMapper.getAllQnCs();
-		return QnCs;
-	}
+//	public List<QuestionAdminVO> getAllQnCs() {
+//		QnCs = (ArrayList<QuestionAdminVO>) qaMapper.getAllQnCs();
+//		return QnCs;
+//	}
+	
+	   // 전체조회
+	   public List<QuestionAdminVO> getAllQnCs(@RequestParam("checkVal") String checkVal) {
+	      String[] checkBoxVal = { "completed", "uncompleted" };
+	      List<String> selectedCategories = new ArrayList<>();
+
+	      for (int i = 0; i < checkVal.length(); i++) {
+	         int index = Character.getNumericValue(checkVal.charAt(i));
+	         selectedCategories.add(checkBoxVal[index]);
+	      }
+	      
+	      System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+	      //둘다 체크하면 [uncompleted, completed]
+	      System.out.println(selectedCategories);
+	      System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+	      
+	      QnCs = (ArrayList<QuestionAdminVO>) qaMapper.getAllQnCs(selectedCategories);
+
+	      return QnCs;
+	   }
 
 	public void qaPaging(int page, Model model) {
 

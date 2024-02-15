@@ -33,7 +33,7 @@ public class AdminQuestionC {
 //		return "/admin/index";
 //	}
 	
-	@GetMapping("/question/{checkVal}/{p}")
+	@GetMapping("/question/{p}/{checkVal}")
 	public String AdminQuestionMainPaging(
 //			@RequestParam(value = "completed", required = false, defaultValue = "세션없음") String completed,
 //			@RequestParam(value = "uncompleted", required = false, defaultValue = "세션없음") String uncompleted,
@@ -42,8 +42,9 @@ public class AdminQuestionC {
 			, Model model) {
 		
 		
-		model.addAttribute("QnCs", questionadminservice.getAllQnCs());
+		model.addAttribute("QnCs", questionadminservice.getAllQnCs(checkVal));
 		questionadminservice.qaPaging(p, model);
+		model.addAttribute("pageNum", p);
 		
 		model.addAttribute("menuname", "お問い合わせ");
 		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/ask/askContent.jsp");
