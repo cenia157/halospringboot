@@ -101,9 +101,8 @@
 	            cursor: "pointer",
 	        })
 	        .click(function () {
-
-	            window.location.href = "https://www.instagram.com//halo_osaka/", "_blank";
-	        });
+   		    	 window.open("https://www.instagram.com/halo_osaka/", "_blank");
+			 });
 	
 	    // 첫 번째 내부 div 생성 및 클래스 추가
 	    let innerDivIcon = $("<div></div>").addClass("innerDiv_icon");
@@ -207,7 +206,6 @@
 	        }
 	    }
 	}
-	
 	
 	$(document).ready(function() {
 	
