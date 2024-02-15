@@ -184,7 +184,7 @@ function getData(q_seq, e, q_title, q_content, q_reg_date, q_contact_number, q_e
 
 	// 첫 번째 Ajax 요청
 	$.ajax({
-		url: "GetDataC",
+		url: "/admin/boardManagement/questiondetail",
 		type: "post",
 		dataType: "json",
 		data: {
@@ -395,21 +395,31 @@ function submitComments() {
 }
 
 //CRUD: delete
-function deleteQuestion(q_seq, e) {
+function deleteQuestion(q_seq) {
+	
+	
+	let p = document.querySelector('#pageNum').value;
+	let checkboxes = document.querySelectorAll('.filter:checked');
+	let checkVal = '';
+
+	checkboxes.forEach(function(checkbox) {
+    	checkVal += checkbox.value;
+	});
+	console.log(checkVal)
+	
 	let ok = confirm("削除しますか?");
+	console.log("Delete seq: ", q_seq)
 	if (ok) {
 		$.ajax({
-			url: 'AskDeleteC',
+			url: '/admin/boardManagement/deletequestion/' + p +'/' + checkVal + '/' + q_seq,
 			method: 'post',
 			data: {
 				q_seq: q_seq
 			},
 			success: function() {
 				console.log("삭제 성공");
-
-				e.closest('.ontent-m-td-2-content-txt-in').remove();
-				//				checkboxSubmit();
-				//				location.reload();
+				location.reload();
+//				e.closest('.ontent-m-td-2-content-txt-in').remove();
 			},
 			error: function(xhr, status, error) {
 				console.log("삭제 에러: ", xhr, status, error);
@@ -693,4 +703,33 @@ function createPageNoBtn(text, pageNo, isEnabled) {
 }
 
 
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//spring boot checkbox 값 가져오기
 
+function questionCheckbox(){
+   let pageVal = document.querySelector('#pageNum').value;
+   if (pageVal == '') {
+      pageVal = 1;
+   }
+   console.log(pageVal);
+
+   let checkboxes = document.querySelectorAll('.filter:checked');
+   let checkVal = '';
+
+   checkboxes.forEach(function(checkbox) {
+      checkVal += checkbox.value;
+   });
+
+//   let seqVal = document.querySelector('#updateSEQ').value; // seq 값 가져오기
+
+   if (checkVal !== '') {
+//      if (seqVal !== '0' && seqVal !== '') {
+//         seqVal = '0'; // seq가 null이나 빈 문자열이 아니면 0으로 설정
+//      }
+      location.href = '/admin/boardManagement/question/' + pageVal + '/' + checkVal;
+   } else {
+      alert('一つ以上のチェックボックスにチェックを入れる必要があります。');
+      history.go(0);
+   }
+
+}
