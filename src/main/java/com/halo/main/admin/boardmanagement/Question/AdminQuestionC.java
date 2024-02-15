@@ -87,16 +87,24 @@ public class AdminQuestionC {
 			@PathVariable(value = "p") int p,
 			@PathVariable(value = "checkVal") String checkVal
 			) {
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("P: ");
-		System.out.println(p);
-		System.out.println("checkVal: ");
-		System.out.println(checkVal);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		if(questionadminservice.adminInsertComment(q_seq, c_comment_content, c_writer) == 1) {
 			System.out.println("submit 완료");
 		}
 		return "redirect:/admin/boardManagement/question/" + p + "/" + checkVal ;
+	}
+	
+	//detail modal update
+	@PostMapping("/commentupdate/{p}/{checkVal}")
+	public String adminUpdateComment(
+			@RequestParam("c_seq") int c_seq,
+			@RequestParam("c_comment_content") String c_comment_content,
+			@PathVariable(value = "p") int p,
+			@PathVariable(value = "checkVal") String checkVal
+			) {
+		if(questionadminservice.adminUpdateComment(c_seq, c_comment_content) == 1) {
+			System.out.println("Update 성공");
+		}
+		return "redirect:/admin/boardManagement/question/" + p + "/" + checkVal;
 	}
 	
 

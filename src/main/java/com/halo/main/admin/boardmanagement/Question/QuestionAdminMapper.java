@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface QuestionAdminMapper {
@@ -102,6 +103,10 @@ public interface QuestionAdminMapper {
 	@Insert("INSERT INTO comment_tbl (c_seq, c_comment_content, c_reg_date, c_answer, q_seq, c_commenter_name) "
 	        + "VALUES (comment_tbl_seq.nextval, #{c_comment_content}, current_date, 1, #{q_seq}, #{c_writer})")
 	int adminInsertComment(@Param("q_seq") int q_seq, @Param("c_comment_content") String c_comment_content, @Param("c_writer") String c_writer);
+
+	@Update("update comment_tbl set c_comment_content = #{c_comment_content} where c_seq=#{c_seq}")
+	int adminUpdateComment(@Param("c_seq") int c_seq, @Param("c_comment_content") String c_comment_content);
+
 
 
 }

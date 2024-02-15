@@ -92,5 +92,9 @@ public class QuestionAdminService {
 		return qaMapper.adminInsertComment(q_seq, c_comment_content, c_writer);
 	}
 
+	public int adminUpdateComment(int c_seq, String c_comment_content) {
+		return qaMapper.adminUpdateComment(c_seq, c_comment_content);
+	}
+
 	
 }

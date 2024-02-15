@@ -354,11 +354,19 @@ function updateModalContent(questionJson) {
 //CRUD: update
 function updateComments() {
 
+	let p = document.querySelector('#pageNum').value;
+	let checkVal = '';
+	let checkboxes = document.querySelectorAll('.filter:checked');
+	checkboxes.forEach(function(checkbox) {
+    	checkVal += checkbox.value;
+	});
+	
+
 	let c_seq = $('#hidden_c_seq').val();
 	let c_comment_content = $('#COMMENT_CONTENT').val();
 
 	$.ajax({
-		url: 'CommentUpdateC',
+		url: '/admin/boardManagement/commentupdate/'+p+'/'+checkVal,
 		method: 'post',
 		data: {
 			c_seq: c_seq,
