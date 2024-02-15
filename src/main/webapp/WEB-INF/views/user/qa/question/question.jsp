@@ -1,6 +1,4 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.halo.user.qa.question.Question" %>
-<%@ page import="com.halo.admin.boardmanagement.ask.AskDAO" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,6 +6,7 @@
 
 <%@ page import="java.util.Collections" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 
@@ -43,10 +42,10 @@
 
 		<!-- 문의작성란 -->
 	<div class="q-content-tbl">
-		<form action="QuestionC" method="post">
+		<form action="/QuestionSubmit" method="post">
 		<div class="q-content-box-tr1">
 			<div class="q-content-box-td0">
-				<a href="FaqC">＜＜よくある質問に</a>
+				<a href="/qna/faq">＜＜よくある質問に</a>
 			</div>
 			<div class="q-content-box-td1">
 				<span class="q-content-box-td-content1">お問い合わせフォーム</span>
@@ -66,10 +65,10 @@
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content4-1">カテゴリー*</span>
 					<select class="q-content-box-td-content4-2" id="questioncategory" name="q_category">
-			            <option value="Q1">Q1</option>
-			            <option value="Q2">Q2</option>
-			            <option value="Q3">Q3</option>
-			            <option value="Q4">Q4</option>
+			            <option value="訪問介護サービス">訪問介護サービス</option>
+			            <option value="タクシーサービス">タクシーサービス</option>
+			            <option value="ホームページ関連">ホームページ関連</option>
+			            <option value="その他">その他</option>
 			        </select>
 			</div>
 <!-- title -->
@@ -156,7 +155,7 @@
 			                      <span>${question.q_name}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-3 title-width">
-			                      <a href="QuestionDetailC?q_seq=${question.q_seq}">${question.q_title}</a>
+			                      <a href="/qna/question/detail/${question.q_seq}">${question.q_title}</a>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
 			                    	<c:choose>
@@ -169,7 +168,7 @@
 						            </c:choose>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-5 reg-width">
-			                      <span>${question.q_reg_date}</span>
+			                      <span><fmt:formatDate value="${question.q_reg_date}" pattern="yyyy-MM-dd"/></span>
 			                    </div>
 					    </div>
 					</c:forEach>
@@ -180,12 +179,12 @@
                   <!-- 처음으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 5}">
-                      <a href="QuestionPagingC?p=${curPageNo - 5}">
+                      <a href="/qna/question/${curPageNo - 5}">
                         <button><<</button>
                       </a>
                     </c:when>
                     <c:when test="${curPageNo <= 5 && curPageNo > 1}">
-                      <a href="QuestionPagingC?p=1">
+                      <a href="/qna/question/1">
                         <button><<</button>
                       </a>
                     </c:when>
@@ -197,7 +196,7 @@
                   <!-- 이전 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
-                      <a href="QuestionPagingC?p=${curPageNo - 1}">
+                      <a href="/qna/question/${curPageNo - 1}">
                         <button>前の</button>
                       </a>
                     </c:when>
@@ -245,7 +244,7 @@
                     />
 					<!-- 버튼 모양 결정 -->
                     <a
-                      href="QuestionPagingC?p=${pageNumber}"
+                      href="/qna/question/${pageNumber}"
                       class="page-number ${currentPageClass}"
                       >
                       [ ${pageNumber} ]
@@ -256,7 +255,7 @@
                   <!-- 다음 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
-                      <a href="QuestionPagingC?p=${curPageNo + 1}">
+                      <a href="/qna/question/${curPageNo + 1}">
                         <button>次の</button>
                       </a>
                     </c:when>
@@ -268,14 +267,14 @@
                   <!-- 마지막으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo + 5 <= pageCount}">
-                      <a href="QuestionPagingC?p=${curPageNo + 5}">
+                      <a href="/qna/question/${curPageNo + 5}">
                         <button>>></button>
                       </a>
                     </c:when>
                     <c:when
                       test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
                     >
-                      <a href="QuestionPagingC?p=${pageCount}">
+                      <a href="/qna/question/${pageCount}">
                         <button>>></button>
                       </a>
                     </c:when>

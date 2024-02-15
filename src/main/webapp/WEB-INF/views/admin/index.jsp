@@ -12,7 +12,7 @@
 <!-- <link -->
 <!-- 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" -->
 <!-- 	rel="stylesheet" /> -->
-
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet"> -->
 <!-- jquery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
@@ -22,9 +22,9 @@
 
 <!-- 메뉴 js -->
 <script src="/admin/_js/test.js"></script>
-
+<link rel="stylesheet" href="/admin/0.css/admin_font.css" />
 <!-- 메뉴 css -->
-<link rel="stylesheet" href="/admin/0.css/test copy.css" />
+<link rel="stylesheet" href="/admin/0.css/admin_common.css" />
 <body>
 	<!-- 최상위 콘테이너 -->
 	<div class="container">
@@ -95,7 +95,7 @@
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="AdminFAQC">よくある質問</a>
+											href="/admin/boardManagement/faq">よくある質問</a>
 									</div>
 								</div>
 							</div>

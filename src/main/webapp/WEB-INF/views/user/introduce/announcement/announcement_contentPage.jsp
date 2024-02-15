@@ -6,7 +6,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>お知らせ</title>
-  	<link href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" rel="stylesheet" />
+<!--   	<link href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" rel="stylesheet" /> -->
   	<link rel="stylesheet" href="/user/introduce/announcement/0.css/announcement_contentPage.css"/>
     <script src="/admin/_js/ckeditor/ckeditor.js"></script>
     <script src="/user/introduce/announcement/0.js/announcement_contentPage_modal.js"></script>
@@ -32,7 +32,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
         <div class="a_content-box-tr1-td2">
           <div class="a_content-box-tr1-td2-1">
             <img
-              src="user/0.img/home.png"
+              src="/user/0.img/home.png"
               width="1.7%"
               alt=""
             />

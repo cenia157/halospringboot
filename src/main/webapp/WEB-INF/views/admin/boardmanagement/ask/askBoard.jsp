@@ -8,10 +8,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ask</title>
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
-
 </head>
 <body>
 	<div class="ontent-m-td-2-content">
@@ -177,7 +173,7 @@
 	</div>
 </body>
 
-<script src="admin/boardmanagement/ask/_js/ask.js"></script>
-<script src="admin/_js/test.js"></script>
+<script src="/admin/boardmanagement/ask/_js/ask.js"></script>
+<script src="/admin/_js/test.js"></script>
 
 </html>

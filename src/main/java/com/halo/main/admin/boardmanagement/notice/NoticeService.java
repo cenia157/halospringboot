@@ -30,7 +30,6 @@ public class NoticeService {
 			selectedCategories.add(checkBoxVal[index]);
 		}
 		
-
 		notices = (ArrayList<NoticeDTO>) nMapper.getAllNotice(selectedCategories);
 
 		return notices;
@@ -102,8 +101,8 @@ public class NoticeService {
 
 			Files.copy(file.getInputStream(), filePath); 
 
-			System.out.println("파일경로 ::: " + filePath.toAbsolutePath().toString());
-			System.out.println("파일이름 :::: " + fileName);
+//			System.out.println("파일경로 ::: " + filePath.toAbsolutePath().toString());
+//			System.out.println("파일이름 :::: " + fileName);
 
 			JSONObject jo = new JSONObject();
 			jo.put("fName", "/admin/boardmanagement/notice/0.img/upload/" + fileName);
@@ -135,12 +134,12 @@ public class NoticeService {
 			}
 		}
 		
-		System.out.println("writer : " + writer);
-		System.out.println("title : " + title);
-		System.out.println("가공전 txt : " + txt);
-		System.out.println("saveFnameValues : " + saveFnameValues);
-		System.out.println("가공 후 txt : " + txt);
-		System.out.println("select : " + select);
+//		System.out.println("writer : " + writer);
+//		System.out.println("title : " + title);
+//		System.out.println("가공전 txt : " + txt);
+//		System.out.println("saveFnameValues : " + saveFnameValues);
+//		System.out.println("가공 후 txt : " + txt);
+//		System.out.println("select : " + select);
 
 		return  nMapper.regNotice(writer, title, select, txt);
 	}
@@ -163,11 +162,11 @@ public class NoticeService {
 			}
 		}
 		
-		System.out.println("title : " + title);
-		System.out.println("가공전 txt : " + txt);
-		System.out.println("saveFnameValues : " + saveFnameValues);
-		System.out.println("가공 후 txt : " + txt);
-		System.out.println("select : " + select);
+//		System.out.println("title : " + title);
+//		System.out.println("가공전 txt : " + txt);
+//		System.out.println("saveFnameValues : " + saveFnameValues);
+//		System.out.println("가공 후 txt : " + txt);
+//		System.out.println("select : " + select);
 
 		return nMapper.updateNotice(title, select, txt, seq);
 	}

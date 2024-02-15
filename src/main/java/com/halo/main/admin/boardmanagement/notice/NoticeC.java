@@ -22,25 +22,11 @@ public class NoticeC {
 	@Autowired
 	private NoticeService nService;
 
-//	// 전체조회
-//	@GetMapping("/notice")
-//	public String getAllNotice(@RequestParam("checkVal") String checkVal, Model model) {
-//
-//		model.addAttribute("notices", nService.getAllNotice(checkVal));
-//
-////		nService.noticePaging(1, model);
-//
-//		model.addAttribute("menuname", "お知らせ");
-//		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/notice/noticeContent.jsp");
-//
-//		return "/admin/index";
-//	}
-
 	// 페이징처리
 	@GetMapping("/notice/{p}/{checkVal}/{seq}")
 	public String getNoticePagingC(@PathVariable("p") int p,
-			@PathVariable("checkVal") String checkVal, 
-			@PathVariable(value = "seq", required = false) Integer seq, Model model) {
+								   @PathVariable("checkVal") String checkVal, 
+								   @PathVariable(value = "seq", required = false) Integer seq, Model model) {
 		model.addAttribute("checkVal", checkVal);
 		model.addAttribute("notices", nService.getAllNotice(checkVal));
 		nService.noticePaging(p, model);
@@ -72,7 +58,7 @@ public class NoticeC {
 	// 게시물 등록
 	@ResponseBody
 	@PostMapping("/notice/regCkEditorModal")
-	public int regNotice(@RequestParam(value = "writer", required = false, defaultValue = "세션없음") String writer,
+	public int regNotice(@RequestParam("writer") String writer,
 	                     @RequestParam("title") String title, 
 	                     @RequestParam("select") String select, 
 	                     @RequestParam("txt") String txt,
@@ -100,12 +86,6 @@ public class NoticeC {
 			                   @PathVariable(value = "an_seq", required = false) Integer an_seq, 
 			                   @PathVariable("pageNumber") int pageNumber,
 			                   Model model) {
-		
-		System.out.println(pageNumber);
-		
-//		System.out.println("p ::: " + p);
-//		System.out.println("checkVal ::: " + checkVal);
-//		System.out.println("an_seq ::: " + an_seq);
 		
 		nService.deleteNotice(an_seq);
 		

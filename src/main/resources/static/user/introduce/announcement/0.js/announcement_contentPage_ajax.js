@@ -1,11 +1,11 @@
   $(document).ready(function () {
 	
 	let modal = document.querySelector("#myModal");
-	
+
     //모달 조회
     $(".ancTitleDiv").on("click", function () {
       let aidx = $(this).data("anseq");
-
+		
 		$.ajax({
    		  type: "post",
    		  url: "/info/notice/getNotice",
@@ -19,7 +19,7 @@
           $("#modalTitle").text(result.an_title);
           $("#modalContent").html(result.an_content);
           $("#modalregDate").text(result.an_reg_date);
-
+          
           //DB조회 -> 화면 그려주고 -> 모달 노출 및 헤더 가리기 
 		  $(".header-tbl").css("visibility", "hidden");
 		  $(".header-tr-2").hide();
