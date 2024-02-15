@@ -27,7 +27,8 @@ public class LogoC {
 	@PostMapping("/logo/upload-file")
 	public String uploadLogoFile() {
 		//비동기(업뎃예정 img 미리보기)
-		return "redirect:/admin/homepage-update/logo";
+		
+		return "test";
 	}
 	
 	@PostMapping("/logo/update")

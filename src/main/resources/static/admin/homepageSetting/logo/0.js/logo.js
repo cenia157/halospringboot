@@ -8,13 +8,17 @@ function handleFileUpload(event) {
 		console.log('선택된 파일:', selectedFile);
 
 		var formData = new FormData(document.getElementById('fileUploadForm'));
-		formData
-		fetch("/logo/upload-file",{
+		formData.append('logo_img', files.current);
+		
+		fetch("/admin/homepage-update/logo/upload-file",{
 			method: "post",
+			body: formData
+
 		})
 		.then((response) => response.json())
 		.then((data) => {
 			console.log(data);
+//			$('#logo_preview').attr('src', 'user/upload_imgs/' + fileName);
 		});
 		
 		
