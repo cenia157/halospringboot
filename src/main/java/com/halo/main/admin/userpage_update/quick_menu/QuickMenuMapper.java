@@ -12,10 +12,11 @@ public interface QuickMenuMapper {
 	List<QuickMenuDTO> getListQuickMenu();
 	
 	@Update("UPDATE banner_tbl"
-			+ "SET b_m_name = #{name},"
-			+ "    b_url = (SELECT m_text FROM menu_tbl WHERE m_name = #{name}),"
-			+ "    b_m_text = (SELECT m_text FROM menu_tbl WHERE m_name = #{name})"
+			+ " SET b_m_name = #{name},"
+			+ " b_url = (SELECT m_text FROM menu_tbl WHERE m_name = #{name}),"
+			+ " b_m_text = (SELECT m_text FROM menu_tbl WHERE m_name = #{name})"
 			+ "WHERE b_index = #{i}")
 	int updateQuickMenu(@Param("name") String name, @Param("i") int i);
+	
 
 }
