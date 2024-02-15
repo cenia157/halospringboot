@@ -395,21 +395,31 @@ function submitComments() {
 }
 
 //CRUD: delete
-function deleteQuestion(q_seq, e) {
+function deleteQuestion(q_seq) {
+	
+	
+	let p = document.querySelector('#pageNum').value;
+	let checkboxes = document.querySelectorAll('.filter:checked');
+	let checkVal = '';
+
+	checkboxes.forEach(function(checkbox) {
+    	checkVal += checkbox.value;
+	});
+	console.log(checkVal)
+	
 	let ok = confirm("削除しますか?");
+	console.log("Delete seq: ", q_seq)
 	if (ok) {
 		$.ajax({
-			url: '/admin/boardManagement/deletequestion',
+			url: '/admin/boardManagement/deletequestion/' + p +'/' + checkVal + '/' + q_seq,
 			method: 'post',
 			data: {
 				q_seq: q_seq
 			},
 			success: function() {
 				console.log("삭제 성공");
-
-				e.closest('.ontent-m-td-2-content-txt-in').remove();
-				//				checkboxSubmit();
-				//				location.reload();
+				location.reload();
+//				e.closest('.ontent-m-td-2-content-txt-in').remove();
 			},
 			error: function(xhr, status, error) {
 				console.log("삭제 에러: ", xhr, status, error);

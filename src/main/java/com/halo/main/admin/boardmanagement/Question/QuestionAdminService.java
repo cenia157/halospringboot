@@ -72,11 +72,11 @@ public class QuestionAdminService {
 	}
 
 	//comment
-	public int adminCommentDelete(int q_seq) {
+	public int adminCommentDelete(String q_seq) {
 		return qaMapper.adminCommentDelete(q_seq);
 	}
 	//question
-	public int adminQuestionDelete(int q_seq) {
+	public int adminQuestionDelete(String q_seq) {
 		return qaMapper.adminQuestionDelete(q_seq);
 	}
 

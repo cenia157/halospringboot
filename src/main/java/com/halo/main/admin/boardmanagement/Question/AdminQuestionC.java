@@ -33,16 +33,27 @@ public class AdminQuestionC {
 		
 		return "/admin/index";
 	}
-	
-	@GetMapping("/deletequestion/{q_seq}")
-	public String adminDeleteQuestion(@PathVariable int q_seq) {
+
+	@PostMapping("/deletequestion/{p}/{checkVal}/{q_seq}")
+	public String adminDeleteQuestion(@PathVariable("q_seq") String q_seq,
+			@PathVariable(value = "p") int p
+			, @PathVariable(value = "checkVal") String checkVal
+			) {
+		
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		System.out.println("p:");
+		System.out.println(p);
+		System.out.println("checkVal:");
+		System.out.println(checkVal);
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		
 		if(questionadminservice.adminCommentDelete(q_seq) == 1) {
-			System.out.println("delete 완료");
+			System.out.println("comment delete 완료");
 		}
 		if(questionadminservice.adminQuestionDelete(q_seq) == 1) {
-			System.out.println("delete 완료");
+			System.out.println("question delete 완료");
 		}
-		return "redirect:/question/{p}/{checkVal}";
+		return "redirect:/admin/boardManagement/question/" + p + "/" + checkVal ;
 	}
 	
 

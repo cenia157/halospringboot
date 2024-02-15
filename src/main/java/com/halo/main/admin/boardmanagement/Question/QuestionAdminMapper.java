@@ -78,10 +78,10 @@ public interface QuestionAdminMapper {
 	List<QuestionAdminVO> getAllQnCs(@Param("selectedCategories") List<String> selectedCategories);
 
 	@Delete("delete from question_tbl where q_seq=#{q_seq}")
-	int adminQuestionDelete(int q_seq);
+	int adminQuestionDelete(String q_seq);
 
 	@Delete("delete from comment_tbl where q_seq=#{q_seq}")
-	int adminCommentDelete(int q_seq);
+	int adminCommentDelete(String q_seq);
 
 
 }

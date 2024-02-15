@@ -11,6 +11,8 @@
 <title>Ask</title>
 </head>
 <body>
+<input type="hidden" name="p" value="${pageNum}" />
+<input type="hidden" name="checkVal" value="${checkVal}" />
 	<div class="ontent-m-td-2-content">
 		<!-- 아마 여기서 for Each문을 써서 DB에서 값을 가져와 게시판을 표현해야 할 것 같다 -->
 		<div class="ontent-m-td-2-content-container">
