@@ -74,7 +74,8 @@ function checkPW(){
 				<div class="qd-content-box-td1-4">
 					<div class="qd-content-box-td1-4-content">
 						<span class="qd-content-box-td1-4-1">作成日時</span>
-						<span class="qd-content-box-td1-4-2"> <fmt:formatDate value="${QnC.q_reg_date}" pattern="yyyy-MM-dd"/>  </span>
+						<span class="qd-content-box-td1-4-2"> <fmt:formatDate value="${QnC.q_reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/>  
+						</span>
 					</div>
 					<div class="qd-content-box-td-button">
 						<button class="qd-content-box-td-button-2" onclick="deleteQuestion(${QnC.q_seq})">削除 X</button>
@@ -140,7 +141,7 @@ function checkPW(){
 								    <c:when test="${currentIndex > 0}">
 								        <c:set var="prevIndex" value="${currentIndex - 1}" />
 								        <c:set var="prevQuestion" value="${resultList[prevIndex]}" />
-								        <a href="/qna/questiondetail/${prevQuestion.q_seq}">${prevQuestion.q_title}</a>
+								        <a href="/qna/question/detail/${prevQuestion.q_seq}">${prevQuestion.q_title}</a>
 								    </c:when>
 								    <c:otherwise>
 								        <p id="disabledPost">前の投稿はありません</p>
@@ -156,7 +157,7 @@ function checkPW(){
 								    <c:when test="${currentIndex < fn:length(resultList) - 1}">
 								        <c:set var="nextIndex" value="${currentIndex + 1}" />
 								        <c:set var="nextQuestion" value="${resultList[nextIndex]}" />
-								        <a href="/qna/questiondetail/${nextQuestion.q_seq}">${nextQuestion.q_title}</a>
+								        <a href="/qna/question/detail/${nextQuestion.q_seq}">${nextQuestion.q_title}</a>
 								    </c:when>
 								    <c:otherwise>
 								        <p id="disabledPost">次の投稿はありません</p>
