@@ -194,7 +194,7 @@ function closeModalNR() {
 
 function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
    $.ajax({
-        url: "/getFAQDetail",
+        url: "/admin/boardManagement/getFAQDetail",
         dataType: "json",
         type: "post",
         contentType: "application/json", // 데이터 형식 지정

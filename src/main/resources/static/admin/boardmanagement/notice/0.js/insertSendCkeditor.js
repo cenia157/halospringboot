@@ -2,7 +2,9 @@ let regBtn = document.querySelector("#reg-btn");
 
 regBtn.addEventListener("click", function() {
 	
-	if(!noValue()){
+	let flag = 'insert';
+	
+	if(!noValue(flag)){
 		return false;
 	}
 	

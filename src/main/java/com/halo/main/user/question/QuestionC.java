@@ -30,9 +30,8 @@ public class QuestionC {
 	}
 	
 	//전체 페이징 처리
-	@GetMapping("/qna/question/paging")
-	public String getallQuestionPaging(@RequestParam(value = "p", required = false, defaultValue = "1") int p,
-	        Model model) {
+	@GetMapping("/qna/question/{p}")
+	public String getallQuestionPaging(@PathVariable(value = "p") int p, Model model) {
 	    model.addAttribute("QnCs", questionservice.getAllQnCPaging());
 	    questionservice.questionPaging(p, model);
 	    
@@ -43,10 +42,8 @@ public class QuestionC {
 	
 	
 	//상세
-	@GetMapping("/qna/questiondetail/{q_seq}")
+	@GetMapping("/qna/question/detail/{q_seq}")
 	public String getQuestionDetail(Model model, @PathVariable("q_seq") int q_seq) {
-		System.out.println("q_seq: "+ q_seq);
-		
 		model.addAttribute("QnC", questionservice.getQnC(q_seq));
 		model.addAttribute("resultList", questionservice.getAllQnCs());
 		model.addAttribute("questionId", q_seq);

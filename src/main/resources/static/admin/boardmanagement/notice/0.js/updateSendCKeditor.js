@@ -1,9 +1,14 @@
 let regBtnR = document.querySelector("#reg-btnR");
 regBtnR.addEventListener("click", function() {
+	
+	let flag = 'update';
+	
+	if(!noValue(flag)){
+		return false;
+	}
+	
 	let ckFormR = document.querySelector("#ck-formR");
 	let seq = document.querySelector('#seq').value;
-//	let pageNum = document.querySelector('#pageNum');
-//	let checkVal = document.getElementsByName('checkVal')[0];
 	const content = window.editorR.getData();
 	const formDataR = new FormData(ckFormR);
 	formDataR.set("txt", content);

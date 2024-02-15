@@ -155,7 +155,7 @@
 			                      <span>${question.q_name}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-3 title-width">
-			                      <a href="/qna/questiondetail/${question.q_seq}">${question.q_title}</a>
+			                      <a href="/qna/question/detail/${question.q_seq}">${question.q_title}</a>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
 			                    	<c:choose>
@@ -179,12 +179,12 @@
                   <!-- 처음으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 5}">
-                      <a href="/qna/question/paging?p=${curPageNo - 5}">
+                      <a href="/qna/question/${curPageNo - 5}">
                         <button><<</button>
                       </a>
                     </c:when>
                     <c:when test="${curPageNo <= 5 && curPageNo > 1}">
-                      <a href="/qna/question/paging?p=1">
+                      <a href="/qna/question/1">
                         <button><<</button>
                       </a>
                     </c:when>
@@ -196,7 +196,7 @@
                   <!-- 이전 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
-                      <a href="/qna/question/paging?p=${curPageNo - 1}">
+                      <a href="/qna/question/${curPageNo - 1}">
                         <button>前の</button>
                       </a>
                     </c:when>
@@ -244,7 +244,7 @@
                     />
 					<!-- 버튼 모양 결정 -->
                     <a
-                      href="/qna/question/paging?p=${pageNumber}"
+                      href="/qna/question/${pageNumber}"
                       class="page-number ${currentPageClass}"
                       >
                       [ ${pageNumber} ]
@@ -255,7 +255,7 @@
                   <!-- 다음 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
-                      <a href="/qna/question/paging?p=${curPageNo + 1}">
+                      <a href="/qna/question/${curPageNo + 1}">
                         <button>次の</button>
                       </a>
                     </c:when>
@@ -267,14 +267,14 @@
                   <!-- 마지막으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo + 5 <= pageCount}">
-                      <a href="/qna/question/paging?p=${curPageNo + 5}">
+                      <a href="/qna/question/${curPageNo + 5}">
                         <button>>></button>
                       </a>
                     </c:when>
                     <c:when
                       test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
                     >
-                      <a href="/qna/question/paging?p=${pageCount}">
+                      <a href="/qna/question/${pageCount}">
                         <button>>></button>
                       </a>
                     </c:when>

@@ -91,11 +91,11 @@
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="AskContentC?p=1">お問い合わせ</a>
+											href="/admin/boardManagement/question/1/10">お問い合わせ</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="/admin/0.img/admintble-select.png" alt=""><a
-											href="AdminFAQC">よくある質問</a>
+											href="/admin/boardManagement/faq">よくある質問</a>
 									</div>
 								</div>
 							</div>

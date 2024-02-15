@@ -1,10 +1,4 @@
-/*
-바꾼사항 23-12-14 13:00
-  *** contentPage.css에서 수정했기떄문에 원본 css파일 걱정안해도됨 ***
-1) .container_tbl -> 280vh -> 254vh
-2) .content_sec -> 160vh -> 135ch
-3) .content-tbl -> 260vh -> 235vh
-*/
+
 .container-tbl {
 	height: 254vh;
 }
@@ -12,20 +6,9 @@
 .content-sec {
 	height: 135vh;
 }
-
-/* .content-tbl { */
-/* 	height: 235vh; */
-/* } */
-
-/*------------------------------------*/
-
-/* body{ */
-/* 	font-family: "SF Pro JP Regular"; */
-/* } */
-
 .a_content-tbl {
 	width: 100%;
-	height: 135vh; /* 기존 260vh에서 130vh로 줄임 */
+	height: 135vh; 
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -131,16 +114,6 @@
 	width: 1.5%; /* 23-12-14 변동사항 */
 }
 
-/* .a_content-box-tr1-td2-2 { */
-/*   display: flex; */
-/*   margin-right: 8%; 23-12-14 변동사항 8%에서 7% */
-/*   margin-left: 0.35%; */
-/*   text-align: center; */
-/* } */
-
-/* .a_content-box-tr1-td2-2 > div { */
-/*   margin-right: 3%; > 소식 > 공지사항 각각 box의 오른쪽 마진기준으로 벌림 key poing */
-/* } */
 .a_content-box-tr1-td2-2>div:last-child {
 	margin-right: 0; /* 마지막 텍스트의 오른쪽 간격 제거 */
 }
@@ -311,30 +284,6 @@
 	cursor: pointer;
 	transition: font-size 0.3s, font-weight 0.3s;
 }
-
-/* .a_content-box-tr1-td3-1-1-1-2-3:hover { */
-/* 	font-size: 1.3em; */
-/* 	font-weight: bold; */
-/* } */
-
-/* .a_content-box-tr1-td3-1-1-1-2-3:hover::after { */
-/* 	content: " (click)"; */
-/* 	font-weight: 700; 필요에 따라 스타일 조정 */
-/* 	color: #228b22; */
-/* } */
-
-/* .a_content-box-tr1-td3-1-1-1-2-3:hover span { */
-/*     white-space: normal; */
-/*     overflow: visible; */
-/*     text-overflow: clip; */
-/* } */
-
-/* .a_content-box-tr1-td3-1-1-1-2-3:active span, */
-/* .a_content-box-tr1-td3-1-1-1-2-3:hover span { */
-/*     white-space: normal; */
-/*     overflow: visible; */
-/*     text-overflow: clip; */
-/* } */
 
 /*-------------소스활용 시작 ------*/
 .qd-content-box-td1-1 {
@@ -745,8 +694,5 @@
 		margin-left: 0%;
 		font-size: 1.2rem;
 	}
-	
-	
-	
-	
+
 }
