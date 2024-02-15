@@ -34,10 +34,12 @@ public class AdminQuestionC {
 		return "/admin/index";
 	}
 
-	@PostMapping("/deletequestion/{p}/{checkVal}/{q_seq}")
+	@PostMapping("/deletequestion/{p}/{checkVal}/{q_seq}/{pageNumber}")
 	public String adminDeleteQuestion(@PathVariable("q_seq") String q_seq,
 			@PathVariable(value = "p") int p
 			, @PathVariable(value = "checkVal") String checkVal
+			, @PathVariable("pageNumber") int pageNumber
+			
 			) {
 		
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
@@ -53,6 +55,11 @@ public class AdminQuestionC {
 		if(questionadminservice.adminQuestionDelete(q_seq) == 1) {
 			System.out.println("question delete 완료");
 		}
+		
+		if(p != pageNumber) {
+			p = pageNumber;
+		}
+		
 		return "redirect:/admin/boardManagement/question/" + p + "/" + checkVal ;
 	}
 	

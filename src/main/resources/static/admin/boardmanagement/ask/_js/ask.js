@@ -399,7 +399,10 @@ function deleteQuestion(q_seq) {
 	
 	
 	let p = document.querySelector('#pageNum').value;
+	let pageCheck = document.querySelector('.current-page').innerText;
 	let checkboxes = document.querySelectorAll('.filter:checked');
+	let matches = pageCheck.match(/\d+/); // \d+ 정규식은 하나 이상의 숫자에 매칭됩니다.
+	let pageNumber = matches ? parseInt(matches[0], 10) : null; // 추출된 숫자를 정수형으로 변환
 	let checkVal = '';
 
 	checkboxes.forEach(function(checkbox) {
@@ -411,7 +414,7 @@ function deleteQuestion(q_seq) {
 	console.log("Delete seq: ", q_seq)
 	if (ok) {
 		$.ajax({
-			url: '/admin/boardManagement/deletequestion/' + p +'/' + checkVal + '/' + q_seq,
+			url: '/admin/boardManagement/deletequestion/' + p +'/' + checkVal + '/' + q_seq + '/' + pageNumber,
 			method: 'post',
 			data: {
 				q_seq: q_seq
