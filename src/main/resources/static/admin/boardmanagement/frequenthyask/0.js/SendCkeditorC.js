@@ -2,7 +2,7 @@ let regBtn = document.querySelector('#reg-btn');
 regBtn.addEventListener("click", function(event) {
     let ckForm = document.querySelector('#ck-form');
     const title = document.querySelector('.real-title-editor').value;
-    const content = document.querySelector('.ck-content').innerText;
+    const content = document.querySelector('.ck-content').innerHTML;
     const seq = document.querySelector('#modal-seq').value;
 
     // JavaScript 객체로 데이터 준비

@@ -1,5 +1,7 @@
 package com.halo.main.admin.boardmanagement.FAQ;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -60,12 +62,31 @@ public class AdminFAQC {
 	    return "redirect:/admin/boardManagement/faq";
 	}
 	
-	// 이미지 업로드
+//	// 이미지 업로드
+//	@ResponseBody
+//	@PostMapping(value = "/faq/CKEditorImgUpload")
+//	public ResponseEntity<?> uploadFile(@RequestParam("upload") MultipartFile file) {
+//		return faqadminservice.uploadFile(file);
+//	}
+	
 	@ResponseBody
-	@PostMapping(value = "/faq/CKEditorImgUpload")
-	public ResponseEntity<?> uploadFile(@RequestParam("upload") MultipartFile file) {
-		return faqadminservice.uploadFile(file);
-	}
+	@PostMapping("/faq/CKEditorImgUpload")
+    public String handleFileUpload(@RequestParam("upload") MultipartFile file) {
+        if (file.isEmpty()) {
+            return "업로드된 파일이 없습니다.";
+        }
+
+        try {
+            // 파일을 저장하고 저장된 파일의 URL을 반환
+            String fileName = file.getOriginalFilename();
+            String filePath = "/path/to/save/uploads/" + fileName;
+            File dest = new File(filePath);
+            file.transferTo(dest);
+            return "파일 업로드가 완료되었습니다. 파일 URL: " + filePath;
+        } catch (IOException e) {
+            return "파일 업로드 중 오류가 발생했습니다: " + e.getMessage();
+        }
+    }
 
 	
 

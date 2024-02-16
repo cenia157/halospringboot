@@ -33,7 +33,6 @@
 					<div class="modal-content-txt">
 						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
 						<textarea name="qa_content" id="classicNR" class="classicNR"></textarea>
-						<div id="img-temporaryNR" type="" style="background-color: aqua;"></div>
 					</div>
 					<div class="modal-content-button">
 						<button class="SubmitButton" type="button" id="reg-btn"
@@ -46,12 +45,12 @@
 	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역할이다
 	추가로 아마 위의 스크립트의 경로를 다음과 같이 바꿔야 할 것 같다. 이건 단영씨와 합치고 난 뒤에 하자, 이름도 바꾸고...
 	admin/_js/ImageAjax.js -->
-<!-- 	<script -->
-<%-- 		src="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask/0.js/testMZ.js" --%>
-<!-- 		type="module"></script> -->
 	<script
-		src="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask/0.js/insertFAQ.js"
+		src="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask/0.js/testMZ.js"
 		type="module"></script>
+<!-- 	<script -->
+<%-- 		src="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask/0.js/insertFAQ.js" --%>
+<!-- 		type="module"></script> -->
 	<!-- 아래의 스크립트는 입력하지 않은 값이 나올 시 alert 띄우는 용 -->
 	<script
 		src="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask/0.js/ValidationItems.js"></script>
