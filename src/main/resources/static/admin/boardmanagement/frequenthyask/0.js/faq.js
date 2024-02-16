@@ -263,3 +263,16 @@ function deleteFAQ(qa_seq) {
 		});
 	}
 }
+
+//esc press
+//ESC 키 코드
+const ESC_KEY_CODE = 27;
+
+// 이벤트 리스너 추가
+document.addEventListener('keydown', function(event) {
+    // ESC 키가 눌렸는지 확인
+    if (event.keyCode === ESC_KEY_CODE) {
+        // 실행할 함수 호출
+        closeModalF();
+    }
+});
