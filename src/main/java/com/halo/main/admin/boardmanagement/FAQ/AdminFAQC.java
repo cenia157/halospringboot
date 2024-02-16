@@ -59,7 +59,15 @@ public class AdminFAQC {
 	    // 수행된 작업 후 리다이렉트 등의 응답
 	    return "redirect:/admin/boardManagement/faq";
 	}
+	
+	// 이미지 업로드
+	@ResponseBody
+	@PostMapping(value = "/faq/CKEditorImgUpload")
+	public ResponseEntity<?> uploadFile(@RequestParam("upload") MultipartFile file) {
+		return faqadminservice.uploadFile(file);
+	}
 
+	
 
 	
 	
