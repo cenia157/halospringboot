@@ -27,17 +27,7 @@ class MyUploadAdapter {
 	_initRequest() {
 
 		const xhr = (this.xhr = new XMLHttpRequest());
-
-
-
-
-
-
-		// Note that your request may look different. It is up to you and your editor
-		// integration to choose the right communication channel. This example uses
-		// a POST request with JSON as a data structure but your configuration
-		// could be different.
-		xhr.open("POST", "/halo/CKEditorAjax", true);
+		xhr.open("POST", "/faq/CKEditorImgUpload", true);
 		xhr.responseType = "json";
 	}
 

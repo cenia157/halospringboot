@@ -184,7 +184,7 @@ function getData(q_seq, e, q_title, q_content, q_reg_date, q_contact_number, q_e
 
 	// 첫 번째 Ajax 요청
 	$.ajax({
-		url: "/admin/boardManagement/questiondetail",
+		url: "/admin/boardManagement/questiondetail/" + q_seq,
 		type: "post",
 		dataType: "json",
 		data: {
@@ -219,12 +219,19 @@ function getData(q_seq, e, q_title, q_content, q_reg_date, q_contact_number, q_e
 					$('#A_QUESTION_DATE').html(formattedDate);
 					$('#A_QUESTION_NAME').html(qName);
 					$('#A_QUESTION_CONTENT').html(qContent);
+					$('#A_QUESTION_PHONE').html(qCN);
+					$('#A_QUESTION_EMAIL').html(qEmail);
+					$('#A_QUESTION_CATEGORY').html(qCategory);
 
 					// N questions 데이터 표시
 					$('#N_QUESTION_TITLE').html(qTitle);
 					$('#N_QUESTION_DATE').html(formattedDate);
 					$('#N_QUESTION_NAME').html(qName);
 					$('#N_QUESTION_CONTENT').html(qContent);
+					
+					$('#N_QUESTION_PHONE').html(qCN);
+					$('#N_QUESTION_EMAIL').html(qEmail);
+					$('#N_QUESTION_CATEGORY').html(qCategory);
 					$('#q_seq').val(qSeq);
 					//확인
 					$('#QUESTION_SEQ').html(qSeq);
@@ -234,15 +241,15 @@ function getData(q_seq, e, q_title, q_content, q_reg_date, q_contact_number, q_e
 					getComments(q_seq);
 
 				} else {
-					console.error("데이터가 비어있거나 배열이 아닙니다.");
+					console.error("No Data");
 				}
 
 			} catch (error) {
-				console.error("데이터 처리 오류:", error);
+				console.error("Data Error:", error);
 			}
 		},
 		error: function(xhr, status, error) {
-			console.log("에러:", xhr, status, error);
+			console.log("Error:", xhr, status, error);
 		}
 	});
 }
@@ -251,7 +258,7 @@ function getData(q_seq, e, q_title, q_content, q_reg_date, q_contact_number, q_e
 function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, c_seq) {
 
 	$.ajax({
-		url: "GetCommentsC",
+		url: "/admin/boardManagement/commentdetail/" + q_seq,
 		type: "post",
 		dataType: "json",
 		data: {
@@ -278,24 +285,30 @@ function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_a
 					$('#COMMENT_NAME').html(c_commenter_name);
 					$('#hidden_c_seq').val(cSeq);
 
+
 					//모달창 열기
 					if (c_comment_content != null) {
 						openModalA();
+					}else if (c_comment_content == null) {
+						openModalN(q_seq);
+					}
+					else{
+						console.log("Answer Modal Error")
 					}
 
 				} else {
-					console.log("댓글이 없습니다.");
+					console.log("No Comment");
 					//모달창 열기
 					if (c_comment_content == null) {
 						openModalN(q_seq);
 					}
 				}
 			} catch (error) {
-				console.error("댓글 처리 오류:", error);
+				console.error("Comment Error:", error);
 			}
 		},
 		error: function(xhr, status, error) {
-			console.log("댓글 불러오기 에러:", xhr, status, error);
+			console.log("Comment Error:", xhr, status, error);
 		}
 	});
 }
@@ -339,11 +352,19 @@ function updateModalContent(questionJson) {
 //CRUD: update
 function updateComments() {
 
+	let p = document.querySelector('#pageNum').value;
+	let checkVal = '';
+	let checkboxes = document.querySelectorAll('.filter:checked');
+	checkboxes.forEach(function(checkbox) {
+    	checkVal += checkbox.value;
+	});
+	
+
 	let c_seq = $('#hidden_c_seq').val();
 	let c_comment_content = $('#COMMENT_CONTENT').val();
 
 	$.ajax({
-		url: 'CommentUpdateC',
+		url: '/admin/boardManagement/commentupdate/'+p+'/'+checkVal,
 		method: 'post',
 		data: {
 			c_seq: c_seq,
@@ -351,10 +372,10 @@ function updateComments() {
 		},
 
 		success: function() {
-			console.log("업데이트 성공")
+			console.log("Update")
 		},
 		error: function(xhr, status, error) {
-			console.log("업데이트 실패 에러:", xhr, status, error);
+			console.log("Update Error:", xhr, status, error);
 		}
 	});
 
@@ -369,12 +390,20 @@ $(document).ready(function (){
 //CRUD: insert
 function submitComments() {
 	
+	let p = document.querySelector('#pageNum').value;
+	let checkVal = '';
+	let checkboxes = document.querySelectorAll('.filter:checked');
+	checkboxes.forEach(function(checkbox) {
+    	checkVal += checkbox.value;
+	});
+	
 	let c_comment_content = $('#c_comment_content').val();
 	let q_seq = $('#q_seq').val();
 	let c_writer = document.querySelector('#regBtnHiddeninput').value;
 
+
 	$.ajax({
-		url: 'CommentSubmitC',
+		url: '/admin/boardManagement/commentsubmit/'+p+'/'+checkVal,
 		method: 'post',
 		data: {
 			q_seq: q_seq,
@@ -384,11 +413,11 @@ function submitComments() {
 		},
 
 		success: function() {
-			console.log("Submit 성공");
+			console.log("Submit");
 			updateCategory.innerText = "完";
 		},
 		error: function(xhr, status, error) {
-			console.log("Submit 에러: ", xhr, status, error);
+			console.log("Submit Error: ", xhr, status, error);
 		}
 
 	});
@@ -399,30 +428,32 @@ function deleteQuestion(q_seq) {
 	
 	
 	let p = document.querySelector('#pageNum').value;
+	let pageCheck = document.querySelector('.current-page').innerText;
 	let checkboxes = document.querySelectorAll('.filter:checked');
+	let matches = pageCheck.match(/\d+/); // \d+ 정규식은 하나 이상의 숫자에 매칭됩니다.
+	let pageNumber = matches ? parseInt(matches[0], 10) : null; // 추출된 숫자를 정수형으로 변환
 	let checkVal = '';
 
 	checkboxes.forEach(function(checkbox) {
     	checkVal += checkbox.value;
 	});
-	console.log(checkVal)
 	
 	let ok = confirm("削除しますか?");
-	console.log("Delete seq: ", q_seq)
+
 	if (ok) {
 		$.ajax({
-			url: '/admin/boardManagement/deletequestion/' + p +'/' + checkVal + '/' + q_seq,
+			url: '/admin/boardManagement/deletequestion/' + p +'/' + checkVal + '/' + q_seq + '/' + pageNumber,
 			method: 'post',
 			data: {
 				q_seq: q_seq
 			},
 			success: function() {
-				console.log("삭제 성공");
+				console.log("Delete");
 				location.reload();
 //				e.closest('.ontent-m-td-2-content-txt-in').remove();
 			},
 			error: function(xhr, status, error) {
-				console.log("삭제 에러: ", xhr, status, error);
+				console.log("Delete Error: ", xhr, status, error);
 			}
 
 
@@ -534,7 +565,7 @@ function fetchData(data) {
 			refreshData(responseData);
 		},
 		error: function(xhr, status, error) {
-			console.log("에러발생: ", xhr, status, error)
+			console.log("Error: ", xhr, status, error)
 		}
 	});
 }
@@ -551,7 +582,7 @@ function storedfetchData(data) {
 			refreshData(responseData);
 		},
 		error: function(xhr, status, error) {
-			console.log("에러발생: ", xhr, status, error)
+			console.log("Error: ", xhr, status, error)
 		}
 	});
 }
@@ -711,7 +742,6 @@ function questionCheckbox(){
    if (pageVal == '') {
       pageVal = 1;
    }
-   console.log(pageVal);
 
    let checkboxes = document.querySelectorAll('.filter:checked');
    let checkVal = '';

@@ -36,10 +36,6 @@ public class QuestionAdminService {
 	         selectedCategories.add(checkBoxVal[index]);
 	      }
 	      
-	      System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-	      //둘다 체크하면 [uncompleted, completed]
-	      System.out.println(selectedCategories);
-	      System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 	      
 	      QnCs = (ArrayList<QuestionAdminVO>) qaMapper.getAllQnCs(selectedCategories);
 
@@ -78,6 +74,22 @@ public class QuestionAdminService {
 	//question
 	public int adminQuestionDelete(String q_seq) {
 		return qaMapper.adminQuestionDelete(q_seq);
+	}
+
+	public List<QuestionAdminVO> getQuestionDetail(int q_seq) {
+		return qaMapper.getQuestionDetail(q_seq);
+	}
+
+	public List<QuestionAdminVO> getCommentDetail(int q_seq) {
+		return qaMapper.getCommentDetail(q_seq);
+	}
+
+	public int adminInsertComment(int q_seq, String c_comment_content, String c_writer) {
+		return qaMapper.adminInsertComment(q_seq, c_comment_content, c_writer);
+	}
+
+	public int adminUpdateComment(int c_seq, String c_comment_content) {
+		return qaMapper.adminUpdateComment(c_seq, c_comment_content);
 	}
 
 	
