@@ -17,7 +17,7 @@
 	rel="stylesheet" />
 <!-- js연결 -->
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/admin/homepageSetting/logo/0.js/logo.js"></script>
+	src="${pageContext.request.contextPath}/admin/homepageSetting/logo/0.js/logo.js" defer="defer"></script>
 </head>
 <body>
 	<div class="content-m-td-3">
@@ -60,7 +60,7 @@
 									src="${pageContext.request.contextPath}/admin/0.img/fileUpload_pre.png">
 									</label>
 							<!-- 변경할 로고이미지 인풋 -->
-						<form action="LogoUploadC" id="fileUploadForm" method="post"
+						<form action="/admin/homepage-update/logo/upload-file" id="fileUploadForm" method="post"
 							enctype="multipart/form-data">
 							<input type="file" id="logo_img" name="logo_img">
 						</form>

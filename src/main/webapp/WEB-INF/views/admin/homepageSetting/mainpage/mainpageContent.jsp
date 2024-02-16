@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -28,7 +28,7 @@
 
 <body>
 	<div class="content-m-td-3">
-		<form action="MainBannerUpdateC" method="post">
+		<form action="/admin/homepage-update/quick-menu/update" method="post">
 			<div class="content-m-td-3-up">
 				<!-- 여긴 공간채움용 빈공간 -->
 			</div>
@@ -36,7 +36,7 @@
 				<div class="content-m-td-3-mid-1-tr">
 					<c:forEach var="bannerInform" items="${topBanners}">
 					<div class="content-m-td-3-mid-1-td">
-						<div class="content-m-td-3-mid-1-td-box">${bannerInform.b_m_text }</div>
+						<div class="content-m-td-3-mid-1-td-box">${bannerInform.m_text }</div>
 					</div>
 					</c:forEach>
 				</div>
@@ -47,7 +47,7 @@
 				<div class="content-m-td-3-mid-2-tr">
 
 					<div class="content-m-td-3-mid-2-tr-underbar">
-						<select class="main-banner-select" name="main_banner_box1">
+						<select class="main-banner-select" name="m_name4">
 							<option value="info_com">会社について</option>
 							<option value="info_map">施設アクセス</option>
 							<option value="intro_announce">お知らせ</option>
@@ -60,7 +60,7 @@
 						</select>
 					</div>
 					<div class="content-m-td-3-mid-2-tr-underbar">
-						<select class="main-banner-select" name="main_banner_box2">
+						<select class="main-banner-select" name="m_name5">
 							<option value="info_com">会社について</option>
 							<option value="info_map">施設アクセス</option>
 							<option value="intro_announce">お知らせ</option>
@@ -73,7 +73,7 @@
 						</select>
 					</div>
 					<div class="content-m-td-3-mid-2-tr-underbar">
-						<select class="main-banner-select" name="main_banner_box3">
+						<select class="main-banner-select" name="m_name6">
 							<option value="info_com">会社について</option>
 							<option value="info_map">施設アクセス</option>
 							<option value="intro_announce">お知らせ</option>
