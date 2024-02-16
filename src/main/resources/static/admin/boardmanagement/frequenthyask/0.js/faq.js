@@ -219,16 +219,64 @@ function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
 
 				// CKEditor에 데이터 설정
 				const element = document.querySelector('#classicNR');
-				ClassicEditor
-				  .create(element)
-				  .then(editor => {
-				    // then 콜백 함수 내에서 editor 변수를 사용하여 데이터를 설정합니다.
-				    editor.setData(qa_content);
-				  })
-				  .catch(error => {
-				    // 에러 처리
-				    console.error(error);
-				  });
+//				ClassicEditor
+//				  .create(element)
+//				  .then(editor => {
+//				    // then 콜백 함수 내에서 editor 변수를 사용하여 데이터를 설정합니다.
+//				    editor.setData(qa_content);
+//				  })
+//				  .catch(error => {
+//				    // 에러 처리
+//				    console.error(error);
+//				  });
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ckeditor create
+ClassicEditor.create(element, {
+    toolbar: {
+        items: [
+            'heading',
+            '|',
+            'bold',
+            'italic',
+            'underline',
+            'strikethrough',
+            'highlight', // 형광펜
+            'removeFormat', // 포맷 삭제
+            'specialCharacters', // 특수 문자 (장음 추가)
+            '|',
+            'fontFamily', // 폰트 패밀리 버튼
+            'fontSize',   // 폰트 크기 버튼
+            'fontColor',  // 글자색 버튼
+            '|',
+            'alignment:left',    // 왼쪽 정렬 버튼
+            'alignment:center',  // 가운데 정렬 버튼
+            'alignment:right',   // 오른쪽 정렬 버튼
+            '|',
+            'bulletedList',
+            'numberedList',
+            '|',
+            'link',
+            '|',
+            'undo',
+            'redo'
+        ]
+    },
+    language: 'jp', // 에디터 언어 설정
+    table: {
+        contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
+    }
+})
+.then(editor => {
+    console.log('에디터가 성공적으로 생성되었습니다.', editor);
+	// then 콜백 함수 내에서 editor 변수를 사용하여 데이터를 설정합니다.
+	editor.setData(qa_content);
+})
+.catch(error => {
+    console.error('에디터 생성 중 오류가 발생했습니다.', error);
+});
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ckeditor create
+
+				  
 
 				//				let classicNR = document.getElementById("classicNR");
 				//				classicNR.innerHTML = "나옴?";
