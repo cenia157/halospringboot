@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	
 <!DOCTYPE html>
 <html lang="kr">
@@ -8,12 +9,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ask</title>
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
-
 </head>
 <body>
+<input type="hidden" name="p" value="${pageNum}" />
+<input type="hidden" name="checkVal" value="${checkVal}" />
 	<div class="ontent-m-td-2-content">
 		<!-- 아마 여기서 for Each문을 써서 DB에서 값을 가져와 게시판을 표현해야 할 것 같다 -->
 		<div class="ontent-m-td-2-content-container">
@@ -50,7 +49,7 @@
 			            <a onclick="getData('${item.q_seq}');">${item.q_title}</a>
 				        </div>
 			        <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
-			        <div class="ontent-m-td-2-content-txt-date-in">${item.q_reg_date}</div>
+			        <div class="ontent-m-td-2-content-txt-date-in"><fmt:formatDate value="${item.q_reg_date}" pattern="yyyy-MM-dd"/></div>
 			        <div class="ontent-m-td-2-content-txt-delete-in">
 			            <button id="deleteBtn" onclick="deleteQuestion(${item.q_seq}, this)">削除</button>
 			        </div>
@@ -66,12 +65,12 @@
                   <!-- 처음으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 5}">
-                      <a href="CheckboxPagingC?p=${curPageNo - 5}">
+                      <a href="/admin/boardManagement/question/${curPageNo - 5}/${checkVal}">
                         <button id="MostPrevious"><<</button>
                       </a>
                     </c:when>
                     <c:when test="${curPageNo <= 5 && curPageNo > 1}">
-                      <a href="CheckboxPagingC?p=1">
+                      <a href="/admin/boardManagement/question/1/${checkVal}">
                         <button id="MostPrevious"><<</button>
                       </a>
                     </c:when>
@@ -83,7 +82,7 @@
                   <!-- 이전 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
-                      <a href="CheckboxPagingC?p=${curPageNo - 1}">
+                      <a href="/admin/boardManagement/question/${curPageNo - 1}/${checkVal}">
                         <button id="Previous">前の</button>
                       </a>
                     </c:when>
@@ -131,7 +130,7 @@
                     />
 					<!-- 버튼 모양 결정 -->
                     <a
-                      href="CheckboxPagingC?p=${pageNumber}"
+                      href="/admin/boardManagement/question/${pageNumber}/${checkVal}"
                       class="page-number ${currentPageClass}"
                       >
                       [ ${pageNumber} ]
@@ -142,7 +141,7 @@
                   <!-- 다음 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
-                      <a href="CheckboxPagingC?p=${curPageNo + 1}">
+                      <a href="/admin/boardManagement/question/${curPageNo + 1}/${checkVal}">
                         <button id="Next">次の</button>
                       </a>
                     </c:when>
@@ -154,14 +153,14 @@
                   <!-- 마지막으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo + 5 <= pageCount}">
-                      <a href="CheckboxPagingC?p=${curPageNo + 5}">
+                      <a href="/admin/boardManagement/question/${curPageNo + 5}/${checkVal}">
                         <button id="MostNext">>></button>
                       </a>
                     </c:when>
                     <c:when
                       test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
                     >
-                      <a href="CheckboxPagingC?p=${pageCount}">
+                      <a href="/admin/boardManagement/question/${pageCount}/${checkVal}">
                         <button id="MostNext">>></button>
                       </a>
                     </c:when>
@@ -177,7 +176,7 @@
 	</div>
 </body>
 
-<script src="admin/boardmanagement/ask/_js/ask.js"></script>
-<script src="admin/_js/test.js"></script>
+<script src="/admin/boardmanagement/ask/_js/ask.js"></script>
+<script src="/admin/_js/test.js"></script>
 
 </html>

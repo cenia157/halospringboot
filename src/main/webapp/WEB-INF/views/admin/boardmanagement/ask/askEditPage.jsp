@@ -9,10 +9,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ask</title>
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
-	
 </head>
 <body>
 	<div onclick="closeModalA()" id="myModalA" class="modal-background"></div>
@@ -38,6 +34,19 @@
 									<!-- 답변한 사람 --> <span id="COMMENT_NAME"></span>
 								</div>
 							</div>
+							<div class="real-title-down-1">
+								<div class="real-title-down-contain">
+									<span id="A_QUESTION_PHONE"></span>
+								</div>
+								<div class="real-title-down-contain">
+									<span id="A_QUESTION_EMAIL"></span>
+								</div>
+							</div>
+<!-- 							<div class="real-title-down-2"> -->
+<!-- 								<div class="real-title-down-contain"> -->
+<!-- 									<span id="A_QUESTION_CATEGORY"></span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
 						</div>
 					</div>
 				</div>
@@ -52,7 +61,8 @@
 						<div id="A_QUESTION_CONTENT"></div>
 <!-- 						확인용 -->
 						<div id="A_QUESTION_SEQ"></div>
-						<jsp:include page="/WEB-INF/views/admin/boardmanagement/ask/askEditPageCustomerQuestion.jsp"></jsp:include>
+							<!-- 여기는 고객의 문의를 띄우는 곳 -->
+							<div id="N_QUESTION_CONTENT"></div>
 					</div>
 					<div class="modal-content-txt-response">
 						<textarea class="Edit-textarea" rows="" cols="" 

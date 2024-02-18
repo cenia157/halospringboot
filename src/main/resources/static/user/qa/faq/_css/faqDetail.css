@@ -22,10 +22,16 @@
 }
 
 * {
-	font-family: "SF Pro JP Regular";
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+body {
+	font-family: "SF Pro JP Regular"
+}
+
+button{
+	font-family: "SF Pro JP Regular"
 }
 
 a {
@@ -161,3 +167,4 @@ a {
 	font-weight: 700;
 	line-height: normal;
 }
+

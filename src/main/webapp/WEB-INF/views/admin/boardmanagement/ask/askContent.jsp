@@ -9,20 +9,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ask</title>
+
 <link rel="stylesheet"
-	href="admin/boardmanagement/ask/_css/ask.css" />
-<link rel="stylesheet" href="admin/0.css/test copy.css" />
+	href="/admin/boardmanagement/ask/_css/ask.css" />
+<link rel="stylesheet" href="/admin/0.css/test copy.css" />
 
 </head>
 <body>
+	<input type="hidden" id="pageNum" value="${pageNum}">
 	<div class="ontent-m-td-2-chackbox">
 		<div class="ontent-m-td-2-chackbox-contain">
 				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" class="filter" id="checkbox" name="completed" value="completed" checked="checked">
+					<input type="checkbox" class="filter" id="checkbox" name="completed" value="0" checked="checked" onclick="questionCheckbox()">
 				</div>
 				<div class="ontent-m-td-2-chackbox-contain-txt">完</div>
 				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" class="filter" id="checkbox" name="uncompleted" value="uncompleted" checked="checked">
+					<input type="checkbox" class="filter" id="checkbox" name="uncompleted" value="1" checked="checked" onclick="questionCheckbox()">
 				</div>
 				<div class="ontent-m-td-2-chackbox-contain-txt">未</div>
 			<div class="ontent-m-td-2-chackbox-contain-input"></div>
