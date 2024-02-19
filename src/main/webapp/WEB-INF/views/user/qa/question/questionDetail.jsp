@@ -96,7 +96,9 @@ function checkPW(){
 					<c:choose>
 						<c:when test="${not empty QnC.c_comment_content}">
 							<div class="qd-content-box-td3-1-1">${QnC.c_commenter_name}</div>
-							<div class="qd-content-box-td3-1-2">${QnC.c_reg_date }</div>
+							<div class="qd-content-box-td3-1-2">
+							<fmt:formatDate value="${QnC.c_reg_date }"  pattern="yyyy-MM-dd HH:mm:ss"/>
+							</div>
 						</c:when>
 						<c:otherwise>
 							<div class="qd-content-box-td3-1-1">まだコメントがありません</div>
