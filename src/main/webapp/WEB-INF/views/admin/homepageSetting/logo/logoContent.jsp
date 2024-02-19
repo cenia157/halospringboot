@@ -17,7 +17,7 @@
 	rel="stylesheet" />
 <!-- js연결 -->
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/admin/homepageSetting/logo/0.js/logo.js"></script>
+	src="${pageContext.request.contextPath}/admin/homepageSetting/logo/0.js/logo.js" defer="defer"></script>
 </head>
 <body>
 	<div class="content-m-td-3">
@@ -57,10 +57,11 @@
 							<!-- 바뀔 이미지 미리보기(Ajax) -->
 									<label for="logo_img">
 								<img id="logo_preview"
-									src="${pageContext.request.contextPath}/admin/0.img/fileUpload_pre.png">
+									src="/admin/0.img/fileUpload_pre.png">
 									</label>
+									<img src="${pageContext.request.contextPath}/user/upload_imgs/asd.jpg">
 							<!-- 변경할 로고이미지 인풋 -->
-						<form action="LogoUploadC" id="fileUploadForm" method="post"
+						<form action="/admin/homepage-update/logo/upload-file" id="fileUploadForm" method="post"
 							enctype="multipart/form-data">
 							<input type="file" id="logo_img" name="logo_img">
 						</form>

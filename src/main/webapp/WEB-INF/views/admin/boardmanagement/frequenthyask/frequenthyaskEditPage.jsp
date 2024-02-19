@@ -7,10 +7,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Frequenthyask</title>
-
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
 </head>
 
 <body>
@@ -52,6 +48,9 @@
 	<script
 		src="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask/0.js/testMZ.js"
 		type="module"></script>
+<!-- 	<script -->
+<%-- 		src="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask/0.js/insertFAQ.js" --%>
+<!-- 		type="module"></script> -->
 	<!-- 아래의 스크립트는 입력하지 않은 값이 나올 시 alert 띄우는 용 -->
 	<script
 		src="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask/0.js/ValidationItems.js"></script>

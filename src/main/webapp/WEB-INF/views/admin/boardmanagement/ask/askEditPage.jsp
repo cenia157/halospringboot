@@ -34,6 +34,19 @@
 									<!-- 답변한 사람 --> <span id="COMMENT_NAME"></span>
 								</div>
 							</div>
+							<div class="real-title-down-1">
+								<div class="real-title-down-contain">
+									<span id="A_QUESTION_PHONE"></span>
+								</div>
+								<div class="real-title-down-contain">
+									<span id="A_QUESTION_EMAIL"></span>
+								</div>
+							</div>
+<!-- 							<div class="real-title-down-2"> -->
+<!-- 								<div class="real-title-down-contain"> -->
+<!-- 									<span id="A_QUESTION_CATEGORY"></span> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
 						</div>
 					</div>
 				</div>
