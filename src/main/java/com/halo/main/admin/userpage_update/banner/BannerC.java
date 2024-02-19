@@ -30,10 +30,13 @@ public class BannerC {
 		return "/admin/index";
 	}
 
-	@PostMapping("/banner/banner-upload-file")
-	public ResponseEntity<?> uploadLogoFile(@RequestParam("logo_img") MultipartFile file) {
+	@PostMapping("/banner/upload-file")
+	public ResponseEntity<?> uploadBannerFile(@RequestParam("banner_img") MultipartFile file, @RequestParam("index") int index) {
 		// 비동기(업뎃예정 img 미리보기)
-		return utils.uploadFile(file, "logo", 1);
+		return utils.uploadFile(file, "banner", index);
+		
+		
+		
 	}
 
 }

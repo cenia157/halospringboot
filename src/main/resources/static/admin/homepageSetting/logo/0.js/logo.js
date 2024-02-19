@@ -20,7 +20,9 @@ function handleFileUpload(event) {
 			console.log(data);
 			var fileName = data.uploadedImg;
 			//미리보기 이미지 띄우기
-				$('#logo_preview').attr('src', '/user/upload_imgs/logo/' + fileName);
+				let logoPreview = document.querySelector("#logo_preview");
+				let url = "url(\'/user/upload_imgs/logo/"+ fileName + "\')";
+				logoPreview.style.backgroundImage = url;
 				//버튼 누를때 파라미터 (수정할 이미지 이름) 넘기기
 				$('#logo_btn_submit').attr('onclick', "location.href='LogoUpdateC?newFileName=" + fileName +"'")
 				console.log();

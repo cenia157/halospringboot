@@ -70,7 +70,7 @@ public ResponseEntity<?> uploadFile(MultipartFile file, String uploadPath, int i
 			String fileName;
 			//파일명에 저장된 날짜시간 추가, 앞자리에-> 시간순정렬
 			if(uploadPath.equals("banner")) 
-				fileName = dateTime + uploadPath + "["+index+"]"+ originalFileName.substring(originalFileName.lastIndexOf("."));
+				fileName = dateTime + uploadPath +index+ originalFileName.substring(originalFileName.lastIndexOf("."));
 			//파일명에 저장된 날짜시간 추가, 앞자리에-> 시간순정렬
 			else 
 				fileName = dateTime + uploadPath + originalFileName.substring(originalFileName.lastIndexOf("."));
