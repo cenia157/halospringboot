@@ -26,7 +26,7 @@
 
             <div class="e_content-box-tr1-td2">
                 <div class="e_content-box-tr1-td2-1">
-                    <img src="user/0.img/home.png" width="1.7%" alt="" />
+                    <img src="/user/0.img/home.png" width="1.7%" alt="" />
                     > 情報 > スタッフ募集
                 </div>
             </div>
