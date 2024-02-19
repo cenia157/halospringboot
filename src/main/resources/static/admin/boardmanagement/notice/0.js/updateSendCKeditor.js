@@ -1,9 +1,14 @@
 let regBtnR = document.querySelector("#reg-btnR");
 regBtnR.addEventListener("click", function() {
+	
+	let flag = 'update';
+	
+	if(!noValue(flag)){
+		return false;
+	}
+	
 	let ckFormR = document.querySelector("#ck-formR");
 	let seq = document.querySelector('#seq').value;
-	let pageNum = document.querySelector('#pageNum');
-	var checkVal = document.getElementsByName('checkVal')[0];
 	const content = window.editorR.getData();
 	const formDataR = new FormData(ckFormR);
 	formDataR.set("txt", content);
@@ -47,11 +52,11 @@ regBtnR.addEventListener("click", function() {
 		closeModalNR();
 	}
 
-	let CkeditorC = fetch("UpdateNoticeC", {
+	fetch("/admin/boardManagement/notice/updateNotice", {
 		method: "Put",
 		body: payload,
 		headers: {
-			"Content-Type": "application/x-www-form-urlencoded", // 헤더 설정
+			"Content-Type": "application/x-www-form-urlencoded", 
 		},
 	})
 		.then((response) => {
@@ -61,11 +66,23 @@ regBtnR.addEventListener("click", function() {
 			return response.text();
 		})
 		.then((data) => {
-//			console.log("POST 요청 성공:", data);
-//			console.log(CkeditorC123);
-			location.href ='NoticePagingC?p='+pageNum.value+'&seq='+seq+"&checkVal="+checkVal.value;
+
 			window.editor.setData("");
 			window.editorR.setData("");
+			
+			let url = window.location.href; 
+			let parts = url.split('/');
+			
+			// 끝에서 두 번째 값 (String checkVal)
+			let checkVal = parts[parts.length - 2];
+			// 끝에서 세 번째 값 (int p)
+			let p = parseInt(parts[parts.length - 3], 10);
+			
+			console.log('p ::: ' + p); 
+			console.log('checkVal :::' + checkVal);
+			console.log('seq :::' + seq)
+			
+			location.href = `/admin/boardManagement/notice/${p}/${checkVal}/${seq}`;
 		})
 		.catch((error) => {
 			console.error("POST 요청 실패:", error);

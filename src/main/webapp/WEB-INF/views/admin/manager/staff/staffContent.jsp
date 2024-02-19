@@ -12,9 +12,9 @@
 	
 </script>
 <script
-	src="${pageContext.request.contextPath}/admin/manager/staff/0.js/staffContent.js"></script>
+	src="/admin/manager/staff/0.js/staffContent.js" defer="defer"></script>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/manager/staff/0.css/staffContent.css" />
+	href="/admin/manager/staff/0.css/staffContent.css" />
 </head>
 
 <head>
@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<!-- 			</div> -->
-			<form class="staff-form" action="StaffRegC" method="post">
+			<div class="staff-form">
 				<div class="sec-ins">
 
 					<div class="ins-tr-2">
@@ -52,32 +52,32 @@
 						<div class="ins-tr-3-title">
 							<div class="ins-tr-title-title">名前</div>
 							<input type="text" class="ins-tr-3-td-input input-title"
-								name="input-staff-name" id="input-staff-name"
+								name="s_name" id="s_name"
 								required="required">
 						</div>
 						<div class="ins-tr-3-title">
 							<div class="ins-tr-title-title">ポジション</div>
 							<input type="text" class="ins-tr-3-td-input input-title"
-								name="input-staff-pos" id="input-staff-pos" required="required">
+								name="s_position" id="s_position" required="required">
 						</div>
 						<div class="ins-tr-3-title">
 							<div class="ins-tr-title-title">連絡先</div>
 							<input type="text" class="ins-tr-3-td-input input-title"
-								name="input-staff-callNum" id="input-staff-callNum"
+								name="s_phone_num" id="s_phone_num"
 								required="required">
 						</div>
 						<div class="ins-tr-3-title">
 							<div class="ins-tr-title-title">入社日</div>
 							<input type="date" class="ins-tr-3-td-input input-title"
-								name="input-staff-entryDate" id="input-staff-entryDate"
+								name="s_entry_date" id="s_entry_date"
 								required="required">
 						</div>
 
 						<div class="ins-tr-3-title">
 							<div class="ins-tr-title-color">カレンダー</div>
 							<input type="color" list="colors"
-								class="ins-tr-3-td-input input-color" name="input-staff-color"
-								id="input-staff-color" value="#FFD700">
+								class="ins-tr-3-td-input input-color" name="s_color"
+								id="s_color" value="#FFD700">
 							<datalist id="colors">
 								<option>#FFD700</option>
 								<option>#DAA520</option>
@@ -101,12 +101,12 @@
 						</div>
 						<div class="ins-tr-3-txt">
 							<div class="ins-tr-txt-tr-title">住所</div>
-							<textarea class="ins-tr-3-td-txt" name="input-steff-addr"
-								id="input-steff-addr" required="required"></textarea>
+							<textarea class="ins-tr-3-td-txt" name="s_addr"
+								id="s_addr" required="required"></textarea>
 						</div>
-						<input type="hidden" id="staff-seq">
+						<input type="hidden" id="s_no" name="s_no">
 						<div class="ins-tr-3-btn">
-							<button class="staff-button" id="staff-reg">登録</button>
+							<button type="button" class="staff-button" id="staff-reg">登録</button>
 							<button style="display: none;" type="button"
 								class="staff-click-button" id="staff-update">変更</button>
 							<button style="display: none;" type="button"
@@ -116,7 +116,7 @@
 						</div>
 					</div>
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 </body>

@@ -29,7 +29,7 @@ public class NoticeService {
 			int index = Character.getNumericValue(checkVal.charAt(i));
 			selectedCategories.add(checkBoxVal[index]);
 		}
-
+		
 		notices = (ArrayList<NoticeDTO>) nMapper.getAllNotice(selectedCategories);
 
 		return notices;
@@ -99,10 +99,10 @@ public class NoticeService {
 				filePath = path.resolve(fileName);
 			}
 
-			Files.copy(file.getInputStream(), filePath); 
+			Files.copy(file.getInputStream(), filePath);
 
-			System.out.println("파일경로 ::: " + filePath.toAbsolutePath().toString());
-			System.out.println("파일이름 :::: " + fileName);
+//			System.out.println("파일경로 ::: " + filePath.toAbsolutePath().toString());
+//			System.out.println("파일이름 :::: " + fileName);
 
 			JSONObject jo = new JSONObject();
 			jo.put("fName", "/admin/boardmanagement/notice/0.img/upload/" + fileName);
@@ -134,12 +134,12 @@ public class NoticeService {
 			}
 		}
 		
-		System.out.println("writer : " + writer);
-		System.out.println("title : " + title);
-		System.out.println("가공전 txt : " + txt);
-		System.out.println("saveFnameValues : " + saveFnameValues);
-		System.out.println("가공 후 txt : " + txt);
-		System.out.println("select : " + select);
+//		System.out.println("writer : " + writer);
+//		System.out.println("title : " + title);
+//		System.out.println("가공전 txt : " + txt);
+//		System.out.println("saveFnameValues : " + saveFnameValues);
+//		System.out.println("가공 후 txt : " + txt);
+//		System.out.println("select : " + select);
 
 		return  nMapper.regNotice(writer, title, select, txt);
 	}
@@ -162,18 +162,17 @@ public class NoticeService {
 			}
 		}
 		
-		System.out.println("title : " + title);
-		System.out.println("가공전 txt : " + txt);
-		System.out.println("saveFnameValues : " + saveFnameValues);
-		System.out.println("가공 후 txt : " + txt);
-		System.out.println("select : " + select);
+//		System.out.println("title : " + title);
+//		System.out.println("가공전 txt : " + txt);
+//		System.out.println("saveFnameValues : " + saveFnameValues);
+//		System.out.println("가공 후 txt : " + txt);
+//		System.out.println("select : " + select);
 
 		return nMapper.updateNotice(title, select, txt, seq);
 	}
 
 	public int deleteNotice(int an_seq) {
-		System.out.println("an_seq ::: " + an_seq);
-		
+	
 		return nMapper.deleteNotice(an_seq);
 	}
 

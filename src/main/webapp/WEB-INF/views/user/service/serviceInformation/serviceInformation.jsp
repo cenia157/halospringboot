@@ -18,10 +18,10 @@
 		<div class="content-box-td">
 			<div class="content-tabbox-td">
 				<div class="content-tab1-td tab1-pos">
-					<a href="ServiceInformationC"> サービスの案内</a>
+					<a href="/service/info"> サービスの案内</a>
 				</div>
 				<div class="content-tab2-td tab2-pos">
-					<a href="ServiceApplyC"> サービスの申込み</a>
+					<a href="/service/apply/step1/svc"> サービスの申込み</a>
 				</div>
 			</div>
 			<div class="content-subtab-td">

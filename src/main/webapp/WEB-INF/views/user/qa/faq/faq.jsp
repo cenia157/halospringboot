@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/_css/faqMobile.css">
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	<script src="user/qa/faq/_js/user_faq.js"></script>
+	<script src="/user/qa/faq/_js/user_faq.js"></script>
 	
 </head>
 <body>
@@ -28,7 +28,7 @@
 	
 		<!-- 자주묻는 질문 -->
 		<div class="faq-content-box-tr1">
-			<div class="faq-content-box-td1-0"><a href="QuestionC">お問い合わせに＞＞</a></div>
+			<div class="faq-content-box-td1-0"><a href="/qna/question">お問い合わせに＞＞</a></div>
 		    <div class="faq-content-box-td1-1">よくある質問</div>
 		    <div class="faq-content-box-td1-2">
 		    	<c:forEach items="${FAQs}" var="qa">
@@ -40,7 +40,17 @@
 		
 	    <!-- 로드된 파일이 나타날 컨테이너 -->
 		<div class="faqDetailContainer" id="FAQModal">
-			<jsp:include page="/user/qa/faq/faqDetail.jsp"></jsp:include>
+			<!-- Answer -->
+				<div class="faq-content-box-tr2">
+					<div class="faq-content-box-td2-1">-ANSWER-</div>
+					<div class="faq-content-box-td2-2">
+					<div class="faq-content-box-td2-2-txt">
+							<span class="faq-content-box-td2-2-content-1" id="FAQ_QUESTION">Q. </span>
+							<span class="faq-content-box-td2-2-content-2" id="FAQ_ANSWER">A. </span>
+					</div>
+					</div>
+				</div>
+<%-- 			<jsp:include page="/user/qa/faq/faqDetail.jsp"></jsp:include> --%>
 		</div>
     
 

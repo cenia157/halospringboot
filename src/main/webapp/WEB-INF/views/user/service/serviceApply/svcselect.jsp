@@ -13,22 +13,22 @@
 	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/svcselect.css" />
 </head>
 <body>
-	<form action="SvcselectC" class="content-form-box" method="post" >
+	<form action="/service/apply/step2/calendar" class="content-form-box" method="post" >
 		<div class="content-serviceselect-box-td">
 			<div class="content-serviceoption-td">
 			<label >
-				<input type="radio" name="service" value="nursingTaxi"
+				<input type="radio" name="sa_service" value="nursingTaxi"
 					id="service" checked> <br> 介護サービス & <br> 介護タクシーサービス</label><br>
 			</div>
 			<div class="content-serviceoption-td">
 				<label>
-				<input type="radio" name="service" value="nursing" id="service">
+				<input type="radio" name="sa_service" value="nursing" id="service">
 				<br> 介護サービス</label>
 			</div>
 
 			<div class="content-serviceoption-td">
 			<label>
-				<input type="radio" name="service" value="taxi" id="service"> <br> 介護タクシーサービス</label>
+				<input type="radio" name="sa_service" value="taxi" id="service"> <br> 介護タクシーサービス</label>
 			</div>
 		</div>
 		<div class="content-servicebtn-box-td">

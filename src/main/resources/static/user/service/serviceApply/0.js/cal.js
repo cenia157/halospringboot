@@ -33,6 +33,7 @@ const renderCalendar = () => {
 
 	// Dates 기본 배열들
 	const prevDates = [];
+//	const thisDates = [...Array(TLDate).keys()].slice(1);
 	const thisDates = [...Array(TLDate + 1).keys()].slice(1);
 	const nextDates = [];
 

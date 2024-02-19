@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ハロー</title>
 <!-- font -->
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="/user/0.css/index-menu.css" />
 <link rel="stylesheet" href="/user/0.css/index-footer.css" />
 <link rel="stylesheet" href="/user/0.css/sec.css" />
+<link rel="shortcut icon" type="image/x-icon" href="/user/0.img/iconlogo.ico">
 
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -58,12 +59,12 @@
 						</a>
 					</div>
 					<div class="header-td-menu-title">
-						<a href="AnnouncedC" class="">情報 <span
+						<a href="/info/notice" class="">情報 <span
 							class="header-td-menu-under"></span>
 						</a>
 					</div>
 					<div class="header-td-menu-title">
-						<a href="ServiceInformationC" class="">サービス <span
+						<a href="/service/info" class="">サービス <span
 							class="header-td-menu-under"></span>
 						</a>
 					</div>
@@ -79,17 +80,17 @@
 						class="header-opmenu-a" href="/introduce/map">施設アクセス</a>
 				</div>
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="AnnouncedC">お知らせ</a> <a
-						class="header-opmenu-a" href="AlbumC">アルバム</a> <a class="header-opmenu-a"
-						href="EmploymentC">スタッフ募集</a>
+					<a class="header-opmenu-a" href="/info/notice">お知らせ</a> <a
+						class="header-opmenu-a" href="/info/album">アルバム</a> <a class="header-opmenu-a"
+						href="/info/employment">スタッフ募集</a>
 				</div>
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="ServiceInformationC">サービスの案内</a> <a
-						class="header-opmenu-a" href="ServiceApplyC">サービスの申し込み</a>
+					<a class="header-opmenu-a" href="/service/info">サービスの案内</a> <a
+						class="header-opmenu-a" href="/service/apply/step1/svc">サービスの申し込み</a>
 				</div>
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="FaqC">よくある質問</a> <a
-						class="header-opmenu-a" href="QuestionC">お問い合わせ</a>
+					<a class="header-opmenu-a" href="/qna/faq">よくある質問</a> <a
+						class="header-opmenu-a" href="/qna/question">お問い合わせ</a>
 				</div>
 			</div>
 		</div>
@@ -154,7 +155,7 @@
 			<div class="footer-item-td-2">
 				<div>
 					合同会社 <img src="/user/0.img/footerlogo.png" id="footer-logo-img" alt="" /><a
-						href="/login">ハロー </a>
+						href="/admin/loginPage">ハロー </a>
 				</div>
 				<div>
 					代表社員 ： 大出 昭子 <img src="/user/0.img/footerinstaicon.png" id="footer-logo-img-sns" alt="" /> <img

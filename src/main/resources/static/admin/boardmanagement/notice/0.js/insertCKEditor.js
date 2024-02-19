@@ -57,7 +57,7 @@ class MyUploadAdapter {
 
 	_initRequest() {
 		const xhr = (this.xhr = new XMLHttpRequest());
-		xhr.open("POST", "/halo/CKEditorImgUploadC", true);
+		xhr.open("POST", "/admin/boardManagement/notice/CKEditorImgUpload", true);
 		xhr.responseType = "json";
 	}
 
@@ -107,7 +107,7 @@ class MyUploadAdapter {
 	    return new Promise((resolve, reject) => {
 	        // XMLHttpRequest 객체를 초기화합니다.
 	        const xhr = this.xhr = new XMLHttpRequest();
-	        xhr.open("POST", "/halo/CKEditorImgUploadC", true);
+	        xhr.open("POST", "/admin/boardManagement/notice/CKEditorImgUpload", true);
 	        xhr.responseType = "json";
 	
 	        xhr.addEventListener("error", () => reject(`파일 업로드에 실패했습니다: ${file.name}.`));

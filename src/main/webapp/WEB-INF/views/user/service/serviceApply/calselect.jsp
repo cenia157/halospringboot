@@ -16,7 +16,7 @@
 <body>
 
 	<!-- step별 페이지 -->
-	<form action="CalselectC" class="content-calbox-td" method="post">
+	<form action="/service/apply/step3/time" class="content-calbox-td" method="post">
 		<div class="content-date-select-box-td">
 			<div class="date-sel-start-box-td">
 				開始日<br>

@@ -8,7 +8,7 @@
   //인스타 api 요청
   let requestInstagram = function(){
       $.ajax({
-      	url:"/Album_insta_api_C",
+      	url:"/info/requestInstagram",
       	method: "POST",
       	dataType: "json",
 		success: function (response) {
@@ -101,16 +101,15 @@
 	            cursor: "pointer",
 	        })
 	        .click(function () {
-
-	            window.location.href = "https://www.instagram.com/ody_1004/", "_blank";
-	        });
+   		    	 window.open("https://www.instagram.com/halo_osaka/", "_blank");
+			 });
 	
 	    // 첫 번째 내부 div 생성 및 클래스 추가
 	    let innerDivIcon = $("<div></div>").addClass("innerDiv_icon");
 	
 	    let img = $("<img />")
 	        .addClass("insta_img")
-	        .attr("src", "user/introduce/album/0.img/insta_logo2.png")
+	        .attr("src", "/user/introduce/album/0.img/insta_logo2.png")
 	        .css({
 	            width: "100%",
 	            height: "100%",
@@ -207,7 +206,6 @@
 	        }
 	    }
 	}
-	
 	
 	$(document).ready(function() {
 	

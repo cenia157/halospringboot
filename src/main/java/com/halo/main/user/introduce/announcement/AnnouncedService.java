@@ -24,6 +24,24 @@ public class AnnouncedService {
 		return announcements;
 	}
 
+	// 메인페이지 3개 게시물 조회
+	public List<AnnouncedDTO> getMainPageAnnouncements() {
+
+		announcements = (ArrayList<AnnouncedDTO>) aMapper.getMainPageAnnouncements();
+
+		for (AnnouncedDTO announcedDTO : announcements) {
+			String content = announcedDTO.getAn_content();
+			// <figure> 태그 제거 로직
+			while (content.indexOf("<figure") != -1) {
+				content = content
+						.replace(content.substring(content.indexOf("<figure"), content.indexOf("</figure>") + 9), "");
+			}
+			announcedDTO.setAn_content(content);
+		}
+
+		return announcements;
+	}
+
 	// 조회 시, 페이징처리
 	public void announcedPaging(int page, Model model) {
 
