@@ -37,6 +37,28 @@
 			</div>
 			<div class="ontent-m-td-2-chackbox-contain-txt">商品</div>
 		</div>
+<!-- 			<div class="content-m-td-2-checkbox-container"> -->
+<!-- 			    <div class="content-m-td-2-checkbox-container-input"> -->
+<!-- 			        <input type="checkbox" id="noticeCheck0" name="noticeCheck" class="noticeCheck" value="0" onclick="noticeSearch()"> -->
+<!-- 			        <label for="noticeCheck0">案内</label> -->
+<!-- 			    </div> -->
+<!-- 			    <div class="content-m-td-2-checkbox-container-input"> -->
+<!-- 			        <input type="checkbox" id="noticeCheck1" name="noticeCheck" class="noticeCheck" value="1" onclick="noticeSearch()"> -->
+<!-- 			        <label for="noticeCheck1" class="contain-txt-schedule">スケジュール</label> -->
+<!-- 			    </div> -->
+<!-- 			    <div class="content-m-td-2-checkbox-container-input"> -->
+<!-- 			        <input type="checkbox" id="noticeCheck2" name="noticeCheck" class="noticeCheck" value="2" onclick="noticeSearch()"> -->
+<!-- 			        <label for="noticeCheck2">一般</label> -->
+<!-- 			    </div> -->
+<!-- 			    <div class="content-m-td-2-checkbox-container-input"> -->
+<!-- 			        <input type="checkbox" id="noticeCheck3" name="noticeCheck" class="noticeCheck" value="3" onclick="noticeSearch()"> -->
+<!-- 			        <label for="noticeCheck3" class="contain-txt-service">サービス</label> -->
+<!-- 			    </div> -->
+<!-- 			    <div class="content-m-td-2-checkbox-container-input"> -->
+<!-- 			        <input type="checkbox" id="noticeCheck4" name="noticeCheck" class="noticeCheck" value="4" onclick="noticeSearch()"> -->
+<!-- 			        <label for="noticeCheck4">商品</label> -->
+<!-- 			    </div> -->
+<!-- 			</div> -->
 	</div>
 	<div class="ontent-m-td-2-content">
 		<!-- noticeBoard.jsp 시작 -->
