@@ -1,11 +1,14 @@
 package com.halo.main.admin.userpage_update.logo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/admin/homepage-update")
@@ -25,10 +28,12 @@ public class LogoC {
 	}
 	
 	@PostMapping("/logo/upload-file")
-	public String uploadLogoFile() {
+	public ResponseEntity<?> uploadLogoFile(@RequestParam("logo_img") MultipartFile file) {
 		//비동기(업뎃예정 img 미리보기)
+		logoDao.uploadFile(file);
+		System.out.println("in?");
 		
-		return "test";
+		return logoDao.uploadFile(file);
 	}
 	
 	@PostMapping("/logo/update")

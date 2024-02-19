@@ -57,8 +57,9 @@
 							<!-- 바뀔 이미지 미리보기(Ajax) -->
 									<label for="logo_img">
 								<img id="logo_preview"
-									src="${pageContext.request.contextPath}/admin/0.img/fileUpload_pre.png">
+									src="/admin/0.img/fileUpload_pre.png">
 									</label>
+									<img src="${pageContext.request.contextPath}/user/upload_imgs/asd.jpg">
 							<!-- 변경할 로고이미지 인풋 -->
 						<form action="/admin/homepage-update/logo/upload-file" id="fileUploadForm" method="post"
 							enctype="multipart/form-data">
