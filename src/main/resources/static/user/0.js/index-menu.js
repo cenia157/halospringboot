@@ -56,6 +56,8 @@ $(function() {
 
 		window.addEventListener('scroll', function() {
 
+
+
 			// 현재 스크롤 위치 가져오기
 			if (yScrollLocation < window.scrollY) {
 				document.querySelector('.header-td-menu-title').getBoundingClientRect().height;
@@ -94,7 +96,6 @@ $(function() {
 			}
 		});
 
-
 		window.addEventListener('scroll', function() {
 			// 현재 스크롤 위치 가져오기
 			if (yScrollLocation < window.scrollY) {
@@ -115,4 +116,3 @@ $(function() {
 		});
 	}
 });
-
