@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ハロー</title>
 <!-- font -->
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="/user/0.css/index-menu.css" />
 <link rel="stylesheet" href="/user/0.css/index-footer.css" />
 <link rel="stylesheet" href="/user/0.css/sec.css" />
+<link rel="shortcut icon" type="image/x-icon" href="/user/0.img/iconlogo.ico">
 
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
