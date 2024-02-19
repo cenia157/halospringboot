@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.halo.main.util.Utils;
+
 @Controller
 @RequestMapping("/admin/homepage-update")
 public class LogoC {
 	
 	@Autowired
 	private LogoDAO logoDao;
+	@Autowired
+	private Utils utils;
 	
 	@GetMapping("/logo")
 	public String goLogo(Model model) {
@@ -30,10 +34,7 @@ public class LogoC {
 	@PostMapping("/logo/upload-file")
 	public ResponseEntity<?> uploadLogoFile(@RequestParam("logo_img") MultipartFile file) {
 		//비동기(업뎃예정 img 미리보기)
-		logoDao.uploadFile(file);
-		System.out.println("in?");
-		
-		return logoDao.uploadFile(file);
+		return utils.uploadFile(file,"logo",1);
 	}
 	
 	@PostMapping("/logo/update")
