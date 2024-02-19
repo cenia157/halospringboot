@@ -613,3 +613,15 @@ $(document).ready(function() {
 		}
 	});
 }); 
+
+document.addEventListener('DOMContentLoaded', function() {
+    let containers = document.querySelectorAll('.ontent-m-td-2-chackbox-contain-txt');
+
+    containers.forEach(function(container) {
+        container.addEventListener('click', function() {
+            let checkbox = this.previousElementSibling.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            noticeSearch(); // 체크박스 상태 변경 후 noticeSearch() 함수 호출
+        });
+    });
+});
