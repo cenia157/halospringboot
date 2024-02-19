@@ -75,7 +75,7 @@
 		</div>
 	</div>
 
-<!-- 모달시작 -->
+    <!-- 모달시작 -->
     <div id="myModal" class="modal">
       <div class="modal-content">
         <!-- 여기서 소스 활용 시작 -->
@@ -143,7 +143,7 @@
         </div>
       </div>
     </div>
-<!--모달끝-->
+    <!--모달끝-->
 <c:if test="${pdto.p_flag == 1 }">
         <div id="modalContainer" class="">
             <div id="modalContent" >
