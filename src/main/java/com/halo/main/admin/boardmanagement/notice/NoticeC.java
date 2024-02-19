@@ -34,10 +34,11 @@ public class NoticeC {
 		if (seq != 0) {
 			model.addAttribute("seq", seq);
 		}
+		
 		model.addAttribute("pageNum", p);
 		model.addAttribute("menuname", "お知らせ");
 		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/notice/noticeContent.jsp");
-
+		
 		return "/admin/index";
 	}
 	
