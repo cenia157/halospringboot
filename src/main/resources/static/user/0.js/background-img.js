@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-	let yScrollLocation = window.scrollY;
-	let scrollCnt = '';
-	let currentScroll = 1;
-
 	window.addEventListener("scroll", function() {
 		const scrollValue = window.scrollY;
 
@@ -52,68 +48,5 @@ document.addEventListener("DOMContentLoaded", function() {
 			lefttPink.style.transform = "translateX(-0%)";
 			sunSet.style.transform = "translateY(-0%)";
 		}
-
-		if (window.innerWidth > 500) {
-			if (yScrollLocation < window.scrollY) {
-
-				if (scrollCnt > 3) {
-					scrollCnt = '';
-				}
-
-				console.log(scrollCnt)
-
-				scrollCnt++;
-				if (scrollCnt > 1) {
-					setTimeout(() => {
-						if (currentScroll == 1) {
-							window.scrollTo(0, 1300);
-							scrollCnt = '';
-							setTimeout(function() {
-								currentScroll = 2;
-							}, 300);
-						} else if (currentScroll == 2) {
-							window.scrollTo(0, 2300);
-							scrollCnt = '';
-							setTimeout(function() {
-								currentScroll = 3;
-							}, 300);
-						}
-					}, 150);
-				}
-			} else {
-
-				if (scrollCnt > 3) {
-					scrollCnt = '';
-				}
-
-				console.log(scrollCnt)
-
-				scrollCnt++;
-				if (scrollCnt > 1) {
-					setTimeout(() => {
-						if (currentScroll == 3) {
-							window.scrollTo(0, 2300);
-							scrollCnt = '';
-							setTimeout(function() {
-								currentScroll = 2;
-							}, 300);
-						} else if (currentScroll == 2) {
-							window.scrollTo(0, 1300);
-							scrollCnt = '';
-							setTimeout(function() {
-								currentScroll = 1;
-							}, 300);
-						} else if (currentScroll == 1) {
-							window.scrollTo(0, 0);
-							scrollCnt = '';
-							setTimeout(function() {
-							}, 300);
-						}
-					}, 150);
-				}
-			}
-			yScrollLocation = window.scrollY;
-		}
-
 	});
 });

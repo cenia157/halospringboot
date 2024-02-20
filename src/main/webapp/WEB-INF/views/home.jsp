@@ -19,6 +19,8 @@
 	src="user/introduce/announcement/0.js/announcement_contentPage_ajax.js"></script>
 <script
 	src="admin/_js/ckeditor/ckeditor.js"></script>
+	<script
+	src="user/0.js/scroll.js"></script>
 	<!-- 반응형 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 팝업창 js -->
