@@ -4,6 +4,7 @@
 	width: 100%;
 	max-width: 100vw;
 	height: auto;
+	transition: transform 0.5s ease;
 }
 
 /* 배경이미지*/
