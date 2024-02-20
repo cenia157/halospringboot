@@ -20,7 +20,7 @@
 			<div class="popup-tr">
 			<div class="popup-title"><h1>現在popup</h1></div>
 				<!-- ajax미리보기 이미지 박스 -->
-				<div class="popup-td-img-box" id="banner_preview1" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popupImg/${pdto.p_img }');">
+				<div class="popup-td-img-box" id="popup_preview1" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popup/${pdto.p_img}');">
 				</div>
 				<div class="banner-td-3">
 					<div>メニュー :&nbsp;</div>
@@ -49,12 +49,12 @@
 				<div class="popup-tr">
 				<div class="popup-title"><h1>プレビュー</h1></div>
 				<!-- ajax미리보기 이미지 박스 -->
-				<div class="popup-td-img-box" id="banner_preview2" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
+				<div class="popup-td-img-box" id="popup_preview2" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
 				</div>
 				<!-- 빠른메뉴 설정(셀렉) -->
 				<div class="popup-select-box">
 				<div>メニュー :&nbsp;</div>
-				<select class="popup-select popup-input-line" name="banner_menu1" id="banner_menu1" onchange="changeInformBox()">
+				<select class="popup-select popup-input-line" name="banner_menu1" id="popup_menu" onchange="changeInformBox()">
 				<option value="info_com">会社について</option>
 				<option value="info_map">施設アクセス</option>
 				<option value="intro_announce">お知らせ</option>
@@ -72,17 +72,17 @@
 				<div class="banner-td-2" id="urlBox">
 <%-- 				<img src="${pageContext.request.contextPath}/admin/0.img/url_icon.png" alt="이미지준비중"> --%>
 				<div>url :&nbsp;</div>
-				<input class="popup-input-line url-input" id="banner_url1" name="banner_url1" type="text">
+				<input class="popup-input-line url-input" id="url-input" name="banner_url1" type="text">
 				</div>
 				<!-- 팝업(포스터) 이미지 설정 -->
 				<div class="banner-td-2 upload-input-box">
 <%-- 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중"> --%>
 				<div>イメージ :&nbsp;</div>
 	<form action="BannerUploadC" id="fileUploadForm" method="post" enctype="multipart/form-data">
-				<label for="thumbnail1">
+				<label for="popup_img">
 				<div class="btn-upload popup-input-line">アップロード</div>
 				</label>
-				<input onchange="handleFileUpload()" hidden="" type="file" class="file_input" name="thumbnail" id="thumbnail1">
+				<input onchange="handleFileUpload()" hidden="" type="file" class="file_input" name="popup_img" id="popup_img">
 				<input class="serverFileName" id="serverFileName" type="text" hidden="" value="empty">
 			</form>
 				</div>

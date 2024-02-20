@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-//	changeInformBox();
-//	submitBannerData(1);
-//alert(11);
-	
+	//	changeInformBox();
+	//	submitBannerData(1);
+	//alert(11);
+
 
 });
 // 셀렉 -> 상품판매 선택시 인풋박스 변화
@@ -17,76 +17,141 @@ function changeInformBox() {
 }
 
 function handleFileUpload() {
-	let fileInput = document.getElementById("thumbnail1");
+	let fileInput = document.getElementById("popup_img");
 	let selectedFile = fileInput.files; //파일입력요소에서 '선택된' 파일들
 	let serverFileName = document.getElementById("serverFileName");
-	
+
 	console.log('선택된 파일:', selectedFile);
-//	selectedFile[0].name
-	let formData = new FormData(document.querySelector("#fileUploadForm"));
-	console.log("filenameForm : "+formData);
-	
-			//서버에 파일 업로드 요청 ↓
-		$.ajax({
-			type: "POST", // post 방식 요청
-			/*enctype: 'multipart/form-data',	// 파일 업로드 위한 인코딩 방식*/
-			url: 'PopupUpdateC', //서버로 요청 보낼 url
-			data: formData,		// 서버로 보낼 데이터로 formData 객체 사용
-			processData: false,	// 데이터 문자열로 변환하지 않도록
-			contentType: false, 
-			cache: false, // 캐시사용X
-			success: function(fileName) { // 성공시 실행되는 콜백함수
+
+	if (selectedFile.length > 0) {
+		// 선택된 파일이 하나 이상일때
+		console.log('선택된 파일:', selectedFile);
+
+		var formData = new FormData();
+		formData.append('popup_img', selectedFile[0]);
+
+		fetch("/admin/homepage-update/popup/upload-file", {
+			method: "post",
+			body: formData
+
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				var fileName = data.uploadedImg;
 				//미리보기 이미지 띄우기
-				console.log(fileName);
-				console.log('성공!');
-				let popupPreview = document.querySelector("#banner_preview2");
-				let url = "url(\'user/upload_imgs/popupImg/"+ fileName + "\')";
+				let popupPreview = document.querySelector("#popup_preview2");
+				let url = "url(\'/user/upload_imgs/popup/" + fileName + "\')";
+
+				console.log(url);
 				popupPreview.style.backgroundImage = url;
 				serverFileName.value = fileName;
-			},
-			error: function(e) {
-				console.log('에러 : ' + e);
-			}
-		});
-	
-	
+
+			});
+
+	}
+
+
 }
 
-function submitBannerData(){
-	let servletData = document.querySelector(".popup-select");
+/*function submitBannerData() {
+	let popup_name = document.querySelector(".popup-select");
 	let urlData = document.querySelector(".url-input");
 	let popupImgData = document.querySelector("#serverFileName");
-	
-	let url = 'PopupUpdateC?popupMenu=' + servletData.value +
-	'&popupUrl=' + urlData.value + '&popupImg=' + popupImgData.value;
-//	console.log("popupImgData.value :"+popupImgData.value);
-	location.href=url;
-	
+	let url = "/admin/homepage-update/popup/update"
+
+	var formData = new FormData();
+	formData.append('p_img', popupImgData.value);
+	formData.append('p_url', urlData.value);
+	formData.append('m_name', popup_name.value);
+	console.log("?? :"+popup_name.value);
+//	    var data = {
+//        p_img: popupImgData.value,
+//        p_url: urlData.value,
+//        m_name: popup_name.value
+//    };
+
+	fetch(url, {
+		method: "post",
+//		headers: {
+//    'Content-Type': 'application/json',
+//  },
+//		body: JSON.stringify(data)
+        headers: {
+             'Content-Type': 'application/x-www-form-urlencoded',
+        },
+		body: formData
+	}).then((response) => response.json())
+		.then((data) => {
+			console.log(data.isSuccess)
+			if(data.isSuccess==true){
+				location.href='http://localhost/admin/homepage-update/popup';
+			}
+
+		});
+
+}*/
+
+function submitBannerData() {
+    let popup_name = document.querySelector("#popup_menu");
+    let urlData = document.querySelector("#url-input");
+    let popupImgData = document.querySelector("#serverFileName");
+    let url = "/admin/homepage-update/popup/update";
+    console.log(popup_name.value + "  test " + popupImgData.value )
+	if (!urlData.value || urlData.value === "") {
+		urlData.value = 'empty';
+		}
+    var data = {
+        p_img: popupImgData.value,
+        p_url: urlData.value,
+        b_m_name: popup_name.value
+    };
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    }).then((response) => response.json())
+        .then((res) => {
+            console.log(res.isSuccess);
+            if (res.isSuccess=="true") {
+				location.href="/admin/homepage-update/popup"
+            } else {
+				alert("UpdateFail")
+			}
+        });
 }
 
-function checkPopupOnOff(index){
+
+function checkPopupOnOff(index) {
 	let formData = new FormData(document.querySelector("#onOffForm"));
 	console.log("폼 : " + formData);
 	var popupState = 'Off';
-	if(index == 1){
+	if (index == 1) {
 		popupState = 'On';
-	} 
-	$.ajax({
-			type: "POST", // post 방식 요청
-			url: 'PopupC', //서버로 요청 보낼 url
-			data: formData,		// 서버로 보낼 데이터로 formData 객체 사용
-			processData: false,	// 데이터 문자열로 변환하지 않도록
-			contentType: false, 
-			cache: false, // 캐시사용X
-			success: function() { 
-				alert("Popup " + popupState + " success");
-			},
-			error: function(e) {
-				console.log('에러 : ' + e);
-				alert("Popup " + popupState + " fail");
-			}
-		});
+	}
+	fetch("/admin/homepage-update/popup/upload-file",{
+		method: "post",
+		
+	})
 	
+//	$.ajax({
+//		type: "POST", // post 방식 요청
+//		url: 'PopupC', //서버로 요청 보낼 url
+//		data: formData,		// 서버로 보낼 데이터로 formData 객체 사용
+//		processData: false,	// 데이터 문자열로 변환하지 않도록
+//		contentType: false,
+//		cache: false, // 캐시사용X
+//		success: function() {
+//			alert("Popup " + popupState + " success");
+//		},
+//		error: function(e) {
+//			console.log('에러 : ' + e);
+//			alert("Popup " + popupState + " fail");
+//		}
+//	});
+
 }
 
 
