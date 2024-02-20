@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.halo.main.admin.company.CompanyScheduleDTO;
 import com.halo.main.admin.reservation.ReservationScheduleAcceptDTO;
+import com.halo.main.user.question.QuestionNCommentsVO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,6 @@ public class DashboardDTO {
 	private ArrayList<ReservationScheduleAcceptDTO> reservationAccpectSchedule;
 	private ArrayList<CompanyScheduleDTO> companySchedule;
 	private ArrayList<DashboardStaffDTO> staffSchedule;
-//	private ArrayList<QuestionNComment> unAnswered;
+	private ArrayList<QuestionNCommentsVO> unAnswered;
 	
 }
