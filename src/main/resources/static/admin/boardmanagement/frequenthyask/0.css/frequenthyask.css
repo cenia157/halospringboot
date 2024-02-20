@@ -135,7 +135,7 @@
 	width: 50%;
 }
 
-/* ¿©±â¼­ºÎÅÍ´Â  frequenthyaskEditPage.jsp ¿µ¿ª! */
+/* ï¿½ï¿½ï¿½â¼­ï¿½ï¿½ï¿½Í´ï¿½  frequenthyaskEditPage.jsp ï¿½ï¿½ï¿½ï¿½! */
 .modal-background {
 	display: none;
 	position: fixed;
@@ -149,9 +149,9 @@
 .modal-tbl {
 	display: none;
 	width: 100%;
-	height: 100%;
+	height: 130%;
 	position: absolute;
-	top: 45%;
+	top: 37%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
@@ -165,7 +165,7 @@
 
 .modal-title-tr {
 	display: flex;
-	height: 25%;
+	height: 15%;
 	width: 100%;
 }
 
@@ -205,7 +205,7 @@
 }
 
 .modal-content-txt {
-	height: 90%;
+	height: 100%;
 }
 
 .modal-content-button {
@@ -232,7 +232,7 @@
 }
 
 .ck-editor__editable_inline:not(.ck-comment__input *) {
-	/* ¿©±â¼­ ¾î¶»°Ô CKEditorÀÇ Å©±â¸¦ 100%·Î ¸ÂÃâ ¼ö ÀÖÀ»±î? */
+	/* ï¿½ï¿½ï¿½â¼­ ï¿½î¶»ï¿½ï¿½ CKEditorï¿½ï¿½ Å©ï¿½â¸¦ 100%ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½? */
 	overflow-y: auto;
 	height: 100%;
 }
@@ -272,7 +272,7 @@
 	width: 100%;
 }
 
-/* img-url ÀÌ¹ÌÁö input ¾Èº¸ÀÌ°ÔÇÏ´Â css */
+/* img-url ï¿½Ì¹ï¿½ï¿½ï¿½ input ï¿½Èºï¿½ï¿½Ì°ï¿½ï¿½Ï´ï¿½ css */
 #img-url {
 	/* 
 	display: none;
