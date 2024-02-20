@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface PopupMapper {
 	
-	@Select("select * from popup_tbl")
+	@Select("select p_img, p_url, p_flag, nvl(m_text,'URL') as m_text from popup_tbl left outer join menu_tbl on m_servlet = p_url")
 	PopupDTO getPopupDTO();
 
 	@Update("update popup_tbl set p_img=#{p_img}, p_url=#{p_url}")

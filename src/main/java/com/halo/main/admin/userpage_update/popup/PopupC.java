@@ -38,8 +38,7 @@ public class PopupC {
 	}
 	
 	@PostMapping("/popup/update")
-	public ResponseEntity<?> updatePopup(
-			@RequestBody PopupDTO pdto) {
+	public ResponseEntity<?> updatePopup(@RequestBody PopupDTO pdto) {
 	    return popupDao.updatePopup(pdto);
 	}
 

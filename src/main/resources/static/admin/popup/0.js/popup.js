@@ -131,21 +131,25 @@ function checkPopupOnOff(index) {
 	if (index == 1) {
 		popupState = 'On';
 	}
-	$.ajax({
-		type: "POST", // post 방식 요청
-		url: 'PopupC', //서버로 요청 보낼 url
-		data: formData,		// 서버로 보낼 데이터로 formData 객체 사용
-		processData: false,	// 데이터 문자열로 변환하지 않도록
-		contentType: false,
-		cache: false, // 캐시사용X
-		success: function() {
-			alert("Popup " + popupState + " success");
-		},
-		error: function(e) {
-			console.log('에러 : ' + e);
-			alert("Popup " + popupState + " fail");
-		}
-	});
+	fetch("/admin/homepage-update/popup/upload-file",{
+		
+	})
+	
+//	$.ajax({
+//		type: "POST", // post 방식 요청
+//		url: 'PopupC', //서버로 요청 보낼 url
+//		data: formData,		// 서버로 보낼 데이터로 formData 객체 사용
+//		processData: false,	// 데이터 문자열로 변환하지 않도록
+//		contentType: false,
+//		cache: false, // 캐시사용X
+//		success: function() {
+//			alert("Popup " + popupState + " success");
+//		},
+//		error: function(e) {
+//			console.log('에러 : ' + e);
+//			alert("Popup " + popupState + " fail");
+//		}
+//	});
 
 }
 

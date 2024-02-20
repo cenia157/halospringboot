@@ -64,6 +64,7 @@
 							<form action="/admin/homepage-update/logo/upload-file"
 								id="fileUploadForm" method="post" enctype="multipart/form-data">
 								<input type="file" id="logo_img" name="logo_img">
+								<input type="text" id="serverLogoName" hidden="">
 							</form>
 				</div>
 			</div>
@@ -73,7 +74,7 @@
 			<div class="content-m-td-2-side-down-button">
 				<!-- 변경완료버튼, 실제DB에 업뎃되면서 대기이미지로 바뀜 -->
 				<button type="button" class="content-button" id="logo_btn_submit"
-					onclick="#">変更完了</button>
+					onclick="submitLogoData()">変更完了</button>
 			</div>
 		</div>
 	</div>

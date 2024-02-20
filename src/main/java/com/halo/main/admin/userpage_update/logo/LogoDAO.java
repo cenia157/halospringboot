@@ -24,7 +24,8 @@ public class LogoDAO {
 	
 	@Autowired
 	private Utils utils;
-
+	
+	//화면
 	public LogoDTO getLogoDTO() {
 		return logoMapper.getLogoDTO();
 	}
@@ -70,9 +71,29 @@ public class LogoDAO {
 			e.printStackTrace();
 			return ResponseEntity.badRequest().body("Could not upload the file");
 		}
-
+		
+		
+		
+		
 		
 		
 
+	}
+
+
+
+	public ResponseEntity<?> updateLogo(LogoDTO ldto) {
+		String isSuccess = "false";
+		
+		if (logoMapper.updateLogo(ldto) == 1) {
+			System.out.println("logo update success");
+		}else {
+			System.out.println("logo update faile");
+		}
+		
+		JSONObject jo = new JSONObject();
+		jo.put("isSuccess", isSuccess);
+		
+		return ResponseEntity.ok(jo.toJSONString());
 	}
 }
