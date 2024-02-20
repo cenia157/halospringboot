@@ -36,7 +36,7 @@
 				<div class="content-m-td-3-mid-1-tr">
 					<c:forEach var="bannerInform" items="${topBanners}">
 					<div class="content-m-td-3-mid-1-td">
-						<div class="content-m-td-3-mid-1-td-box">${bannerInform.m_text }</div>
+						<div class="content-m-td-3-mid-1-td-box">${bannerInform.b_m_text }</div>
 					</div>
 					</c:forEach>
 				</div>
