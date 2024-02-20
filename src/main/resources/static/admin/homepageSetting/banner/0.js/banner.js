@@ -97,15 +97,18 @@ function submitBannerData(){
 			body: JSON.stringify(data)
 		}).then((response) => response.json())
 			.then((bottomBannerData) => {
-				
 				console.log("성공여부:"+bottomBannerData.isSuccess);
+					let resultEl = document.querySelector("#resultDiv");
 				if(bottomBannerData.isSuccess == "true"){
 					location.href="/admin/homepage-update/banner"
+					resultEl.innerText = "Update Success";
+					resultEl.style.color = "blue";		
 				}else{
 					alert("Update Fail")
 				}
-				
 			})
+					
+				
 	
 }
 

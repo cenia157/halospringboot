@@ -12,11 +12,11 @@
 	<div class="content-tbl">
 		<div class="content-space"></div>
 		<div class="content-sec">
-			<jsp:include page="${subMenu  }"></jsp:include>
+			<jsp:include page="${subMenu }"></jsp:include>
 		</div>
 		<!-- 하단베너 -->
 		<div class="bottom-venner-tr">
-			<c:forEach var="bannerInform" items="${bottomBanners}">
+			<c:forEach var="bannerInform" items="${hdto.bottomBanners}" >
 				<c:if test="${bannerInform.b_type == 1 }">
 					<div class="bottom-venner-td menu-box"
 						onclick="location.href='${bannerInform.b_url}'">${bannerInform.b_m_text }</div>

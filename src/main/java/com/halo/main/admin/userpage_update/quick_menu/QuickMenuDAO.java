@@ -7,13 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.halo.main.admin.userpage_update.banner.BannerDTO;
+
 @Service
 public class QuickMenuDAO {
 
 	@Autowired
 	private QuickMenuMapper qMenuMapper;
 
-	public List<QuickMenuDTO> getListQuickMenu() {
+	public List<BannerDTO> getListQuickMenu() {
 		return qMenuMapper.getListQuickMenu();
 	}
 
