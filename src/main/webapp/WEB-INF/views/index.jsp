@@ -69,7 +69,7 @@
 						</a>
 					</div>
 					<div class="header-td-menu-title">
-						<a href="FaqC" class="">QnA <span class="header-td-menu-under"></span>
+						<a href="/qna/faq" class="">QnA <span class="header-td-menu-under"></span>
 						</a>
 					</div>
 				</div>
