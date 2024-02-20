@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,6 +26,8 @@ public class PopupC {
 	public String goPopup(Model model) {
 		model.addAttribute("menuname","ポップアップの設定");
 		model.addAttribute("menu", "/WEB-INF/views/admin/popup/popupContent.jsp");
+		model.addAttribute("pdto", popupDao.getPopupDTO());
+		System.out.println(popupDao.getPopupDTO());
 		return "/admin/index";
 	}
 	
@@ -34,15 +37,12 @@ public class PopupC {
 		return utils.uploadFile(file,"popup",1);
 	}
 	
-	@PostMapping("popup/update")
-	public String updatePopup(@RequestParam("p_img") String p_img,
-							@RequestParam("p_url")String p_url,
-							@RequestParam("m_name") String m_name,
-							PopupDTO pdto) {
-		System.out.println("controller in");
-		popupDao.updatePopup( m_name, p_img, p_url, pdto);
-		return "reditect:/admin/homepage-update/popup";
+	@PostMapping("/popup/update")
+	public ResponseEntity<?> updatePopup(
+			@RequestBody PopupDTO pdto) {
+	    return popupDao.updatePopup(pdto);
 	}
+
 	
 	
 	

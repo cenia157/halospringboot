@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 public class PopupDTO {
 	private String p_img;
 	private String p_url;
-//	private int p_flag;
-	private String m_nmae;
+	private int p_flag;
+	private String b_m_name;
+	private String m_text;
 	
 }

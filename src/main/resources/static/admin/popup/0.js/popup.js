@@ -53,20 +53,32 @@ function handleFileUpload() {
 
 }
 
-function submitBannerData() {
+/*function submitBannerData() {
 	let popup_name = document.querySelector(".popup-select");
 	let urlData = document.querySelector(".url-input");
 	let popupImgData = document.querySelector("#serverFileName");
 	let url = "/admin/homepage-update/popup/update"
 
-
 	var formData = new FormData();
 	formData.append('p_img', popupImgData.value);
 	formData.append('p_url', urlData.value);
 	formData.append('m_name', popup_name.value);
-	console.log("img:"+popupImgData.value);
+	console.log("?? :"+popup_name.value);
+//	    var data = {
+//        p_img: popupImgData.value,
+//        p_url: urlData.value,
+//        m_name: popup_name.value
+//    };
+
 	fetch(url, {
 		method: "post",
+//		headers: {
+//    'Content-Type': 'application/json',
+//  },
+//		body: JSON.stringify(data)
+        headers: {
+             'Content-Type': 'application/x-www-form-urlencoded',
+        },
 		body: formData
 	}).then((response) => response.json())
 		.then((data) => {
@@ -77,7 +89,40 @@ function submitBannerData() {
 
 		});
 
+}*/
+
+function submitBannerData() {
+    let popup_name = document.querySelector("#popup_menu");
+    let urlData = document.querySelector("#url-input");
+    let popupImgData = document.querySelector("#serverFileName");
+    let url = "/admin/homepage-update/popup/update";
+    console.log(popup_name.value + "  test " + popupImgData.value )
+	if (!urlData.value || urlData.value === "") {
+		urlData.value = 'empty';
+		}
+    var data = {
+        p_img: popupImgData.value,
+        p_url: urlData.value,
+        b_m_name: popup_name.value
+    };
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    }).then((response) => response.json())
+        .then((data) => {
+            console.log(data.isSuccess);
+            if (data.isSuccess=="true") {
+				location.href="/admin/homepage-update/popup"
+            } else {
+				alert("UpdateFail")
+			}
+        });
 }
+
 
 function checkPopupOnOff(index) {
 	let formData = new FormData(document.querySelector("#onOffForm"));

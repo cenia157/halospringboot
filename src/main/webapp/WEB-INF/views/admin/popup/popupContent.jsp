@@ -20,7 +20,7 @@
 			<div class="popup-tr">
 			<div class="popup-title"><h1>現在popup</h1></div>
 				<!-- ajax미리보기 이미지 박스 -->
-				<div class="popup-td-img-box" id="popup_preview1" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popupImg/${pdto.p_img }');">
+				<div class="popup-td-img-box" id="popup_preview1" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popup/${pdto.p_img}');">
 				</div>
 				<div class="banner-td-3">
 					<div>メニュー :&nbsp;</div>
@@ -54,7 +54,7 @@
 				<!-- 빠른메뉴 설정(셀렉) -->
 				<div class="popup-select-box">
 				<div>メニュー :&nbsp;</div>
-				<select class="popup-select popup-input-line" name="banner_menu1" id="banner_menu1" onchange="changeInformBox()">
+				<select class="popup-select popup-input-line" name="banner_menu1" id="popup_menu" onchange="changeInformBox()">
 				<option value="info_com">会社について</option>
 				<option value="info_map">施設アクセス</option>
 				<option value="intro_announce">お知らせ</option>
@@ -72,7 +72,7 @@
 				<div class="banner-td-2" id="urlBox">
 <%-- 				<img src="${pageContext.request.contextPath}/admin/0.img/url_icon.png" alt="이미지준비중"> --%>
 				<div>url :&nbsp;</div>
-				<input class="popup-input-line url-input" id="banner_url1" name="banner_url1" type="text">
+				<input class="popup-input-line url-input" id="url-input" name="banner_url1" type="text">
 				</div>
 				<!-- 팝업(포스터) 이미지 설정 -->
 				<div class="banner-td-2 upload-input-box">
