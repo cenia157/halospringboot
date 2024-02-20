@@ -20,13 +20,13 @@
 	<div class="ontent-m-td-2-chackbox">
 		<div class="ontent-m-td-2-chackbox-contain">
 				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" class="filter" id="checkbox" name="completed" value="0" checked="checked" onclick="questionCheckbox()">
+					<input type="checkbox" class="filter" id="checkbox1" name="completed" value="0" checked="checked" onclick="questionCheckbox()">
 				</div>
-				<div class="ontent-m-td-2-chackbox-contain-txt">完</div>
+				<label for="checkbox1" class="ontent-m-td-2-chackbox-contain-txt">完</label>
 				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" class="filter" id="checkbox" name="uncompleted" value="1" checked="checked" onclick="questionCheckbox()">
+					<input type="checkbox" class="filter" id="checkbox2" name="uncompleted" value="1" checked="checked" onclick="questionCheckbox()">
 				</div>
-				<div class="ontent-m-td-2-chackbox-contain-txt">未</div>
+				<label for="checkbox2" class="ontent-m-td-2-chackbox-contain-txt">未</label>
 			<div class="ontent-m-td-2-chackbox-contain-input"></div>
 			<div class="ontent-m-td-2-chackbox-contain-txt"></div>
 			<div class="ontent-m-td-2-chackbox-contain-input"></div>

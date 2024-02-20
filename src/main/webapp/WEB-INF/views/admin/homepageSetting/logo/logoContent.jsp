@@ -17,7 +17,8 @@
 	rel="stylesheet" />
 <!-- js연결 -->
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/admin/homepageSetting/logo/0.js/logo.js" defer="defer"></script>
+	src="${pageContext.request.contextPath}/admin/homepageSetting/logo/0.js/logo.js"
+	defer="defer"></script>
 </head>
 <body>
 	<div class="content-m-td-3">
@@ -29,13 +30,14 @@
 			</div>
 			<div class="content-m-td-2-side-mid">
 
-				<div class="content-m-td-2-side-mid-logo" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/${hdto.h_logo_img}');">
+				<div class="content-m-td-2-side-mid-logo"
+					style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/logo/${hdto.h_logo_img}');">
 					<!-- 현재(기존)이미지 보여주기 (기존 이미지 경로 EL태그) -->
 				</div>
 			</div>
 			<div class="content-m-td-2-side-down">
-			<h2 class="logo_result success">${param.success}</h2>
-			<h2 class="logo_result error">${param.error}</h2>
+				<h2 class="logo_result success">${param.success}</h2>
+				<h2 class="logo_result error">${param.error}</h2>
 			</div>
 		</div>
 		<div class="content-m-td-2-mid">
@@ -45,38 +47,37 @@
 			</div>
 		</div>
 		<!-- 		오른쪽(변경로고) 큰 div   form태그 감싸기, logoUpdateC, post로 img경로값 보내기 -->
-			<div class="content-m-td-2-side2">
-				<div class="content-m-td-2-side-up">
-					<div class="content-m-td-2-side-up-title">変更ロゴ</div>
-				</div>
+		<div class="content-m-td-2-side2">
+			<div class="content-m-td-2-side-up">
+				<div class="content-m-td-2-side-up-title">変更ロゴ</div>
+			</div>
 
-				<div class="content-m-td-2-side-mid2">
-					<!-- 변경할 로고 파일 업로드 인풋 & 이미지미리보기 -->
-					<div class="content-m-td-2-side-mid-logo2">
+			<div class="content-m-td-2-side-mid2">
+				<!-- 변경할 로고 파일 업로드 인풋 & 이미지미리보기 -->
+				<div class="content-m-td-2-side-mid-logo2">
 						<div class="logo_upload">
 							<!-- 바뀔 이미지 미리보기(Ajax) -->
-									<label for="logo_img">
-								<img id="logo_preview"
-									src="/admin/0.img/fileUpload_pre.png">
-									</label>
-									<img src="${pageContext.request.contextPath}/user/upload_imgs/asd.jpg">
+					<label for="logo_img">
+						<div id="logo_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/fileUpload_pre.png');"></div>
+					</label>
 							<!-- 변경할 로고이미지 인풋 -->
-						<form action="/admin/homepage-update/logo/upload-file" id="fileUploadForm" method="post"
-							enctype="multipart/form-data">
-							<input type="file" id="logo_img" name="logo_img">
-						</form>
-					</div>
-					</div>
-				</div>
-				<div class="content-m-td-2-side-down">
-					<!-- 로고변경 버튼  -->
-					<div class="content-m-td-2-side-down-button">
-						<!-- 변경완료버튼, 실제DB에 업뎃되면서 대기이미지로 바뀜 -->
-						<button type="button" class="content-button" id="logo_btn_submit"
-							onclick="#">変更完了</button>
-					</div>
+							<form action="/admin/homepage-update/logo/upload-file"
+								id="fileUploadForm" method="post" enctype="multipart/form-data">
+								<input type="file" id="logo_img" name="logo_img">
+								<input type="text" id="serverLogoName" hidden="">
+							</form>
 				</div>
 			</div>
+		</div>
+		<div class="content-m-td-2-side-down">
+			<!-- 로고변경 버튼  -->
+			<div class="content-m-td-2-side-down-button">
+				<!-- 변경완료버튼, 실제DB에 업뎃되면서 대기이미지로 바뀜 -->
+				<button type="button" class="content-button" id="logo_btn_submit"
+					onclick="submitLogoData()">変更完了</button>
+			</div>
+		</div>
+	</div>
 	</div>
 </body>
 </html>
