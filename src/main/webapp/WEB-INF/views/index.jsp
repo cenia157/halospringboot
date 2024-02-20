@@ -41,8 +41,8 @@
 		<div class="header-tbl">
 			<div class="header-opmenu-back"></div>
 			<div class="header-tr-1">
-				<div class="header-br-logo btn-pointer" onclick="location.href='HC'"
-					style="background-image: url('/user/upload_imgs/${hdto.h_logo_img}');">
+				<div class="header-br-logo btn-pointer" onclick="location.href='/'"
+					style="background-image: url('/user/upload_imgs/logo/${hdto.h_logo_img}');">
 					<%-- 					<img src="user/upload_imgs/${hdto.h_logo_img}"> --%>
 				</div>
 				<div class="header-br-space">

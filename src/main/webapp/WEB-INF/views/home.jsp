@@ -33,7 +33,7 @@
 	</div>
 	<!-- TODO 서효원 메인페이지 - 주요메뉴 3칸 변경 가능하도록 연결 -->
 	<div class="quick-menu-tbl">
-		<c:forEach var="bannerInform" items="${topBanners}">
+		<c:forEach var="bannerInform" items="${hdto.topBanners}">
 			<div class="quick-menu-tr btn-pointer"
 				onclick="location.href='${bannerInform.b_url}'">${bannerInform.b_m_text }</div>
 		</c:forEach>

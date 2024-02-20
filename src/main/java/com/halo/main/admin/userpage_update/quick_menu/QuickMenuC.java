@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.halo.main.admin.userpage_update.information.AdminInformationDAO;
+
 @Controller
 @RequestMapping("/admin/homepage-update")
 public class QuickMenuC {
 	
 	@Autowired
 	private QuickMenuDAO qmDao;
+	
+
 	
 	@GetMapping("/quick-menu")
 	public String getQuickMenu(Model model) {

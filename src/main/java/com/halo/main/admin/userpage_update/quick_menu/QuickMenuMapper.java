@@ -6,10 +6,15 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.halo.main.admin.userpage_update.banner.BannerDTO;
 @Mapper
 public interface QuickMenuMapper {
+	
+	
 	@Select("select * from banner_tbl, menu_tbl where b_index > 3 and b_m_name = m_name")
-	List<QuickMenuDTO> getListQuickMenu();
+	List<BannerDTO> getListQuickMenu();
 	
 	@Update("UPDATE banner_tbl"
 			+ " SET b_m_name = #{name},"

@@ -173,6 +173,9 @@
 			</div>
 		</div>
 		<div class="content-button">
+		<div id="resultDiv">
+			
+		</div>
 		<button id="banner_btn_submit" onclick="submitBannerData()">変更</button>
 		</div>
 		</div>
