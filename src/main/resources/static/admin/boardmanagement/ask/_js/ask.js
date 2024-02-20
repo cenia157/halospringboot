@@ -759,7 +759,10 @@ function questionCheckbox(){
       location.href = '/admin/boardManagement/question/' + pageVal + '/' + checkVal;
    } else {
       alert('一つ以上のチェックボックスにチェックを入れる必要があります。');
-      history.go(0);
+		document.getElementById("checkbox1").checked = true;
+		document.getElementById("checkbox2").checked = true;
+		location.href = '/admin/boardManagement/question/' + pageVal + '/01'
+
    }
 
 }
