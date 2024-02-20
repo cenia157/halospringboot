@@ -9,7 +9,7 @@ public interface LogoMapper {
 	@Select("select h_logo_img from homepage_common")
 	LogoDTO getLogoDTO();
 	
-	@Update("update homepage_common set h_logo_img = #{h_logo_img} where h_seq = #{h_seq}")
+	@Update("update homepage_common set h_logo_img = #{h_logo_img}")
 	int updateLogo(LogoDTO ldto);
 	
 	

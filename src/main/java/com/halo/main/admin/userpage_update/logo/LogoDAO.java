@@ -87,6 +87,7 @@ public class LogoDAO {
 		
 		if (logoMapper.updateLogo(ldto) == 1) {
 			System.out.println("logo update success");
+			isSuccess = "true";
 		}else {
 			System.out.println("logo update faile");
 		}

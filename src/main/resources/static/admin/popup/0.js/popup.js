@@ -113,9 +113,9 @@ function submitBannerData() {
         },
         body: JSON.stringify(data)
     }).then((response) => response.json())
-        .then((data) => {
-            console.log(data.isSuccess);
-            if (data.isSuccess=="true") {
+        .then((res) => {
+            console.log(res.isSuccess);
+            if (res.isSuccess=="true") {
 				location.href="/admin/homepage-update/popup"
             } else {
 				alert("UpdateFail")
@@ -132,6 +132,7 @@ function checkPopupOnOff(index) {
 		popupState = 'On';
 	}
 	fetch("/admin/homepage-update/popup/upload-file",{
+		method: "post",
 		
 	})
 	

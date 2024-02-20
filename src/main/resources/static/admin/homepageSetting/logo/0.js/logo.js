@@ -10,6 +10,7 @@ function handleFileUpload(event) {
 
 		var formData = new FormData();
 		formData.append('logo_img', files[0]);
+		const serverLogoName = document.querySelector("#serverLogoName");
 		
 		fetch("/admin/homepage-update/logo/upload-file",{
 			method: "post",
@@ -24,6 +25,7 @@ function handleFileUpload(event) {
 				let logoPreview = document.querySelector("#logo_preview");
 				let url = "url(\'/user/upload_imgs/logo/"+ fileName + "\')";
 				logoPreview.style.backgroundImage = url;
+				serverLogoName.value = fileName;
 				//버튼 누를때 파라미터 (수정할 이미지 이름) 넘기기
 //				$('#logo_btn_submit').attr('onclick', "location.href='/admin/homepage-update/logo/update?newFileName=" + fileName +"'")
 //				console.log("img이름:"+fileName);
@@ -35,9 +37,13 @@ function handleFileUpload(event) {
 }
 
 function submitLogoData(){
-	let logoImgName = document.querySelector("#serverLogoName");
+	let logoImgName = document.querySelector("#serverLogoName").value;
 	let url = "/admin/homepage-update/logo/update";
 	console.log("로고: "+logoImgName.value);
+	
+	var data = {
+		h_logo_img : logoImgName,
+	}
 	fetch(url,{
 		method: "post",
         headers: {

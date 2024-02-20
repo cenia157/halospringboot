@@ -16,6 +16,7 @@ function handleFileUpload(idx) {
 //	const fileInput = event.target; // 이벤트 발생한 대상(파일입력요소)
 	let fileInput = document.getElementById("thumbnail" + idx);
 	let selectedFile = fileInput.files; //파일입력요소에서 '선택된' 파일들
+	let serverFileName = document.querySelectorAll(".serverFileName");
 	
 	if(selectedFile.length > 0){
 			// 선택된 파일이 하나 이상일때
@@ -65,6 +66,7 @@ function submitBannerData(){
 	let urlValues="";
 	let pdNameValues="";
 	let fileNameValues="";
+	
 	for(let i = 0; i < 3; i++){
 		if(selectData[i].value==null || selectData[i].value== '' ){
 			selectData[i].value="empty";
@@ -79,20 +81,33 @@ function submitBannerData(){
 			serverFileNameData[i].value="empty";
 		}
 	}	
+	console.log("b_img_url: "+serverFileNameData[0].value)
 	
+	var data = [
+		{b_index:1, b_m_name:selectData[0].value, b_url:urlData[0].value, b_m_text:pdNameData[0].value, b_img_url:serverFileNameData[0].value},
+		{b_index:2, b_m_name:selectData[1].value, b_url:urlData[1].value, b_m_text:pdNameData[1].value, b_img_url:serverFileNameData[1].value},
+		{b_index:3, b_m_name:selectData[2].value, b_url:urlData[2].value, b_m_text:pdNameData[2].value, b_img_url:serverFileNameData[2].value}
+		];
+		
+		fetch("/admin/homepage-update/banner/update",{
+			method: "post",
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data)
+		}).then((response) => response.json())
+			.then((bottomBannerData) => {
+				
+				console.log("성공여부:"+bottomBannerData.isSuccess);
+				if(bottomBannerData.isSuccess == "true"){
+					location.href="/admin/homepage-update/banner"
+				}else{
+					alert("Update Fail")
+				}
+				
+			})
 	
-	for(let i = 0; i < 3; i++){
-		selectValues += 'selectValues='+encodeURIComponent(selectData[i].value)+'&';
-		urlValues += 'urlValues='+encodeURIComponent(urlData[i].value)+'&';
-		pdNameValues += 'pdNameValues='+encodeURIComponent(pdNameData[i].value)+'&';
-		fileNameValues += 'fileNameValues=' + encodeURIComponent(serverFileNameData[i].value) + '&';		
-	}
-	
-	let url = 'BannerUpdateC?'+ selectValues + urlValues + pdNameValues + fileNameValues;
-	
-	console.log(url);
-	
-    location.href = url;
 }
+
 
 

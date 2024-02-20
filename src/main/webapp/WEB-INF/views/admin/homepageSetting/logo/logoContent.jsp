@@ -31,7 +31,7 @@
 			<div class="content-m-td-2-side-mid">
 
 				<div class="content-m-td-2-side-mid-logo"
-					style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/${hdto.h_logo_img}');">
+					style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/logo/${hdto.h_logo_img}');">
 					<!-- 현재(기존)이미지 보여주기 (기존 이미지 경로 EL태그) -->
 				</div>
 			</div>
