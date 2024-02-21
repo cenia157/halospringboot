@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="/user/0.css/index-menu.css" />
 <link rel="stylesheet" href="/user/0.css/index-footer.css" />
 <link rel="stylesheet" href="/user/0.css/sec.css" />
+<!-- favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="/user/0.img/iconlogo.ico">
 
 <!-- 제이쿼리 -->

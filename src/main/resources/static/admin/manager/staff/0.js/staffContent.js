@@ -25,6 +25,8 @@ function getAllStaffList() {
 			let inputAddr = document.querySelector('#s_addr');
 			let inputSeq = document.querySelector('#s_no');
 
+
+
 			inputName.value = empdata[indexVal].s_name;
 			inputPos.value = empdata[indexVal].s_position;
 			inputPhonnum.value = empdata[indexVal].s_phone_num;
@@ -96,7 +98,13 @@ window.onload = function() {
 
 	const staffReg = document.querySelector("#staff-reg");
 	staffReg.addEventListener('click', function(e) {
-		if (!inputName.value || !inputPos.value || !inputPhonnum.value || !inputEntryDate.value || !inputColor.value || !inputAddr.value || !inputSeq.value) {
+					console.log(inputName.value);
+			console.log(inputPos.value);
+			console.log(inputPhonnum.value);
+			console.log(inputEntryDate.value);
+			console.log(inputColor.value);
+			console.log(inputAddr.value);
+		if (!inputName.value || !inputPos.value || !inputPhonnum.value || !inputEntryDate.value || !inputColor.value || !inputAddr.value) {
 			alert('すべての値を入力します。');
 			return; // 함수 종료
 		}
