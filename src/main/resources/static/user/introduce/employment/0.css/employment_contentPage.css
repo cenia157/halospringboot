@@ -121,11 +121,11 @@
 }
 
 .e_content-box-tr1-td2-2 > div {
-  margin-right: 3%; /* > 소식 > 공지사항 각각 box의 오른쪽 마진기준으로 벌림 */ /* key poing */
+  margin-right: 3%; 
 }
 
 .e_content-box-tr1-td2-2 > div:last-child {
-  margin-right: 0; /* 마지막 텍스트의 오른쪽 간격 제거 */
+  margin-right: 0; 
 }
 
 .e_content-box-tr1-td2-2-1 > span,
