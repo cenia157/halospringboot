@@ -390,7 +390,7 @@ function insertCompanyC() {
 		.then(response => response.text())
 		.then(data => {
 			if (data == 1) {
-				location.href = '/company';
+				location.href = '/admin/schedule/company';
 			}
 		})
 		.catch(error => {

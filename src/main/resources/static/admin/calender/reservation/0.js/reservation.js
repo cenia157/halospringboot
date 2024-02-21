@@ -496,7 +496,7 @@ function reservationAccept(e) {
 			.then(response => response.text())
 			.then(data => {
 				if (data == 1) {
-					location.href = '/reservation';
+					location.href = '/admin/schedule/reservation';
 				}
 			})
 			.catch(error => {
@@ -514,7 +514,7 @@ function reservationAccept(e) {
 			.then(response => response.text())
 			.then(data => {
 				if (data == 1) {
-					location.href = '/reservation';
+					location.href = '/admin/schedule/reservation';
 				}
 			})
 			.catch(error => {
@@ -993,7 +993,7 @@ function reservationDelete(e) {
 		.then(response => response.text())
 		.then(data => {
 			if (data == 1) {
-				location.href = '/reservation';
+				location.href = '/admin/schedule/reservation';
 			}
 		})
 		.catch(error => {
@@ -1221,7 +1221,7 @@ function reservationInsert() {
 		.then(response => response.text())
 		.then(data => {
 			if (data == 1) {
-				location.href = '/reservation';
+				location.href = '/admin/schedule/reservation';
 			}
 		})
 		.catch(error => {
