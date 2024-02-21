@@ -1,10 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-	//	changeInformBox();
-	//	submitBannerData(1);
-	//alert(11);
 
-
-});
 // 셀렉 -> 상품판매 선택시 인풋박스 변화
 function changeInformBox() {
 	let selectedOption = document.getElementsByName("banner_menu1")[0].value;
@@ -53,43 +47,7 @@ function handleFileUpload() {
 
 }
 
-/*function submitBannerData() {
-	let popup_name = document.querySelector(".popup-select");
-	let urlData = document.querySelector(".url-input");
-	let popupImgData = document.querySelector("#serverFileName");
-	let url = "/admin/homepage-update/popup/update"
 
-	var formData = new FormData();
-	formData.append('p_img', popupImgData.value);
-	formData.append('p_url', urlData.value);
-	formData.append('m_name', popup_name.value);
-	console.log("?? :"+popup_name.value);
-//	    var data = {
-//        p_img: popupImgData.value,
-//        p_url: urlData.value,
-//        m_name: popup_name.value
-//    };
-
-	fetch(url, {
-		method: "post",
-//		headers: {
-//    'Content-Type': 'application/json',
-//  },
-//		body: JSON.stringify(data)
-        headers: {
-             'Content-Type': 'application/x-www-form-urlencoded',
-        },
-		body: formData
-	}).then((response) => response.json())
-		.then((data) => {
-			console.log(data.isSuccess)
-			if(data.isSuccess==true){
-				location.href='http://localhost/admin/homepage-update/popup';
-			}
-
-		});
-
-}*/
 
 function submitBannerData() {
     let popup_name = document.querySelector("#popup_menu");
