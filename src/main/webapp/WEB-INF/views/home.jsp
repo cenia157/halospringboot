@@ -19,6 +19,8 @@
 	src="user/introduce/announcement/0.js/announcement_contentPage_ajax.js"></script>
 <script
 	src="admin/_js/ckeditor/ckeditor.js"></script>
+	<script
+	src="user/0.js/scroll.js"></script>
 	<!-- 반응형 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 팝업창 js -->
@@ -33,7 +35,7 @@
 	</div>
 	<!-- TODO 서효원 메인페이지 - 주요메뉴 3칸 변경 가능하도록 연결 -->
 	<div class="quick-menu-tbl">
-		<c:forEach var="bannerInform" items="${topBanners}">
+		<c:forEach var="bannerInform" items="${hdto.topBanners}">
 			<div class="quick-menu-tr btn-pointer"
 				onclick="location.href='${bannerInform.b_url}'">${bannerInform.b_m_text }</div>
 		</c:forEach>

@@ -48,6 +48,5 @@ document.addEventListener("DOMContentLoaded", function() {
 			lefttPink.style.transform = "translateX(-0%)";
 			sunSet.style.transform = "translateY(-0%)";
 		}
-
 	});
 });

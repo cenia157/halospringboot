@@ -1,8 +1,8 @@
-let yScrollLocation = window.scrollY;
 let tr2Height = '';
 let menuTitleHeight = '';
 let hardWear = '';
 let mobileMenu = true;
+let yScrollLocation = window.scrollY;
 
 $(function() {
 	console.log(window.innerWidth);
@@ -56,6 +56,8 @@ $(function() {
 
 		window.addEventListener('scroll', function() {
 
+
+
 			// 현재 스크롤 위치 가져오기
 			if (yScrollLocation < window.scrollY) {
 				document.querySelector('.header-td-menu-title').getBoundingClientRect().height;
@@ -68,10 +70,10 @@ $(function() {
 				$(".header-opmenu-td").css("visibility", "hidden");
 				$(".header-opmenu").css("zIndex", "-1");
 			} else {
-				document.querySelector('.header-tr-2').style.display = 'flex';
-				document.querySelector('.header-tr-2').style.zIndex = '1';
-				document.querySelector('.header-opmenu-back').style.zIndex = '1';
-				document.querySelector('.header-tr-2').style.top = '10%';
+					document.querySelector('.header-tr-2').style.display = 'flex';
+					document.querySelector('.header-tr-2').style.zIndex = '1';
+					document.querySelector('.header-opmenu-back').style.zIndex = '1';
+					document.querySelector('.header-tr-2').style.top = '10%';
 			}
 
 			yScrollLocation = window.scrollY;
@@ -94,7 +96,6 @@ $(function() {
 			}
 		});
 
-
 		window.addEventListener('scroll', function() {
 			// 현재 스크롤 위치 가져오기
 			if (yScrollLocation < window.scrollY) {
@@ -115,4 +116,3 @@ $(function() {
 		});
 	}
 });
-

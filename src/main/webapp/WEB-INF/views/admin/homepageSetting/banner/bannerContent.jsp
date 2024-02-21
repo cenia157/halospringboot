@@ -16,7 +16,7 @@
 	rel="stylesheet" />
 	
 	<script type="text/javascript"
-	src="${pageContext.request.contextPath}/admin/homepageSetting/banner/0.js/banner.js"></script>
+	src="${pageContext.request.contextPath}/admin/homepageSetting/banner/0.js/banner.js" defer="defer"></script>
 
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -173,6 +173,9 @@
 			</div>
 		</div>
 		<div class="content-button">
+		<div id="resultDiv">
+			
+		</div>
 		<button id="banner_btn_submit" onclick="submitBannerData()">変更</button>
 		</div>
 		</div>

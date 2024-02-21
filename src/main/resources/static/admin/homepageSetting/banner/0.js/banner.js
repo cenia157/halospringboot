@@ -1,9 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-	changeInformBox(1);
-//	submitBannerData(1);
-	
 
-});
 // 셀렉 -> 상품판매 선택시 인풋박스 변화
 function changeInformBox(indexNo) {
 	let selectedOption = document.getElementsByName("banner_menu" + indexNo)[0].value;
@@ -17,47 +12,47 @@ function changeInformBox(indexNo) {
 
 // 파일 선택시 ajax -> img 미리보기	
 function handleFileUpload(idx) {
+	console.log(idx)
 //	const fileInput = event.target; // 이벤트 발생한 대상(파일입력요소)
 	let fileInput = document.getElementById("thumbnail" + idx);
 	let selectedFile = fileInput.files; //파일입력요소에서 '선택된' 파일들
 	let serverFileName = document.querySelectorAll(".serverFileName");
-	console.log('선택된 파일:', selectedFile);
 	
-	if(selectedFile.length === 0){
-		alert("파일을 선택해주세요");
-		return;
-	}
-	
-	if (selectedFile.length > 0) {	// 선택된 파일이 하나 이상일때
-		 //첫번째 선택된 파일
-//		console.log('선택된 파일:', selectedFile);
+	if(selectedFile.length > 0){
+			// 선택된 파일이 하나 이상일때
+		console.log('선택된 파일:', selectedFile);
 
-		// 파일 업로드 위한 form객체 생성, formData 변수에 할당.
-	let formData = new FormData(document.querySelector("#bannerUploadForm" + idx));
-//	formData.append('thumbnail' + idx, selectedFile[0]);
+		var formData = new FormData();
+		formData.append('banner_img', selectedFile[0]);
+		formData.append('index', idx);
+		
+		fetch("/admin/homepage-update/banner/upload-file",{
+			method: "post",
+			body: formData
 
-		//서버에 파일 업로드 요청 ↓
-		$.ajax({
-			type: "POST", // post 방식 요청
-			/*enctype: 'multipart/form-data',	// 파일 업로드 위한 인코딩 방식*/
-			url: 'BannerUploadC', //서버로 요청 보낼 url
-			data: formData,		// 서버로 보낼 데이터로 formData 객체 사용
-			processData: false,	// 데이터 문자열로 변환하지 않도록
-			contentType: false, 
-			cache: false, // 캐시사용X
-			success: function(fileName) { // 성공시 실행되는 콜백함수
-				//미리보기 이미지 띄우기
-				console.log(fileName + fileName[0]);
+		})
+		.then((response) => response.json())
+		.then((data) => {
+			var fileName = data.uploadedImg;
+			//미리보기 이미지 띄우기
 				let bannerPreview = document.querySelector("#banner_preview" + idx);
-				let url = "url(\'user/upload_imgs/banner/"+ fileName + "\')";
+				let url = "url(\'/user/upload_imgs/banner/"+ fileName + "\')";
+				
+			console.log(url);
 				bannerPreview.style.backgroundImage = url;
 				serverFileName[idx-1].value = fileName;
-			},
-			error: function(e) {
-				console.log('에러 : ' + e);
-			}
+
+			
 		});
+		
 	}
+	
+		 //첫번째 선택된 파일
+//		console.log('선택된 파일:', selectedFile);
+		// 파일 업로드 위한 form객체 생성, formData 변수에 할당.
+//	formData.append('thumbnail' + idx, selectedFile[0]);
+
+	
 }
 
 
@@ -71,6 +66,7 @@ function submitBannerData(){
 	let urlValues="";
 	let pdNameValues="";
 	let fileNameValues="";
+	
 	for(let i = 0; i < 3; i++){
 		if(selectData[i].value==null || selectData[i].value== '' ){
 			selectData[i].value="empty";
@@ -85,20 +81,36 @@ function submitBannerData(){
 			serverFileNameData[i].value="empty";
 		}
 	}	
+	console.log("b_img_url: "+serverFileNameData[0].value)
 	
+	var data = [
+		{b_index:1, b_m_name:selectData[0].value, b_url:urlData[0].value, b_m_text:pdNameData[0].value, b_img_url:serverFileNameData[0].value},
+		{b_index:2, b_m_name:selectData[1].value, b_url:urlData[1].value, b_m_text:pdNameData[1].value, b_img_url:serverFileNameData[1].value},
+		{b_index:3, b_m_name:selectData[2].value, b_url:urlData[2].value, b_m_text:pdNameData[2].value, b_img_url:serverFileNameData[2].value}
+		];
+		
+		fetch("/admin/homepage-update/banner/update",{
+			method: "post",
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data)
+		}).then((response) => response.json())
+			.then((bottomBannerData) => {
+				console.log("성공여부:"+bottomBannerData.isSuccess);
+					let resultEl = document.querySelector("#resultDiv");
+				if(bottomBannerData.isSuccess == "true"){
+					location.href="/admin/homepage-update/banner"
+					resultEl.innerText = "Update Success";
+					resultEl.style.color = "blue";		
+				}else{
+					alert("Update Fail")
+				}
+			})
+					
+				
 	
-	for(let i = 0; i < 3; i++){
-		selectValues += 'selectValues='+encodeURIComponent(selectData[i].value)+'&';
-		urlValues += 'urlValues='+encodeURIComponent(urlData[i].value)+'&';
-		pdNameValues += 'pdNameValues='+encodeURIComponent(pdNameData[i].value)+'&';
-		fileNameValues += 'fileNameValues=' + encodeURIComponent(serverFileNameData[i].value) + '&';		
-	}
-	
-	let url = 'BannerUpdateC?'+ selectValues + urlValues + pdNameValues + fileNameValues;
-	
-	console.log(url);
-	
-    location.href = url;
 }
+
 
 

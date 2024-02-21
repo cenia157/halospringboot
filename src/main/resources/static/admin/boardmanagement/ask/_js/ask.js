@@ -465,10 +465,10 @@ function deleteQuestion(q_seq) {
 
 $(document).ready(function() {
 	// 페이지가 로드되면 체크박스의 값을 저장합니다.
-	var checked = $('#checkbox').is(':checked');
+	var checked = $('.filter').is(':checked');
 
 	// 폼 제출 이벤트 리스너를 추가합니다.
-	$('#checkbox').submit(function() {
+	$('.filter').submit(function() {
 		// 폼이 제출되기 전에 체크박스의 값을 검사합니다.
 		if (checked) {
 			// 체크박스가 체크되어 있으면 폼을 제출합니다.
@@ -490,11 +490,11 @@ function checkboxSubmit() {
 	// 체크박스의 change 이벤트를 감지
 	$('input[type="checkbox"]').change(function() {
 		// 체크박스가 변경되면 바로 폼을 제출
-		$('#checkbox').submit();
+		$('.filter').submit();
 	});
 
 	// 폼 제출 시의 동작을 처리하는 함수
-	$('#checkbox').submit(function() {
+	$('.filter').submit(function() {
 		// 폼이 제출될 때 수행할 동작 추가
 		var checkboxData = [];
 		$('input[type="checkbox"]').each(function() {
@@ -759,7 +759,24 @@ function questionCheckbox(){
       location.href = '/admin/boardManagement/question/' + pageVal + '/' + checkVal;
    } else {
       alert('一つ以上のチェックボックスにチェックを入れる必要があります。');
-      history.go(0);
+		document.getElementById("checkbox1").checked = true;
+		document.getElementById("checkbox2").checked = true;
+		location.href = '/admin/boardManagement/question/' + pageVal + '/01'
+
    }
 
 }
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//체크박스 라벨링
+//document.addEventListener('DOMContentLoaded', function() {
+//    let texts = document.querySelectorAll('.ontent-m-td-2-chackbox-contain-txt');
+//
+//    texts.forEach(function(text) {
+//        text.addEventListener('click', function() {
+//            let checkbox = this.previousElementSibling.querySelector('input[type="checkbox"]');
+//            checkbox.checked = !checkbox.checked;
+//            questionCheckbox(); // 체크박스 상태 변경 후 함수 호출
+//        });
+//    });
+//});

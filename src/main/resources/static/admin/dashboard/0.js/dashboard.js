@@ -46,17 +46,17 @@ window.onload = function() {
 								}
 							}
 
-			//				cnt = 1;
-			//				for (let i = 0; i < dashboardData.unAnswered.length; i++) {
-			//	
-			//					document.querySelector(".qalist").innerHTML += `<div class="deshboard-todo qa" id="${i}">
-			//	                        <div class="deshboard-todo-cell service">${cnt}</div>
-			//	                        <div class="deshboard-todo-cell title">${dashboardData.unAnswered[i].q_title}</div>
-			//	                        <div class="deshboard-todo-cell writer">${dashboardData.unAnswered[i].q_name}</div>
-			//	                        <div class="deshboard-todo-cell reg-date">${dashboardData.unAnswered[i].q_reg_date}</div>
-			//	                    </div>`;
-			//					cnt++;
-			//				}
+							cnt = 1;
+							for (let i = 0; i < dashboardData.unAnswered.length; i++) {
+				
+								document.querySelector(".qalist").innerHTML += `<div class="deshboard-todo qa" id="${i}">
+				                        <div class="deshboard-todo-cell service">${cnt}</div>
+				                        <div class="deshboard-todo-cell title">${dashboardData.unAnswered[i].q_title}</div>
+				                        <div class="deshboard-todo-cell writer">${dashboardData.unAnswered[i].q_name}</div>
+				                        <div class="deshboard-todo-cell reg-date">${dashboardData.unAnswered[i].q_reg_date}</div>
+				                    </div>`;
+								cnt++;
+							}
 
 							cnt = 1;
 							for (let i = 0; i < dashboardData.companySchedule.length; i++) {
