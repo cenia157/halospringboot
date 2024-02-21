@@ -7,7 +7,7 @@
 
 <head>
 <meta charset="UTF-8" />
-<title>Document</title>
+<title>ハロー Admin</title>
 <!-- font -->
 <!-- <link -->
 <!-- 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" -->
@@ -25,6 +25,9 @@
 <link rel="stylesheet" href="/admin/0.css/admin_font.css" />
 <!-- 메뉴 css -->
 <link rel="stylesheet" href="/admin/0.css/admin_common.css" />
+<!-- favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="/user/0.img/iconlogo.ico">
+
 <body>
 	<!-- 최상위 콘테이너 -->
 	<div class="container">
