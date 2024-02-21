@@ -10,6 +10,7 @@ window.onload = function() {
   });
 };
 
+// a테그 상위범위로 확대 
 document.addEventListener('DOMContentLoaded', function() {
 
     let divs = document.querySelectorAll('.e_content-box-tr1-td1-1, .e_content-box-tr1-td1-2, .e_content-box-tr1-td1-3');
