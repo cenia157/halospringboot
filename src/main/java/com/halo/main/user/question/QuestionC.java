@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.halo.main.user.common.HomepageDAO;
+
 
 
 @Controller
@@ -16,6 +18,9 @@ public class QuestionC {
 
 	@Autowired
 	QuestionService questionservice;
+	
+	@Autowired
+	private HomepageDAO homeDao;
 	
 	//전체
 	@GetMapping("/qna/question")
@@ -25,6 +30,7 @@ public class QuestionC {
 		questionservice.questionPaging(1, model);
 		
 		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 		model.addAttribute("subMenu", "/WEB-INF/views/user/qa/question/question.jsp");
 		return "index";
 	}
@@ -36,6 +42,7 @@ public class QuestionC {
 	    questionservice.questionPaging(p, model);
 	    
 	    model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
+	    model.addAttribute("hdto", homeDao.getAllhomepage());
 	    model.addAttribute("subMenu", "/WEB-INF/views/user/qa/question/question.jsp");
 	    return "index";
 	}
@@ -49,6 +56,7 @@ public class QuestionC {
 		model.addAttribute("questionId", q_seq);
 		
 		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 		model.addAttribute("subMenu", "/WEB-INF/views/user/qa/question/questionDetail.jsp");
 		return "index";
 	}
