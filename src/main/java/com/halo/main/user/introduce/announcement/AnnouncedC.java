@@ -15,13 +15,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.halo.main.user.common.HomepageDAO;
+
 @RequestMapping("/info")
 @Controller
 public class AnnouncedC {
 
 	@Autowired
 	private AnnouncedService aService;
-
+	
+    @Autowired
+    private HomepageDAO homeDao; 
+    
 	// 전체 조회 및 페이징 처리
 	@GetMapping("/notice")
 	public String getAllAnnouncements(Model model) {
@@ -29,9 +34,10 @@ public class AnnouncedC {
 		model.addAttribute("announcements", aService.getAllAnnouncements());
 
 		aService.announcedPaging(1, model);
-//		MainpageDAO.getMdao().getAllHompage_common(request);
 		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
 		model.addAttribute("subMenu", "/WEB-INF/views/user/introduce/announcement/announcement_contentPage.jsp");
+		model.addAttribute("hdto", homeDao.getAllhomepage());
+		
 
 		return "index";
 	}
@@ -58,6 +64,7 @@ public class AnnouncedC {
 //		MainpageDAO.getMdao().getAllHompage_common(request);
 		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
 		model.addAttribute("subMenu", "/WEB-INF/views/user/introduce/announcement/announcement_contentPage.jsp");
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 
 		return "index";
 	}
