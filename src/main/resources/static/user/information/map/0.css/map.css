@@ -233,9 +233,9 @@
 		text-shadow: 4px 4px 4px #ffdf6c;
 	}
 	.content-box-td2 {
-		background-color: rgb(132, 148, 97);
+/* 		background-color: rgb(132, 148, 97); */
 		height: 100%;
-		color: white;
+		color: rgb(132, 148, 97);
 		font-size: 1.5rem !important;
 		font-style: normal;
 		font-weight: 700;
