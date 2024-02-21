@@ -8,7 +8,7 @@
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
-<link rel="stylesheet" href="user/service/serviceApply/0.css/agree.css" />
+<link rel="stylesheet" href="/user/service/serviceApply/0.css/agree.css" />
 	
 
 </head>

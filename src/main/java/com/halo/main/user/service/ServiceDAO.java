@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.halo.main.admin.reservation.ReservationScheduleDTO;
+import com.halo.main.user.common.HomepageDAO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -18,13 +19,15 @@ public class ServiceDAO {
 	@Autowired
 	ServiceMapper serviceMapper;
 
-	public void goServiceInfo(Model model) {
+	public void goServiceInfo(Model model, HomepageDAO homeDao) {
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 		model.addAttribute("menu", "user/menu-index.jsp");
 		model.addAttribute("subMenu", "service/serviceInformation/serviceInformation.jsp");
 
 	}
 
-	public void goSvcSelect(Model model) {
+	public void goSvcSelect(Model model, HomepageDAO homeDao) {
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 		model.addAttribute("menu", "user/menu-index.jsp");
 		model.addAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
 		model.addAttribute("step1Pos", "#ffdf6c");
@@ -32,7 +35,8 @@ public class ServiceDAO {
 
 	}
 
-	public void goCalSelect(Model model) {
+	public void goCalSelect(Model model, HomepageDAO homeDao) {
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 		model.addAttribute("menu", "user/menu-index.jsp");
 		model.addAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
 		model.addAttribute("step2Pos", "#ffdf6c");
@@ -40,8 +44,8 @@ public class ServiceDAO {
 
 	}
 
-	public void goTimeSelect(Model model, HttpServletRequest request) {
-
+	public void goTimeSelect(Model model, HttpServletRequest request, HomepageDAO homeDao) {
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 		model.addAttribute("menu", "user/menu-index.jsp");
 		model.addAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
 		model.addAttribute("step3Pos", "#ffdf6c");
@@ -68,7 +72,8 @@ public class ServiceDAO {
 
 	}
 
-	public void goNrsingApplyForm(Model model, HttpServletRequest request) {
+	public void goNrsingApplyForm(Model model, HttpServletRequest request, HomepageDAO homeDao) {
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 		model.addAttribute("step4Pos", "#ffdf6c");
 		model.addAttribute("menu", "user/menu-index.jsp");
 		model.addAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
@@ -92,7 +97,8 @@ public class ServiceDAO {
 		model.addAttribute("nextStep", nextStep);
 	}
 
-	public void goTaxiApplyForm(Model model) {
+	public void goTaxiApplyForm(Model model, HomepageDAO homeDao) {
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 		model.addAttribute("serviceStep", "taxiapply.jsp");
 		model.addAttribute("step4Pos", "#ffdf6c");
 		model.addAttribute("menu", "user/menu-index.jsp");
@@ -100,7 +106,8 @@ public class ServiceDAO {
 
 	}
 
-	public void goAgree(Model model) {
+	public void goAgree(Model model, HomepageDAO homeDao) {
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 		model.addAttribute("serviceStep", "agree.jsp");
 		model.addAttribute("step5Pos", "#ffdf6c");
 		model.addAttribute("menu", "user/menu-index.jsp");
@@ -108,7 +115,8 @@ public class ServiceDAO {
 
 	}
 
-	public void goComplet(Model model) {
+	public void goComplet(Model model, HomepageDAO homeDao) {
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 		model.addAttribute("serviceStep", "complet.jsp");
 		model.addAttribute("step6Pos", "#ffdf6c");
 		model.addAttribute("menu", "user/menu-index.jsp");
