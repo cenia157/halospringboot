@@ -24,7 +24,7 @@
 	<!-- 반응형 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 팝업창 js -->
-<!-- <script src="user/0.js/popup.js" type="text/javascript"></script> -->
+<script src="user/0.js/popupHome.js" type="text/javascript" defer="defer"></script>
 
 </head>
 <body>
@@ -146,10 +146,11 @@
       </div>
     </div>
     <!--모달끝-->
+<!--     팝업모달 -->
 <c:if test="${pdto.p_flag == 1 }">
         <div id="modalContainer" class="">
             <div id="modalContent" >
-            	<div class="btn-pointer" id="modal-img" onclick="window.open('${pdto.p_url}')" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popupImg/${pdto.p_img }');" onclick="movePage()">
+            	<div class="btn-pointer" id="modal-img" onclick="window.open('${pdto.p_url}')" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popup/${pdto.p_img }');" onclick="movePage()">
             	</div>
             	<div id="buttonArea"><span>&nbsp; 今日はもう見ない &nbsp; <input type="checkbox" id="pop-checkbox"></span><button id="modalCloseButton">閉じる</button></div>
             </div>
@@ -157,46 +158,5 @@
     </c:if>
     
 </body>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-    // Your code here
-    console.log('Document is fully loaded and parsed');
-    // You can now safely manipulate the DOM or perform other actions.
-    const modalBackground = document.getElementById('modalContainer');
-    const modalCloseButton = document.getElementById('modalCloseButton');
-    const modal = document.getElementById('modalContainer');
-    const checked = document.getElementById('pop-checkbox');
 
-    var modalCookie = document.cookie.replace(/(?:(?:^|.*;\s*)modalClose\s*=\s*([^;]*).*$)|^.*$/, "$1");
-    if (modalCookie === "close") {
-     modal.classList.add('hidden');
-   }
-
-    modalCloseButton.addEventListener('click', () => {
-    	if(checked.checked){
-    		today = new Date()
-    		var todayDate = new Date(today.toLocaleDateString());
-    		todayDate.setDate(todayDate.getDate() + 1);
-    		
-    	    // 쿠키 생성
-    	    document.cookie = "modalClose=close; path=/; expires="+ todayDate.toGMTString()+";";
-    		
-    	}
-    	
-        modal.classList.add('hidden');
-    	
-    });
-    
-    
-// 	today = new Date()
-// 	var todayDate = new Date(today.toLocaleDateString()); 
-// 	console.log("todayDate : "+todayDate);  : Wed Feb 07 2024 00:00:00 GMT+0900 (한국 표준시)
-// 	console.log(todayDate.toLocaleDateString());	yyyy.mm.dd
-// 	todayDate.setDate(todayDate.getDate() + 1);		+ 24h
-// 	console.log("+1 :" + todayDate);				+ 24h된 hu Feb 08 2024 00:00:00 GMT+0900 (한국 표준시)
-// 	console.log(todayDate.toLocaleDateString());	+ 24h된 yyyy.mm.dd
-
-});
-
-</script>
 </html>

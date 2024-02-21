@@ -24,7 +24,7 @@
 				</div>
 				<div class="banner-td-3">
 					<div>メニュー :&nbsp;</div>
-					<input class="popup-input-line" placeholder="${pdto.m_text}" id="banner_url1" name="banner_url1" type="text" readonly="readonly">
+					<input class="popup-input-line url-input" placeholder="${pdto.m_text}" id="banner_url1" name="banner_url1" type="text" readonly="readonly">
 				</div>
 				<div class="banner-td-3">
 					<c:if test="${pdto.m_text=='URL' }">
@@ -70,13 +70,11 @@
 				<!-- url 링크 -->
 				<div class="sales-inform" id="informBox1">
 				<div class="banner-td-2" id="urlBox">
-<%-- 				<img src="${pageContext.request.contextPath}/admin/0.img/url_icon.png" alt="이미지준비중"> --%>
 				<div>url :&nbsp;</div>
 				<input class="popup-input-line url-input" id="url-input" name="banner_url1" type="text">
 				</div>
 				<!-- 팝업(포스터) 이미지 설정 -->
 				<div class="banner-td-2 upload-input-box">
-<%-- 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중"> --%>
 				<div>イメージ :&nbsp;</div>
 	<form action="BannerUploadC" id="fileUploadForm" method="post" enctype="multipart/form-data">
 				<label for="popup_img">
