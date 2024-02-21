@@ -331,19 +331,28 @@ function searchCheckBoxVal() {
 
 function noticeSearch() {
 	let pageVal = document.querySelector('#pageNum').value;
+//	alert(pageVal)
 	if (pageVal == '') {
 		pageVal = 1;
 	}
 
+//	let pageCheck = document.querySelector('.current-page').innerText;
+//	let matches = pageCheck.match(/\d+/); // \d+ 정규식은 하나 이상의 숫자에 매칭됩니다.
+//	let pageVal = matches ? parseInt(matches[0], 10) : null; // 추출된 숫자를 정수형으로 변환
+//	console.log('pageVal :::' + pageVal);
+//	if (pageVal == '') {
+//		pageVal = 1;
+//	}
+
 	let checkboxes = document.querySelectorAll('.noticeCheck:checked');
 	let checkVal = '';
+	let checkValAll = '01234'
 
 	checkboxes.forEach(function(checkbox) {
 		checkVal += checkbox.value;
 	});
 
 	let seqVal = document.querySelector('#updateSEQ').value; // seq 값 가져오기
-
 	if (checkVal !== '') {
 		if (seqVal !== '0' && seqVal !== '') {
 			seqVal = '0'; // seq가 null이나 빈 문자열이 아니면 0으로 설정
@@ -351,7 +360,8 @@ function noticeSearch() {
 		location.href = '/admin/boardManagement/notice/' + pageVal + '/' + checkVal + '/' + seqVal;
 	} else {
 		alert('一つ以上のチェックボックスにチェックを入れる必要があります。');
-		history.go(0);
+//		history.go(0);
+		location.href = '/admin/boardManagement/notice/' + pageVal + '/' + checkValAll + '/' + seqVal;
 	}
 }
 

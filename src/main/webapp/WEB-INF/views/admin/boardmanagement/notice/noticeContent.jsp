@@ -12,7 +12,8 @@
 </head>
 
 <body>
-	<input type="hidden" id="pageNum" value="${pageNum }">
+	<input type="hidden" id="pageNum" value="${pageNum}">
+<%-- 	<input type="" id="pageNum" value="${curPageNo}"> --%>
 	<input type="hidden" id="updateSEQ" value="${seq }">
 	<div class="ontent-m-td-2-chackbox">
 		<div class="ontent-m-td-2-chackbox-contain">
