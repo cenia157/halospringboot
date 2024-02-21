@@ -1,5 +1,6 @@
 package com.halo.main.user.introduce.album;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import com.halo.main.user.common.HomepageDAO;
+
 @Controller
 @RequestMapping("/info")
 @PropertySource("classpath:/static/user/introduce/album/token_config.properties")
 public class AlbumC {
+	
+    @Autowired
+    private HomepageDAO homeDao; 
 
 	@Value("${api.token}")
 	private String apiToken;
@@ -27,6 +33,7 @@ public class AlbumC {
 //		MainpageDAO.getMdao().getAllHompage_common(request);
 		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
 		model.addAttribute("subMenu", "/WEB-INF/views/user/introduce/album/album_contentPage.jsp");
+		model.addAttribute("hdto", homeDao.getAllhomepage());
 
 		return "index";
 	}

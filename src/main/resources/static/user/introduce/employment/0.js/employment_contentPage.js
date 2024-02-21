@@ -9,3 +9,21 @@ window.onload = function() {
     location.href = resume_link;
   });
 };
+
+// a테그 상위범위로 확대 
+document.addEventListener('DOMContentLoaded', function() {
+
+    let divs = document.querySelectorAll('.e_content-box-tr1-td1-1, .e_content-box-tr1-td1-2, .e_content-box-tr1-td1-3');
+
+    divs.forEach(function(div) {
+        div.addEventListener('click', function() {
+            let href = this.querySelector('a').getAttribute('href');
+            if (href) window.location.href = href; 
+        });
+
+        div.style.cursor = 'pointer';
+    });
+});
+
+
+

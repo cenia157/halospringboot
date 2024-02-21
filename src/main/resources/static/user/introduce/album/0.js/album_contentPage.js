@@ -215,3 +215,11 @@
 	        checkAndAdjustLayout();
 	    });
 	});
+	
+	$(document).ready(function() {
+	    // 모든 a_content-box-tr1-td1-x 클래스가 적용된 div에 대해 클릭 이벤트 처리
+	    $('.a_content-box-tr1-td1-1, .a_content-box-tr1-td1-2, .a_content-box-tr1-td1-3').click(function() {
+	        window.location.href = $(this).find('a').first().attr('href');
+	    }).css('cursor', 'pointer'); 
+	});
+
