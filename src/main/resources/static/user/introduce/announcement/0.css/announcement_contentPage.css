@@ -111,7 +111,8 @@
 }
 
 .a_content-box-tr1-td2>img {
-	width: 1.5%; /* 23-12-14 변동사항 */
+	width: 1.5%; 
+	margin-right: 0.3%;
 }
 
 .a_content-box-tr1-td2-2>div:last-child {
@@ -137,7 +138,7 @@
 .a_content-box-tr1-td3-1 {
 	display: flex;
 	align-items: center;
-	height: 96%; /* 23-12-14 변동사항 */
+	height: 96%; 
 	width: 90%;
 	background: #ffedaf;
 	border-radius: 30px;

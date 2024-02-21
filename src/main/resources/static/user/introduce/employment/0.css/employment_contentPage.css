@@ -157,6 +157,8 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
+  position: relative; 
+  z-index: 10; 
 }
 
 .e_content-box-tr1-td3-1-1 {
@@ -308,6 +310,10 @@
   margin-bottom: 1.2%;
   display: flex;
   justify-content: flex-end;
+}
+
+.bottom-venner-tr {
+    z-index: 100; 
 }
 
 .e_content-box-tr1-td3-1-1-1-5-1-2-1 > .content-box-tr1-td3-1-1-1-5-1-2-1-1 {
