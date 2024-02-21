@@ -614,14 +614,29 @@ $(document).ready(function() {
 	});
 }); 
 
-document.addEventListener('DOMContentLoaded', function() {
-    let containers = document.querySelectorAll('.ontent-m-td-2-chackbox-contain-txt');
-
-    containers.forEach(function(container) {
-        container.addEventListener('click', function() {
-            let checkbox = this.previousElementSibling.querySelector('input[type="checkbox"]');
-            checkbox.checked = !checkbox.checked;
-            noticeSearch(); // 체크박스 상태 변경 후 noticeSearch() 함수 호출
-        });
-    });
-});
+	// 공지사항 카테고리 항목 라벨 효과 처리 
+	document.addEventListener('DOMContentLoaded', function() {
+	    let containers = document.querySelectorAll('.ontent-m-td-2-chackbox-contain-txt');
+	
+	    containers.forEach(function(container) {
+	        container.addEventListener('click', function() {
+	            let checkbox = this.previousElementSibling.querySelector('input[type="checkbox"]');
+	            checkbox.checked = !checkbox.checked;
+	            noticeSearch(); // 체크박스 상태 변경 후 noticeSearch() 함수 호출
+	        });
+	    });
+	});
+	
+	//   전체 제목 부분이 클릭 가능한 영역이 되어 사용자가 더 편리하게 링크를 클릭할 수 있게 변경
+	document.addEventListener('DOMContentLoaded', function() {
+	    let titleElements = document.querySelectorAll('.ontent-m-td-2-content-txt-title-in');
+	
+	    titleElements.forEach(function(titleElement) {
+	        titleElement.style.cursor = 'pointer'; // 커서를 포인터로 변경하여 클릭 가능함을 나타냄
+	        titleElement.addEventListener('click', function() {
+	            let anSeq = this.parentNode.querySelector('input[name="aq_seq"]').value; // 부모 요소에서 aq_seq 값을 찾음
+	            getNoticeViewData(anSeq); // getNoticeViewData 함수 호출
+	        });
+	    });
+	});
+	
