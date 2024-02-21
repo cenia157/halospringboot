@@ -138,7 +138,7 @@
 #urlBox{
 	display: none;
 }
-#banner_url1{
+.url-input{
 	width: 215px;
 	height: 40px;
 }
@@ -158,7 +158,7 @@
 	height: 10%;
 	display: flex;
 	align-items: center;
-	margin-left: 65%;
+	padding-left: 65%;
 }
 
 .content-button>button {
@@ -167,7 +167,7 @@
 	background-color: #3B82F6;
 	color: white;
 	border: none;
-	width: 15%;
+	width: 40%;
 	height: 60%;
 	font-size: 1.5rem;
 	cursor: pointer;
