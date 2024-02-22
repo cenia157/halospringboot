@@ -10,21 +10,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.halo.main.admin.reservation.ReservationScheduleDTO;
+import com.halo.main.user.common.HomepageDAO;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RequestMapping("/service")
 @Controller
 public class ServiceC {
 	
+	 @Autowired
+	   private HomepageDAO homeDao; 
+	   
+	
 	@Autowired
 	private ServiceDAO serviceDAO; 
 	
 	@GetMapping("/info")
 	public String serviceInfo (Model model) {
-		serviceDAO.goServiceInfo(model);
+		
+		serviceDAO.goServiceInfo(model, homeDao);
 		return "index";
 	}
 	
@@ -34,19 +39,19 @@ public class ServiceC {
 	}
 	@GetMapping("/apply/step1/svc")
 	public String svcSelect(Model model) {
-		serviceDAO.goSvcSelect(model);
+		serviceDAO.goSvcSelect(model, homeDao);
 		return "index";
 	}
 	
 	@PostMapping("/apply/step2/calendar")
 	public String calSelect(Model model, HttpServletRequest request) {
-		serviceDAO.goCalSelect(model);
+		serviceDAO.goCalSelect(model, homeDao);
 		serviceDAO.svcSelect(request);
 		return "index";
 	}
 	@PostMapping("/apply/step3/time")
 	public String timeSelect(Model model, HttpServletRequest request) {
-		serviceDAO.goTimeSelect(model, request);
+		serviceDAO.goTimeSelect(model, request, homeDao);
 		serviceDAO.calSelect(model, request);
 
 		return "index";
@@ -54,14 +59,14 @@ public class ServiceC {
 	
 	@PostMapping("/apply/step4/nursingform")
 	public String nursingApplyForm(Model model, HttpServletRequest request)  {
-		serviceDAO.goNrsingApplyForm(model, request);
+		serviceDAO.goNrsingApplyForm(model, request, homeDao);
 		serviceDAO.calSelect(model, request);
 		serviceDAO.tiemSelect(model, request);
 		return "index";
 	}
 	@PostMapping("/apply/step4/taxiform")
 	public String taxiApplyForm(Model model, HttpServletRequest request) throws UnsupportedEncodingException {
-		serviceDAO.goTaxiApplyForm(model);
+		serviceDAO.goTaxiApplyForm(model, homeDao);
 		serviceDAO.calSelect(model, request);
 		serviceDAO.tiemSelect(model, request);
 		serviceDAO.nusingApply(model, request);
@@ -69,7 +74,7 @@ public class ServiceC {
 	}
 	@PostMapping("/apply/step5/agree")
 	public String agree(Model model, HttpServletRequest request) throws UnsupportedEncodingException {
-		serviceDAO.goAgree(model);
+		serviceDAO.goAgree(model, homeDao);
 		serviceDAO.calSelect(model, request);
 		serviceDAO.tiemSelect(model, request);
 		serviceDAO.nusingApply(model, request);
@@ -78,7 +83,7 @@ public class ServiceC {
 	}
 	@PostMapping("/apply/step6/complet")
 	public String complet(Model model, HttpServletRequest request, ReservationScheduleDTO rsDTO) throws UnsupportedEncodingException {
-		serviceDAO.goComplet(model);
+		serviceDAO.goComplet(model, homeDao);
 		serviceDAO.serviceApply(rsDTO, request);
 		return "index";
 	}

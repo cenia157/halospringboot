@@ -570,7 +570,7 @@ function insertSift() {
 			.then(response => response.text())
 			.then(data => {
 				if (data == 1) {
-					location.href = '/employee';
+					location.href = '/admin/schedule/employee';
 				}
 			})
 			.catch(error => {
@@ -593,7 +593,7 @@ function insertSift() {
 			.then(response => response.text())
 			.then(data => {
 				if (data == 1) {
-					location.href = '/employee';
+					location.href = '/admin/schedule/employee';
 				}
 			})
 			.catch(error => {
@@ -674,7 +674,7 @@ function siftDelete() {
 			.then(response => response.text())
 			.then(data => {
 				if (data == 1) {
-					location.href = '/employee';
+					location.href = '/admin/schedule/employee';
 				}
 			})
 			.catch(error => {

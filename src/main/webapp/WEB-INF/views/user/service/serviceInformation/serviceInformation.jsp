@@ -17,12 +17,8 @@
 	<div class="content-box-tr">
 		<div class="content-box-td">
 			<div class="content-tabbox-td">
-				<div class="content-tab1-td tab1-pos">
-					<a href="/service/info"> サービスの案内</a>
-				</div>
-				<div class="content-tab2-td tab2-pos">
-					<a href="/service/apply/step1/svc"> サービスの申込み</a>
-				</div>
+					<a href="/service/info" class="content-tab1-td tab1-pos"> サービスの案内</a>
+					<a href="/service/apply/step1/svc" class="content-tab2-td tab2-pos"> サービスの申込み</a>
 			</div>
 			<div class="content-subtab-td">
 				<img src="${pageContext.request.contextPath}/user/0.img//home.png"
