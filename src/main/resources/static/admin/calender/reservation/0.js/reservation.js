@@ -484,7 +484,7 @@ function managerSelect(e) {
 function reservationAccept(e) {
 	reservationScheduleList[reservationSelectArray].sa_feedback = document.querySelector('.reservation-modal-content-notice').children[0].value;
 	reservationScheduleList[reservationSelectArray].sa_staff = document.querySelector('.default-manager').innerText;
-
+	console.log(reservationScheduleList[reservationSelectArray])
 	if (e.innerText == '承認') {
 		fetch('/admin/schedule/reservation/accept', {
 			method: "POST",
