@@ -21,7 +21,7 @@ public class ReservationScheduleDTO {
 	private String sa_addr;
 	private String sa_start_place;
 	private String sa_end_place;
-	private String sa_nursing_info;
+	private String sa_nurssing_info;
 	private String sa_taxi_info;
 	private String sa_registration_date;
 	private String sa_service;
