@@ -16,7 +16,13 @@ public interface NoticeMapper {
 			"<foreach item='category' collection='categories' separator=',' open='(' close=')'>", "#{category}",
 			"</foreach>", "ORDER BY an_seq ASC", "</script>" })
 	List<NoticeDTO> getAllNotice(@Param("categories") List<String> categories);
-
+	
+	
+	@Select({ "<script>", "SELECT count(*) FROM ANNOUNCED_TBL WHERE an_category IN",
+		"<foreach item='category' collection='categories' separator=',' open='(' close=')'>", "#{category}",
+		"</foreach>", "ORDER BY an_seq ASC", "</script>" })
+	int totalCount(@Param("categories") List<String> categories);
+	
 	@Select("SELECT * FROM ANNOUNCED_TBL WHERE an_seq = #{an_Seq}")
 	List<NoticeDTO> getNoticeDetail(int an_seq);
 
@@ -28,5 +34,7 @@ public interface NoticeMapper {
 
 	@Update("UPDATE announced_tbl SET an_title = #{title}, an_content = #{txt}, an_category = #{select} WHERE an_seq = #{seq}")
 	int updateNotice(@Param("title") String title, @Param("select") String select, @Param("txt") String txt, @Param("seq") String seq);
+
+
 
 }

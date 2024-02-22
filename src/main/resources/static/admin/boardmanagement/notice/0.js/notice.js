@@ -193,14 +193,14 @@ document.getElementById('updataModalBtn').addEventListener("click", function() {
 	let an_writer = viewData[0].an_content;
 	let an_reg_date = viewData[0].an_reg_date;
 	let an_category = viewData[0].an_category;
-	
+
 	// HTML 엔티티를 디코딩하기 위한 임시 textarea 요소를 생성하고 an_title의 값을 설정
 	let tempTextArea = document.createElement('textarea');
-	tempTextArea.innerHTML = an_title;	
-	
+	tempTextArea.innerHTML = an_title;
+
 	// 임시 textarea 요소의 value 속성에서 디코딩된 텍스트를 가져옴
 	let decodedTitle = tempTextArea.value;
-	
+
 	$('#real-title-editorN').val(decodedTitle);
 	$('#classicR').html(an_content);
 	window.editorR.setData(an_content);
@@ -271,7 +271,7 @@ function getNOTICEDataUpdateView(an_seq) {
 		success: function(data) {
 			viewData = data;
 			console.log("data: ", data);
-//			alert("this is right")
+			//			alert("this is right")
 			if (Array.isArray(data) && data.length > 0) {
 				let an_seq = data[0].an_seq;
 				let an_title = data[0].an_title;
@@ -307,7 +307,10 @@ function deleteNotice(seq) {
 	let matches = pageCheck.match(/\d+/); // \d+ 정규식은 하나 이상의 숫자에 매칭됩니다.
 	let pageNumber = matches ? parseInt(matches[0], 10) : null; // 추출된 숫자를 정수형으로 변환
 
+
+
 	console.log('pageNumber :::', pageNumber);
+
 
 	if (confirm('この投稿を削除しますか?')) {
 		location.href = `/admin/boardManagement/notice/deleteNotice/${pageVal}/${checkVal}/${seq}/${pageNumber}`;
@@ -331,28 +334,50 @@ function searchCheckBoxVal() {
 
 function noticeSearch() {
 	let pageVal = document.querySelector('#pageNum').value;
+	console.log(pageVal)
+	//	alert(pageVal)
 	if (pageVal == '') {
 		pageVal = 1;
 	}
 
+	//	let pageCheck = document.querySelector('.current-page').innerText;
+	//	let matches = pageCheck.match(/\d+/); // \d+ 정규식은 하나 이상의 숫자에 매칭됩니다.
+	//	let pageVal = matches ? parseInt(matches[0], 10) : null; // 추출된 숫자를 정수형으로 변환
+	//	console.log('pageVal :::' + pageVal);
+	//	if (pageVal == '') {
+	//		pageVal = 1;
+	//	}
+
 	let checkboxes = document.querySelectorAll('.noticeCheck:checked');
 	let checkVal = '';
+	let checkValAll = '01234'
 
 	checkboxes.forEach(function(checkbox) {
 		checkVal += checkbox.value;
 	});
 
-	let seqVal = document.querySelector('#updateSEQ').value; // seq 값 가져오기
+	let reqPage;
+	fetch("/admin/boardManagement/notice/page/" + checkVal)
+		.then(response => response.json())
+		.then(data => {
+			reqPage = Math.ceil(data / 8);
+			if (reqPage < pageVal) {
+				pageVal = reqPage;
+			}
 
-	if (checkVal !== '') {
-		if (seqVal !== '0' && seqVal !== '') {
-			seqVal = '0'; // seq가 null이나 빈 문자열이 아니면 0으로 설정
-		}
-		location.href = '/admin/boardManagement/notice/' + pageVal + '/' + checkVal + '/' + seqVal;
-	} else {
-		alert('一つ以上のチェックボックスにチェックを入れる必要があります。');
-		history.go(0);
-	}
+			let seqVal = document.querySelector('#updateSEQ').value; // seq 값 가져오기
+			if (checkVal !== '') {
+				if (seqVal !== '0' && seqVal !== '') {
+					seqVal = '0'; // seq가 null이나 빈 문자열이 아니면 0으로 설정
+				}
+				location.href = '/admin/boardManagement/notice/' + pageVal + '/' + checkVal + '/' + seqVal;
+			} else {
+				alert('一つ以上のチェックボックスにチェックを入れる必要があります。');
+				//		history.go(0);
+				location.href = '/admin/boardManagement/notice/' + pageVal + '/' + checkValAll + '/' + seqVal;
+			}
+
+		}); // fetch 범위
 }
 
 function noticeSearchCheckBoxCheck() {
@@ -369,30 +394,30 @@ function noticeSearchCheckBoxCheck() {
 noticeSearchCheckBoxCheck();
 
 function noValue(param) {
-	
+
 	let titleCheck;
 	let kategorieCheck;
 	let contentCheck;
 	let titleLengthCheck
 	let contentLengthCheck
-	
-	if(param == 'insert') {
+
+	if (param == 'insert') {
 		titleCheck = document.querySelector('#real-title-editor').value;
 		kategorieCheck = document.querySelector('#kategorie').children[0];
-		contentCheck = window.editor.getData();		
-	} else if(param == 'update') {
+		contentCheck = window.editor.getData();
+	} else if (param == 'update') {
 		titleCheck = document.querySelector('#real-title-editorN').value;
 		kategorieCheck = document.querySelector('#kategorieR').children[0];
-		contentCheck = window.editorR.getData();	
+		contentCheck = window.editorR.getData();
 	}
-		titleLengthCheck = titleCheck.length;
-		contentLengthCheck = contentCheck.length;	
-	
+	titleLengthCheck = titleCheck.length;
+	contentLengthCheck = contentCheck.length;
+
 
 	if (!titleCheck) {
 		alert("タイトルを入力してください。");
 		return false;
-	} else if(titleCheck.length > 30) {
+	} else if (titleCheck.length > 30) {
 		alert("タイトルを30文字以内で入力してください。")
 	} else if (kategorieCheck == null) {
 		alert("カテゴリーを選択してください.");
@@ -439,29 +464,29 @@ document.querySelectorAll('.toggle-item').forEach(function(item) {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    let performanceEntries = performance.getEntriesByType("navigation");
-    if (performanceEntries.length > 0 && performanceEntries[0].type === "reload") {
-        let url = new URL(window.location.href);
-        let pathSegments = url.pathname.split('/').filter(segment => segment); // 빈 문자열 제거
+	let performanceEntries = performance.getEntriesByType("navigation");
+	if (performanceEntries.length > 0 && performanceEntries[0].type === "reload") {
+		let url = new URL(window.location.href);
+		let pathSegments = url.pathname.split('/').filter(segment => segment); // 빈 문자열 제거
 
-        // 마지막 세그먼트(부분) 가져오기
-        let lastSegment = parseInt(pathSegments[pathSegments.length - 1], 10);
+		// 마지막 세그먼트(부분) 가져오기
+		let lastSegment = parseInt(pathSegments[pathSegments.length - 1], 10);
 
-        // 마지막 세그먼트가 0이 아닐 경우 업데이트
-        if (!isNaN(lastSegment) && lastSegment !== 0) {
-            // 마지막 세그먼트를 0으로 변경
-            pathSegments[pathSegments.length - 1] = '0';
+		// 마지막 세그먼트가 0이 아닐 경우 업데이트
+		if (!isNaN(lastSegment) && lastSegment !== 0) {
+			// 마지막 세그먼트를 0으로 변경
+			pathSegments[pathSegments.length - 1] = '0';
 
-            // 변경된 세그먼트를 기반으로 새로운 경로 생성
-            let newPath = '/' + pathSegments.join('/');
+			// 변경된 세그먼트를 기반으로 새로운 경로 생성
+			let newPath = '/' + pathSegments.join('/');
 
-            // 브라우저의 히스토리 상태를 업데이트하고, URL 변경
-            window.history.replaceState(null, null, newPath);
+			// 브라우저의 히스토리 상태를 업데이트하고, URL 변경
+			window.history.replaceState(null, null, newPath);
 
-            // 필요한 경우 모달 닫기 함수 호출
-            closeModalV();
-        }
-    }
+			// 필요한 경우 모달 닫기 함수 호출
+			closeModalV();
+		}
+	}
 });
 
 $(document).ready(function() {
@@ -612,31 +637,30 @@ $(document).ready(function() {
 			}
 		}
 	});
-}); 
+});
 
-	// 공지사항 카테고리 항목 라벨 효과 처리 
-	document.addEventListener('DOMContentLoaded', function() {
-	    let containers = document.querySelectorAll('.ontent-m-td-2-chackbox-contain-txt');
-	
-	    containers.forEach(function(container) {
-	        container.addEventListener('click', function() {
-	            let checkbox = this.previousElementSibling.querySelector('input[type="checkbox"]');
-	            checkbox.checked = !checkbox.checked;
-	            noticeSearch(); // 체크박스 상태 변경 후 noticeSearch() 함수 호출
-	        });
-	    });
+// 공지사항 카테고리 항목 라벨 효과 처리 
+document.addEventListener('DOMContentLoaded', function() {
+	let containers = document.querySelectorAll('.ontent-m-td-2-chackbox-contain-txt');
+
+	containers.forEach(function(container) {
+		container.addEventListener('click', function() {
+			let checkbox = this.previousElementSibling.querySelector('input[type="checkbox"]');
+			checkbox.checked = !checkbox.checked;
+			noticeSearch(); // 체크박스 상태 변경 후 noticeSearch() 함수 호출
+		});
 	});
-	
-	//   전체 제목 부분이 클릭 가능한 영역이 되어 사용자가 더 편리하게 링크를 클릭할 수 있게 변경
-	document.addEventListener('DOMContentLoaded', function() {
-	    let titleElements = document.querySelectorAll('.ontent-m-td-2-content-txt-title-in');
-	
-	    titleElements.forEach(function(titleElement) {
-	        titleElement.style.cursor = 'pointer'; // 커서를 포인터로 변경하여 클릭 가능함을 나타냄
-	        titleElement.addEventListener('click', function() {
-	            let anSeq = this.parentNode.querySelector('input[name="aq_seq"]').value; // 부모 요소에서 aq_seq 값을 찾음
-	            getNoticeViewData(anSeq); // getNoticeViewData 함수 호출
-	        });
-	    });
+});
+
+//   전체 제목 부분이 클릭 가능한 영역이 되어 사용자가 더 편리하게 링크를 클릭할 수 있게 변경
+document.addEventListener('DOMContentLoaded', function() {
+	let titleElements = document.querySelectorAll('.ontent-m-td-2-content-txt-title-in');
+
+	titleElements.forEach(function(titleElement) {
+		titleElement.style.cursor = 'pointer'; // 커서를 포인터로 변경하여 클릭 가능함을 나타냄
+		titleElement.addEventListener('click', function() {
+			let anSeq = this.parentNode.querySelector('input[name="aq_seq"]').value; // 부모 요소에서 aq_seq 값을 찾음
+			getNoticeViewData(anSeq); // getNoticeViewData 함수 호출
+		});
 	});
-	
+});

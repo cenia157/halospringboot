@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/admin/boardManagement")
 public class NoticeC {
@@ -22,22 +24,36 @@ public class NoticeC {
 	@Autowired
 	private NoticeService nService;
 
-	// 페이징처리
+	// 1. 최초 들어올때    각 카테고리별 pageCount -> 배열에 저장.
+	//							경우의수    전체 선택을때 
+	//							1,,3,4			토탈 개수  / 10  pa
+	// 1.url 만들기용  pagenum
+	@ResponseBody
+	@GetMapping("/notice/page/{checkVal}")
+	public int totalCount(@PathVariable("checkVal") String checkVal) {
+		return nService.totalCount(checkVal);
+	}
+	
+	// 조회 및 페이징처리
 	@GetMapping("/notice/{p}/{checkVal}/{seq}")
 	public String getNoticePagingC(@PathVariable("p") int p,
 								   @PathVariable("checkVal") String checkVal, 
 								   @PathVariable(value = "seq", required = false) Integer seq, Model model) {
 		model.addAttribute("checkVal", checkVal);
 		model.addAttribute("notices", nService.getAllNotice(checkVal));
+		
+		
 		nService.noticePaging(p, model);
 
+		
 		if (seq != 0) {
 			model.addAttribute("seq", seq);
 		}
-		
+
 		model.addAttribute("pageNum", p);
 		model.addAttribute("menuname", "お知らせ");
 		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/notice/noticeContent.jsp");
+		
 		
 		return "/admin/index";
 	}
