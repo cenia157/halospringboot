@@ -159,11 +159,15 @@ public class ServiceDAO {
 		String userYear = request.getParameter("userYear");
 		String userMonth = request.getParameter("userMonth");
 		String userDay = request.getParameter("userDay");
-
-		if (userGender.equals("m")) {
+		
+		if (userGender == null) {
 			model.addAttribute("manChecked", "checked");
-		} else if (userGender.equals("w")) {
-			model.addAttribute("womanChecked", "checked");
+		}else {
+			if (userGender.equals("m")) {
+				model.addAttribute("manChecked", "checked");
+			} else if (userGender.equals("w")) {
+				model.addAttribute("womanChecked", "checked");
+			}
 		}
 
 		model.addAttribute("applicant", applicant);
