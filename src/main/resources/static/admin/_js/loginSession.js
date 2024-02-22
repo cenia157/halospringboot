@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		// 카운트다운 종료 시 타이머 멈추기
 		if (countdown < 0) {
 			clearInterval(countdownInterval);
-			window.location.href = 'logout'; // 세션이 만료되면 로그아웃 페이지로 이동하도록 설정
+			window.location.href = '/admin/logout'; // 세션이 만료되면 로그아웃 페이지로 이동하도록 설정
 		}
 
 	}
