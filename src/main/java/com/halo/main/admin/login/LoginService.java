@@ -28,8 +28,8 @@ public class LoginService {
 					System.out.println("result ::: " + result);
 
 					HttpSession hs = request.getSession();
-//					int timer = 7200;
-					int timer = 5;
+					int timer = 7200;
+//					int timer = 5;
 					hs.setMaxInactiveInterval(timer);
 					System.out.println(hs.getMaxInactiveInterval());
 					hs.setAttribute("sessionTimeout", timer);
