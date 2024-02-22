@@ -228,7 +228,7 @@ public class ServiceDAO {
 		System.out.println(rsDTO.getSa_addr());
 		System.out.println(rsDTO.getSa_start_place());
 		System.out.println(rsDTO.getSa_end_place());
-		System.out.println(rsDTO.getSa_nursing_info());
+		System.out.println(rsDTO.getSa_nurssing_info());
 		System.out.println(rsDTO.getSa_taxi_info());
 
 		String selectedStart = request.getParameter("selectedStart");
@@ -310,7 +310,7 @@ public class ServiceDAO {
 		System.out.println(rsDTO.getSa_addr());
 		System.out.println(rsDTO.getSa_start_place());
 		System.out.println(rsDTO.getSa_end_place());
-		System.out.println(rsDTO.getSa_nursing_info());
+		System.out.println(rsDTO.getSa_nurssing_info());
 		System.out.println(rsDTO.getSa_taxi_info());
 		
 		// 세션 객체 가져오기
