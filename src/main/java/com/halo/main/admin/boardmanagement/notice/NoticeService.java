@@ -19,10 +19,21 @@ public class NoticeService {
 	@Autowired
 	private NoticeMapper nMapper;
 	private static ArrayList<NoticeDTO> notices;
+	private String[] checkBoxVal = { "announcement", "schedule", "general", "service", "product" };
+	
+	public int totalCount(String checkVal) {
+		List<String> selectedCategories = new ArrayList<>();
+
+		for (int i = 0; i < checkVal.length(); i++) {
+			int index = Character.getNumericValue(checkVal.charAt(i));
+			selectedCategories.add(checkBoxVal[index]);
+		}
+		return nMapper.totalCount(selectedCategories);
+	}
 
 	// 전체조회
 	public List<NoticeDTO> getAllNotice(@RequestParam("checkVal") String checkVal) {
-		String[] checkBoxVal = { "announcement", "schedule", "general", "service", "product" };
+		
 		List<String> selectedCategories = new ArrayList<>();
 
 		for (int i = 0; i < checkVal.length(); i++) {
@@ -175,6 +186,7 @@ public class NoticeService {
 	
 		return nMapper.deleteNotice(an_seq);
 	}
+
 
 
 
