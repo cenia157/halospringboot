@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -20,10 +21,12 @@ public interface ReservationMapper {
 	@Select("select * from reservation_information_accept")
 	List<ReservationScheduleAcceptDTO> getAcceptList();
 	
-	@Insert("INSERT INTO reservation_information_accept (sa_seq, sa_applicant, sa_service, sa_phone_number, sa_user_name, sa_gender, sa_birth_date, sa_year, sa_month, sa_days, sa_time, sa_addr, sa_start_place, sa_end_place, sa_car_no, sa_feedback, sa_registration_date, sa_staff, sa_no ) VALUES (reservation_information_accept_seq.nextval, #{sa_applicant}, #{sa_service}, #{sa_phone_number}, #{sa_user_name}, #{sa_gender}, #{sa_birth_date}, #{sa_year}, #{sa_month}, #{sa_days}, #{sa_time}, #{sa_addr}, #{sa_start_place}, #{sa_end_place}, #{sa_car_no}, #{sa_feedback}, #{sa_registration_date}, #{sa_staff}, #{sa_seq})")
+//	@Insert("INSERT INTO reservation_information_accept VALUES(sa_seq, sa_applicant, sa_service, sa_phone_number, sa_user_name, sa_gender, sa_birth_date, sa_year, sa_month, sa_days, sa_time, sa_addr, sa_start_place, sa_end_place, sa_car_no, sa_feedback, sa_registration_date, sa_staff, sa_no ) VALUES (reservation_information_accept_seq.nextval, #{sa_applicant}, #{sa_service}, #{sa_phone_number}, #{sa_user_name}, #{sa_gender}, #{sa_birth_date}, #{sa_year}, #{sa_month}, #{sa_days}, #{sa_time}, #{sa_addr}, #{sa_start_place}, #{sa_end_place}, #{sa_car_no}, #{sa_feedback}, #{sa_registration_date}, #{sa_staff}, #{sa_seq})")
+	@Insert("INSERT INTO reservation_information_accept VALUES(reservation_information_accept_seq.nextval, #{sa_applicant}, #{sa_service}, #{sa_phone_number}, #{sa_user_name}, #{sa_gender}, #{sa_birth_date}, #{sa_year}, #{sa_month}, #{sa_days}, #{sa_time}, #{sa_addr}, #{sa_start_place}, #{sa_end_place}, 1, #{sa_feedback}, #{sa_registration_date}, #{sa_staff}, #{sa_seq})")
 	int reservationAccept(ReservationScheduleDTO rsDTO);
 	
-	@Insert("INSERT INTO reservation_information_decline (sa_seq, sa_applicant, sa_service, sa_phone_number, sa_user_name, sa_gender, sa_birth_date, sa_year, sa_month, sa_days, sa_time, sa_addr, sa_start_place, sa_end_place, sa_car_no, sa_feedback, sa_registration_date, sa_staff, sa_no ) VALUES (reservation_information_decline_seq.nextval, #{sa_applicant}, #{sa_service}, #{sa_phone_number}, #{sa_user_name}, #{sa_gender}, #{sa_birth_date}, #{sa_year}, #{sa_month}, #{sa_days}, #{sa_time}, #{sa_addr}, #{sa_start_place}, #{sa_end_place}, #{sa_car_no}, #{sa_feedback}, #{sa_registration_date}, #{sa_staff}, #{sa_seq})")
+//	@Insert("INSERT INTO reservation_information_decline (sa_seq, sa_applicant, sa_service, sa_phone_number, sa_user_name, sa_gender, sa_birth_date, sa_year, sa_month, sa_days, sa_time, sa_addr, sa_start_place, sa_end_place, sa_car_no, sa_feedback, sa_registration_date, sa_staff, sa_no ) VALUES (reservation_information_decline_seq.nextval, #{sa_applicant}, #{sa_service}, #{sa_phone_number}, #{sa_user_name}, #{sa_gender}, #{sa_birth_date}, #{sa_year}, #{sa_month}, #{sa_days}, #{sa_time}, #{sa_addr}, #{sa_start_place}, #{sa_end_place}, #{sa_car_no}, #{sa_feedback}, #{sa_registration_date}, #{sa_staff}, #{sa_seq})")
+	@Insert("INSERT INTO reservation_information_decline VALUES(reservation_information_decline_seq.nextval, #{sa_applicant}, #{sa_service}, #{sa_phone_number}, #{sa_user_name}, #{sa_gender}, #{sa_birth_date}, #{sa_year}, #{sa_month}, #{sa_days}, #{sa_time}, #{sa_addr}, #{sa_start_place}, #{sa_end_place}, 1, #{sa_feedback}, #{sa_registration_date}, #{sa_staff}, #{sa_seq})")
 	int reservationDecline(ReservationScheduleDTO rsDTO);
 	
 	@Delete("delete reservation_information where sa_seq = #{sa_seq}")
