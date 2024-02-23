@@ -43,7 +43,7 @@
 	<div class="main-notice-tbl" id="page1">
 		<!-- 공지사항 최신순으로 3줄(공지사항 제목, 내용/클릭시 해당 공지 디테일페이지 연결) -->
 		<div class="main-notice-tr1 btn-pointer"
-			onclick="location.href='AnnouncedC'">お知らせ</div>
+			onclick="location.href='/introduce/company'">お知らせ</div>
 		<div class="main-notice-tr2">
 		
 			<c:forEach var="announcement" items="${announcements}">
@@ -68,7 +68,7 @@
 		</div>
 		<div class="main-map-tr2">
 			<div class="main-map-td1 btn-pointer"
-				onclick="location.href='InfoMapC'">施設アクセス</div>
+				onclick="location.href='/introduce/map'">施設アクセス</div>
 			<div class="main-map-td2">
 				<div>
 					●住所<br />大阪府守口市馬場町3-14-6メゾンエミール701号

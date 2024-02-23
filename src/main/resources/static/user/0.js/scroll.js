@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				isScrolling = setTimeout(() => {
 					if (window.innerWidth > 500) {
 						if (scrollLocation == 3) {
-							smoothScrollTo(1300);
+							smoothScrollTo(1000);
 							setTimeout(function() {
 								scrollLocation = 2;
 							}, 300);
@@ -30,12 +30,12 @@ document.addEventListener("DOMContentLoaded", function() {
 				isScrolling = setTimeout(() => {
 					if (window.innerWidth > 500) {
 						if (scrollLocation == 1) {
-							smoothScrollTo(1300);
+							smoothScrollTo(1000);
 							setTimeout(function() {
 								scrollLocation = 2;
 							}, 300);
 						} else if (scrollLocation == 2) {
-							smoothScrollTo(2300);
+							smoothScrollTo(2000);
 							setTimeout(function() {
 								scrollLocation = 3;
 							}, 300);
@@ -68,7 +68,7 @@ function smoothScrollTo(targetPosition) {
 		} else {
 			setTimeout(function() {
 				isScrolling = false;// 스크롤이 끝났음을 표시
-			}, 1000);
+			}, 750);
 		}
 	}
 	requestAnimationFrame(scrollAnimation);
