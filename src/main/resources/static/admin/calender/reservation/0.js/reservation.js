@@ -739,8 +739,15 @@ function reservationDetailModal() {
 		} else {
 			document.querySelector('.reservation-modal-content-book').innerHTML = arrayName.sa_year + '-' + arrayName.sa_month + '-' + arrayName.sa_days;
 		}
-
-		document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea readonly>' + '介護問い合わせ内容: ' + arrayName.sa_nurssing_info + '\nタクシー問い合わせ内容 : ' + arrayName.sa_taxi_info + '</textarea>';
+		
+		if(arrayName.sa_nurssing_info == null) {
+			document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea readonly>' + 'タクシー問い合わせ内容 : ' + arrayName.sa_taxi_info + '</textarea>';			
+		} else if (arrayName.sa_taxi_info == null) {
+			document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea readonly>' + '介護問い合わせ内容: ' + arrayName.sa_nurssing_info + '</textarea>';
+		} else {
+			document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea readonly>' + '介護問い合わせ内容: ' + arrayName.sa_nurssing_info + '\nタクシー問い合わせ内容 : ' + arrayName.sa_taxi_info + '</textarea>';
+		}
+		
 
 		console.log(reservationScheduleList[reservationSelectArray]);
 
