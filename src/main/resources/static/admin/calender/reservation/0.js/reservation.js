@@ -484,6 +484,19 @@ function managerSelect(e) {
 function reservationAccept(e) {
 	reservationScheduleList[reservationSelectArray].sa_feedback = document.querySelector('.reservation-modal-content-notice').children[0].value;
 	reservationScheduleList[reservationSelectArray].sa_staff = document.querySelector('.default-manager').innerText;
+
+	if (reservationScheduleList[reservationSelectArray].sa_addr == null) {
+		reservationScheduleList[reservationSelectArray].sa_addr = '';
+	}
+
+	if (reservationScheduleList[reservationSelectArray].sa_start_place == null) {
+		reservationScheduleList[reservationSelectArray].sa_start_place = '';
+	}
+
+	if (reservationScheduleList[reservationSelectArray].sa_end_place == null) {
+		reservationScheduleList[reservationSelectArray].sa_end_place = '';
+	}
+
 	console.log(reservationScheduleList[reservationSelectArray])
 	if (e.innerText == '承認') {
 		fetch('/admin/schedule/reservation/accept', {
@@ -739,15 +752,15 @@ function reservationDetailModal() {
 		} else {
 			document.querySelector('.reservation-modal-content-book').innerHTML = arrayName.sa_year + '-' + arrayName.sa_month + '-' + arrayName.sa_days;
 		}
-		
-		if(arrayName.sa_nurssing_info == null) {
-			document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea readonly>' + 'タクシー問い合わせ内容 : ' + arrayName.sa_taxi_info + '</textarea>';			
+
+		if (arrayName.sa_nurssing_info == null) {
+			document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea readonly>' + 'タクシー問い合わせ内容 : ' + arrayName.sa_taxi_info + '</textarea>';
 		} else if (arrayName.sa_taxi_info == null) {
 			document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea readonly>' + '介護問い合わせ内容: ' + arrayName.sa_nurssing_info + '</textarea>';
 		} else {
 			document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea readonly>' + '介護問い合わせ内容: ' + arrayName.sa_nurssing_info + '\nタクシー問い合わせ内容 : ' + arrayName.sa_taxi_info + '</textarea>';
 		}
-		
+
 
 		console.log(reservationScheduleList[reservationSelectArray]);
 
