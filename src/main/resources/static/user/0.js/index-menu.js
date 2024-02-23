@@ -16,6 +16,10 @@ $(function() {
 		console.log(hardWear)
 		let menuhover = true;
 		let submenuhover = true;
+		
+		if(document.querySelector('.slogan-tbl')) {
+			document.querySelector('.header-tbl').style.height = '25vh';
+		}
 
 		$(".header-td-menu-title > a").hover(function() {
 			if (menuhover) {
