@@ -533,6 +533,15 @@ function reservationModalClose(e) {
 		}
 	}
 
+	if (reservationModalValue == "update") {
+		document.querySelectorAll('.dateCheckBox').forEach(function(e) {
+			e.value = 0;
+			e.disabled = true;
+			e.checked = false;
+			e.parentNode.style.backgroundColor = '#FFF';
+		})
+	}
+
 	if (deleteScheduleModal = 1) {
 		reservationDeleteCancle()
 	}
@@ -731,7 +740,7 @@ function reservationDetailModal() {
 			document.querySelector('.reservation-modal-content-book').innerHTML = arrayName.sa_year + '-' + arrayName.sa_month + '-' + arrayName.sa_days;
 		}
 
-		document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea>' + '介護問い合わせ内容: ' + arrayName.sa_nurssing_info + '\nタクシー問い合わせ内容 : ' + arrayName.sa_taxi_info + '</textarea>';
+		document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea readonly>' + '介護問い合わせ内容: ' + arrayName.sa_nurssing_info + '\nタクシー問い合わせ内容 : ' + arrayName.sa_taxi_info + '</textarea>';
 
 		console.log(reservationScheduleList[reservationSelectArray]);
 
@@ -784,7 +793,7 @@ function reservationDetailModal() {
 		} else {
 			document.querySelector('.reservation-modal-content-book').innerHTML = arrayName.sa_year + '-' + arrayName.sa_month + '-' + arrayName.sa_days;
 		}
-		document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea>' + arrayName.sa_feedback + '</textarea>';
+		document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea readonly>' + arrayName.sa_feedback + '</textarea>';
 
 		console.log(reservationAcceptList[reservationSelectArray]);
 
