@@ -648,8 +648,7 @@ function expandReservationSchedule(e) {
 		modalDivDate = e.target.closest('.current').className.match(/date(\d+)/);
 
 		// 모달 title 해당 달력 연 월 표시
-		document.querySelector('.date-modal-title').innerHTML = '<div>' + reservationArrayDate[parseInt(modalDivDate[1]) + prevDateLength].sa_days + '</div>';
-
+		document.querySelector('.date-modal-title').innerHTML = '<div>' + reservationArrayDate[parseInt(modalDivDate[1]) + prevDateLength].date + '</div>';
 
 		// 모달 title 표시
 		document.querySelector('.date-modal-content').innerHTML = '';
@@ -680,7 +679,7 @@ function expandReservationSchedule(e) {
 // 일정 디테일 모달 출력
 function reservationDetailModal() {
 	prevDateArr = dateArr;
-	
+
 	document.querySelector('.backrop').style.display = 'flex';
 	document.querySelector('.reservation-modal-agree-btn').style.display = "none";
 	document.querySelector('.reservation-modal-update-btn').style.display = "none";
@@ -906,35 +905,35 @@ function reservationConfirm(e) {
 	} else if (document.querySelector('.reservation-modal-content-time input[value="PM"]').checked) {
 		time = document.querySelector('.reservation-modal-content-time input[value="PM"]').value;
 	}
-	
-	if(document.querySelector('.reservation-modal-title').children[0].value == '') {
+
+	if (document.querySelector('.reservation-modal-title').children[0].value == '') {
 		updateTrouble(document.querySelector('.reservation-modal-title').children[0]);
 		return;
 	}
-	if(time == '') {
+	if (time == '') {
 		document.querySelector('.update-time-trouble-modal').style.display = 'flex';
 		setTimeout(function() {
 			document.querySelector('.update-time-trouble-modal').style.display = 'none';
 		}, 1000);
 		return;
 	}
-	if(document.querySelector('.reservation-modal-content-name').children[0].value == '') {
+	if (document.querySelector('.reservation-modal-content-name').children[0].value == '') {
 		updateTrouble(document.querySelector('.reservation-modal-content-name').children[0]);
 		return;
 	}
-	if(document.querySelector('.reservation-modal-content-phone').children[0].value == '') {
+	if (document.querySelector('.reservation-modal-content-phone').children[0].value == '') {
 		updateTrouble(document.querySelector('.reservation-modal-content-phone').children[0]);
 		return;
 	}
-	if( document.querySelector('.reservation-modal-content-addr').children[0].value == '') {
+	if (document.querySelector('.reservation-modal-content-addr').children[0].value == '') {
 		updateTrouble(document.querySelector('.reservation-modal-content-addr').children[0]);
 		return;
 	}
-	if( document.querySelector('.reservation-modal-content-book').children[0].value == '') {
+	if (document.querySelector('.reservation-modal-content-book').children[0].value == '') {
 		updateTrouble(document.querySelector('.reservation-modal-content-book').children[0]);
 		return;
 	}
-	if(document.querySelector('.reservation-modal-content-notice').children[0].value == '') {
+	if (document.querySelector('.reservation-modal-content-notice').children[0].value == '') {
 		updateTrouble(document.querySelector('.reservation-modal-content-notice').children[0]);
 		return;
 	}
@@ -1047,7 +1046,7 @@ function rowScheduleDeleteClick(atag) {
 // 예약 신규 등록 온
 function reservationInsertPageOn() {
 	dateArr = new Array(32).fill(0);
-	
+
 	if (reservationClickArray != '') {
 		document.querySelector('.reservation-data.' + reservationClickArray).children[3].children[0].style.display = 'none';
 		document.querySelector('.reservation-data.' + reservationClickArray).style.backgroundColor = '#FFF';
