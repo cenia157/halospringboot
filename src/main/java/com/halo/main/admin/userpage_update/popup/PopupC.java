@@ -41,7 +41,11 @@ public class PopupC {
 	public ResponseEntity<?> updatePopup(@RequestBody PopupDTO pdto) {
 	    return popupDao.updatePopup(pdto);
 	}
-
+	
+	@PostMapping("/popup/on-off-check")
+	public ResponseEntity<?> checkPopupOnOff(@RequestBody PopupDTO pdto) {
+		return popupDao.checkPopupOnOff(pdto);
+	}
 	
 	
 	

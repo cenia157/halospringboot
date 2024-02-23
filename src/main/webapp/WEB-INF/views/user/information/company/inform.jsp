@@ -17,10 +17,10 @@
 		<div class="content-box-tbl">
 			<div class="content-box-tr">
 				<div class="content-box-td1 btn-pointer" onclick="location.href='/introduce/company'">
-					<a href="InfoCompanyC">会社について</a>
+					<a href="/introduce/company">会社について</a>
 				</div>
 				<div class="content-box-td2 btn-pointer" onclick="location.href='/introduce/map'">
-					<a href="InfoMapC">施設アクセス</a>
+					<a href="/introduce/map">施設アクセス</a>
 				</div>
 			</div>
 

@@ -41,6 +41,24 @@ public class PopupDAO {
 		jo.put("isSuccess", isSuccess);
 		return ResponseEntity.ok(jo.toJSONString()); // 실패 시 0 반환
 	}
+
+	
+	public ResponseEntity<?> checkPopupOnOff(PopupDTO pdto) {
+			String popupStatus = "off";
+			if(pdto.getP_flag() == 1)
+				popupStatus = "on";
+			String isSuccess = "Popup : " + popupStatus + " fail!";
+		
+			if (popupMapper.checkPopupOnOff(pdto) == 1) {
+				isSuccess = "Popup : " + popupStatus + " success!";
+			}
+			
+			System.out.println(isSuccess);
+			
+		JSONObject jo = new JSONObject();
+		jo.put("popupOnOffStatus", isSuccess);
+		return ResponseEntity.ok(jo.toJSONString());
+	}
 	
 	
 	
