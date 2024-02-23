@@ -30,7 +30,7 @@
 			type="hidden" name="sa_addr" value="${addr }"> <input
 			type="hidden" name="sa_start_place" value="${startAddr }"> <input
 			type="hidden" name="sa_end_place" value="${endAddr }"> <input
-			type="hidden" name="sa_nursing_info" value="${niText }"> <input
+			type="hidden" name="sa_nurssing_info" value="${niText }"> <input
 			type="hidden" name="sa_taxi_info" value="${tiText }">
 
 
