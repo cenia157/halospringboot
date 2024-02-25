@@ -104,16 +104,20 @@
                                             </div>
                                         </div>
                                         <div class="e_content-box-tr1-td3-1-1-1-5-1-2-2">
-                                            <span>電話番号&nbsp:&nbsp06-6997-6531</span>
+<!--                                             <span>電話番号&nbsp:&nbsp06-6997-6531</span> -->
+                                            <span>電話番号&nbsp:&nbsp${hdto.h_tel_no}</span>
                                         </div>
                                         <div class="e_content-box-tr1-td3-1-1-1-5-1-2-3">
-                                            <span>FAX&nbsp:&nbsp06-6997-6520</span>
+<!--                                             <span>FAX&nbsp:&nbsp06-6997-6520</span> -->
+                                             <span>FAX&nbsp:&nbsp${hdto.h_fax_no}</span>
                                         </div>
                                         <div class="e_content-box-tr1-td3-1-1-1-5-1-2-4">
-                                            <span>携帯電話&nbsp:&nbsp090-8799-3855</span>
+<!--                                             <span>携帯番号&nbsp:&nbsp090-8799-3855</span> -->
+                                            <span>携帯番号&nbsp:&nbsp${hdto.h_phone_no}</span>
                                         </div>
                                         <div class="e_content-box-tr1-td3-1-1-1-5-1-2-5">
-                                            <span>メール&nbsp:&nbsphello20201110@gmail.com</span>
+<!--                                             <span>メール&nbsp:&nbsphello20201110@gmail.com</span> -->
+                                            <span>メール&nbsp:&nbsp${hdto.h_email}</span>
                                         </div>
                                     </div>
                                 </div>
