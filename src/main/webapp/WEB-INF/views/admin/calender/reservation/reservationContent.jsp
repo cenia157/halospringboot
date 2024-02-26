@@ -11,7 +11,7 @@
 	
 </script>
 <script
-	src="${pageContext.request.contextPath}/admin/calender/reservation/0.js/reservation.js"></script>
+	src="${pageContext.request.contextPath}/admin/calender/reservation/0.js/reservation.js" defer></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/calender/reservation/0.css/reservation.css" />
 </head>
@@ -64,7 +64,7 @@
 						<div class="reservation-modal-content-endpoint">目的住所</div>
 						<div class="reservation-modal-content-notice">予約内容</div>
 						<div class="reservation-modal-content-manager">
-							<div class="reservation-modal-content-manager-select">
+							<div class="reservation-modal-content-manager-select update-select" onclick="managerSelectBoxClick(this)">
 								<div class="default-manager">スタッフ選び</div>
 								<div class="manager-select-arrow"></div>
 							</div>
@@ -199,7 +199,7 @@
 							</div>
 							<div class="reservation-modal-content-manager">
 								<div
-									class="reservation-modal-content-manager-select select-insert">
+									class="reservation-modal-content-manager-select select-insert" onclick="managerSelectBoxClick(this)">
 									<div class="default-manager">スタッフ選び</div>
 									<div class="manager-select-arrow"></div>
 								</div>
