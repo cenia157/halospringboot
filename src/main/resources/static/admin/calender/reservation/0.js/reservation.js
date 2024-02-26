@@ -169,6 +169,7 @@ function getAllSchedule() {
 				if (e.target.className.includes('schedule') && e.target.children.length > 0 && e.target.closest('.current')) {
 
 					reservationSelectArray = e.target.children[0].value;
+					insertManagerSelectValue = '';
 					reservationModalValue = "direct";
 					reservationDetailModal(e);
 				}
@@ -176,6 +177,7 @@ function getAllSchedule() {
 
 			// 예약 모달 내 수정 클릭
 			document.querySelector('.reservation-modal-update').addEventListener("click", function(e) {
+				insertManagerSelectValue = "update";
 				reservationModalValue = "update";
 				reservationDetailModal(e);
 			})
@@ -428,56 +430,57 @@ function reservationClick(e) {
 	reservationClickArray = e.target.parentNode.classList[1];
 }
 
+
+
 // 스태프 배정 셀렉트박스
-function managerSelectBoxClick() {
+function managerSelectBoxClick(e) {
+	if (reservationModalValue == "update" || e.classList[1] == 'select-insert') {
+		let kindOfSelectOption = '';
+		let kindOfManagerSelect = '';
+		let staffListRow = '';
+		let columLength = '';
+		if (e.classList[1] == 'select-insert') {
+			kindOfSelectOption = document.querySelector('.insert-manager-select-option');
+			kindOfManagerSelect = document.querySelector('.select-insert');
+			staffListRow = document.querySelector('.insert-select-list');
+			columLength = 3;
 
-	let kindOfSelectOption = '';
-	let kindOfManagerSelect = '';
-	let staffListRow = '';
-	let columLength = '';
-	if (insertManagerSelectValue == 'insert') {
-		kindOfSelectOption = document.querySelector('.insert-manager-select-option');
-		kindOfManagerSelect = document.querySelector('.select-insert');
-		staffListRow = document.querySelector('.insert-select-list');
-		columLength = 3;
+		} else {
+			kindOfSelectOption = document.querySelector('.manager-select-option');
+			kindOfManagerSelect = document.querySelector('.update-select');
+			staffListRow = document.querySelector('.manager-list');
+			columLength = 4;
+		}
 
-	} else {
-		kindOfSelectOption = document.querySelector('.manager-select-option');
-		kindOfManagerSelect = document.querySelector('.reservation-modal-content-manager-select');
-		staffListRow = document.querySelector('.manager-list');
-		columLength = 4;
+		if (managerSelectValue == 0) {
+			kindOfSelectOption.style.display = 'flex';
+			kindOfSelectOption.style.height = staffListRow.getBoundingClientRect().height * columLength + 'px';
+			kindOfSelectOption.style.bottom = '-' + kindOfSelectOption.getBoundingClientRect().height + 'px';
+			kindOfManagerSelect.style.border = '3px solid rgb(138, 182, 255)';
+			//		document.querySelector('.manager-select-option').classList.add('manager-select-arrowdown');
+
+			managerSelectValue = 1;
+		} else {
+			kindOfSelectOption.style.display = 'none';
+			kindOfSelectOption.style.bottom = 0 + 'px';
+			kindOfManagerSelect.style.border = '3px solid #e5e5e5';
+			//		document.querySelector('.manager-select-arrow').classList.remove('manager-select-arrowdown');
+
+			managerSelectValue = 0;
+		}
 	}
-
-	if (managerSelectValue == 0) {
-		kindOfSelectOption.style.display = 'flex';
-		kindOfSelectOption.style.height = staffListRow.getBoundingClientRect().height * columLength + 'px';
-		kindOfSelectOption.style.bottom = '-' + kindOfSelectOption.getBoundingClientRect().height + 'px';
-		kindOfManagerSelect.style.border = '3px solid rgb(138, 182, 255)';
-		//		document.querySelector('.manager-select-option').classList.add('manager-select-arrowdown');
-
-		managerSelectValue = 1;
-	} else {
-		kindOfSelectOption.style.display = 'none';
-		kindOfSelectOption.style.bottom = 0 + 'px';
-		kindOfManagerSelect.style.border = '3px solid #e5e5e5';
-		//		document.querySelector('.manager-select-arrow').classList.remove('manager-select-arrowdown');
-
-		managerSelectValue = 0;
-
-	}
-
-	kindOfSelectOption.style.width = kindOfManagerSelect.getBoundingClientRect().width + 'px';
-
 }
 
 // 스태프 셀렉트 선택
 function managerSelect(e) {
-	if (insertManagerSelectValue == 'insert') {
-		document.querySelector('.select-insert').children[0].innerText = e.innerText;
+	if (e.parentNode.previousSibling.previousSibling.classList[1] == 'select-insert') {
+		e.parentNode.previousSibling.previousSibling.children[0].innerText = e.innerText;
+
+		managerSelectBoxClick(e.parentNode.previousSibling.previousSibling);
 	} else {
 		document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = e.innerText;
+		managerSelectBoxClick(document.querySelector('.update-select'));
 	}
-	managerSelectBoxClick();
 }
 
 // 예약 디테일 승인
@@ -539,6 +542,8 @@ function reservationAccept(e) {
 
 // 예약 디테일 모달 닫기
 function reservationModalClose(e) {
+	dateArr = new Array(32).fill(0);
+
 	if (reservationModalValue == "direct") {
 		for (let i = 0; i < reservationClickDate.length; i++) {
 			document.querySelector('.current.date' + reservationClickDate[i]).children[0].style.backgroundColor = '#FFF';
@@ -555,7 +560,7 @@ function reservationModalClose(e) {
 		})
 	}
 
-	if (deleteScheduleModal = 1) {
+	if (deleteScheduleModal == 1) {
 		reservationDeleteCancle()
 	}
 
@@ -563,7 +568,7 @@ function reservationModalClose(e) {
 	document.querySelector('.backrop').style.display = 'none';
 
 	if (managerSelectValue == 1) {
-		managerSelectBoxClick();
+		//		managerSelectBoxClick();
 	}
 }
 
@@ -700,6 +705,12 @@ function expandReservationSchedule(e) {
 
 // 일정 디테일 모달 출력
 function reservationDetailModal() {
+	console.log(managerSelectValue)
+	
+	if (managerSelectValue == 1) {
+		managerSelectBoxClick(document.querySelector('.reservation-modal-content-manager-select'));
+	}
+	
 	prevDateArr = dateArr;
 
 	document.querySelector('.backrop').style.display = 'flex';
@@ -737,7 +748,6 @@ function reservationDetailModal() {
 			e.disabled = true;
 		})
 
-
 		arrayName = reservationScheduleList[reservationSelectArray];
 
 		let datesFolding = '';
@@ -764,7 +774,7 @@ function reservationDetailModal() {
 
 		console.log(reservationScheduleList[reservationSelectArray]);
 
-		document.querySelector('.reservation-modal-content-manager-select').addEventListener("click", managerSelectBoxClick);
+		//		document.querySelector('.reservation-modal-content-manager-select').addEventListener("click", managerSelectBoxClick);
 		insertManagerSelectValue = '';
 
 	} else if (reservationModalValue == "direct") {
@@ -817,7 +827,7 @@ function reservationDetailModal() {
 
 		console.log(reservationAcceptList[reservationSelectArray]);
 
-		document.querySelector('.reservation-modal-content-manager-select').removeEventListener("click", managerSelectBoxClick);
+		//		document.querySelector('.reservation-modal-content-manager-select').removeEventListener("click", managerSelectBoxClick);
 
 	}
 
@@ -863,7 +873,7 @@ function reservationDetailModal() {
 		document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = arrayName.sa_staff;
 		document.querySelector('.manager-select-arrow').style.display = "flex";
 
-		document.querySelector('.reservation-modal-content-manager-select').addEventListener("click", managerSelectBoxClick);
+		//		document.querySelector('.reservation-modal-content-manager-select').addEventListener("click", managerSelectBoxClick);
 		insertManagerSelectValue = '';
 
 		document.querySelector('.reservation-modal-content-name').innerHTML = '<input style="font-size:1.5rem; width:100%;" value="' + arrayName.sa_user_name + '">';
@@ -1003,9 +1013,13 @@ function reservationConfirm(e) {
 }
 
 function reservationCancel() {
+	if (managerSelectValue == 1) {
+		managerSelectBoxClick(document.querySelector('.update-select'));
+	}
+	
 	reservationModalValue = "direct";
 	dateArr = prevDateArr;
-
+	
 	reservationDetailModal();
 }
 
@@ -1076,6 +1090,8 @@ function rowScheduleDeleteClick(atag) {
 function reservationInsertPageOn() {
 	dateArr = new Array(32).fill(0);
 
+	insertManagerSelectValue = "insert";
+
 	if (reservationClickArray != '') {
 		document.querySelector('.reservation-data.' + reservationClickArray).children[3].children[0].style.display = 'none';
 		document.querySelector('.reservation-data.' + reservationClickArray).style.backgroundColor = '#FFF';
@@ -1107,11 +1123,6 @@ function reservationInsertPageOn() {
 	document.querySelector('.reservation-insert-time').style.display = 'flex';
 	document.querySelector('.time-trouble-modal').style.display = 'none';
 
-	document.querySelector('.select-insert').addEventListener("click", function() {
-		insertManagerSelectValue = "insert";
-		managerSelectBoxClick();
-	});
-
 	document.querySelector('.ins-tr-3-btn-insert-accept').addEventListener("click", function() {
 		reservationInsert();
 	});
@@ -1125,6 +1136,10 @@ function reservationInsertPageOn() {
 
 // 예약 신규 등록 취소
 function reservationInsertPageClose() {
+	if (managerSelectValue == 1) {
+		managerSelectBoxClick(document.querySelector('.select-insert'));
+	}
+	
 	if (reservationClickArray != '') {
 		document.querySelector('.reservation-data.' + reservationClickArray).children[3].children[0].style.display = 'none';
 		document.querySelector('.reservation-data.' + reservationClickArray).style.backgroundColor = '#FFF';
@@ -1285,16 +1300,16 @@ function reservationDetailDroDrop() {
 }
 
 // 온 로드
-window.onload = function() {
-	// 모달창 이동 추후 펑션화
-	document.querySelector('.reservation-modal').style.top = document.querySelector('.content-main-td').getBoundingClientRect().top + document.querySelector('.content-m-td-1').getBoundingClientRect().height / 2 + 'px';
-	document.querySelector('.reservation-modal').style.right = document.querySelector('.content-main-td').getBoundingClientRect().right / 25 + 'px';
+//window.onload = function() {
+// 모달창 이동 추후 펑션화
+document.querySelector('.reservation-modal').style.top = document.querySelector('.content-main-td').getBoundingClientRect().top + document.querySelector('.content-m-td-1').getBoundingClientRect().height / 2 + 'px';
+document.querySelector('.reservation-modal').style.right = document.querySelector('.content-main-td').getBoundingClientRect().right / 25 + 'px';
 
-	getAllSchedule();
+getAllSchedule();
 
-	toggleSwutch();
+toggleSwutch();
 
-};
+//};
 
 
 function toggleSwutch() {
