@@ -16,7 +16,7 @@ public class CustomerInfoMgmtService {
 	private customerInfoMgmtMapper customerInfoMgmtMapper;
 
 	public void goCustomerInfo(Model model) {
-		model.addAttribute("menuname", "顧客情報の管理");
+		model.addAttribute("menuname", "確定予約リスト");
 		model.addAttribute("menu", "/WEB-INF/views/admin/customerCare/customerInfoMgmt/customerInfoMgmt.jsp");
 		
 	}
