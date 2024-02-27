@@ -85,14 +85,23 @@ function submitBannerData() {
 function checkPopupOnOff(index) {
 	let formData = new FormData(document.querySelector("#onOffForm"));
 	console.log("폼 : " + formData);
-	var popupState = 'Off';
-	if (index == 1) {
-		popupState = 'On';
-	}
-	fetch("/admin/homepage-update/popup/upload-file",{
+	var data = {
+		p_flag: index
+	};
+	
+	
+	fetch("/admin/homepage-update/popup/on-off-check",{
 		method: "post",
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data) //서블릿(컨트롤러)에 보내줄 데이터
+	}).then((response) => response.json()) //서블릿(컨트롤러)에서 반환해준 데이터
+		.then ((responseJson) => {
+			alert(responseJson.popupOnOffStatus);
+			
+		})
 		
-	})
 	
 //	$.ajax({
 //		type: "POST", // post 방식 요청

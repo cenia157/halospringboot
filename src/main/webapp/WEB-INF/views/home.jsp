@@ -149,7 +149,7 @@
 <!--     팝업모달 -->
 <c:if test="${pdto.p_flag == 1 }">
         <div id="modalContainer" class="">
-            <div id="modalContent" >
+            <div id="modalEvContent" >
             	<div class="btn-pointer" id="modal-img" onclick="window.open('${pdto.p_url}')" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popup/${pdto.p_img }');" onclick="movePage()">
             	</div>
             	<div id="buttonArea"><span>&nbsp; 今日はもう見ない &nbsp; <input type="checkbox" id="pop-checkbox"></span><button id="modalCloseButton">閉じる</button></div>
