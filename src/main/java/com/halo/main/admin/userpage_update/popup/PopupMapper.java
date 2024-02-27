@@ -16,5 +16,7 @@ public interface PopupMapper {
 	@Update("update popup_tbl set p_img=#{p_img}, p_url=(select m_servlet from menu_tbl where m_name=#{b_m_name})")
 	int updatePopupWithMenu(PopupDTO pdto);
 	
+	@Update("update popup_tbl set p_flag = #{p_flag}")
+	int checkPopupOnOff(PopupDTO pdto);
 	
 }
