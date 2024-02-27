@@ -4,7 +4,7 @@
 	cursor: pointer;
 }
 
-#modalCloseButton{
+#modalCloseButton {
 	font-weight: 600;
 	width: 45px;
 	height: 35px;
@@ -12,11 +12,13 @@
 	border: 1px solid rgb(83, 94, 59);
 	background-color: rgb(255, 246, 228);
 }
-#pop-checkbox{
+
+#pop-checkbox {
 	width: 20px;
 	height: 20px;
 	border: 1px solid gray;
 }
+
 #modalContainer {
 	width: 100%;
 	height: 100%;
@@ -30,16 +32,27 @@
 	z-index: 98;
 }
 
+#modalEvContent {
+	position: absolute;
+	background-color: #ffffff;
+	width: 580px;
+	height: 780px;
+	z-index: 99;
+	height: 780px;
+	display: flex;
+	flex-direction: column;
+}
+
 #modalContent {
 	position: absolute;
 	overflow-y: auto;
-    background-color: #ffffff;
-    width: 70%;
-    height: 780px;
-    z-index: 99;
-    height: 51%;
-    display: flex;
-    flex-direction: column; 
+	background-color: #ffffff;
+	width: 70%;
+	height: 780px;
+	z-index: 99;
+	height: 51%;
+	display: flex;
+	flex-direction: column;
 }
 
 #modalContainer.hidden {
