@@ -452,6 +452,20 @@ function getScheduleDetailModal(e, directDetail) {
 	let addLeft = '';
 	let zIndex = 0;
 
+	// 달력 라벨 색 및 체크 초기화
+	document.querySelectorAll('.current').forEach(function(e) {
+		e.children[0].style.backgroundColor = '#FFF';
+		e.children[0].children[1].checked = false;
+		e.children[0].children[1].value = 0;
+	})
+
+	if (dateModal == 1) {
+		document.querySelector('.modal-close').addEventListener("click", function() {
+			document.querySelector('.date-modal').style.visibility = 'hidden';
+			dateModal = 0;
+		});
+	}
+
 	if (directDetail) {
 		addLeft = (e.target.getBoundingClientRect().width / 2);
 		dateDivValue = e.target.children[0].value
@@ -461,7 +475,7 @@ function getScheduleDetailModal(e, directDetail) {
 		dateDivValue = e.target.previousSibling.previousSibling.value;
 		arrayNumber = e.target.closest('.date-modal').className.match(/array(\d+)/)[1];
 	}
-
+	
 	document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + addLeft + 'px';
 
 	document.querySelector('.detail-schedule').style.zIndex = 2;
@@ -475,7 +489,7 @@ function getScheduleDetailModal(e, directDetail) {
 			selectDetailSchedule.arrayNo = i;
 		}
 	}
-
+	
 	document.querySelector('.detail-schedule-content').innerHTML = '';
 
 	// 일정
@@ -566,6 +580,8 @@ function updateAtagClick(atag) {
 
 // 일정 내용 업데이트
 function updateTxt(atag) {
+	console.log(selectDetailSchedule);
+	
 	if (atag.previousSibling.value == '') {
 		atag.previousSibling.style.background = '#3B82F6';
 		atag.previousSibling.style.color = '#FFF';
@@ -595,12 +611,13 @@ function updateTxt(atag) {
 		.then(response => response.text())
 		.then(data => {
 			if (data == 1) {
-				selectDetailSchedule.txt = atag.previousSibling.value;
+				selectDetailSchedule.cs_txt = atag.previousSibling.value;
 
-				atag.parentNode.previousSibling.children[0].innerText = selectDetailSchedule.txt;
+				atag.parentNode.previousSibling.children[0].innerText = selectDetailSchedule.cs_txt;
 
 				atag.parentNode.classList.remove('show');
 				atag.parentNode.previousSibling.classList.add('show');
+				
 			} else {
 
 			}
