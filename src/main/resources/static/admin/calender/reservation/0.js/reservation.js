@@ -434,7 +434,7 @@ function reservationClick(e) {
 
 // 스태프 배정 셀렉트박스
 function managerSelectBoxClick(e) {
-	if (reservationModalValue == "update" || e.classList[1] == 'select-insert') {
+	if (reservationModalValue == "update" || e.classList[1] == 'select-insert'　||　reservationModalValue == "list") {
 		let kindOfSelectOption = '';
 		let kindOfManagerSelect = '';
 		let staffListRow = '';
@@ -706,11 +706,11 @@ function expandReservationSchedule(e) {
 // 일정 디테일 모달 출력
 function reservationDetailModal() {
 	console.log(managerSelectValue)
-	
+
 	if (managerSelectValue == 1) {
 		managerSelectBoxClick(document.querySelector('.reservation-modal-content-manager-select'));
 	}
-	
+
 	prevDateArr = dateArr;
 
 	document.querySelector('.backrop').style.display = 'flex';
@@ -849,9 +849,19 @@ function reservationDetailModal() {
 	document.querySelector('.reservation-modal-content-phone').innerHTML = arrayName.sa_phone_number;
 	document.querySelector('.reservation-modal-content-addr').innerHTML = arrayName.sa_addr;
 
-	document.querySelector('.reservation-modal-content-startpoint').innerHTML = arrayName.sa_start_place;
-	document.querySelector('.reservation-modal-content-endpoint').innerHTML = arrayName.sa_end_place;
+	console.log(arrayName.sa_start_place)
 
+	if (arrayName.sa_start_place == 'null') {
+		document.querySelector('.reservation-modal-content-startpoint').innerHTML = '';
+	} else {
+		document.querySelector('.reservation-modal-content-startpoint').innerHTML = arrayName.sa_start_place;
+	}
+
+	if (arrayName.sa_end_place == 'null') {
+		document.querySelector('.reservation-modal-content-endpoint').innerHTML = '';
+	} else {
+		document.querySelector('.reservation-modal-content-endpoint').innerHTML = arrayName.sa_end_place;
+	}
 
 	if (reservationModalValue == "update") {
 		document.querySelector('.backrop').style.display = 'none';
@@ -1016,10 +1026,10 @@ function reservationCancel() {
 	if (managerSelectValue == 1) {
 		managerSelectBoxClick(document.querySelector('.update-select'));
 	}
-	
+
 	reservationModalValue = "direct";
 	dateArr = prevDateArr;
-	
+
 	reservationDetailModal();
 }
 
@@ -1139,7 +1149,7 @@ function reservationInsertPageClose() {
 	if (managerSelectValue == 1) {
 		managerSelectBoxClick(document.querySelector('.select-insert'));
 	}
-	
+
 	if (reservationClickArray != '') {
 		document.querySelector('.reservation-data.' + reservationClickArray).children[3].children[0].style.display = 'none';
 		document.querySelector('.reservation-data.' + reservationClickArray).style.backgroundColor = '#FFF';
