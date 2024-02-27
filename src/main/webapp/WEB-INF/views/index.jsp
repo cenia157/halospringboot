@@ -135,12 +135,12 @@
 			</div>
 			<div class="remote-control-td">アップ</div>
 		</div>
-		<div class="remote-control-tr">
-			<div class="remote-control-td2 btn-pointer">
-				<img src="/user/0.img/line-icon22.png" width="60%" alt="" />
-			</div>
-			<div class="remote-control-td">1:1チャット</div>
-		</div>
+<!-- 		<div class="remote-control-tr"> -->
+<!-- 			<div class="remote-control-td2 btn-pointer"> -->
+<!-- 				<img src="/user/0.img/line-icon22.png" width="60%" alt="" /> -->
+<!-- 			</div> -->
+<!-- 			<div class="remote-control-td">1:1チャット</div> -->
+<!-- 		</div> -->
 	</div>
 	<!-- 리모컨 끝 -->
 
