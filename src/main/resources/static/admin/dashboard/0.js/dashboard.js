@@ -53,7 +53,7 @@ window.onload = function() {
 				                        <div class="deshboard-todo-cell service">${cnt}</div>
 				                        <div class="deshboard-todo-cell title">${dashboardData.unAnswered[i].q_title}</div>
 				                        <div class="deshboard-todo-cell writer">${dashboardData.unAnswered[i].q_name}</div>
-				                        <div class="deshboard-todo-cell reg-date">${dashboardData.unAnswered[i].q_reg_date}</div>
+				                        <div class="deshboard-todo-cell reg-date">${dashboardData.unAnswered[i].q_reg_date.split('T')[0]}</div>
 				                    </div>`;
 								cnt++;
 							}
