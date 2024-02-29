@@ -71,7 +71,7 @@
 					</div>
 				</div>
 				<div class="modal-content-button">
-					<button class="SubmitButton" onclick="updateComments(); closeModalA();">수정하기</button>
+					<button class="SubmitButton" onclick="updateComments(); closeModalA();">更新</button>
 				</div>
 			</div>
 		</div>
