@@ -29,9 +29,9 @@ public class QuestionC {
 		model.addAttribute("QnCs", questionservice.getAllQnCPaging());
 		questionservice.questionPaging(1, model);
 		
-		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
+		model.addAttribute("menu", "/views/user/menu-index.jsp");
 		model.addAttribute("hdto", homeDao.getAllhomepage());
-		model.addAttribute("subMenu", "/WEB-INF/views/user/qa/question/question.jsp");
+		model.addAttribute("subMenu", "/views/user/qa/question/question.jsp");
 		return "index";
 	}
 	
@@ -41,9 +41,9 @@ public class QuestionC {
 	    model.addAttribute("QnCs", questionservice.getAllQnCPaging());
 	    questionservice.questionPaging(p, model);
 	    
-	    model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
+	    model.addAttribute("menu", "/views/user/menu-index.jsp");
 	    model.addAttribute("hdto", homeDao.getAllhomepage());
-	    model.addAttribute("subMenu", "/WEB-INF/views/user/qa/question/question.jsp");
+	    model.addAttribute("subMenu", "/views/user/qa/question/question.jsp");
 	    return "index";
 	}
 	
@@ -55,9 +55,9 @@ public class QuestionC {
 		model.addAttribute("resultList", questionservice.getAllQnCs());
 		model.addAttribute("questionId", q_seq);
 		
-		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
+		model.addAttribute("menu", "/views/user/menu-index.jsp");
 		model.addAttribute("hdto", homeDao.getAllhomepage());
-		model.addAttribute("subMenu", "/WEB-INF/views/user/qa/question/questionDetail.jsp");
+		model.addAttribute("subMenu", "/views/user/qa/question/questionDetail.jsp");
 		return "index";
 	}
 	

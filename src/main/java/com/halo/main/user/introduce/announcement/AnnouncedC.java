@@ -34,8 +34,8 @@ public class AnnouncedC {
 		model.addAttribute("announcements", aService.getAllAnnouncements());
 
 		aService.announcedPaging(1, model);
-		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
-		model.addAttribute("subMenu", "/WEB-INF/views/user/introduce/announcement/announcement_contentPage.jsp");
+		model.addAttribute("menu", "/views/user/menu-index.jsp");
+		model.addAttribute("subMenu", "/views/user/introduce/announcement/announcement_contentPage.jsp");
 		model.addAttribute("hdto", homeDao.getAllhomepage());
 		
 
@@ -62,8 +62,8 @@ public class AnnouncedC {
 
 		aService.announcedPaging(p, model);
 //		MainpageDAO.getMdao().getAllHompage_common(request);
-		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
-		model.addAttribute("subMenu", "/WEB-INF/views/user/introduce/announcement/announcement_contentPage.jsp");
+		model.addAttribute("menu", "/views/user/menu-index.jsp");
+		model.addAttribute("subMenu", "/views/user/introduce/announcement/announcement_contentPage.jsp");
 		model.addAttribute("hdto", homeDao.getAllhomepage());
 
 		return "index";

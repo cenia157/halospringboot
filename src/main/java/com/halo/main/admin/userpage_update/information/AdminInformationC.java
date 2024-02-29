@@ -21,7 +21,7 @@ public class AdminInformationC {
 	public String goInfo(Model model) {
 		
 		model.addAttribute("menuname", "会社情報変更");
-		model.addAttribute("menu", "/WEB-INF/views/admin/homepageSetting/information/informationContent.jsp");
+		model.addAttribute("menu", "/views/admin/homepageSetting/information/informationContent.jsp");
 		model.addAttribute("hdto",aInfoDao.getListInfo());
 		return "/admin/index";
 	}

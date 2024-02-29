@@ -24,7 +24,7 @@ public class QuickMenuC {
 	public String getQuickMenu(Model model) {
 		
 		model.addAttribute("menuname","クイックメニュー設定");
-		model.addAttribute("menu", "/WEB-INF/views/admin/homepageSetting/mainpage/mainpageContent.jsp");
+		model.addAttribute("menu", "/views/admin/homepageSetting/mainpage/mainpageContent.jsp");
 		//돌릴거 세팅
 		model.addAttribute("topBanners", qmDao.getListQuickMenu());
 		return "/admin/index";

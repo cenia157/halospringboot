@@ -19,8 +19,8 @@ public class EmploymentC {
 	public String employment(Model model) {
 		
 //		MainpageDAO.getMdao().getAllHompage_common(request);
-		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
-		model.addAttribute("subMenu", "/WEB-INF/views/user/introduce/employment/employment_contentPage.jsp");
+		model.addAttribute("menu", "/views/user/menu-index.jsp");
+		model.addAttribute("subMenu", "/views/user/introduce/employment/employment_contentPage.jsp");
 		model.addAttribute("hdto", homeDao.getAllhomepage());
 		return "index";
 		

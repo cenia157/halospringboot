@@ -35,7 +35,7 @@ public class AdminQuestionC {
 		model.addAttribute("pageNum", p);
 		
 		model.addAttribute("menuname", "お問い合わせ");
-		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/ask/askContent.jsp");
+		model.addAttribute("menu", "/views/admin/boardmanagement/ask/askContent.jsp");
 		
 		return "/admin/index";
 	}

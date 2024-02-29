@@ -45,7 +45,7 @@
 						</div>
 						<!-- 메인홈페이지 바로가기 -->
 						<div>
-							<img src="/admin/0.img/admintble2-2.png" alt=""><a href="/">サイトへの移動</a>
+							<img src="/admin/0.img/admintble2-2.png" alt=""><a href="/" target="_blank">サイトへの移動</a>
 						</div>
 					</div>
 				</div>

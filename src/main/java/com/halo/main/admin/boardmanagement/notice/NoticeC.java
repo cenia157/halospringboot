@@ -52,7 +52,7 @@ public class NoticeC {
 
 		model.addAttribute("pageNum", p);
 		model.addAttribute("menuname", "お知らせ");
-		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/notice/noticeContent.jsp");
+		model.addAttribute("menu", "/views/admin/boardmanagement/notice/noticeContent.jsp");
 		
 		
 		return "/admin/index";

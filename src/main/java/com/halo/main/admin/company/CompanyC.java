@@ -26,7 +26,7 @@ public class CompanyC {
 	public String company(Model model) {
 		
 		model.addAttribute("menuname", "会社のスケジュール");
-		model.addAttribute("menu", "/WEB-INF/views/admin/calender/company/companyContent.jsp");
+		model.addAttribute("menu", "/views/admin/calender/company/companyContent.jsp");
 		
 		return "/admin/index";
 	}

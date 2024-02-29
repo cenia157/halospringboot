@@ -25,7 +25,7 @@ public class PopupC {
 	@GetMapping("/popup")
 	public String goPopup(Model model) {
 		model.addAttribute("menuname","ポップアップの設定");
-		model.addAttribute("menu", "/WEB-INF/views/admin/popup/popupContent.jsp");
+		model.addAttribute("menu", "/views/admin/popup/popupContent.jsp");
 		model.addAttribute("pdto", popupDao.getPopupDTO());
 		System.out.println(popupDao.getPopupDTO());
 		return "/admin/index";

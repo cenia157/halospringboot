@@ -14,7 +14,7 @@ public class StaffService {
 
 	public void goStaff(Model model) {
 		model.addAttribute("menuname", "スタッフの管理");
-		model.addAttribute("menu", "/WEB-INF/views/admin/manager/staff/staffContent.jsp");
+		model.addAttribute("menu", "/views/admin/manager/staff/staffContent.jsp");
 	}
 	
 	public List<Staff> getAllStaffList(Staff staff) {

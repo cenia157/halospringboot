@@ -21,9 +21,9 @@ public class InformationC {
 	@GetMapping("/company")
 	private String infoCompany(Model model) {
 		
-		model.addAttribute("menu","/WEB-INF/views/user/menu-index.jsp");
+		model.addAttribute("menu","/views/user/menu-index.jsp");
 		model.addAttribute("hdto", homeDao.getAllhomepage());
-		model.addAttribute("subMenu","/WEB-INF/views/user/information/company/inform.jsp");
+		model.addAttribute("subMenu","/views/user/information/company/inform.jsp");
 		
 		return "index";
 		
@@ -32,9 +32,9 @@ public class InformationC {
 	@GetMapping("/map")
 	private String infoMap(Model model) {
 		
-		model.addAttribute("menu","/WEB-INF/views/user/menu-index.jsp");
+		model.addAttribute("menu","/views/user/menu-index.jsp");
 		model.addAttribute("hdto", homeDao.getAllhomepage());
-		model.addAttribute("subMenu","/WEB-INF/views/user/information/map/map.jsp");
+		model.addAttribute("subMenu","/views/user/information/map/map.jsp");
 		return "index";
 		
 	}

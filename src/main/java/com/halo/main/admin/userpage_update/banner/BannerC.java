@@ -28,7 +28,7 @@ public class BannerC {
 	public String goBanner(Model model) {
 
 		model.addAttribute("menuname", "下のバナー設定");
-		model.addAttribute("menu", "/WEB-INF/views/admin/homepageSetting/banner/bannerContent.jsp");
+		model.addAttribute("menu", "/views/admin/homepageSetting/banner/bannerContent.jsp");
 
 		return "/admin/index";
 	}

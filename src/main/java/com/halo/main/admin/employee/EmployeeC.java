@@ -26,7 +26,7 @@ public class EmployeeC {
 	public String employee(Model model) {
 		
 		model.addAttribute("menuname", "スタッフのスケジュール");
-		model.addAttribute("menu", "/WEB-INF/views/admin/calender/employee/employeeContent.jsp");
+		model.addAttribute("menu", "/views/admin/calender/employee/employeeContent.jsp");
 		
 		return "/admin/index";
 	}

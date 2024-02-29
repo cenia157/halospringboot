@@ -34,7 +34,7 @@ public class AdminFAQC {
 		model.addAttribute("FAQs", faqadminservice.getAllFAQsAdmin());
 		
 		model.addAttribute("menuname", "よくある質問");
-		model.addAttribute("menu", "/WEB-INF/views/admin/boardmanagement/frequenthyask/frequenthyaskContent.jsp");
+		model.addAttribute("menu", "/views/admin/boardmanagement/frequenthyask/frequenthyaskContent.jsp");
 
 		return "/admin/index";
 	}

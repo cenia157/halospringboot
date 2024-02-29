@@ -23,9 +23,9 @@ public class FAQC {
 		
 		model.addAttribute("FAQs", faqService.getAllFAQ());
 		
-		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
+		model.addAttribute("menu", "/views/user/menu-index.jsp");
 		model.addAttribute("hdto", homeDao.getAllhomepage());
-		model.addAttribute("subMenu", "/WEB-INF/views/user/qa/faq/faq.jsp");
+		model.addAttribute("subMenu", "/views/user/qa/faq/faq.jsp");
 
 		return "index";
 	}

@@ -24,7 +24,7 @@ public class ReservationC {
 	@GetMapping("/reservation")
 	public String reservation(Model model) {
 		model.addAttribute("menuname", "顧客の予約");
-		model.addAttribute("menu", "/WEB-INF/views/admin/calender/reservation/reservationContent.jsp");
+		model.addAttribute("menu", "/views/admin/calender/reservation/reservationContent.jsp");
 
 		return "/admin/index";
 	}

@@ -17,7 +17,7 @@ public class CustomerInfoMgmtService {
 
 	public void goCustomerInfo(Model model) {
 		model.addAttribute("menuname", "確定予約リスト");
-		model.addAttribute("menu", "/WEB-INF/views/admin/customerCare/customerInfoMgmt/customerInfoMgmt.jsp");
+		model.addAttribute("menu", "/views/admin/customerCare/customerInfoMgmt/customerInfoMgmt.jsp");
 		
 	}
 	public List<ReservationScheduleAcceptDTO> getCustomerInfo() {

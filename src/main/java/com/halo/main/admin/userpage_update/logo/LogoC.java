@@ -26,7 +26,7 @@ public class LogoC {
 	public String goLogo(Model model) {
 		
 		model.addAttribute("menuname","ロゴ変更");
-		model.addAttribute("menu", "/WEB-INF/views/admin/homepageSetting/logo/logoContent.jsp");
+		model.addAttribute("menu", "/views/admin/homepageSetting/logo/logoContent.jsp");
 		//기존 이미지(DB)어트리뷰트 세팅
 		model.addAttribute("hdto", logoDao.getLogoDTO());
 		return "/admin/index";

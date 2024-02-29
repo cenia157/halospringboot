@@ -30,8 +30,8 @@ public class AlbumC {
 
 		model.addAttribute("apiToken", apiToken);
 		System.out.println("api토근값 :::" + apiToken);
-		model.addAttribute("menu", "/WEB-INF/views/user/menu-index.jsp");
-		model.addAttribute("subMenu", "/WEB-INF/views/user/introduce/album/album_contentPage.jsp");
+		model.addAttribute("menu", "/views/user/menu-index.jsp");
+		model.addAttribute("subMenu", "/views/user/introduce/album/album_contentPage.jsp");
 		model.addAttribute("hdto", homeDao.getAllhomepage());
 
 		return "index";
